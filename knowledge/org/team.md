@@ -8,7 +8,10 @@
 |---|---|---|
 | Olivier Luce | PM / Project Manager | Quarks Alchemist |
 | Nicolás | Tech Lead | Quarks Alchemist |
-| Juampi Moyano | Developer | Quarks Alchemist |
+| Israel Fernandez (Isra) | Tech Lead | Quarks Alchemist |
+| Juan Pablo Moyano (Juampi) | Developer | Quarks Alchemist |
+| Juan Ignacio Moyano (Juani) | Developer | Quarks Alchemist |
+| Giuliano Trincavelli (Giu) | Developer | Quarks Alchemist |
 | Marcos Perez | Developer | Quarks Alchemist |
 
 ## Reporting
@@ -21,7 +24,7 @@
 |---|---|---|---|
 | Marcos Copello | CEO | PERC | Decisor final del cliente |
 | Seba / Sebastián | Product Owner | PERC | Interlocutor principal. Definiciones bloqueantes dependen de él. |
-| Federico | COO | Quarks Alchemist | Sponsor interno del proyecto |
+| Federico Fernandez (Fefe) | COO | Quarks Alchemist | Sponsor interno del proyecto |
 | Juan Pablo Norverto | CTO | Quarks Alchemist | Validación técnica y arquitectura |
 
 ## RACI (para decisiones recurrentes)

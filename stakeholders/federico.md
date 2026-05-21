@@ -1,4 +1,5 @@
-# Federico — COO, Quarks Alchemist
+# Federico Fernandez — COO, Quarks Alchemist
+<!-- También: Fefe -->
 
 ## Snapshot
 - Role: COO, Quarks Alchemist

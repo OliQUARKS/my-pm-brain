@@ -1,9 +1,9 @@
-# Juan Pablo Moyano — Developer, Quarks Alchemist
-<!-- También: Juampi, JP, Jotape, Moyanito -->
+# Giuliano Trincavelli — Developer, Quarks Alchemist
+<!-- También: Giu -->
 
 ## Snapshot
 - Role: Developer, Quarks Alchemist
-- Reports to / works with: Nicolás (TL)
+- Reports to / works with: Nicolás (TL), Israel Fernandez (TL)
 - Influence on my work: low
 - Friction level: low
 
