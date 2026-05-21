@@ -17,9 +17,6 @@
 - Definiciones técnicas y de negocio pendientes (stack, integración Watson) bloqueadas en su lado.
 
 ## Communication style
-TODO: confirmar. Canal y ritmo de comunicación no documentados aún.
-
-## Communication style
 Disponible en calls, participativo cuando está presente. Tarda en responder fuera de las reuniones (mails y chats sin respuesta inmediata). Mejor canal: reuniones sincrónicas con agenda clara. (stakeholder-verbal, Olivier, 2026-05-20)
 
 ## Open asks
