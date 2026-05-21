@@ -9,6 +9,9 @@ N/A — producto no lanzado aún. Revisar post-producción.
 ## CRM / customer data
 N/A — no aplica para el alcance actual (empleados del grupo como usuarios, no CRM externo).
 
+## API testing
+- **Insomnia** — el equipo usa Insomnia para inspeccionar y testear endpoints del sistema existente (e.g. `get account`, `user account`, tags). (observación, 2026-05-19)
+
 ## Ticketing / project management
 TODO: ¿se usa Jira, Linear, Notion, u otro? Confirmar con el equipo.
 

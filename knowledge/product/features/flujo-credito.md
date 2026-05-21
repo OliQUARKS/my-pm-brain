@@ -67,6 +67,16 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 
 (ingestion/meetings/2026-05-20-refinement-backlog-perc.md)
 
+## Solicitud creation & expiration logic (definido 2026-05-19)
+
+- La solicitud se crea en BD **solo cuando el usuario completa firma + TOTP** — no al navegar las opciones.
+- **Expiración:** 1 hora sin completar firma + TOTP → estado `expirado`. Trigger: cron/Lambda (EventBridge Scheduler).
+- **Cambio de template:** expira automáticamente todas las solicitudes `en curso` asociadas.
+- A nivel BD: tabla `credits` con estados. A nivel API/UI: endpoints separados para solicitudes en proceso vs. préstamos otorgados.
+- **Desembolso:** siempre a cuenta sueldo. Confirmado. El usuario puede tener múltiples wallets — la cuenta sueldo debe identificarse dentro de la lista.
+
+(ingestion/meetings/2026-05-19-planning-refinement-perc.md)
+
 ## Open questions
 - ¿Cuál es el tech stack definitivo? ¿Lambda, Java, TypeScript? (decisión de PERC + Quarks)
 - ¿Cómo se valida la integración con Watson antes de comprometer estimaciones?
@@ -75,6 +85,9 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 - ¿Los documentos HTML son dinámicos o estáticos? Si dinámicos, ¿cómo se mapean las variables? (Seba responde ~2026-05-27)
 - ¿Se puede resolver el TOTP security gap sin breaking changes en la implementación existente? (Nico + Joy)
 - Restricciones de archivo HTML: tamaño, XSS, sanitización. (Olivier → cyber)
+- ¿Puede haber empleados persona jurídica (PJ)? Impacto en filtros de BO. (Olivier → Seba)
+- Verificar que el evento Lambda HTTP trae JWT decodificado. (Isra / Nico)
+- Identificar cuenta sueldo dentro de la lista de wallets del usuario vía `get account`. (Nico / Isra)
 
 ## Follow-up after launch
 - Medir tasa de adopción en las primeras 4 semanas post-lanzamiento.
