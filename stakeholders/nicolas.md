@@ -1,4 +1,4 @@
-# Nicolás — Tech Lead, Quarks Alchemist
+# Nicolás Paez — Tech Lead, Quarks Alchemist
 
 ## Snapshot
 - Role: Tech Lead, Quarks Alchemist

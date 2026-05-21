@@ -7,7 +7,7 @@
 | Nombre | Rol | Empresa |
 |---|---|---|
 | Olivier Luce | PM / Project Manager | Quarks Alchemist |
-| Nicolás | Tech Lead | Quarks Alchemist |
+| Nicolás Paez | Tech Lead | Quarks Alchemist |
 | Israel Fernandez (Isra) | Tech Lead | Quarks Alchemist |
 | Juan Pablo Moyano (Juampi) | Developer | Quarks Alchemist |
 | Juan Ignacio Moyano (Juani) | Developer | Quarks Alchemist |
