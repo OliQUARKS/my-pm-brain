@@ -23,9 +23,11 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 
 ## Risks
 - **Definiciones técnicas bloqueantes:** tech stack pendiente (Lambda / Java / TypeScript); integración con Watson sin validar. Sin esto no hay estimaciones firmes. (source/adhoc/2026-05-21-prd-flujo-credito.md §5)
-- **Fricción con el cliente (PERC):** Sebastián tarda en dar definiciones. Bloquea el refinement del equipo. (stakeholder-verbal, Olivier, 2026-05-21)
+- **Fricción con el cliente (PERC):** Sebastián Cárdenas tarda en dar definiciones. Bloquea el refinement del equipo. (stakeholder-verbal, Olivier, 2026-05-21)
 - **Dependencia de La Mantovana:** el ciclo de cobro depende de un sistema externo de nómina. Coordinación mensual (~día 20) con riesgo de delay.
 - **Fondeo insuficiente:** si la cuenta recaudadora de PERc no tiene fondos suficientes, la transacción queda en pendiente — no rechaza silenciosamente. (source/adhoc/2026-05-21-prd-flujo-credito.md §5)
+- **TOTP security gap (identificado 2026-05-20):** el TOTP actual solo bloquea la UI — un actor con token de usuario válido puede llamar el endpoint de transferencia directamente sin pasar por TOTP. Pendiente de revisión con Joy (TL del equipo de integración). (ingestion/meetings/2026-05-20-refinement-backlog-perc.md)
+- **Documentos dinámicos vs. estáticos (definición pendiente):** No está resuelto si los documentos HTML serán dinámicos (con variables del usuario) o estáticos. Si dinámicos, se necesita un parser + mapeo de variables. Seba da respuesta en ~1 semana. (ingestion/meetings/2026-05-20-refinement-backlog-perc.md)
 
 ## Dependencies
 | Dependencia | Tipo | Estado |
@@ -51,11 +53,28 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 - Decisions: `../../../decisions/` (crear cuando haya decisiones documentadas)
 - Stakeholders afectados: [Sebastián](../../../stakeholders/sebastian.md), [Marcos Copello](../../../stakeholders/marcos-copello.md), [Nicolás](../../../stakeholders/nicolas.md)
 
+## Loan states (definidos 2026-05-20)
+
+| Estado | Descripción |
+|---|---|
+| **En curso** | Desde que se crea la solicitud hasta confirmar la firma con TOTP |
+| **Pendiente** | Desde la firma hasta el desembolso de fondos |
+| **Otorgado** | Desde el desembolso hasta la cancelación total |
+| **Pagado** | Cancelado totalmente en tiempo y forma |
+| **Cancelado anticipadamente** | Pagado por completo de forma anticipada |
+| **Precancelado** | Cancelación antes del desembolso (nunca se otorgó) |
+| **Arrepentido** | Devolución dentro de los 10 días hábiles |
+
+(ingestion/meetings/2026-05-20-refinement-backlog-perc.md)
+
 ## Open questions
 - ¿Cuál es el tech stack definitivo? ¿Lambda, Java, TypeScript? (decisión de PERC + Quarks)
 - ¿Cómo se valida la integración con Watson antes de comprometer estimaciones?
 - ¿Qué define "apto para crédito" a nivel de segmento del usuario? (lógica de las 3 opciones preaprobadas)
 - ¿Cuál es el proceso exacto del archivo de novedades para La Mantovana? (formato, canal, validación)
+- ¿Los documentos HTML son dinámicos o estáticos? Si dinámicos, ¿cómo se mapean las variables? (Seba responde ~2026-05-27)
+- ¿Se puede resolver el TOTP security gap sin breaking changes en la implementación existente? (Nico + Joy)
+- Restricciones de archivo HTML: tamaño, XSS, sanitización. (Olivier → cyber)
 
 ## Follow-up after launch
 - Medir tasa de adopción en las primeras 4 semanas post-lanzamiento.
