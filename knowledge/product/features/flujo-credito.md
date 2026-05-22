@@ -38,6 +38,7 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 | Cuenta recaudadora PERc | Fuente de fondos | Validación de saldo activa |
 | Tech stack: Lambda + Angular | Decisión técnica | ✅ Decidido 2026-04-20 — [decisions/2026-04-20-tech-stack.md](../../../decisions/2026-04-20-tech-stack.md) |
 | Pipeline CI/CD | Infraestructura | Pendiente — mes de discovery |
+| Sherlock (servicio PERC) | Asociación documentos firmados a cuenta via S3 presigned URL | Disponible — nuevo en sprint 2026-04-20. (stakeholder-verbal, José Salgado, 2026-04-20) |
 
 ## Timeline
 - **Nov 2025:** Creación del documento (PRD v1.0)
@@ -92,6 +93,15 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 - Identificar cuenta sueldo dentro de la lista de wallets del usuario vía `get account`. (Nico / Isra)
 - **Tab bar redesign:** Incorporar préstamos en la navegación requiere rediseño del tab bar (hoy: QR / perfil / home). ¿Cuál es el nuevo esquema de navegación? Pendiente. (observation, [ingestion/meetings/2026-05-20-diseno-flujo-credito.md](../../../ingestion/meetings/2026-05-20-diseno-flujo-credito.md))
 - **Compliance: ¿avisar que la operación va por BIND?** ¿Obligatorio informar al usuario que la operación se procesa a través del BIND (o equivalente)? ¿En qué paso/s? Pendiente respuesta de Seba desde 2026-04-08. (observation, [ingestion/adhoc/2026-03-06-whatsapp-grupo-perc.md](../../../ingestion/adhoc/2026-03-06-whatsapp-grupo-perc.md))
+
+## Technical conventions (acordadas con PERC)
+- **IDs de BD:** LUID (Lexicographically Unique ID — ordenables, no exponen volumen). Postgres soporta nativamente. Decisión: [decisions/2026-05-18-luid-ids.md](../../../decisions/2026-05-18-luid-ids.md)
+- **Tasas porcentuales:** decimal 0–1 en BD (0.105 = 10.5%). Front se encarga de la representación. Convención consistente con el resto del sistema PERC. (stakeholder-verbal, José Salgado, 2026-05-18)
+- **Fechas:** ISO 8601 con offset de timezone (ej. `2026-05-18T15:59:00-03:00`). Postgres: `timestamp with time zone`. (stakeholder-verbal, José Salgado + Nicolás, 2026-05-18)
+
+## Future scope / out of MVP
+- **FIFO waitlist cuando recaudadora se vacía:** Marcos quiere cola de solicitudes pendientes cuando no hay fondos, procesadas FIFO a medida que ingresan fondos. Juan Pablo: "lleguemos primero a acabar la plata." Explícitamente fuera del MVP. (stakeholder-verbal, Sebastián Cárdenas + Juan Pablo Norverto, 2026-04-20)
+- **Multi-tenant / B2B:** El sistema es escalable via tags a otros clientes B2B. Fuera del scope del contrato actual. (stakeholder-verbal, Sebastián Cárdenas, 2026-04-20)
 
 ## Follow-up after launch
 - Medir tasa de adopción en las primeras 4 semanas post-lanzamiento.

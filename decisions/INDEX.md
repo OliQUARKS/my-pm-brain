@@ -10,6 +10,7 @@
 - 2026-04-20 — [Tech stack: Lambda (backend) + Angular (frontend)](./2026-04-20-tech-stack.md)
 - 2026-05-19 — [Solicitud persiste en BD solo post firma+TOTP](./2026-05-19-solicitud-post-firma-totp.md)
 - 2026-05-20 — [Sábana es render-only; se persisten 5 documentos por separado](./2026-05-20-sabana-no-persiste.md)
+- 2026-05-18 — [IDs de BD usan LUID (no integers secuenciales ni UUID v4)](./2026-05-18-luid-ids.md)
 
 ## Superseded
 <!-- Decisions reversed by a later decision. Both stay in the log. -->
