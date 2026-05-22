@@ -22,6 +22,7 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 (source/adhoc/2026-05-21-prd-flujo-credito.md §2)
 
 ## Risks
+- **Cancelaciones son manuales (scope decision 2026-05-20):** todos los flujos de cancelación (arrepentimiento, cancelación anticipada, precancelación) resuelven vía mail pre-completado — sin firma digital. Operativamente engorroso para el cliente pero fuera de scope digital. (observation, [ingestion/meetings/2026-05-20-diseno-flujo-credito.md](../../../ingestion/meetings/2026-05-20-diseno-flujo-credito.md))
 - **Definiciones técnicas bloqueantes:** tech stack pendiente (Lambda / Java / TypeScript); integración con Watson sin validar. Sin esto no hay estimaciones firmes. (source/adhoc/2026-05-21-prd-flujo-credito.md §5)
 - **Fricción con el cliente (PERC):** Sebastián Cárdenas tarda en dar definiciones. Bloquea el refinement del equipo. (stakeholder-verbal, Olivier, 2026-05-21)
 - **Dependencia de La Mantovana:** el ciclo de cobro depende de un sistema externo de nómina. Coordinación mensual (~día 20) con riesgo de delay.
@@ -90,6 +91,8 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 - ¿Puede haber empleados persona jurídica (PJ)? Impacto en filtros de BO. (Olivier → Seba)
 - Verificar que el evento Lambda HTTP trae JWT decodificado. (Isra / Nico)
 - Identificar cuenta sueldo dentro de la lista de wallets del usuario vía `get account`. (Nico / Isra)
+- **Arrepentimiento: ¿10 días corridos o hábiles?** — En reunión de diseño (2026-05-20) se dijo "corridos" pero sin confirmación firme. Verificar con Seba. (assumption, [ingestion/meetings/2026-05-20-diseno-flujo-credito.md](../../../ingestion/meetings/2026-05-20-diseno-flujo-credito.md))
+- **Tab bar redesign:** Incorporar préstamos en la navegación requiere rediseño del tab bar (hoy: QR / perfil / home). ¿Cuál es el nuevo esquema de navegación? Pendiente. (observation, [ingestion/meetings/2026-05-20-diseno-flujo-credito.md](../../../ingestion/meetings/2026-05-20-diseno-flujo-credito.md))
 
 ## Follow-up after launch
 - Medir tasa de adopción en las primeras 4 semanas post-lanzamiento.

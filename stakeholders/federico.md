@@ -22,6 +22,8 @@ TODO: confirmar.
 - Nada documentado aún.
 
 ## Touchpoint log
+- 2026-05-20 — Reunión de diseño flujo crédito. Confirmó onboarding carousel, eliminación de "total a pagar" en success screen, y lógica de cancelaciones manuales. [ingestion/meetings/2026-05-20-diseno-flujo-credito.md](../ingestion/meetings/2026-05-20-diseno-flujo-credito.md)
 
 ## Last touched
+2026-05-20
 

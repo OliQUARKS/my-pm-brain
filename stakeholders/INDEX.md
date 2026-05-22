@@ -8,7 +8,7 @@
 | --- | --- | --- | --- | --- | --- |
 | [marcos-copello](./marcos-copello.md) | Marcos Copello | CEO, PERC | high | medium | — |
 | [sebastian](./sebastian.md) | Sebastián Cárdenas | Product Owner, PERC | high | high | 2026-05-20 |
-| [federico](./federico.md) | Federico Fernandez (Fefe) | COO, Quarks Alchemist | high | low | — |
+| [federico](./federico.md) | Federico Fernandez (Fefe) | COO, Quarks Alchemist | high | low | 2026-05-20 |
 | [juan-pablo-norverto](./juan-pablo-norverto.md) | Juan Pablo Norverto | CTO, Quarks Alchemist | high | low | — |
 | [nicolas](./nicolas.md) | Nicolás Paez | Tech Lead, Quarks Alchemist | high | low | — |
 | [israel-fernandez](./israel-fernandez.md) | Israel Fernandez (Isra) | Tech Lead, Quarks Alchemist | high | low | — |
@@ -21,6 +21,9 @@
 | [eugenio-valeiras](./eugenio-valeiras.md) | Eugenio Valeiras (Euge) | Tech Lead, PERC | high | unknown | 2026-04-20 |
 | [stefano-giuliano](./stefano-giuliano.md) | Stefano Giuliano (Tano) | Cybersecurity, PERC | medium | unknown | 2026-04-20 |
 | [jose-salgado](./jose-salgado.md) | José Salgado (Jo) | Developer, PERC | low | low | 2026-04-20 |
+| [natalia-fasanello](./natalia-fasanello.md) | Natalia Fasanello (Nati) | UX/UI Designer, Quarks Alchemist | medium | low | 2026-05-20 |
+| [lucia-guyet](./lucia-guyet.md) | Lucía Guyet (Lu) | UX/UI Designer, Quarks Alchemist | medium | low | 2026-05-20 |
+| [johan-zambrano](./johan-zambrano.md) | Johan Zambrano (Joan / Jzambrano) | Developer Frontend, PERC | medium | unknown | 2026-05-20 |
 
 ## High-influence + high-friction
 - **Sebastián (PERC PO)** — interlocutor principal del cliente. Definiciones bloqueantes de negocio y técnicas dependen de él. Tarda en responder. (stakeholder-verbal, Olivier, 2026-05-21)
