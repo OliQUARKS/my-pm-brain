@@ -78,6 +78,8 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 (ingestion/meetings/2026-05-19-planning-refinement-perc.md)
 
 ## Open questions
+- **Metodología de cuotas (sistema francés):** Sistema francés confirmado. Pendiente técnico: tratamiento del IVA variable sobre intereses (puede generar diferencias entre cuotas), inclusión del seguro de vida, criterio exacto para igualdad mensual, ítems incluidos/excluidos del modelo. Bloqueante para implementación de lógica de cálculo. ([source/adhoc/2026-05-13-email-definiciones-pendientes-perc.md](../../../source/adhoc/2026-05-13-email-definiciones-pendientes-perc.md))
+- **Plazo máximo de desembolso:** Verbal: 24-48h desde aprobación. Sin confirmación escrita. Abierto: ¿aplica igual en fines de semana y feriados? ([source/adhoc/2026-05-13-email-definiciones-pendientes-perc.md](../../../source/adhoc/2026-05-13-email-definiciones-pendientes-perc.md))
 - ¿Cuál es el tech stack definitivo? ¿Lambda, Java, TypeScript? (decisión de PERC + Quarks)
 - ¿Cómo se valida la integración con Watson antes de comprometer estimaciones?
 - ¿Qué define "apto para crédito" a nivel de segmento del usuario? (lógica de las 3 opciones preaprobadas)
