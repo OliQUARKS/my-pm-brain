@@ -80,7 +80,9 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 (ingestion/meetings/2026-05-19-planning-refinement-perc.md)
 
 ## Open questions
-- **Metodología de cuotas (sistema francés):** Sistema francés confirmado. Pendiente técnico: tratamiento del IVA variable sobre intereses (puede generar diferencias entre cuotas), inclusión del seguro de vida, criterio exacto para igualdad mensual, ítems incluidos/excluidos del modelo. Bloqueante para implementación de lógica de cálculo. ([source/adhoc/2026-05-13-email-definiciones-pendientes-perc.md](../../../source/adhoc/2026-05-13-email-definiciones-pendientes-perc.md)) — **Seba confirma Excel listo hoy 2026-05-22.** (stakeholder-verbal, Seba, 2026-05-22)
+- ~~**Metodología de cuotas:**~~ **Resuelta 2026-05-22 — ver §Cuota methodology.** ([source/adhoc/2026-05-22-excel-calculo-prestamos-perc.md](../../../source/adhoc/2026-05-22-excel-calculo-prestamos-perc.md))
+- **Seguro de vida:** Parámetro Seguro% = 3% definido en Premisas del Excel y columna en tabla de amortización, pero = 0 en el ejemplo ilustrativo. ¿Aplica en el MVP? ¿A qué tasa definitiva? Pendiente respuesta de Seba. ([source/adhoc/2026-05-22-excel-calculo-prestamos-perc.md](../../../source/adhoc/2026-05-22-excel-calculo-prestamos-perc.md))
+- **Monto prestado vs. capital solicitado:** En el Excel son dos INPUTs separados (cliente recibe capital solicitado; la tabla de amortización usa el monto prestado, que es mayor). ¿Cómo se determina el monto prestado a partir del capital solicitado en la implementación? ¿Es fórmula fija o lo configura el BO por template? ([source/adhoc/2026-05-22-excel-calculo-prestamos-perc.md](../../../source/adhoc/2026-05-22-excel-calculo-prestamos-perc.md))
 - **Plazo máximo de desembolso:** Verbal: 24-48h desde aprobación. Sin confirmación escrita. Abierto: ¿aplica igual en fines de semana y feriados? ([source/adhoc/2026-05-13-email-definiciones-pendientes-perc.md](../../../source/adhoc/2026-05-13-email-definiciones-pendientes-perc.md)) — **Seba sugiere 24hs, decisión de Marcos. Pendiente confirmación.** (stakeholder-verbal, Seba, 2026-05-22)
 - ¿Cómo se valida la integración con Watson antes de comprometer estimaciones?
 - **Reporte de novedades (sistema → La Mantovana/Finnegans):** formato (CSV / Excel / otro), columnas requeridas, momento del mes. Permite a Finnegans saber a quién descontarle cuánto y cuándo. Deadline: 2026-06-12. (stakeholder-verbal, Olivier, 2026-05-22) — **Seba tenía reunión con Isis (La Mantovana) el 22/5, ella no asistió. Seba persiguiéndola.** (observation, [ingestion/adhoc/2026-05-22-whatsapp-pendientes-perc.md](../../../ingestion/adhoc/2026-05-22-whatsapp-pendientes-perc.md))
@@ -93,6 +95,47 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 - Identificar cuenta sueldo dentro de la lista de wallets del usuario vía `get account`. (Nico / Isra)
 - **Tab bar redesign:** Incorporar préstamos en la navegación requiere rediseño del tab bar (hoy: QR / perfil / home). ¿Cuál es el nuevo esquema de navegación? Pendiente. (observation, [ingestion/meetings/2026-05-20-diseno-flujo-credito.md](../../../ingestion/meetings/2026-05-20-diseno-flujo-credito.md))
 - **Compliance: ¿avisar que la operación va por BIND?** ¿Obligatorio informar al usuario que la operación se procesa a través del BIND (o equivalente)? ¿En qué paso/s? Pendiente respuesta de Seba desde 2026-04-08. (observation, [ingestion/adhoc/2026-03-06-whatsapp-grupo-perc.md](../../../ingestion/adhoc/2026-03-06-whatsapp-grupo-perc.md))
+
+## Cuota methodology (Excel Seba, 2026-05-22)
+
+**Sistema Francés — cuota fija mensual.**
+
+### Componentes de la cuota
+
+| Componente | Fórmula | Comportamiento |
+|---|---|---|
+| Interés bruto | Saldo inicial × (TNA/12) | Decrece en cada cuota |
+| IVA s/intereses | Interés bruto × 21% | Decrece en cada cuota |
+| Amortización capital | Cuota pura − Interés − IVA | Crece en cada cuota |
+| Seguro de vida | Saldo inicial × Seguro% | = 0 en ejemplo — **pendiente definición MVP** |
+| Gasto administrativo | Monto fijo mensual | Fijo por template |
+| **Cuota total** | **Suma de los anteriores** | **Fija por Sistema Francés** |
+
+### Cálculo de la TEM y la cuota pura
+
+- TEM sin IVA = TNA / 12
+- **TEM con IVA = TEM_sin_IVA × (1 + 0.21)** — se usa para el PMT
+- Cuota pura = PMT(TEM_con_IVA, n, −Monto_prestado)
+- La cuota es verdaderamente fija porque la TEM ya incorpora el IVA.
+
+### Capital y costos iniciales
+
+- **Capital solicitado** = monto neto que recibe el cliente
+- **Monto prestado** = base de la tabla de amortización (> capital solicitado — relación pendiente de aclaración)
+- Total crédito = Monto prestado + Sellos (Monto_prestado × 1.2%) + Gastos otorgamiento
+
+### Cancelación anticipada
+
+`Total = Capital restante + (Int. futuros × % penalidad) + (Capital restante × % comisión) + IVA s/(penalidad + comisión)`
+
+IVA sobre penalidades: **confirmado aplica** (Excel flag B8 = 1; asunción PM 2026-05-22).
+Todos los % son configurables por tipo de préstamo.
+
+### Valores ilustrativos
+
+Los parámetros del Excel (TNA 89%, sellos 1.2%, mora 3%, gasto adm $500, otorgamiento $3,000) son **ejemplos, no valores finales del MVP**. Se configurarán por template/tipo de préstamo. (assumption, Olivier, 2026-05-22)
+
+([source/adhoc/2026-05-22-excel-calculo-prestamos-perc.md](../../../source/adhoc/2026-05-22-excel-calculo-prestamos-perc.md))
 
 ## Technical conventions (acordadas con PERC)
 - **IDs de BD:** LUID (Lexicographically Unique ID — ordenables, no exponen volumen). Postgres soporta nativamente. Decisión: [decisions/2026-05-18-luid-ids.md](../../../decisions/2026-05-18-luid-ids.md)
