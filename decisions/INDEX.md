@@ -7,6 +7,7 @@
 
 ## Recently decided
 <!-- Last 30 days. Each links to the file. -->
+- 2026-04-20 — [Tech stack: Lambda (backend) + Angular (frontend)](./2026-04-20-tech-stack.md)
 - 2026-05-19 — [Solicitud persiste en BD solo post firma+TOTP](./2026-05-19-solicitud-post-firma-totp.md)
 - 2026-05-20 — [Sábana es render-only; se persisten 5 documentos por separado](./2026-05-20-sabana-no-persiste.md)
 

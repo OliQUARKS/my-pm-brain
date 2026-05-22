@@ -17,6 +17,11 @@
 | [giuliano-trincavelli](./giuliano-trincavelli.md) | Giuliano Trincavelli (Giu) | Developer, Quarks Alchemist | low | low | — |
 | [marcos-perez](./marcos-perez.md) | Marcos Perez | Developer, Quarks Alchemist | low | low | — |
 
+| [ezequiel-manfredi](./ezequiel-manfredi.md) | Ezequiel Manfredi (Eze) | CTO, PERC | high | unknown | 2026-05-21 |
+| [eugenio-valeiras](./eugenio-valeiras.md) | Eugenio Valeiras (Euge) | Tech Lead, PERC | high | unknown | 2026-04-20 |
+| [stefano-giuliano](./stefano-giuliano.md) | Stefano Giuliano (Tano) | Cybersecurity, PERC | medium | unknown | 2026-04-20 |
+| [jose-salgado](./jose-salgado.md) | José Salgado (Jo) | Developer, PERC | low | low | 2026-04-20 |
+
 ## High-influence + high-friction
 - **Sebastián (PERC PO)** — interlocutor principal del cliente. Definiciones bloqueantes de negocio y técnicas dependen de él. Tarda en responder. (stakeholder-verbal, Olivier, 2026-05-21)
 - **Marcos Copello (PERC CEO)** — decisor final. Interviene en escalaciones y aprobaciones de scope. Fricción media: no bloquea activamente pero requiere alineación en hitos clave.

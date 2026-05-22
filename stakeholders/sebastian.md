@@ -14,7 +14,7 @@
 
 ## Concerns / watch-outs
 **Principal fuente de fricción:** tarda mucho en proveer definiciones, lo que bloquea el refinement del equipo Quarks. (stakeholder-verbal, Olivier, 2026-05-21)
-- Definiciones técnicas y de negocio pendientes (stack, integración Watson) bloqueadas en su lado.
+- Definiciones de negocio pendientes (integración Watson) bloqueadas en su lado. Stack técnico resuelto por Eze (CTO PERC) — ya no es su responsabilidad.
 
 ## Communication style
 Disponible en calls, participativo cuando está presente. Tarda en responder fuera de las reuniones (mails y chats sin respuesta inmediata). Mejor canal: reuniones sincrónicas con agenda clara. (stakeholder-verbal, Olivier, 2026-05-20)
@@ -23,9 +23,7 @@ Disponible en calls, participativo cuando está presente. Tarda en responder fue
 - Cálculo de cuotas — Excel prolijo pendiente de envío. (stakeholder-verbal, Seba, 2026-05-20)
 - Casuística de desembolso de fondos — pendiente de confirmación de su lado. (stakeholder-verbal, Seba, 2026-05-20)
 - ¿Documentos dinámicos o estáticos? Definición prometida en ~1 semana (~2026-05-27). (stakeholder-verbal, Seba, 2026-05-20)
-- Acceso al repo del front — pendiente (Seba lo gestiona vía Job). (stakeholder-verbal, Seba, 2026-05-20)
 - PRs pendientes de aprobación (2+). (stakeholder-verbal, Seba, 2026-05-20)
-- Definición del tech stack (Lambda / Java / TypeScript) — pendiente. (source/adhoc/2026-05-21-prd-flujo-credito.md §5)
 - Validación de integración con Watson — pendiente.
 
 ## Touchpoint log
