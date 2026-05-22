@@ -23,6 +23,9 @@ TODO: confirmar tool principal (¿Slack? ¿WhatsApp? ¿email?).
 - Original: `/Users/olivierluce/Downloads/PRD - PERC - Flujo Crédito.md`
 - Backoffice target: **Watson** (plataforma del cliente para el BO)
 
+## Payroll / nómina
+- **Finnegans** — sistema ERP detrás de La Mantovana. Gestiona haberes y descuentos de cuotas de los empleados del Grupo PERC. La integración se da vía reportes bidireccionales (novedades + confirmación de descuentos), no por API directa. (stakeholder-verbal, Olivier, 2026-05-22)
+
 ## Research
 <!-- Pre-producción. Sin transcripts de entrevistas con usuarios. -->
 N/A — no hay customer interviews activas. El producto no está en producción.
