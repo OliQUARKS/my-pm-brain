@@ -29,6 +29,7 @@ Disponible en calls, participativo cuando está presente. Tarda en responder fue
 - Validación de integración con Watson — pendiente.
 
 ## Touchpoint log
+- 2026-05-22 (16:10) — WhatsApp: comentarios sobre Excel. Confirmó seguro capitalizado al inicio + mora como costo en capital inicial. IVA cancelación difiere al lunes 2026-05-26. Pregunta abierta: cancelación precalculada o on-demand. [source/adhoc/2026-05-22-whatsapp-excel-calculo-prestamos.md](../source/adhoc/2026-05-22-whatsapp-excel-calculo-prestamos.md)
 - 2026-05-22 (15:44) — Excel CALCULO DE PRESTAMOS PERC recibido. Metodología Sistema Francés completa con fórmulas de cuota y cancelación anticipada. Pendientes: seguro de vida + monto prestado vs capital solicitado. [ingestion/adhoc/2026-05-22-excel-calculo-prestamos-perc.md](../ingestion/adhoc/2026-05-22-excel-calculo-prestamos-perc.md)
 - 2026-05-22 — WhatsApp pendientes PERC. Respondió 5 items en ~6 min: HTML con Patricio, Excel hoy, desembolso sugiere 24hs (Marcos decide), Isis no asistió al meet, PJ confirmados. [ingestion/adhoc/2026-05-22-whatsapp-pendientes-perc.md](../ingestion/adhoc/2026-05-22-whatsapp-pendientes-perc.md)
 - 2026-05-20 — Refinement backlog PERC. Definiciones parcialmente resueltas (cuotas, cancelación anticipada, mora/desvinculación, estados del préstamo, firma). Pendiente: desembolso, documentos dinámicos, repo del front. [ingestion/meetings/2026-05-20-refinement-backlog-perc.md](../ingestion/meetings/2026-05-20-refinement-backlog-perc.md)

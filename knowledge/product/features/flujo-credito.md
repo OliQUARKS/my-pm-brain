@@ -81,8 +81,9 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 
 ## Open questions
 - ~~**Metodología de cuotas:**~~ **Resuelta 2026-05-22 — ver §Cuota methodology.** ([source/adhoc/2026-05-22-excel-calculo-prestamos-perc.md](../../../source/adhoc/2026-05-22-excel-calculo-prestamos-perc.md))
-- **Seguro de vida:** Parámetro Seguro% = 3% definido en Premisas del Excel y columna en tabla de amortización, pero = 0 en el ejemplo ilustrativo. ¿Aplica en el MVP? ¿A qué tasa definitiva? Pendiente respuesta de Seba. ([source/adhoc/2026-05-22-excel-calculo-prestamos-perc.md](../../../source/adhoc/2026-05-22-excel-calculo-prestamos-perc.md))
-- **Monto prestado vs. capital solicitado:** En el Excel son dos INPUTs separados (cliente recibe capital solicitado; la tabla de amortización usa el monto prestado, que es mayor). ¿Cómo se determina el monto prestado a partir del capital solicitado en la implementación? ¿Es fórmula fija o lo configura el BO por template? ([source/adhoc/2026-05-22-excel-calculo-prestamos-perc.md](../../../source/adhoc/2026-05-22-excel-calculo-prestamos-perc.md))
+- ~~**Seguro de vida:**~~ **Resuelto 2026-05-22** — capitalizado al inicio en el monto prestado (`Capital × Seguro%`). Columna G = 0 porque no es cargo mensual. (stakeholder-verbal, Seba, [source/adhoc/2026-05-22-whatsapp-excel-calculo-prestamos.md](../../../source/adhoc/2026-05-22-whatsapp-excel-calculo-prestamos.md))
+- ~~**Monto prestado vs. capital solicitado:**~~ **Resuelto 2026-05-22** — fórmula confirmada, ver §Cuota methodology. Capital solicitado = INPUT del BO en el template. (stakeholder-verbal, Olivier, 2026-05-22)
+- **Cancelación anticipada — ¿precalculada en template o calculada on-demand?** Seba lo pregunta; Olivier lo devuelve. Sin respuesta. Va al último sprint. (stakeholder-verbal, Seba + Olivier, [source/adhoc/2026-05-22-whatsapp-excel-calculo-prestamos.md](../../../source/adhoc/2026-05-22-whatsapp-excel-calculo-prestamos.md))
 - **Plazo máximo de desembolso:** Verbal: 24-48h desde aprobación. Sin confirmación escrita. Abierto: ¿aplica igual en fines de semana y feriados? ([source/adhoc/2026-05-13-email-definiciones-pendientes-perc.md](../../../source/adhoc/2026-05-13-email-definiciones-pendientes-perc.md)) — **Seba sugiere 24hs, decisión de Marcos. Pendiente confirmación.** (stakeholder-verbal, Seba, 2026-05-22)
 - ¿Cómo se valida la integración con Watson antes de comprometer estimaciones?
 - **Reporte de novedades (sistema → La Mantovana/Finnegans):** formato (CSV / Excel / otro), columnas requeridas, momento del mes. Permite a Finnegans saber a quién descontarle cuánto y cuándo. Deadline: 2026-06-12. (stakeholder-verbal, Olivier, 2026-05-22) — **Seba tenía reunión con Isis (La Mantovana) el 22/5, ella no asistió. Seba persiguiéndola.** (observation, [ingestion/adhoc/2026-05-22-whatsapp-pendientes-perc.md](../../../ingestion/adhoc/2026-05-22-whatsapp-pendientes-perc.md))
@@ -107,7 +108,7 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 | Interés bruto | Saldo inicial × (TNA/12) | Decrece en cada cuota |
 | IVA s/intereses | Interés bruto × 21% | Decrece en cada cuota |
 | Amortización capital | Cuota pura − Interés − IVA | Crece en cada cuota |
-| Seguro de vida | Saldo inicial × Seguro% | = 0 en ejemplo — **pendiente definición MVP** |
+| Seguro de vida | Capital × Seguro% (capitalizado al inicio) | Siempre 0 en cuotas mensuales — incluido en monto prestado |
 | Gasto administrativo | Monto fijo mensual | Fijo por template |
 | **Cuota total** | **Suma de los anteriores** | **Fija por Sistema Francés** |
 
@@ -118,11 +119,17 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 - Cuota pura = PMT(TEM_con_IVA, n, −Monto_prestado)
 - La cuota es verdaderamente fija porque la TEM ya incorpora el IVA.
 
-### Capital y costos iniciales
+### Capital y monto prestado
 
-- **Capital solicitado** = monto neto que recibe el cliente
-- **Monto prestado** = base de la tabla de amortización (> capital solicitado — relación pendiente de aclaración)
-- Total crédito = Monto prestado + Sellos (Monto_prestado × 1.2%) + Gastos otorgamiento
+**Fórmula:**
+`Monto prestado = Capital + (Capital × Seguro%) + (Capital × Sellos%) + (Capital × Mora%) + Gastos otorgamiento`
+
+Ejemplo ilustrativo: 1,000,000 + 30,000 (seguro) + 12,000 (sellos) + 30,000 (mora) + 3,000 (otorgamiento) = **1,075,000**
+
+- **Capital solicitado:** INPUT del operador de BO al configurar el template. El cliente recibe este monto.
+- **Seguro de vida:** capitalizado al inicio como `Capital × Seguro%`. No aparece en cuotas mensuales (columna G = 0). (stakeholder-verbal, Seba, 2026-05-22)
+- **Mora:** capitalizada como costo en el capital inicial — confirmado por Seba. No es una penalidad por cuota atrasada en este contexto. (stakeholder-verbal, Seba, 2026-05-22)
+- **Total crédito** = Monto prestado + Sellos + Gastos otorgamiento
 
 ### Cancelación anticipada
 
