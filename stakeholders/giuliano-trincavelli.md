@@ -21,6 +21,8 @@ TODO: confirmar.
 - Nada documentado aún.
 
 ## Touchpoint log
+- 2026-05-19 — Planning + refinement interno Quarks. Presente en sesión de definiciones técnicas. [ingestion/meetings/2026-05-19-planning-refinement-perc.md](../ingestion/meetings/2026-05-19-planning-refinement-perc.md)
 
 ## Last touched
+2026-05-19
 

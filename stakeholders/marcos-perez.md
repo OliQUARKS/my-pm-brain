@@ -20,6 +20,8 @@ TODO: confirmar.
 - Nada documentado aún.
 
 ## Touchpoint log
+- 2026-05-19 — Planning + refinement interno Quarks. Owner: CRUD de solicitudes/créditos + improvements. [ingestion/meetings/2026-05-19-planning-refinement-perc.md](../ingestion/meetings/2026-05-19-planning-refinement-perc.md)
 
 ## Last touched
+2026-05-19
 

@@ -22,6 +22,8 @@ TODO: confirmar.
 - Nada documentado aún.
 
 ## Touchpoint log
+- 2026-05-19 — Planning + refinement interno Quarks. Presente en primera parte (se retiró a reunión L2). Confirmó: JWT tag viene del evento Lambda HTTP (~99%), identificar cuenta sueldo vía `get account`. [ingestion/meetings/2026-05-19-planning-refinement-perc.md](../ingestion/meetings/2026-05-19-planning-refinement-perc.md)
 
 ## Last touched
+2026-05-19
 
