@@ -64,7 +64,7 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 | **Pagado** | Cancelado totalmente en tiempo y forma |
 | **Cancelado anticipadamente** | Pagado por completo de forma anticipada |
 | **Precancelado** | Cancelación antes del desembolso (nunca se otorgó) |
-| **Arrepentido** | Devolución dentro de los 10 días hábiles |
+| **Arrepentido** | Devolución dentro de los 10 días corridos (Ley de Botón de Arrepentimiento) |
 
 (ingestion/meetings/2026-05-20-refinement-backlog-perc.md)
 
@@ -82,7 +82,6 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 - **Metodología de cuotas (sistema francés):** Sistema francés confirmado. Pendiente técnico: tratamiento del IVA variable sobre intereses (puede generar diferencias entre cuotas), inclusión del seguro de vida, criterio exacto para igualdad mensual, ítems incluidos/excluidos del modelo. Bloqueante para implementación de lógica de cálculo. ([source/adhoc/2026-05-13-email-definiciones-pendientes-perc.md](../../../source/adhoc/2026-05-13-email-definiciones-pendientes-perc.md))
 - **Plazo máximo de desembolso:** Verbal: 24-48h desde aprobación. Sin confirmación escrita. Abierto: ¿aplica igual en fines de semana y feriados? ([source/adhoc/2026-05-13-email-definiciones-pendientes-perc.md](../../../source/adhoc/2026-05-13-email-definiciones-pendientes-perc.md))
 - ¿Cómo se valida la integración con Watson antes de comprometer estimaciones?
-- ¿Qué define "apto para crédito" a nivel de segmento del usuario? (lógica de las 3 opciones preaprobadas)
 - **Reporte de novedades (sistema → La Mantovana/Finnegans):** formato (CSV / Excel / otro), columnas requeridas, momento del mes. Permite a Finnegans saber a quién descontarle cuánto y cuándo. Deadline: 2026-06-12. (stakeholder-verbal, Olivier, 2026-05-22)
 - **Reporte de confirmación (La Mantovana/Finnegans → sistema):** formato, campos, timing mensual. Permite al sistema registrar que el descuento fue realizado. Deadline: 2026-06-12. (stakeholder-verbal, Olivier, 2026-05-22)
 - ¿Los documentos HTML son dinámicos o estáticos? Si dinámicos, ¿cómo se mapean las variables? (Seba responde ~2026-05-27)
@@ -91,7 +90,6 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 - ¿Puede haber empleados persona jurídica (PJ)? Impacto en filtros de BO. (Olivier → Seba)
 - Verificar que el evento Lambda HTTP trae JWT decodificado. (Isra / Nico)
 - Identificar cuenta sueldo dentro de la lista de wallets del usuario vía `get account`. (Nico / Isra)
-- **Arrepentimiento: ¿10 días corridos o hábiles?** — En reunión de diseño (2026-05-20) se dijo "corridos" pero sin confirmación firme. Verificar con Seba. (assumption, [ingestion/meetings/2026-05-20-diseno-flujo-credito.md](../../../ingestion/meetings/2026-05-20-diseno-flujo-credito.md))
 - **Tab bar redesign:** Incorporar préstamos en la navegación requiere rediseño del tab bar (hoy: QR / perfil / home). ¿Cuál es el nuevo esquema de navegación? Pendiente. (observation, [ingestion/meetings/2026-05-20-diseno-flujo-credito.md](../../../ingestion/meetings/2026-05-20-diseno-flujo-credito.md))
 
 ## Follow-up after launch
