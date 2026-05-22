@@ -7,7 +7,7 @@
 | Slug | Name | Role | Influence | Friction | Last touched |
 | --- | --- | --- | --- | --- | --- |
 | [marcos-copello](./marcos-copello.md) | Marcos Copello | CEO, PERC | high | medium | — |
-| [sebastian](./sebastian.md) | Sebastián Cárdenas | Product Owner, PERC | high | high | 2026-05-20 |
+| [sebastian](./sebastian.md) | Sebastián Cárdenas | Product Owner, PERC | high | high | 2026-05-22 |
 | [federico](./federico.md) | Federico Fernandez (Fefe) | COO, Quarks Alchemist | high | low | 2026-05-20 |
 | [juan-pablo-norverto](./juan-pablo-norverto.md) | Juan Pablo Norverto | CTO, Quarks Alchemist | high | low | — |
 | [nicolas](./nicolas.md) | Nicolás Paez | Tech Lead, Quarks Alchemist | high | low | — |
@@ -17,6 +17,7 @@
 | [giuliano-trincavelli](./giuliano-trincavelli.md) | Giuliano Trincavelli (Giu) | Developer, Quarks Alchemist | low | low | — |
 | [marcos-perez](./marcos-perez.md) | Marcos Perez | Developer, Quarks Alchemist | low | low | — |
 
+| [patricio](./patricio.md) | Patricio | Compliance, PERC (a confirmar) | medium | unknown | — |
 | [ezequiel-manfredi](./ezequiel-manfredi.md) | Ezequiel Manfredi (Eze) | CTO, PERC | high | unknown | 2026-05-21 |
 | [eugenio-valeiras](./eugenio-valeiras.md) | Eugenio Valeiras (Euge) | Tech Lead, PERC | high | unknown | 2026-04-20 |
 | [stefano-giuliano](./stefano-giuliano.md) | Stefano Giuliano (Tano) | Cybersecurity, PERC | medium | unknown | 2026-04-20 |
