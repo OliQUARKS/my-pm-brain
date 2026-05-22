@@ -43,7 +43,7 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 - **Nov 2025:** Creación del documento (PRD v1.0)
 - **Dic 2025 – Ene 2026:** Iteraciones de scope y definiciones
 - **Feb – Abr 2026:** Ajustes de alcance y armado final del PRD (v2.0)
-- **May 2026:** Setup del PM Brain. Inicio formal del proyecto (discovery técnico).
+- **May 2026:** Setup del PM Brain. **Kickoff oficial Quarks–PERC: 2026-05-20.** (discovery técnico en curso)
 - **Próximo hito:** Mes de discovery técnico + definición del pipeline CI/CD antes de comprometer estimaciones finales.
 
 ## Evidence
@@ -91,6 +91,7 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 - Verificar que el evento Lambda HTTP trae JWT decodificado. (Isra / Nico)
 - Identificar cuenta sueldo dentro de la lista de wallets del usuario vía `get account`. (Nico / Isra)
 - **Tab bar redesign:** Incorporar préstamos en la navegación requiere rediseño del tab bar (hoy: QR / perfil / home). ¿Cuál es el nuevo esquema de navegación? Pendiente. (observation, [ingestion/meetings/2026-05-20-diseno-flujo-credito.md](../../../ingestion/meetings/2026-05-20-diseno-flujo-credito.md))
+- **Compliance: ¿avisar que la operación va por BIND?** ¿Obligatorio informar al usuario que la operación se procesa a través del BIND (o equivalente)? ¿En qué paso/s? Pendiente respuesta de Seba desde 2026-04-08. (observation, [ingestion/adhoc/2026-03-06-whatsapp-grupo-perc.md](../../../ingestion/adhoc/2026-03-06-whatsapp-grupo-perc.md))
 
 ## Follow-up after launch
 - Medir tasa de adopción en las primeras 4 semanas post-lanzamiento.

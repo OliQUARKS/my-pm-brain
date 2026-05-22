@@ -6,7 +6,7 @@
 
 | Slug | Name | Role | Influence | Friction | Last touched |
 | --- | --- | --- | --- | --- | --- |
-| [marcos-copello](./marcos-copello.md) | Marcos Copello | CEO, PERC | high | medium | — |
+| [marcos-copello](./marcos-copello.md) | Marcos Copello | CEO, PERC | high | medium | 2026-05-21 |
 | [sebastian](./sebastian.md) | Sebastián Cárdenas | Product Owner, PERC | high | high | 2026-05-22 |
 | [federico](./federico.md) | Federico Fernandez (Fefe) | COO, Quarks Alchemist | high | low | 2026-05-20 |
 | [juan-pablo-norverto](./juan-pablo-norverto.md) | Juan Pablo Norverto | CTO, Quarks Alchemist | high | low | — |
