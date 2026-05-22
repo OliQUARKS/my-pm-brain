@@ -13,6 +13,8 @@ Operator-facing verbs. Each command is a thin spec: input, files to load, files 
 | [`/ideate`](./ideate.md) | A problem needs solution directions grounded in existing evidence and hypotheses |
 | [`/risk`](./risk.md) | A feature or plan needs the 5-area risk scan; maps to hypothesis hygiene |
 | [`/plan`](./plan.md) | A new objective lands; turn it into discovery questions, interviews, experiments, hypotheses, decision points |
+| [`/epics`](./epics.md) | Descomponer una feature en épicas MVS/Midgame/Endgame; opcionalmente crear proyectos en Linear |
+| [`/stories`](./stories.md) | Descomponer una épica en historias INVEST; opcionalmente crear issues en Linear |
 
 ## Conventions
 
