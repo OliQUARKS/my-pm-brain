@@ -14,7 +14,8 @@
 (intuition, PM, 2026-05-21)
 
 ## Concerns / watch-outs
-TODO: confirmar en touchpoint. Potencial concern: dependencias técnicas no resueltas (stack pendiente) que puedan demorar el lanzamiento.
+- Está activo en el loop del proyecto: si Seba no cierra las definiciones técnicas bloqueantes (stack, Watson), el riesgo de demora llega a su nivel. (stakeholder-verbal, Olivier, 2026-05-22)
+- Potencial concern: dependencias técnicas no resueltas podrían demorar el lanzamiento — afecta su exposición con el Grupo PERC. (intuition, PM, 2026-05-21)
 
 ## Communication style
 TODO: confirmar. Sin datos directos aún.
