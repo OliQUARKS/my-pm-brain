@@ -45,6 +45,7 @@ Los empleados del Grupo PERC no tienen forma de autogestionar solicitudes de pr�
 - **Dic 2025 – Ene 2026:** Iteraciones de scope y definiciones
 - **Feb – Abr 2026:** Ajustes de alcance y armado final del PRD (v2.0)
 - **May 2026:** Setup del PM Brain. **Kickoff oficial Quarks–PERC: 2026-05-20.** (discovery técnico en curso)
+- **27 Apr – 5 May 2026:** Setup de repos (monorepo structure confirmado). Backlog + Excalidraw flow compartido con equipo el 2026-05-06. [source/meetings/2026-05-06-repo-setup-backlog-share.md](../../../source/meetings/2026-05-06-repo-setup-backlog-share.md)
 - **Próximo hito:** Mes de discovery técnico + definición del pipeline CI/CD antes de comprometer estimaciones finales.
 
 ## Evidence
