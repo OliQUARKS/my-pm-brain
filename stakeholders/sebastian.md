@@ -22,18 +22,20 @@ Disponible en calls, participativo cuando está presente. Tarda en responder fue
 
 ## Open asks
 - ~~Cálculo de cuotas~~ — **Excel recibido 2026-05-22 15:44.** Metodología Sistema Francés completa. Pendientes derivadas: seguro de vida y relación monto prestado/capital solicitado. (observation, [ingestion/adhoc/2026-05-22-excel-calculo-prestamos-perc.md](../ingestion/adhoc/2026-05-22-excel-calculo-prestamos-perc.md))
-- Casuística de desembolso — Seba sugiere 24hs, deriva decisión a Marcos. Pendiente confirmación de Marcos. (stakeholder-verbal, Seba, 2026-05-22)
-- ¿Documentos dinámicos o estáticos? En proceso con Patricio (Compliance PERC). Deadline ~2026-05-27. (stakeholder-verbal, Seba, 2026-05-22)
-- Empleados PJ — ¿tratamiento idéntico a PF en front/back/BO? Pregunta abierta desde 2026-05-22.
-- PRs pendientes de aprobación (2+). (stakeholder-verbal, Seba, 2026-05-20)
+- Plazo desembolso (24hs) — No hay confirmación aún. Seba lo manda por mail. Marcos (CEO) debe decidir. (stakeholder-verbal, Seba, 2026-05-27) [source/meetings/2026-05-27-whatsapp-preguntas-pendientes-perc.md]
+- ¿Documentos dinámicos o estáticos? **Bloqueado en reunión tripartita.** Seba solicita: Nicolas Ortiz, Patricio Ertola (Compliance), ambos equipos. Seba tiene preocupación. (stakeholder-verbal, Seba, 2026-05-27) [source/meetings/2026-05-27-whatsapp-preguntas-pendientes-perc.md]
+- Empleados PJ — hay confusión en la pregunta. Olivier preguntó si están discriminados en data; Seba preguntó si Quarks necesita que PERC lo proporcione. Sin claridad, no se puede implementar BO. (assumption, [ingestion/meetings/2026-05-27-whatsapp-preguntas-pendientes-perc.md](../ingestion/meetings/2026-05-27-whatsapp-preguntas-pendientes-perc.md))
+- ~~PRs pendientes~~ — Seba se lo averigua a Jose. (stakeholder-verbal, Seba, 2026-05-27)
 - Validación de integración con Watson — pendiente.
+- IVA en cancelaciones — Olivier nota que es configurable (flag B8 = 1). Pregunta abierta: ¿PERC quiere cobrar penalidad si usuario paga antes de cancelación? Impacta fórmula de cálculo. (observation, [ingestion/meetings/2026-05-27-whatsapp-preguntas-pendientes-perc.md](../ingestion/meetings/2026-05-27-whatsapp-preguntas-pendientes-perc.md))
 
 ## Touchpoint log
+- 2026-05-27 — WhatsApp: Olivier manda 7 preguntas pendientes. Seba responde: La Mantovana se contactó (excels + informe), plazo desembolso no confirmado aún (Marcos decide), documentos HTML bloqueado en reunión, empleados PJ hay confusión, PRs pendientes se lo averigua, cancelación anticipada es decisión de Quarks, IVA configurable genera pregunta de diseño. [source/meetings/2026-05-27-whatsapp-preguntas-pendientes-perc.md](../source/meetings/2026-05-27-whatsapp-preguntas-pendientes-perc.md)
 - 2026-05-22 (16:10) — WhatsApp: comentarios sobre Excel. Confirmó seguro capitalizado al inicio + mora como costo en capital inicial. IVA cancelación difiere al lunes 2026-05-26. Pregunta abierta: cancelación precalculada o on-demand. [source/adhoc/2026-05-22-whatsapp-excel-calculo-prestamos.md](../source/adhoc/2026-05-22-whatsapp-excel-calculo-prestamos.md)
 - 2026-05-22 (15:44) — Excel CALCULO DE PRESTAMOS PERC recibido. Metodología Sistema Francés completa con fórmulas de cuota y cancelación anticipada. Pendientes: seguro de vida + monto prestado vs capital solicitado. [ingestion/adhoc/2026-05-22-excel-calculo-prestamos-perc.md](../ingestion/adhoc/2026-05-22-excel-calculo-prestamos-perc.md)
 - 2026-05-22 — WhatsApp pendientes PERC. Respondió 5 items en ~6 min: HTML con Patricio, Excel hoy, desembolso sugiere 24hs (Marcos decide), Isis no asistió al meet, PJ confirmados. [ingestion/adhoc/2026-05-22-whatsapp-pendientes-perc.md](../ingestion/adhoc/2026-05-22-whatsapp-pendientes-perc.md)
 - 2026-05-20 — Refinement backlog PERC. Definiciones parcialmente resueltas (cuotas, cancelación anticipada, mora/desvinculación, estados del préstamo, firma). Pendiente: desembolso, documentos dinámicos, repo del front. [ingestion/meetings/2026-05-20-refinement-backlog-perc.md](../ingestion/meetings/2026-05-20-refinement-backlog-perc.md)
 
 ## Last touched
-2026-05-22
+2026-05-27
 
