@@ -36,3 +36,53 @@ good
 **[27/5/26, 2:18:46 p. m.] Olivier Luce:**
 del 1 vemos que es configurable
 eso me hace ruido
+
+**[27/5/26, 2:23:17 p. m.] Sebastián Cardenas:**
+estoy rehaciendo la tabla para que les quede bien
+es mas simple
+de lo que estamos pensando
+
+**[27/5/26, 2:24:15 p. m.] Olivier Luce:**
+De la 4. La cuestión es que ustedes tenían la necesidad de poder filtrar las personas jurídicas ¿no? Vos me dijiste igual que no van a tener ningún cambio en la experiencia, que va a ser todo igual.
+Pero al fin y al cabo mi pregunta va más desde cómo manejamos el dato en back. Nosotros, en los datos que nos envían ustedes, tenemos identificado el campo que dice que es una persona jurídica?
+Por qué digo esto? Porque si no me recuerdo una de las criterios de aceptación era poder filtrar por persona jurídica, persona física. Por eso.
+
+**[27/5/26, 2:24:23 p. m.] Olivier Luce:**
+joya
+
+**[27/5/26, 2:26:54 p. m.] Olivier Luce:**
+el punto 2… decidir sobre si incorporar o no la cancelación al valor del préstamo?
+jajaja
+
+**[27/5/26, 2:27:03 p. m.] Sebastián Cardenas:**
+esto tambien deberia resolverse despues de estar reunion con nicolas y patricio. sumaria a marcos tambien
+
+**[27/5/26, 2:27:04 p. m.] Olivier Luce:**
+dejame verlo con fefe
+
+**[27/5/26, 2:27:50 p. m.] Sebastián Cardenas:**
+mmmm no es al valor del prestamo no lo entendi asi. entendi la pregunta como "precalculamos o lo calculamos en el momento a lo que cuesta precancelarlo?" o me equivoque
+
+**[27/5/26, 2:28:34 p. m.] Olivier Luce:**
+en el excel, en el cálculo del préstamo está tenido en cuenta el porcentaje de la cancelación
+perdón, la mora
+
+**[27/5/26, 2:29:34 p. m.] Sebastián Cardenas:**
+en que parte? la parte de precancelacion? ya te dije lo estoy rearmando, es mas simple. si ves el excel hice un sheet nuevo. solo tengo que consultar si se cobra algo de los interese futuros como penalidad o no
+la mora si
+se cobra como un adicional jajajaja es un % extra un chiquitin especial
+
+**[27/5/26, 2:30:10 p. m.] Olivier Luce:**
+pero si el tipo la paga en término
+jajajajaja
+cómo es eso?
+
+**[27/5/26, 2:30:19 p. m.] Sebastián Cardenas:**
+good luck
+es parte del costo.
+no hay devoluciones de nada
+
+**[27/5/26, 2:30:22 p. m.] Olivier Luce:**
+si es así, listo el pollo
+jajaja
+perfecto
