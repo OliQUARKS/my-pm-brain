@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERC Flujo Crédito — Status</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #1a1a1a;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .status-date {
+            color: #999;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        section > h2 {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 1.5rem;
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .content {
+            padding: 1.5rem;
+        }
+
+        /* Epic cards */
+        .epic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .epic-card {
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .epic-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .epic-card.blocked {
+            border-left-color: #e74c3c;
+        }
+
+        .epic-card.in-progress {
+            border-left-color: #f39c12;
+        }
+
+        .epic-card.ready {
+            border-left-color: #27ae60;
+        }
+
+        .epic-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .epic-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-ready {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-in-progress {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-blocked {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .epic-size {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Blockers */
+        .blocker-list {
+            list-style: none;
+        }
+
+        .blocker-item {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .blocker-item:last-child {
+            border-bottom: none;
+        }
+
+        .blocker-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .blocker-content {
+            flex: 1;
+        }
+
+        .blocker-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.25rem;
+        }
+
+        .blocker-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .blocker-action {
+            font-size: 0.85rem;
+            background: #ecf0f1;
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            color: #2c3e50;
+        }
+
+        /* Next actions */
+        .actions-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .actions-table th {
+            background: #ecf0f1;
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            color: #2c3e50;
+            border-bottom: 2px solid #bdc3c7;
+        }
+
+        .actions-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .actions-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .action-deadline {
+            font-weight: 600;
+            color: #e74c3c;
+        }
+
+        .action-owner {
+            color: #3498db;
+            font-size: 0.9rem;
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        footer {
+            text-align: center;
+            color: #999;
+            font-size: 0.85rem;
+            margin-top: 3rem;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 PERC Flujo Crédito</h1>
+            <p class="subtitle">MVP Status Board — Préstamos Online</p>
+            <p class="status-date">Estado: 27 de mayo, 2026 | Próxima revisión: 31 de mayo (mañana)</p>
+        </header>
+
+        <!-- ÉPICAS MVS -->
+        <section>
+            <h2>📋 Épicas MVP</h2>
+            <div class="content">
+                <div class="epic-grid">
+                    <div class="epic-card ready">
+                        <div class="epic-status status-ready">Ready</div>
+                        <div class="epic-title">1. Solicitud de Préstamo</div>
+                        <div class="epic-size">Tamaño: L | Validación tech stack</div>
+                    </div>
+
+                    <div class="epic-card blocked">
+                        <div class="epic-status status-blocked">Blocked</div>
+                        <div class="epic-title">2. Firma Digital + TOTP</div>
+                        <div class="epic-size">Tamaño: M | Bloqueante: ¿dinámico/estático?</div>
+                    </div>
+
+                    <div class="epic-card ready">
+                        <div class="epic-status status-ready">Ready</div>
+                        <div class="epic-title">3. Desembolso a Sueldo</div>
+                        <div class="epic-size">Tamaño: M | Queue logic defined</div>
+                    </div>
+
+                    <div class="epic-card ready">
+                        <div class="epic-status status-ready">Ready</div>
+                        <div class="epic-title">4. Cancelación Manual</div>
+                        <div class="epic-size">Tamaño: S | Estados definidos</div>
+                    </div>
+
+                    <div class="epic-card in-progress">
+                        <div class="epic-status status-in-progress">In Progress</div>
+                        <div class="epic-title">5. Backoffice Avanzado</div>
+                        <div class="epic-size">Tamaño: XL | Depende: MVP completado</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOCKERS CRÍTICOS -->
+        <section>
+            <h2>🚨 Blockers Críticos</h2>
+            <div class="content">
+                <ul class="blocker-list">
+                    <li class="blocker-item">
+                        <div class="blocker-icon">📄</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">Documentos: ¿Dinámicos o Estáticos?</div>
+                            <div class="blocker-desc">Impacta épica 2 (Firma Digital). Requiere decision de Patricio (Compliance, PERC) sobre si documentos incluyen variables del usuario.</div>
+                            <div class="blocker-action">⏰ Deadline: VIERNES 5/31 a la mañana — Nico necesita respuesta antes que arranque dev el lunes</div>
+                        </div>
+                    </li>
+
+                    <li class="blocker-item">
+                        <div class="blocker-icon">⏱️</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">Plazo Desembolso (24h confirmación pendiente)</div>
+                            <div class="blocker-desc">Olivier sugirió 24h, pero Marcos (CEO PERC) no confirmó aún. Seba enviará mail hoy.</div>
+                            <div class="blocker-action">Owner: Seba | Próx: Mail a Marcos | Impact: Moderado (afecta messaging, no dev)</div>
+                        </div>
+                    </li>
+
+                    <li class="blocker-item">
+                        <div class="blocker-icon">💻</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">PRs Feedback (Jose PERC)</div>
+                            <div class="blocker-desc">Nico necesita saber qué PRs están pendientes y estado. Seba se lo averigua con Jose en Discord.</div>
+                            <div class="blocker-action">Owner: Seba | Status: Discovery | Impact: Medium</div>
+                        </div>
+                    </li>
+
+                    <li class="blocker-item">
+                        <div class="blocker-icon">🏦</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">Empleados PJ — Confirmación field en data</div>
+                            <div class="blocker-desc">PERC debe confirmar que proporciona flag/campo en import para identificar Personas Jurídicas. Nico necesita guardar en modelo para backoffice filtering.</div>
+                            <div class="blocker-action">Owner: Seba (with Marcos) | Status: Pending confirmation | Impact: Low (feature gate, puede ir post-MVP)</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- NEXT ACTIONS -->
+        <section>
+            <h2>✅ Próximos Pasos</h2>
+            <div class="content">
+                <table class="actions-table">
+                    <thead>
+                        <tr>
+                            <th>Acción</th>
+                            <th>Owner</th>
+                            <th>Deadline</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>📋 Tripartite meeting: HTML docs (dinámico/estático)</strong><br/>Participes: Patricio (Compliance PERC), Nicolas Ortiz (PERC tech), Nico (Quarks), Olivier</td>
+                            <td class="action-owner">Seba</td>
+                            <td class="action-deadline">Viernes 5/31 mañana</td>
+                            <td>🟥 Crítico</td>
+                        </tr>
+                        <tr>
+                            <td><strong>✉️ Confirmar plazo desembolso (24h)</strong><br/>Mail a Marcos</td>
+                            <td class="action-owner">Seba</td>
+                            <td class="action-deadline">Hoy 5/27</td>
+                            <td>🟡 In Progress</td>
+                        </tr>
+                        <tr>
+                            <td><strong>💬 Averiguar PRs feedback</strong><br/>Consultar con Jose (Dev PERC) en Discord</td>
+                            <td class="action-owner">Seba</td>
+                            <td class="action-deadline">Hoy 5/27</td>
+                            <td>🟡 Pending</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🟢 Start Development</strong><br/>Épicas 1-4 MVS (si docs dinámicos/estáticos confirmados)</td>
+                            <td class="action-owner">Nico + equipo Quarks</td>
+                            <td class="action-deadline">Lunes 6/1</td>
+                            <td>🟡 Ready (bloqueado por docs)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🎨 Design review: animaciones</strong><br/>Saldo de diseño con Marcos</td>
+                            <td class="action-owner">Olivier + Marcos</td>
+                            <td class="action-deadline">Viernes 5/31</td>
+                            <td>🟢 Scheduled</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- NOTAS IMPORTANTES -->
+        <section>
+            <h2>📝 Notas de Refinamiento</h2>
+            <div class="content">
+                <ul class="blocker-list">
+                    <li class="blocker-item">
+                        <div class="blocker-icon">📚</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">Documentos: 5 PDFs individuales + visualización en sheet</div>
+                            <div class="blocker-desc">Usuario firma 5 documentos separados (no fusionados). Backoffice puede descargarlos: máx 5 préstamos por descarga (25 archivos en ZIP para MVP).</div>
+                        </div>
+                    </li>
+                    <li class="blocker-item">
+                        <div class="blocker-icon">💰</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">Desembolso: Queue + Retry Logic</div>
+                            <div class="blocker-desc">Si sin fondos → queue, retry cada ~2 horas. UX para "no hay fondos" (mail? dashboard?) se define en próximo sprint.</div>
+                        </div>
+                    </li>
+                    <li class="blocker-item">
+                        <div class="blocker-icon">👤</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">PJ/PF: Agnóstico</div>
+                            <div class="blocker-desc">Tanto PF (persona física) como PJ (persona jurídica) usan el mismo flujo. La Mantovana sube Excel con cuotas → sistema desva de sueldo idénticamente.</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- TIMELINE -->
+        <section>
+            <h2>📅 Timeline Crítica</h2>
+            <div class="content">
+                <div style="display: flex; flex-direction: column; gap: 1rem; font-size: 0.95rem;">
+                    <div style="padding: 1rem; background: #f8d7da; border-left: 4px solid #e74c3c; border-radius: 4px;">
+                        <strong>Hoy, 27/5</strong> — Seba: mail sobre desembolso 24h + PR feedback
+                    </div>
+                    <div style="padding: 1rem; background: #fff3cd; border-left: 4px solid #f39c12; border-radius: 4px;">
+                        <strong>Viernes 31/5 (mañana)</strong> — Tripartite meeting HTML docs + Design review animaciones + Olivier respuesta dinámicos/estáticos
+                    </div>
+                    <div style="padding: 1rem; background: #d4edda; border-left: 4px solid #27ae60; border-radius: 4px;">
+                        <strong>Lunes 1/6</strong> — Nico comienza desarrollo épicas MVS (si docs confirmados)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>PERC Flujo Crédito — MVP Status Board | Generado 2026-05-27 | <a href="#" style="color: #3498db; text-decoration: none;">Editar</a></p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERC — Definiciones Pendientes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fa;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #1a1a1a;
+            font-size: 1.8rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        thead {
+            background: #2c3e50;
+            color: white;
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #ecf0f1;
+            font-size: 0.95rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        /* Columnas */
+        .col-definition {
+            font-weight: 500;
+            color: #1a1a1a;
+            max-width: 300px;
+        }
+
+        .col-owner {
+            color: #3498db;
+            font-weight: 500;
+        }
+
+        .col-since {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .col-blocks {
+            color: #e74c3c;
+            font-size: 0.9rem;
+        }
+
+        .col-deadline {
+            font-weight: 600;
+        }
+
+        .deadline-critical {
+            color: #e74c3c;
+            background: #ffe6e6;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+        }
+
+        .deadline-soon {
+            color: #f39c12;
+            background: #fff3cd;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+        }
+
+        .deadline-none {
+            color: #95a5a6;
+        }
+
+        .blocker-row {
+            background: #fff5f5;
+        }
+
+        .blocker-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #e74c3c;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            color: #95a5a6;
+            font-size: 0.85rem;
+            margin-top: 2rem;
+        }
+
+        .filter-section {
+            margin-bottom: 1.5rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .filter-label {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ecf0f1;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #2c3e50;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            background: #ecf0f1;
+        }
+
+        .filter-btn.active {
+            background: #2c3e50;
+            color: white;
+            border-color: #2c3e50;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .stat-card.blocking {
+            border-left-color: #e74c3c;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 PERC — Definiciones Pendientes</h1>
+            <p class="subtitle">Qué está esperando respuesta de PERC para poder avanzar</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-card blocking">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Bloqueadores críticos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Sin deadline asignado</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1</div>
+                <div class="stat-label">Deadline: mañana</div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 35%;">Definición Pendiente</th>
+                    <th style="width: 15%;">Responsable PERC</th>
+                    <th style="width: 12%;">Desde</th>
+                    <th style="width: 20%;">Bloquea</th>
+                    <th style="width: 18%;">Deadline</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- CRITICAL: HTML DOCS -->
+                <tr class="blocker-row">
+                    <td class="col-definition">
+                        <span class="blocker-indicator"></span>
+                        <strong>¿Documentos dinámicos o estáticos?</strong>
+                        <br/>
+                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">¿Los PDFs incluyen variables del usuario (dinámicos) o son siempre iguales (estáticos)? Impacta si necesitamos parser + mapeo de variables.</span>
+                    </td>
+                    <td class="col-owner">Patricio Ertola<br/>(Compliance)</td>
+                    <td class="col-since">20 mayo<br/>(7 días)</td>
+                    <td class="col-blocks"><span class="blocker-indicator"></span>Épica 2: Firma Digital + TOTP<br/>Dev no puede arrancar lunes</td>
+                    <td class="col-deadline"><span class="deadline-critical">VIERNES 5/31<br/>mañana</span></td>
+                </tr>
+
+                <!-- DISBURSEMENT -->
+                <tr class="blocker-row">
+                    <td class="col-definition">
+                        <span class="blocker-indicator"></span>
+                        <strong>Plazo desembolso: ¿24h o 48h?</strong>
+                        <br/>
+                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Olivier sugirió 24h, pero requiere confirmación de Marcos (CEO PERC). Impacta messaging y expectativa del usuario.</span>
+                    </td>
+                    <td class="col-owner">Marcos Copello<br/>(CEO)</td>
+                    <td class="col-since">22 mayo<br/>(5 días)</td>
+                    <td class="col-blocks"><span class="blocker-indicator"></span>Messaging / UX esperanza<br/>+moderado</td>
+                    <td class="col-deadline"><span class="deadline-critical">HOY 5/27<br/>(Seba manda mail)</span></td>
+                </tr>
+
+                <!-- PRs -->
+                <tr class="blocker-row">
+                    <td class="col-definition">
+                        <span class="blocker-indicator"></span>
+                        <strong>Estado de PRs Watson</strong>
+                        <br/>
+                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">¿Cuántos PRs hay pendientes? ¿Cuál es su estado? ¿Qué feedback llegó? Necesario para validar integración.</span>
+                    </td>
+                    <td class="col-owner">Jose (Dev)<br/>→ Seba</td>
+                    <td class="col-since">27 mayo<br/>(hoy)</td>
+                    <td class="col-blocks"><span class="blocker-indicator"></span>Validación integración Watson<br/>+crítico</td>
+                    <td class="col-deadline"><span class="deadline-critical">ASAPprox</span></td>
+                </tr>
+
+                <!-- PJ FIELD -->
+                <tr>
+                    <td class="col-definition">
+                        <strong>Campo PJ en datos import</strong>
+                        <br/>
+                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">¿Los datos que envían incluyen flag/campo para identificar Personas Jurídicas? Requerido para que BO pueda filtrar PJ vs PF.</span>
+                    </td>
+                    <td class="col-owner">Seba / Marcos</td>
+                    <td class="col-since">27 mayo<br/>(hoy)</td>
+                    <td class="col-blocks">Backoffice filtering<br/>−menor (feature gate)</td>
+                    <td class="col-deadline"><span class="deadline-none">Sin deadline<br/>(puede ir post-MVP)</span></td>
+                </tr>
+
+                <!-- EARLY PAYMENT PENALTY -->
+                <tr>
+                    <td class="col-definition">
+                        <strong>¿Penalidad sobre intereses futuros?</strong>
+                        <br/>
+                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">En caso de cancelación anticipada, ¿se cobra % sobre intereses futuros como penalidad, o no? Afecta fórmula de cálculo.</span>
+                    </td>
+                    <td class="col-owner">Seba<br/>(con Fefe COO)</td>
+                    <td class="col-since">27 mayo<br/>(hoy)</td>
+                    <td class="col-blocks">Fórmula cancelación<br/>−menor (refinamiento)</td>
+                    <td class="col-deadline"><span class="deadline-none">Sin deadline<br/>(puede ir post-MVP)</span></td>
+                </tr>
+
+                <!-- LA MANTOVANA REPORT -->
+                <tr>
+                    <td class="col-definition">
+                        <strong>Reporte descarga de comprobantes (La Mantovana)</strong>
+                        <br/>
+                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Timing del reporte mensual aún unclear. Isis (La Mantovana/Finnegans) enviará artefactos (Excel + informe), pero timing de delivery no está definido.</span>
+                    </td>
+                    <td class="col-owner">Isis<br/>(La Mantovana) / Seba</td>
+                    <td class="col-since">20 mayo<br/>(7 días)</td>
+                    <td class="col-blocks">Feature La Mantovana<br/>−menor (post-MVP)</td>
+                    <td class="col-deadline"><span class="deadline-none">Sin deadline<br/>(feature gate)</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <footer>
+            <p>PERC Flujo Crédito — Definiciones Pendientes | Actualizado 27 de mayo, 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
