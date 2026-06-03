@@ -222,16 +222,16 @@
 
         <div class="stats">
             <div class="stat-card blocking">
-                <div class="stat-number">3</div>
-                <div class="stat-label">Bloqueadores críticos</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">2</div>
-                <div class="stat-label">Sin deadline asignado</div>
-            </div>
-            <div class="stat-card">
                 <div class="stat-number">1</div>
-                <div class="stat-label">Deadline: mañana</div>
+                <div class="stat-label">Bloqueador crítico</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Resueltos (jun 1-2)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Pendientes (menores / post-MVP)</div>
             </div>
         </div>
 
@@ -246,46 +246,70 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- CRITICAL: HTML DOCS -->
+                <!-- CRITICAL: DOCUMENT TEMPLATES -->
                 <tr class="blocker-row">
                     <td class="col-definition">
                         <span class="blocker-indicator"></span>
-                        <strong>¿Documentos dinámicos o estáticos?</strong>
+                        <strong>Plantillas de documentos finales</strong>
                         <br/>
-                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">¿Los PDFs incluyen variables del usuario (dinámicos) o son siempre iguales (estáticos)? Impacta si necesitamos parser + mapeo de variables.</span>
+                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Definición exacta de 5 documentos: cuáles dinámicos, cuáles estáticos, formato (HTML requerido), tamaño en MB. Escalado al CEO para urgencia.</span>
                     </td>
-                    <td class="col-owner">Patricio Ertola<br/>(Compliance)</td>
-                    <td class="col-since">20 mayo<br/>(7 días)</td>
-                    <td class="col-blocks"><span class="blocker-indicator"></span>Épica 2: Firma Digital + TOTP<br/>Dev no puede arrancar lunes</td>
-                    <td class="col-deadline"><span class="deadline-critical">VIERNES 5/31<br/>mañana</span></td>
+                    <td class="col-owner">Patricio Ertola<br/>(Compliance PERC)</td>
+                    <td class="col-since">1 junio<br/>(sprint planning)</td>
+                    <td class="col-blocks"><span class="blocker-indicator"></span>Sprint 3: Firma Digital + TOTP<br/>Dev no puede hacer CRUD</td>
+                    <td class="col-deadline"><span class="deadline-critical">Esta semana<br/>(urgente)</span></td>
                 </tr>
 
-                <!-- DISBURSEMENT -->
-                <tr class="blocker-row">
+                <!-- RESOLVED: DOCUMENTS DYNAMIC/STATIC -->
+                <tr style="background: #f0f9f7;">
                     <td class="col-definition">
-                        <span class="blocker-indicator"></span>
-                        <strong>Plazo desembolso: ¿24h o 48h?</strong>
+                        <strong>✅ Documentos dinámicos confirmados</strong>
                         <br/>
-                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Olivier sugirió 24h, pero requiere confirmación de Marcos (CEO PERC). Impacta messaging y expectativa del usuario.</span>
+                        <span style="color: #27ae60; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Decisión: Documentos incluyen variables del usuario/préstamo. Confirmado por Sebastián (1/6 design review). Formato: HTML (no PDF).</span>
+                    </td>
+                    <td class="col-owner">Sebastián<br/>(PERC tech)</td>
+                    <td class="col-since">1 junio<br/>(resuelto)</td>
+                    <td style="color: #27ae60;">Épica 2: Listo<br/>TOTP + firma</td>
+                    <td style="color: #27ae60; font-weight: 600;">✅ Resuelto 1/6</td>
+                </tr>
+
+                <!-- RESOLVED: DISBURSEMENT TIME -->
+                <tr style="background: #f0f9f7;">
+                    <td class="col-definition">
+                        <strong>✅ Plazo desembolso: 24 horas</strong>
+                        <br/>
+                        <span style="color: #27ae60; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Confirmado por Marcos (CEO PERC) en Sprint 2 Review (2/6). Sistema intenta desembolso inmediatamente si hay fondos; si no, entra en queue.</span>
                     </td>
                     <td class="col-owner">Marcos Copello<br/>(CEO)</td>
-                    <td class="col-since">22 mayo<br/>(5 días)</td>
-                    <td class="col-blocks"><span class="blocker-indicator"></span>Messaging / UX esperanza<br/>+moderado</td>
-                    <td class="col-deadline"><span class="deadline-critical">HOY 5/27<br/>(Seba manda mail)</span></td>
+                    <td class="col-since">2 junio<br/>(resuelto)</td>
+                    <td style="color: #27ae60;">Messaging: claro<br/>+timing</td>
+                    <td style="color: #27ae60; font-weight: 600;">✅ Resuelto 2/6</td>
                 </tr>
 
-                <!-- PRs -->
-                <tr class="blocker-row">
+                <!-- RESOLVED: CANCELLATION SCENARIOS -->
+                <tr style="background: #f0f9f7;">
                     <td class="col-definition">
-                        <span class="blocker-indicator"></span>
-                        <strong>Estado de PRs Watson</strong>
+                        <strong>✅ 4 escenarios de cancelación</strong>
                         <br/>
-                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">¿Cuántos PRs hay pendientes? ¿Cuál es su estado? ¿Qué feedback llegó? Necesario para validar integración.</span>
+                        <span style="color: #27ae60; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Definidos en planning (2/6): (1) user cancel 24h, (2) auto-cancel 24h sin fondos, (3) arrepentimiento 10 días sin costo, (4) precancelación anticipada con costo.</span>
                     </td>
-                    <td class="col-owner">Jose (Dev)<br/>→ Seba</td>
-                    <td class="col-since">27 mayo<br/>(hoy)</td>
-                    <td class="col-blocks"><span class="blocker-indicator"></span>Validación integración Watson<br/>+crítico</td>
-                    <td class="col-deadline"><span class="deadline-critical">ASAPprox</span></td>
+                    <td class="col-owner">Olivier + equipo<br/>PERC/Quarks</td>
+                    <td class="col-since">2 junio<br/>(resuelto)</td>
+                    <td style="color: #27ae60;">UX cancelación<br/>clara</td>
+                    <td style="color: #27ae60; font-weight: 600;">✅ Resuelto 2/6</td>
+                </tr>
+
+                <!-- RESOLVED: TOTP MANDATORY -->
+                <tr style="background: #f0f9f7;">
+                    <td class="col-definition">
+                        <strong>✅ TOTP obligatorio para firmar</strong>
+                        <br/>
+                        <span style="color: #27ae60; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Decisión: TOTP requerido antes de guardar documentos. Si falla TOTP, documentos NO se persisten. Reintento: 3 errores máx, 11 min de expiración.</span>
+                    </td>
+                    <td class="col-owner">Nico + Olivier<br/>(planning)</td>
+                    <td class="col-since">2 junio<br/>(resuelto)</td>
+                    <td style="color: #27ae60;">Firma segura<br/>validada</td>
+                    <td style="color: #27ae60; font-weight: 600;">✅ Resuelto 2/6</td>
                 </tr>
 
                 <!-- PJ FIELD -->
@@ -301,17 +325,69 @@
                     <td class="col-deadline"><span class="deadline-none">Sin deadline<br/>(puede ir post-MVP)</span></td>
                 </tr>
 
-                <!-- EARLY PAYMENT PENALTY -->
+                <!-- HTML RESTRICTIONS -->
                 <tr>
                     <td class="col-definition">
-                        <strong>¿Penalidad sobre intereses futuros?</strong>
+                        <strong>Restricciones de archivos HTML</strong>
                         <br/>
-                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">En caso de cancelación anticipada, ¿se cobra % sobre intereses futuros como penalidad, o no? Afecta fórmula de cálculo.</span>
+                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Tamaño máximo, sanitización, prevención XSS de los HTML de documentos dinámicos. Necesario para el ABM seguro de documentos del Sprint 3.</span>
+                    </td>
+                    <td class="col-owner">Ari + Tano<br/>(Cyber PERC)</td>
+                    <td class="col-since">20 mayo<br/>(13+ días)</td>
+                    <td class="col-blocks">Sprint 3: ABM documentos<br/>−moderado (seguridad)</td>
+                    <td class="col-deadline"><span class="deadline-soon">Junto con docs<br/>(esta semana)</span></td>
+                </tr>
+
+                <!-- AUTO-CANCEL NOTIFICATION -->
+                <tr>
+                    <td class="col-definition">
+                        <strong>Notificación al usuario en auto-cancelación 24h</strong>
+                        <br/>
+                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Si el sistema auto-cancela tras 24h sin fondos, ¿quién avisa al usuario y cómo? Ownership: ¿backend PERC o capa de messaging Quarks? Ezequiel también marcó riesgo macro (variación de tasas).</span>
+                    </td>
+                    <td class="col-owner">Marcos / Seba<br/>(+ Ezequiel)</td>
+                    <td class="col-since">2 junio<br/>(planning)</td>
+                    <td class="col-blocks">Sprint 4: cancelación<br/>−menor (UX/messaging)</td>
+                    <td class="col-deadline"><span class="deadline-none">Antes Sprint 4<br/>(T&C a definir)</span></td>
+                </tr>
+
+                <!-- IVA CANCELLATION -->
+                <tr>
+                    <td class="col-definition">
+                        <strong>IVA en cancelaciones: ¿siempre o condicional?</strong>
+                        <br/>
+                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">¿Se cobra IVA sobre cancelación siempre, o solo si el usuario no paga en término? Olivier observó que es raro cobrarlo si el usuario pagó bien. Seba rearmando la tabla del Excel.</span>
+                    </td>
+                    <td class="col-owner">Seba<br/>(Compliance)</td>
+                    <td class="col-since">27 mayo<br/>(7+ días)</td>
+                    <td class="col-blocks">Fórmula cancelación<br/>−menor (refinamiento)</td>
+                    <td class="col-deadline"><span class="deadline-none">Antes Sprint 4</span></td>
+                </tr>
+
+                <!-- BIND DISCLOSURE -->
+                <tr>
+                    <td class="col-definition">
+                        <strong>¿Avisar que la operación va por BIND?</strong>
+                        <br/>
+                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Compliance: ¿es obligatorio informar al usuario que la operación se procesa vía BIND (o equivalente)? ¿En qué paso? Pendiente desde el 8 de abril.</span>
+                    </td>
+                    <td class="col-owner">Seba<br/>(Compliance)</td>
+                    <td class="col-since">8 abril<br/>(8 semanas)</td>
+                    <td class="col-blocks">Messaging / compliance<br/>−menor</td>
+                    <td class="col-deadline"><span class="deadline-none">Sin deadline</span></td>
+                </tr>
+
+                <!-- RESOLVED: EARLY PAYMENT PENALTY -->
+                <tr style="background: #f0f9f7;">
+                    <td class="col-definition">
+                        <strong>✅ Penalidad sobre intereses futuros</strong>
+                        <br/>
+                        <span style="color: #27ae60; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Confirmado: en precancelación anticipada se aplica costo. Definido en última review con cliente. Fórmula de cálculo cerrada.</span>
                     </td>
                     <td class="col-owner">Seba<br/>(con Fefe COO)</td>
-                    <td class="col-since">27 mayo<br/>(hoy)</td>
-                    <td class="col-blocks">Fórmula cancelación<br/>−menor (refinamiento)</td>
-                    <td class="col-deadline"><span class="deadline-none">Sin deadline<br/>(puede ir post-MVP)</span></td>
+                    <td class="col-since">jun<br/>(resuelto)</td>
+                    <td style="color: #27ae60;">Fórmula cancelación<br/>cerrada</td>
+                    <td style="color: #27ae60; font-weight: 600;">✅ Resuelto</td>
                 </tr>
 
                 <!-- LA MANTOVANA REPORT -->
@@ -329,8 +405,53 @@
             </tbody>
         </table>
 
+        <header style="margin-top: 2rem;">
+            <h1>🛠️ Pendientes Internos (Quarks)</h1>
+            <p class="subtitle">No esperan respuesta de PERC — definiciones/trabajo de nuestro lado</p>
+        </header>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 35%;">Pendiente Interno</th>
+                    <th style="width: 15%;">Responsable</th>
+                    <th style="width: 12%;">Desde</th>
+                    <th style="width: 20%;">Impacta</th>
+                    <th style="width: 18%;">Prioridad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- TOTP SECURITY GAP -->
+                <tr class="blocker-row">
+                    <td class="col-definition">
+                        <span class="blocker-indicator"></span>
+                        <strong>TOTP security gap</strong>
+                        <br/>
+                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">El TOTP actual solo bloquea la UI: un actor con token de usuario válido puede llamar el endpoint de transferencia directamente sin pasar por TOTP. ¿Se puede resolver sin breaking changes en la implementación existente?</span>
+                    </td>
+                    <td class="col-owner">Nico + Joy<br/>(integración)</td>
+                    <td class="col-since">20 mayo<br/>(13+ días)</td>
+                    <td class="col-blocks"><span class="blocker-indicator"></span>Sprint 3/4: firma + desembolso<br/>+seguridad</td>
+                    <td class="col-deadline"><span class="deadline-soon">Alta<br/>(seguridad)</span></td>
+                </tr>
+
+                <!-- TAB BAR REDESIGN -->
+                <tr>
+                    <td class="col-definition">
+                        <strong>Tab bar redesign</strong>
+                        <br/>
+                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Incorporar préstamos a la navegación requiere rediseñar el tab bar (hoy: QR / perfil / home). ¿Cuál es el nuevo esquema de navegación?</span>
+                    </td>
+                    <td class="col-owner">Olivier<br/>(diseño)</td>
+                    <td class="col-since">20 mayo<br/>(13+ días)</td>
+                    <td class="col-blocks">UX navegación app<br/>−menor</td>
+                    <td class="col-deadline"><span class="deadline-none">Media<br/>(no bloquea dev)</span></td>
+                </tr>
+            </tbody>
+        </table>
+
         <footer>
-            <p>PERC Flujo Crédito — Definiciones Pendientes | Actualizado 27 de mayo, 2026</p>
+            <p>PERC Flujo Crédito — Definiciones Pendientes | Actualizado 2 de junio, 2026 (Sprint 2 Review + Planning)</p>
         </footer>
     </div>
 </body>

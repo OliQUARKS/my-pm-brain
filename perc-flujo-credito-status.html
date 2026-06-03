@@ -48,6 +48,46 @@
             margin-top: 0.5rem;
         }
 
+        /* Overall progress in header */
+        .overall-progress {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        .overall-progress-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .overall-progress-label .label {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+
+        .overall-progress-label .pct {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .progress-track {
+            background: #ecf0f1;
+            border-radius: 12px;
+            height: 18px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 12px;
+            background: linear-gradient(90deg, #27ae60 0%, #2ecc71 100%);
+            transition: width 0.4s ease;
+        }
+
         section {
             margin-bottom: 2rem;
             background: white;
@@ -68,74 +108,197 @@
             padding: 1.5rem;
         }
 
-        /* Epic cards */
-        .epic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-        }
-
-        .epic-card {
+        /* Sprint cards */
+        .sprint-card {
             border-left: 4px solid #3498db;
-            padding: 1rem;
+            padding: 1.25rem;
             background: #f8f9fa;
             border-radius: 4px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 1rem;
         }
 
-        .epic-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        .sprint-card:last-child {
+            margin-bottom: 0;
         }
 
-        .epic-card.blocked {
-            border-left-color: #e74c3c;
-        }
-
-        .epic-card.in-progress {
-            border-left-color: #f39c12;
-        }
-
-        .epic-card.ready {
+        .sprint-card.done {
             border-left-color: #27ae60;
         }
 
-        .epic-title {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: #1a1a1a;
-            margin-bottom: 0.5rem;
+        .sprint-card.almost {
+            border-left-color: #16a085;
         }
 
-        .epic-status {
+        .sprint-card.in-progress {
+            border-left-color: #f39c12;
+        }
+
+        .sprint-card.upcoming {
+            border-left-color: #95a5a6;
+        }
+
+        .sprint-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .sprint-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #1a1a1a;
+        }
+
+        .sprint-status-badge {
             display: inline-block;
-            padding: 0.25rem 0.75rem;
+            padding: 0.2rem 0.7rem;
             border-radius: 16px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             text-transform: uppercase;
-            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
         }
 
-        .status-ready {
+        .badge-done {
             background: #d4edda;
             color: #155724;
         }
 
-        .status-in-progress {
+        .badge-almost {
+            background: #d1f2eb;
+            color: #0e6655;
+        }
+
+        .badge-in-progress {
             background: #fff3cd;
             color: #856404;
         }
 
-        .status-blocked {
-            background: #f8d7da;
-            color: #721c24;
+        .badge-upcoming {
+            background: #e9ecef;
+            color: #495057;
         }
 
-        .epic-size {
+        .sprint-desc {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+
+        .sprint-desc ul {
+            margin: 0.4rem 0 0 1.2rem;
+        }
+
+        .sprint-desc li {
+            margin-bottom: 0.2rem;
+        }
+
+        .sprint-progress-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .sprint-progress-row .progress-track {
+            flex: 1;
+            height: 12px;
+        }
+
+        .sprint-progress-row .pct {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #2c3e50;
+            min-width: 42px;
+            text-align: right;
+        }
+
+        .fill-done { background: linear-gradient(90deg, #27ae60 0%, #2ecc71 100%); }
+        .fill-almost { background: linear-gradient(90deg, #16a085 0%, #1abc9c 100%); }
+        .fill-in-progress { background: linear-gradient(90deg, #f39c12 0%, #f1c40f 100%); }
+        .fill-upcoming { background: linear-gradient(90deg, #95a5a6 0%, #bdc3c7 100%); }
+
+        .sprint-pending {
+            margin-top: 0.75rem;
             font-size: 0.85rem;
-            color: #666;
-            margin-top: 0.5rem;
+            color: #c0392b;
+            background: #fdf0ee;
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+        }
+
+        /* Collapsible sprint */
+        details.sprint-card {
+            padding: 0;
+        }
+
+        details.sprint-card > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 1.25rem;
+            outline: none;
+            user-select: none;
+        }
+
+        details.sprint-card > summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.sprint-card > summary::after {
+            content: "▸ ver alcance";
+            display: inline-block;
+            font-size: 0.75rem;
+            color: #7f8c8d;
+            font-weight: 600;
+            margin-top: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        details.sprint-card[open] > summary::after {
+            content: "▾ ocultar alcance";
+        }
+
+        details.sprint-card > summary:hover .sprint-title {
+            text-decoration: underline;
+        }
+
+        .sprint-detail {
+            padding: 0 1.25rem 1.25rem 1.25rem;
+            border-top: 1px solid #e8e8e8;
+            margin-top: -0.25rem;
+        }
+
+        .sprint-detail .scope-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #7f8c8d;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .sprint-detail ul {
+            margin: 0 0 0 1.2rem;
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .sprint-detail ul li {
+            margin-bottom: 0.3rem;
+        }
+
+        .scope-done li::marker { color: #27ae60; }
+        .scope-pending li::marker { color: #f39c12; }
+
+        .source-tag {
+            font-size: 0.78rem;
+            color: #95a5a6;
+            font-style: italic;
         }
 
         /* Blockers */
@@ -219,26 +382,6 @@
             font-size: 0.9rem;
         }
 
-        /* Legend */
-        .legend {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            font-size: 0.9rem;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .legend-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 3px;
-        }
-
         footer {
             text-align: center;
             color: #999;
@@ -252,165 +395,297 @@
     <div class="container">
         <header>
             <h1>🎯 PERC Flujo Crédito</h1>
-            <p class="subtitle">MVP Status Board — Préstamos Online</p>
-            <p class="status-date">Estado: 27 de mayo, 2026 | Próxima revisión: 31 de mayo (mañana)</p>
+            <p class="subtitle">MVP Status Board — Préstamos Online | 4 sprints (PRD)</p>
+            <p class="status-date">Estado: 2 de junio, 2026 (Sprint 3 en desarrollo) | Próxima review cliente: martes 17 de junio</p>
+
+            <div class="overall-progress">
+                <div class="overall-progress-label">
+                    <span class="label">Progreso general del MVP</span>
+                    <span class="pct">55%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: 55%;"></div>
+                </div>
+            </div>
         </header>
 
-        <!-- ÉPICAS MVS -->
+        <!-- SPRINTS -->
         <section>
-            <h2>📋 Épicas MVP</h2>
+            <h2>📋 Sprints (PRD) — clic para desplegar alcance</h2>
             <div class="content">
-                <div class="epic-grid">
-                    <div class="epic-card ready">
-                        <div class="epic-status status-ready">Ready</div>
-                        <div class="epic-title">1. Solicitud de Préstamo</div>
-                        <div class="epic-size">Tamaño: L | Validación tech stack</div>
-                    </div>
 
-                    <div class="epic-card blocked">
-                        <div class="epic-status status-blocked">Blocked</div>
-                        <div class="epic-title">2. Firma Digital + TOTP</div>
-                        <div class="epic-size">Tamaño: M | Bloqueante: ¿dinámico/estático?</div>
+                <!-- SPRINT 1 -->
+                <details class="sprint-card done">
+                    <summary>
+                        <div class="sprint-head">
+                            <span class="sprint-title">Sprint 1 — Arquitectura + Templates de préstamo</span>
+                            <span class="sprint-status-badge badge-done">Completado</span>
+                        </div>
+                        <div class="sprint-progress-row">
+                            <div class="progress-track"><div class="progress-fill fill-done" style="width: 100%;"></div></div>
+                            <span class="pct">100%</span>
+                        </div>
+                    </summary>
+                    <div class="sprint-detail">
+                        <p class="scope-label">Entregado</p>
+                        <ul class="scope-done">
+                            <li>Arquitectura y estructura base del backoffice</li>
+                            <li>CRUD de templates de préstamo: get (filtros, sort, paginado), create, update-as-new-row, delete lógico</li>
+                            <li>Template: nombre, descripción, tag (máx. 3 por tag), tasas calculadas (TEM, TNA, CFT)</li>
+                            <li>Versionado de templates: update = nueva row, preserva histórico de quienes ya tomaron el crédito</li>
+                            <li>Playground frontend de visualización (no adaptado a Watson aún)</li>
+                            <li>Convenciones técnicas: LUID IDs, tasas decimal 0–1, fechas ISO 8601 con timezone</li>
+                            <li>Tabla de auditoría con JSON diffs (snapshot por línea)</li>
+                            <li>PR aprobado por José (4 reviewers automáticos del lado Quarks) ✅</li>
+                        </ul>
+                        <p class="source-tag">Fuente: Sprint 1 Review (18/5), decisión LUID, PRD §3.B</p>
                     </div>
+                </details>
 
-                    <div class="epic-card ready">
-                        <div class="epic-status status-ready">Ready</div>
-                        <div class="epic-title">3. Desembolso a Sueldo</div>
-                        <div class="epic-size">Tamaño: M | Queue logic defined</div>
+                <!-- SPRINT 2 -->
+                <details class="sprint-card almost">
+                    <summary>
+                        <div class="sprint-head">
+                            <span class="sprint-title">Sprint 2 — Solicitud de préstamo + Visualización backoffice</span>
+                            <span class="sprint-status-badge badge-almost">Casi listo</span>
+                        </div>
+                        <div class="sprint-progress-row">
+                            <div class="progress-track"><div class="progress-fill fill-almost" style="width: 95%;"></div></div>
+                            <span class="pct">95%</span>
+                        </div>
+                    </summary>
+                    <div class="sprint-detail">
+                        <p class="scope-label">Lado usuario (app)</p>
+                        <ul class="scope-done">
+                            <li>Visualizar templates de préstamo filtrados por su tag (ej. "empleado" ve 3, "gerente" ve 1)</li>
+                            <li>Ver detalle del préstamo (simulador) + solicitarlo + pantalla de confirmación</li>
+                        </ul>
+                        <p class="scope-label">Lado backoffice</p>
+                        <ul class="scope-done">
+                            <li>Dashboard de solicitudes de cada persona con estados (pending, in-progress, rejected, expired)</li>
+                            <li>Al solicitar, se graba la versión del template elegido (pin a versión — discriminado si hay varias)</li>
+                            <li>Acciones: aprobar / rechazar / expirar (aprobación manual por ahora; se automatiza después)</li>
+                            <li>Filtrar y exportar a Excel (el export muestra el template ID / versión pinned)</li>
+                            <li>Validación: el usuario no puede crear segunda solicitud activa hasta cancelar/expirar/pagar la primera</li>
+                        </ul>
+                        <p class="scope-label">Fuera de este sprint</p>
+                        <ul>
+                            <li>Documentos, cancelación, desembolso (no se tocan acá)</li>
+                        </ul>
+                        <div class="sprint-pending">⏳ Falta: aprobación del PR del Sprint 2 por parte de PERC → cierra al 100%</div>
+                        <p class="source-tag">Fuente: Sprint 2 Review (2/6), Planning Interna (2/6)</p>
                     </div>
+                </details>
 
-                    <div class="epic-card ready">
-                        <div class="epic-status status-ready">Ready</div>
-                        <div class="epic-title">4. Cancelación Manual</div>
-                        <div class="epic-size">Tamaño: S | Estados definidos</div>
+                <!-- SPRINT 3 -->
+                <details class="sprint-card in-progress" open>
+                    <summary>
+                        <div class="sprint-head">
+                            <span class="sprint-title">Sprint 3 — Documentos + Firma + TOTP</span>
+                            <span class="sprint-status-badge badge-in-progress">En desarrollo</span>
+                        </div>
+                        <div class="sprint-progress-row">
+                            <div class="progress-track"><div class="progress-fill fill-in-progress" style="width: 15%;"></div></div>
+                            <span class="pct">15%</span>
+                        </div>
+                    </summary>
+                    <div class="sprint-detail">
+                        <p class="scope-label">Gestión de documentos (backoffice)</p>
+                        <ul>
+                            <li>ABM de documentos unitarios: dar de alta, dar de baja, "reemplazar" (= crear nueva versión + apuntar a ella)</li>
+                            <li>Versionado con activación explícita: versiones publicadas son inmutables; el BO elige cuál está activa (decisión 20/5)</li>
+                            <li>Relación entre versiones del mismo documento (no se pierde el versionado)</li>
+                            <li>Definir el orden de los documentos (para armar la sábana)</li>
+                            <li>Registro en auditoría de cada acción (quién dio de alta/baja/reemplazó, cuándo)</li>
+                        </ul>
+                        <p class="scope-label">Lado cliente + firma</p>
+                        <ul>
+                            <li>Generar documento sábana (consolidado, render-only, no persiste) y mostrarlo al cliente en HTML</li>
+                            <li>Documentos dinámicos: inyección de variables del usuario/préstamo en el HTML</li>
+                            <li>TOTP: solicitar código + validar (3 intentos máx, 11 min de expiración, errores: incorrecto / expirado / ya usado)</li>
+                            <li>Firma digital embebida en cada documento unitario (timestamp, IP, MAC, ubicación opcional)</li>
+                            <li>Documento marcado visiblemente como firmado, con datos de quién firmó</li>
+                            <li>Si falla TOTP → NO se guardan los documentos (gate obligatorio)</li>
+                            <li>Tras firma exitosa, la solicitud pasa a estado pendiente</li>
+                        </ul>
+                        <p class="scope-label">Almacenamiento + auditoría</p>
+                        <ul>
+                            <li>Guardar documentos unitarios firmados (no la sábana) para auditoría</li>
+                            <li>Descargar documentos firmados en BO: filtrar / buscar / ordenar, export .zip, máx 25 (5 docs × 5 préstamos)</li>
+                            <li>Filtrado por tipo de persona (PF / PJ)</li>
+                        </ul>
+                        <div class="sprint-pending">⏳ Bloqueante: definiciones finales de documentos (cuáles dinámicos/estáticos, formato HTML, tamaño en MB). Escalado al CEO.</div>
+                        <p class="source-tag">Fuente: Planning Interna (2/6), decisiones CRUD-versionado + sábana-no-persiste (20/5)</p>
                     </div>
+                </details>
 
-                    <div class="epic-card in-progress">
-                        <div class="epic-status status-in-progress">In Progress</div>
-                        <div class="epic-title">5. Backoffice Avanzado</div>
-                        <div class="epic-size">Tamaño: XL | Depende: MVP completado</div>
+                <!-- SPRINT 4 -->
+                <details class="sprint-card upcoming">
+                    <summary>
+                        <div class="sprint-head">
+                            <span class="sprint-title">Sprint 4 — Desembolso + Cancelaciones</span>
+                            <span class="sprint-status-badge badge-upcoming">Próximo</span>
+                        </div>
+                        <div class="sprint-progress-row">
+                            <div class="progress-track"><div class="progress-fill fill-upcoming" style="width: 8%;"></div></div>
+                            <span class="pct">8%</span>
+                        </div>
+                    </summary>
+                    <div class="sprint-detail">
+                        <p class="scope-label">Desembolso</p>
+                        <ul>
+                            <li>Desembolso del préstamo a cuenta sueldo (validación de saldo en cuenta recaudadora)</li>
+                            <li>Si hay fondos → transferencia inmediata (fondeado); si no → queda en pendiente</li>
+                            <li>Visualización cliente: estado de cuotas, deuda restante, próxima cuota, monto solicitado</li>
+                        </ul>
+                        <p class="scope-label">Cancelaciones (4 escenarios)</p>
+                        <ul>
+                            <li>Cancelación de la solicitud si aún no se depositó (within 24h)</li>
+                            <li>Auto-cancelación tras 24h sin fondos</li>
+                            <li>Arrepentimiento: 10 días post-desembolso, sin costo (flujo manual)</li>
+                            <li>Precancelación anticipada: con costo (capital restante + penalidad int. futuros + comisión + IVA)</li>
+                        </ul>
+                        <p class="scope-label">Ciclo de cobro — La Mantovana</p>
+                        <ul>
+                            <li>Reporte de novedades (sistema → La Mantovana): archivo de préstamos nuevos, ~día 20, matching por CUIL/DNI</li>
+                            <li>Reporte de confirmación (La Mantovana → sistema): doble check de que la cuota fue retenida</li>
+                        </ul>
+                        <div class="sprint-pending">⏳ Pendiente: ida y vuelta con La Mantovana (formato + timing del reporte bidireccional, deadline 12/6)</div>
+                        <p class="source-tag">Fuente: PRD §3-4, Review cliente, Planning Interna (2/6)</p>
                     </div>
-                </div>
+                </details>
+
             </div>
         </section>
 
-        <!-- BLOCKERS CRÍTICOS -->
+        <!-- BLOCKERS PENDIENTES -->
         <section>
-            <h2>🚨 Blockers Críticos</h2>
+            <h2>🚨 Blockers Pendientes</h2>
             <div class="content">
                 <ul class="blocker-list">
                     <li class="blocker-item">
                         <div class="blocker-icon">📄</div>
                         <div class="blocker-content">
-                            <div class="blocker-title">Documentos: ¿Dinámicos o Estáticos?</div>
-                            <div class="blocker-desc">Impacta épica 2 (Firma Digital). Requiere decision de Patricio (Compliance, PERC) sobre si documentos incluyen variables del usuario.</div>
-                            <div class="blocker-action">⏰ Deadline: VIERNES 5/31 a la mañana — Nico necesita respuesta antes que arranque dev el lunes</div>
-                        </div>
-                    </li>
-
-                    <li class="blocker-item">
-                        <div class="blocker-icon">⏱️</div>
-                        <div class="blocker-content">
-                            <div class="blocker-title">Plazo Desembolso (24h confirmación pendiente)</div>
-                            <div class="blocker-desc">Olivier sugirió 24h, pero Marcos (CEO PERC) no confirmó aún. Seba enviará mail hoy.</div>
-                            <div class="blocker-action">Owner: Seba | Próx: Mail a Marcos | Impact: Moderado (afecta messaging, no dev)</div>
+                            <div class="blocker-title">Plantillas de documentos finales (CRÍTICO — Sprint 3)</div>
+                            <div class="blocker-desc">Definición exacta de los documentos: cuáles son dinámicos, cuáles estáticos, formato (HTML requerido para dinámicos), tamaño en MB. Sin esto, el ABM de documentos no puede avanzar.</div>
+                            <div class="blocker-action">🚀 Escalado al CEO (1/6) | Requerido esta semana</div>
                         </div>
                     </li>
 
                     <li class="blocker-item">
                         <div class="blocker-icon">💻</div>
                         <div class="blocker-content">
-                            <div class="blocker-title">PRs Feedback (Jose PERC)</div>
-                            <div class="blocker-desc">Nico necesita saber qué PRs están pendientes y estado. Seba se lo averigua con Jose en Discord.</div>
-                            <div class="blocker-action">Owner: Seba | Status: Discovery | Impact: Medium</div>
+                            <div class="blocker-title">Aprobación PR Sprint 2 (PERC)</div>
+                            <div class="blocker-desc">Sprint 2 entregado al 95%. Falta que PERC valide y apruebe el PR para cerrarlo al 100%.</div>
+                            <div class="blocker-action">Owner: PERC | Status: Pending review | Impact: Cierre de Sprint 2</div>
                         </div>
                     </li>
 
                     <li class="blocker-item">
                         <div class="blocker-icon">🏦</div>
                         <div class="blocker-content">
-                            <div class="blocker-title">Empleados PJ — Confirmación field en data</div>
-                            <div class="blocker-desc">PERC debe confirmar que proporciona flag/campo en import para identificar Personas Jurídicas. Nico necesita guardar en modelo para backoffice filtering.</div>
-                            <div class="blocker-action">Owner: Seba (with Marcos) | Status: Pending confirmation | Impact: Low (feature gate, puede ir post-MVP)</div>
+                            <div class="blocker-title">Ida y vuelta con La Mantovana (Sprint 4)</div>
+                            <div class="blocker-desc">Reporte de qué préstamos se solicitaron a La Mantovana, y la confirmación de descuento en haberes hacia nosotros. Timing del reporte aún sin definir.</div>
+                            <div class="blocker-action">Owner: Isis (La Mantovana) / Seba | Status: Pending | Impact: Sprint 4</div>
+                        </div>
+                    </li>
+
+                    <li class="blocker-item">
+                        <div class="blocker-icon">⚠️</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">PDF size validation (Sprint 3)</div>
+                            <div class="blocker-desc">Asumimos &lt;1MB por PDF, pero no validado aún. Si superan, necesita otro proceso de export. Nico valida cuando tenga documentos reales.</div>
+                            <div class="blocker-action">Owner: Nico | Status: Waiting on docs | Impact: Bajo (descarga en backoffice)</div>
+                        </div>
+                    </li>
+
+                    <li class="blocker-item">
+                        <div class="blocker-icon">⚙️</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">Environment setup dev</div>
+                            <div class="blocker-desc">Nico pidió que se gestione el entorno de development desde ya, para evitar demoras de último momento en el próximo deploy.</div>
+                            <div class="blocker-action">Owner: Nico + PERC | Status: Pending queue | Impact: Deploy</div>
                         </div>
                     </li>
                 </ul>
             </div>
         </section>
 
-        <!-- NEXT ACTIONS -->
+        <!-- DECISIONES RESUELTAS -->
         <section>
-            <h2>✅ Próximos Pasos</h2>
-            <div class="content">
-                <table class="actions-table">
-                    <thead>
-                        <tr>
-                            <th>Acción</th>
-                            <th>Owner</th>
-                            <th>Deadline</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>📋 Tripartite meeting: HTML docs (dinámico/estático)</strong><br/>Participes: Patricio (Compliance PERC), Nicolas Ortiz (PERC tech), Nico (Quarks), Olivier</td>
-                            <td class="action-owner">Seba</td>
-                            <td class="action-deadline">Viernes 5/31 mañana</td>
-                            <td>🟥 Crítico</td>
-                        </tr>
-                        <tr>
-                            <td><strong>✉️ Confirmar plazo desembolso (24h)</strong><br/>Mail a Marcos</td>
-                            <td class="action-owner">Seba</td>
-                            <td class="action-deadline">Hoy 5/27</td>
-                            <td>🟡 In Progress</td>
-                        </tr>
-                        <tr>
-                            <td><strong>💬 Averiguar PRs feedback</strong><br/>Consultar con Jose (Dev PERC) en Discord</td>
-                            <td class="action-owner">Seba</td>
-                            <td class="action-deadline">Hoy 5/27</td>
-                            <td>🟡 Pending</td>
-                        </tr>
-                        <tr>
-                            <td><strong>🟢 Start Development</strong><br/>Épicas 1-4 MVS (si docs dinámicos/estáticos confirmados)</td>
-                            <td class="action-owner">Nico + equipo Quarks</td>
-                            <td class="action-deadline">Lunes 6/1</td>
-                            <td>🟡 Ready (bloqueado por docs)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>🎨 Design review: animaciones</strong><br/>Saldo de diseño con Marcos</td>
-                            <td class="action-owner">Olivier + Marcos</td>
-                            <td class="action-deadline">Viernes 5/31</td>
-                            <td>🟢 Scheduled</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- NOTAS IMPORTANTES -->
-        <section>
-            <h2>📝 Notas de Refinamiento</h2>
+            <h2>✅ Decisiones Recientes (1-2 junio)</h2>
             <div class="content">
                 <ul class="blocker-list">
                     <li class="blocker-item">
-                        <div class="blocker-icon">📚</div>
+                        <div class="blocker-icon">✅</div>
                         <div class="blocker-content">
-                            <div class="blocker-title">Documentos: 5 PDFs individuales + visualización en sheet</div>
-                            <div class="blocker-desc">Usuario firma 5 documentos separados (no fusionados). Backoffice puede descargarlos: máx 5 préstamos por descarga (25 archivos en ZIP para MVP).</div>
+                            <div class="blocker-title">Documentos dinámicos confirmados (formato HTML)</div>
+                            <div class="blocker-desc">Confirmado por Sebastián (1/6). Documentos incluyen variables del usuario/préstamo. Formato HTML (no PDF) para permitir inyección de variables + firma embebida.</div>
                         </div>
                     </li>
                     <li class="blocker-item">
-                        <div class="blocker-icon">💰</div>
+                        <div class="blocker-icon">✅</div>
                         <div class="blocker-content">
-                            <div class="blocker-title">Desembolso: Queue + Retry Logic</div>
-                            <div class="blocker-desc">Si sin fondos → queue, retry cada ~2 horas. UX para "no hay fondos" (mail? dashboard?) se define en próximo sprint.</div>
+                            <div class="blocker-title">Plazo desembolso: 24 horas</div>
+                            <div class="blocker-desc">Confirmado por Marcos (CEO) en Sprint 2 Review (2/6). Si hay fondos, transferencia inmediata; si no, queue.</div>
+                        </div>
+                    </li>
+                    <li class="blocker-item">
+                        <div class="blocker-icon">✅</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">TOTP obligatorio para firmar</div>
+                            <div class="blocker-desc">Si falla TOTP, documentos NO se persisten. 3 intentos máx, 11 min de expiración.</div>
+                        </div>
+                    </li>
+                    <li class="blocker-item">
+                        <div class="blocker-icon">✅</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">4 escenarios de cancelación definidos</div>
+                            <div class="blocker-desc">(1) user cancela within 24h sin fondos, (2) auto-cancel 24h sin fondos, (3) arrepentimiento 10 días sin costo, (4) precancelación anticipada con costo. Penalidad sobre intereses futuros: confirmada.</div>
+                        </div>
+                    </li>
+                    <li class="blocker-item">
+                        <div class="blocker-icon">✅</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">User stories divididas en subtareas atómicas</div>
+                            <div class="blocker-desc">Hecho. PRs más chicos + branch development con pull diario + pre-review los viernes para evitar fricción de último momento.</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ESTADOS DE PRÉSTAMO -->
+        <section>
+            <h2>📝 Estados de Préstamo + Notas de Refinamiento</h2>
+            <div class="content">
+                <ul class="blocker-list">
+                    <li class="blocker-item">
+                        <div class="blocker-icon">🔄</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">Estados de préstamo</div>
+                            <div class="blocker-desc"><strong>pending</strong> (espera fondos) → <strong>fondeado</strong> (transferidos, o directo si hay fondos), <strong>rejected</strong>, <strong>expired</strong> (24h sin fondos), <strong>in-progress</strong> (aprobado, en transferencia).</div>
+                        </div>
+                    </li>
+                    <li class="blocker-item">
+                        <div class="blocker-icon">📚</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">Documentos: unitarios + visualización "sábana"</div>
+                            <div class="blocker-desc">Usuario firma documentos unitarios (no fusionados). Backoffice muestra sábana (consolidada) al usuario, pero almacena unitarios por compliance. Descarga: máx 25 docs (5 por préstamo, 5 préstamos).</div>
+                        </div>
+                    </li>
+                    <li class="blocker-item">
+                        <div class="blocker-icon">🔐</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">Firma: metadata capturada</div>
+                            <div class="blocker-desc">Timestamp, IP, MAC (si existe), ubicación (opcional — depende de permisos mobile). Firma embebida en cada documento unitario.</div>
                         </div>
                     </li>
                     <li class="blocker-item">
                         <div class="blocker-icon">👤</div>
                         <div class="blocker-content">
-                            <div class="blocker-title">PJ/PF: Agnóstico</div>
-                            <div class="blocker-desc">Tanto PF (persona física) como PJ (persona jurídica) usan el mismo flujo. La Mantovana sube Excel con cuotas → sistema desva de sueldo idénticamente.</div>
+                            <div class="blocker-title">PJ/PF: Agnóstico en flujo</div>
+                            <div class="blocker-desc">PF (persona física) y PJ (persona jurídica) usan el mismo flujo. Backoffice puede filtrar por tipo, pero no cambia UX.</div>
                         </div>
                     </li>
                 </ul>
@@ -419,24 +694,30 @@
 
         <!-- TIMELINE -->
         <section>
-            <h2>📅 Timeline Crítica</h2>
+            <h2>📅 Timeline</h2>
             <div class="content">
                 <div style="display: flex; flex-direction: column; gap: 1rem; font-size: 0.95rem;">
-                    <div style="padding: 1rem; background: #f8d7da; border-left: 4px solid #e74c3c; border-radius: 4px;">
-                        <strong>Hoy, 27/5</strong> — Seba: mail sobre desembolso 24h + PR feedback
-                    </div>
-                    <div style="padding: 1rem; background: #fff3cd; border-left: 4px solid #f39c12; border-radius: 4px;">
-                        <strong>Viernes 31/5 (mañana)</strong> — Tripartite meeting HTML docs + Design review animaciones + Olivier respuesta dinámicos/estáticos
+                    <div style="padding: 1rem; background: #d4edda; border-left: 4px solid #27ae60; border-radius: 4px;">
+                        <strong>1 junio</strong> — Design review (Diseño - PERC): documentos dinámicos confirmados, UI decisions locked
                     </div>
                     <div style="padding: 1rem; background: #d4edda; border-left: 4px solid #27ae60; border-radius: 4px;">
-                        <strong>Lunes 1/6</strong> — Nico comienza desarrollo épicas MVS (si docs confirmados)
+                        <strong>2 junio</strong> — Sprint 2 review (demo completado) + Planning interna Sprint 3
+                    </div>
+                    <div style="padding: 1rem; background: #fff3cd; border-left: 4px solid #f39c12; border-radius: 4px;">
+                        <strong>Esta semana</strong> — 🚨 Obtener definiciones finales de documentos (escalado al CEO, CRÍTICO)
+                    </div>
+                    <div style="padding: 1rem; background: #fff3cd; border-left: 4px solid #f39c12; border-radius: 4px;">
+                        <strong>Viernes 7/6</strong> — Pre-review: validar historias Sprint 3 antes de final review
+                    </div>
+                    <div style="padding: 1rem; background: #f8d7da; border-left: 4px solid #e74c3c; border-radius: 4px;">
+                        <strong>Martes 17/6</strong> — Sprint 3 review con cliente (no 15/6, que es feriado)
                     </div>
                 </div>
             </div>
         </section>
 
         <footer>
-            <p>PERC Flujo Crédito — MVP Status Board | Generado 2026-05-27 | <a href="#" style="color: #3498db; text-decoration: none;">Editar</a></p>
+            <p>PERC Flujo Crédito — MVP Status Board | Actualizado 2026-06-02 (Sprint 2 Review + Planning Interna) | Fuente: ingestion/meetings/</p>
         </footer>
     </div>
 </body>
