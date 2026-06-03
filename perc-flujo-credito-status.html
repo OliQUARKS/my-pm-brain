@@ -396,15 +396,15 @@
         <header>
             <h1>🎯 PERC Flujo Crédito</h1>
             <p class="subtitle">MVP Status Board — Préstamos Online | 4 sprints (PRD)</p>
-            <p class="status-date">Estado: 2 de junio, 2026 (Sprint 3 en desarrollo) | Próxima review cliente: martes 17 de junio</p>
+            <p class="status-date">Estado: 3 de junio, 2026 (Sprint 3 bloqueado multifrente — Daily) | Próxima review cliente: martes 17 de junio</p>
 
             <div class="overall-progress">
                 <div class="overall-progress-label">
                     <span class="label">Progreso general del MVP</span>
-                    <span class="pct">55%</span>
+                    <span class="pct">56%</span>
                 </div>
                 <div class="progress-track">
-                    <div class="progress-fill" style="width: 55%;"></div>
+                    <div class="progress-fill" style="width: 56%;"></div>
                 </div>
             </div>
         </header>
@@ -443,15 +443,15 @@
                 </details>
 
                 <!-- SPRINT 2 -->
-                <details class="sprint-card almost">
+                <details class="sprint-card done">
                     <summary>
                         <div class="sprint-head">
                             <span class="sprint-title">Sprint 2 — Solicitud de préstamo + Visualización backoffice</span>
-                            <span class="sprint-status-badge badge-almost">Casi listo</span>
+                            <span class="sprint-status-badge badge-done">Completado</span>
                         </div>
                         <div class="sprint-progress-row">
-                            <div class="progress-track"><div class="progress-fill fill-almost" style="width: 95%;"></div></div>
-                            <span class="pct">95%</span>
+                            <div class="progress-track"><div class="progress-fill fill-done" style="width: 100%;"></div></div>
+                            <span class="pct">100%</span>
                         </div>
                     </summary>
                     <div class="sprint-detail">
@@ -472,8 +472,7 @@
                         <ul>
                             <li>Documentos, cancelación, desembolso (no se tocan acá)</li>
                         </ul>
-                        <div class="sprint-pending">⏳ Falta: aprobación del PR del Sprint 2 por parte de PERC → cierra al 100%</div>
-                        <p class="source-tag">Fuente: Sprint 2 Review (2/6), Planning Interna (2/6)</p>
+                        <p class="source-tag">Fuente: Sprint 2 Review (2/6), Planning Interna (2/6), PR aprobado por PERC (3/6)</p>
                     </div>
                 </details>
 
@@ -514,8 +513,8 @@
                             <li>Descargar documentos firmados en BO: filtrar / buscar / ordenar, export .zip, máx 25 (5 docs × 5 préstamos)</li>
                             <li>Filtrado por tipo de persona (PF / PJ)</li>
                         </ul>
-                        <div class="sprint-pending">⏳ Bloqueante: definiciones finales de documentos (cuáles dinámicos/estáticos, formato HTML, tamaño en MB). Escalado al CEO.</div>
-                        <p class="source-tag">Fuente: Planning Interna (2/6), decisiones CRUD-versionado + sábana-no-persiste (20/5)</p>
+                        <div class="sprint-pending">⏳ Bloqueo multifrente (Daily 3/6): además de las plantillas de documentos (escalado al CEO), el sprint está frenado por <strong>definiciones de arquitectura interna</strong> (relación de tablas, tabla de cuotas — PER-42) y por <strong>infraestructura</strong> (entorno dev/stage, bucket S3 + cadena de conexión). El dev solo puede avanzar andamiaje UI de las secciones de documentos.</div>
+                        <p class="source-tag">Fuente: Planning Interna (2/6), Daily (3/6), decisiones CRUD-versionado + sábana-no-persiste (20/5)</p>
                     </div>
                 </details>
 
@@ -573,11 +572,29 @@
                     </li>
 
                     <li class="blocker-item">
-                        <div class="blocker-icon">💻</div>
+                        <div class="blocker-icon">🗄️</div>
                         <div class="blocker-content">
-                            <div class="blocker-title">Aprobación PR Sprint 2 (PERC)</div>
-                            <div class="blocker-desc">Sprint 2 entregado al 95%. Falta que PERC valide y apruebe el PR para cerrarlo al 100%.</div>
-                            <div class="blocker-action">Owner: PERC | Status: Pending review | Impact: Cierre de Sprint 2</div>
+                            <div class="blocker-title">Definiciones de arquitectura interna (CRÍTICO — Sprint 3)</div>
+                            <div class="blocker-desc">Relación de tablas (qué guardamos y qué no) + tabla de cuotas / integración de cuotas (PER-42). PER-42 fue frenada por Nico hasta tener estas definiciones. La visualización del préstamo concedido (vista de cuotas) depende de definir primero la tabla de cuotas.</div>
+                            <div class="blocker-action">Owner: Nico + dev (Quarks) | Status: A definir internamente | Impact: Alto (frena PER-42 + vista de cuotas)</div>
+                        </div>
+                    </li>
+
+                    <li class="blocker-item">
+                        <div class="blocker-icon">☁️</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">Infra S3 + entorno dev/stage (CRÍTICO — Sprint 3)</div>
+                            <div class="blocker-desc">Hay collection de Insomnia para conectarse a S3, pero falta el bucket, la cadena de conexión y un entorno de stage para probar. Además, persistir la firma digital (fecha, IP, etc.) requiere el entorno de dev. Sin esto no se puede guardar ni testear documentos firmados.</div>
+                            <div class="blocker-action">Owner: PERC (infra) | Status: Esperando | Impact: Alto (firma + almacenamiento de documentos)</div>
+                        </div>
+                    </li>
+
+                    <li class="blocker-item">
+                        <div class="blocker-icon">✍️</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">PER-54 — Implementación de firmas (Sprint 3)</div>
+                            <div class="blocker-desc">Cómo encarar técnicamente la firma de documentos (qué se guarda, cómo, dónde). Nico está esperando respuesta de PERC para destrabarlo.</div>
+                            <div class="blocker-action">Owner: Nico ↔ PERC | Status: Esperando respuesta PERC | Impact: Sprint 3 (firma)</div>
                         </div>
                     </li>
 
@@ -600,11 +617,20 @@
                     </li>
 
                     <li class="blocker-item">
+                        <div class="blocker-icon">🔓</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">TOTP Security Gap (Sprint 3/4)</div>
+                            <div class="blocker-desc">El TOTP actual solo bloquea la UI: un actor con token de usuario válido puede llamar el endpoint de transferencia directamente sin pasar por TOTP. Hay que enforcarlo del lado API, no solo en el front. ¿Se puede resolver sin breaking changes?</div>
+                            <div class="blocker-action">Owner: Nico + Joy (integración) | Status: Pending | Impact: Alto (seguridad — firma + desembolso)</div>
+                        </div>
+                    </li>
+
+                    <li class="blocker-item">
                         <div class="blocker-icon">⚙️</div>
                         <div class="blocker-content">
-                            <div class="blocker-title">Environment setup dev</div>
-                            <div class="blocker-desc">Nico pidió que se gestione el entorno de development desde ya, para evitar demoras de último momento en el próximo deploy.</div>
-                            <div class="blocker-action">Owner: Nico + PERC | Status: Pending queue | Impact: Deploy</div>
+                            <div class="blocker-title">Documentos: tipo / tamaño / parseo (Sprint 3)</div>
+                            <div class="blocker-desc">Pendientes ya conocidos que siguen abiertos: tamaño de archivos, tipo de archivo, si hay que parsear, cuáles son dinámicos y cómo se completan. Forman parte de la definición de plantillas escalada al CEO.</div>
+                            <div class="blocker-action">Owner: Seba / Patricio (PERC) | Status: Esperando | Impact: ABM de documentos</div>
                         </div>
                     </li>
                 </ul>
@@ -647,6 +673,13 @@
                     <li class="blocker-item">
                         <div class="blocker-icon">✅</div>
                         <div class="blocker-content">
+                            <div class="blocker-title">PR del Sprint 2 aprobado por PERC (3/6)</div>
+                            <div class="blocker-desc">Pasó los 4 reviewers automáticos del lado Quarks y fue aprobado por PERC. Sprint 2 cerrado al 100%.</div>
+                        </div>
+                    </li>
+                    <li class="blocker-item">
+                        <div class="blocker-icon">✅</div>
+                        <div class="blocker-content">
                             <div class="blocker-title">User stories divididas en subtareas atómicas</div>
                             <div class="blocker-desc">Hecho. PRs más chicos + branch development con pull diario + pre-review los viernes para evitar fricción de último momento.</div>
                         </div>
@@ -655,69 +688,8 @@
             </div>
         </section>
 
-        <!-- ESTADOS DE PRÉSTAMO -->
-        <section>
-            <h2>📝 Estados de Préstamo + Notas de Refinamiento</h2>
-            <div class="content">
-                <ul class="blocker-list">
-                    <li class="blocker-item">
-                        <div class="blocker-icon">🔄</div>
-                        <div class="blocker-content">
-                            <div class="blocker-title">Estados de préstamo</div>
-                            <div class="blocker-desc"><strong>pending</strong> (espera fondos) → <strong>fondeado</strong> (transferidos, o directo si hay fondos), <strong>rejected</strong>, <strong>expired</strong> (24h sin fondos), <strong>in-progress</strong> (aprobado, en transferencia).</div>
-                        </div>
-                    </li>
-                    <li class="blocker-item">
-                        <div class="blocker-icon">📚</div>
-                        <div class="blocker-content">
-                            <div class="blocker-title">Documentos: unitarios + visualización "sábana"</div>
-                            <div class="blocker-desc">Usuario firma documentos unitarios (no fusionados). Backoffice muestra sábana (consolidada) al usuario, pero almacena unitarios por compliance. Descarga: máx 25 docs (5 por préstamo, 5 préstamos).</div>
-                        </div>
-                    </li>
-                    <li class="blocker-item">
-                        <div class="blocker-icon">🔐</div>
-                        <div class="blocker-content">
-                            <div class="blocker-title">Firma: metadata capturada</div>
-                            <div class="blocker-desc">Timestamp, IP, MAC (si existe), ubicación (opcional — depende de permisos mobile). Firma embebida en cada documento unitario.</div>
-                        </div>
-                    </li>
-                    <li class="blocker-item">
-                        <div class="blocker-icon">👤</div>
-                        <div class="blocker-content">
-                            <div class="blocker-title">PJ/PF: Agnóstico en flujo</div>
-                            <div class="blocker-desc">PF (persona física) y PJ (persona jurídica) usan el mismo flujo. Backoffice puede filtrar por tipo, pero no cambia UX.</div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- TIMELINE -->
-        <section>
-            <h2>📅 Timeline</h2>
-            <div class="content">
-                <div style="display: flex; flex-direction: column; gap: 1rem; font-size: 0.95rem;">
-                    <div style="padding: 1rem; background: #d4edda; border-left: 4px solid #27ae60; border-radius: 4px;">
-                        <strong>1 junio</strong> — Design review (Diseño - PERC): documentos dinámicos confirmados, UI decisions locked
-                    </div>
-                    <div style="padding: 1rem; background: #d4edda; border-left: 4px solid #27ae60; border-radius: 4px;">
-                        <strong>2 junio</strong> — Sprint 2 review (demo completado) + Planning interna Sprint 3
-                    </div>
-                    <div style="padding: 1rem; background: #fff3cd; border-left: 4px solid #f39c12; border-radius: 4px;">
-                        <strong>Esta semana</strong> — 🚨 Obtener definiciones finales de documentos (escalado al CEO, CRÍTICO)
-                    </div>
-                    <div style="padding: 1rem; background: #fff3cd; border-left: 4px solid #f39c12; border-radius: 4px;">
-                        <strong>Viernes 7/6</strong> — Pre-review: validar historias Sprint 3 antes de final review
-                    </div>
-                    <div style="padding: 1rem; background: #f8d7da; border-left: 4px solid #e74c3c; border-radius: 4px;">
-                        <strong>Martes 17/6</strong> — Sprint 3 review con cliente (no 15/6, que es feriado)
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <footer>
-            <p>PERC Flujo Crédito — MVP Status Board | Actualizado 2026-06-02 (Sprint 2 Review + Planning Interna) | Fuente: ingestion/meetings/</p>
+            <p>PERC Flujo Crédito — MVP Status Board | Actualizado 2026-06-03 (Daily PERC) | Fuente: ingestion/meetings/</p>
         </footer>
     </div>
 </body>
