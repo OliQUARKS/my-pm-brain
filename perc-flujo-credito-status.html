@@ -396,15 +396,15 @@
         <header>
             <h1>🎯 PERC Flujo Crédito</h1>
             <p class="subtitle">MVP Status Board — Préstamos Online | 4 sprints (PRD)</p>
-            <p class="status-date">Estado: 3 de junio, 2026 (Sprint 3 bloqueado multifrente — Daily) | Próxima review cliente: martes 17 de junio</p>
+            <p class="status-date">Estado: 8 de junio, 2026 (Sprint 3 en desarrollo — infra destrabada) | Próxima review cliente: martes 17 de junio</p>
 
             <div class="overall-progress">
                 <div class="overall-progress-label">
                     <span class="label">Progreso general del MVP</span>
-                    <span class="pct">56%</span>
+                    <span class="pct">57%</span>
                 </div>
                 <div class="progress-track">
-                    <div class="progress-fill" style="width: 56%;"></div>
+                    <div class="progress-fill" style="width: 57%;"></div>
                 </div>
             </div>
         </header>
@@ -484,8 +484,8 @@
                             <span class="sprint-status-badge badge-in-progress">En desarrollo</span>
                         </div>
                         <div class="sprint-progress-row">
-                            <div class="progress-track"><div class="progress-fill fill-in-progress" style="width: 15%;"></div></div>
-                            <span class="pct">15%</span>
+                            <div class="progress-track"><div class="progress-fill fill-in-progress" style="width: 20%;"></div></div>
+                            <span class="pct">20%</span>
                         </div>
                     </summary>
                     <div class="sprint-detail">
@@ -513,8 +513,8 @@
                             <li>Descargar documentos firmados en BO: filtrar / buscar / ordenar, export .zip, máx 25 (5 docs × 5 préstamos)</li>
                             <li>Filtrado por tipo de persona (PF / PJ)</li>
                         </ul>
-                        <div class="sprint-pending">⏳ Bloqueo multifrente (Daily 3/6): además de las plantillas de documentos (escalado al CEO), el sprint está frenado por <strong>definiciones de arquitectura interna</strong> (relación de tablas, tabla de cuotas — PER-42) y por <strong>infraestructura</strong> (entorno dev/stage, bucket S3 + cadena de conexión). El dev solo puede avanzar andamiaje UI de las secciones de documentos.</div>
-                        <p class="source-tag">Fuente: Planning Interna (2/6), Daily (3/6), decisiones CRUD-versionado + sábana-no-persiste (20/5)</p>
+                        <div class="sprint-pending">⏳ Avance (Daily 8/6): infra <strong>destrabada</strong> (camino Sandbox de Amazon), formato de documentos resuelto (HTML→PDF) y cuotas desbloqueadas (cálculos mergeados). Sigue bloqueante: <strong>plantillas finales</strong> (en compliance), <strong>firma</strong> (Seba sin responder) y validación de la <strong>estructura de cuotas</strong> por Nico.</div>
+                        <p class="source-tag">Fuente: Planning Interna (2/6), Dailies (3/6 + 8/6), decisiones CRUD-versionado + sábana-no-persiste (20/5)</p>
                     </div>
                 </details>
 
@@ -583,9 +583,9 @@
                     <li class="blocker-item">
                         <div class="blocker-icon">☁️</div>
                         <div class="blocker-content">
-                            <div class="blocker-title">Infra S3 + entorno dev/stage (CRÍTICO — Sprint 3)</div>
-                            <div class="blocker-desc">Hay collection de Insomnia para conectarse a S3, pero falta el bucket, la cadena de conexión y un entorno de stage para probar. Además, persistir la firma digital (fecha, IP, etc.) requiere el entorno de dev. Sin esto no se puede guardar ni testear documentos firmados.</div>
-                            <div class="blocker-action">Owner: PERC (infra) | Status: Esperando | Impact: Alto (firma + almacenamiento de documentos)</div>
+                            <div class="blocker-title">Infra S3 + entorno dev/stage — CAMINO ACORDADO (Sprint 3)</div>
+                            <div class="blocker-desc">Destrabado en la reunión (8/6): PERC DevOps da una cuenta Sandbox de Amazon; Quarks crea el bucket y todo para testear; después PERC monta el dev env con CI/CD. Pendiente de ejecución: Quarks pasa el punteo de servicios Amazon para que habiliten la cuenta. ⚠️ A clarificar con Israel: ¿quién configura los entornos? (posible scope fuera de contrato).</div>
+                            <div class="blocker-action">Owner: PERC DevOps ↔ Nico/Isra | Status: En camino (Sandbox) | Impact: Medio (ya no trabado conceptualmente)</div>
                         </div>
                     </li>
 
@@ -673,6 +673,20 @@
                     <li class="blocker-item">
                         <div class="blocker-icon">✅</div>
                         <div class="blocker-content">
+                            <div class="blocker-title">Formato de documentos: HTML → PDF (8/6)</div>
+                            <div class="blocker-desc">El BO sube HTML; el sistema lo devuelve al cliente como PDF (app Flutter). La librería es HTML→PDF (no al revés). Operativo: el operador convierte su .docx a .html y lo sube. Confirmado por dev/José.</div>
+                        </div>
+                    </li>
+                    <li class="blocker-item">
+                        <div class="blocker-icon">✅</div>
+                        <div class="blocker-content">
+                            <div class="blocker-title">Infra dev + S3: camino acordado (8/6)</div>
+                            <div class="blocker-desc">PERC da cuenta Sandbox de Amazon; Quarks arma y testea; luego PERC monta dev env + CI/CD. Pendiente: pasar el punteo de servicios. Destraba los 2 bloqueantes top de infra.</div>
+                        </div>
+                    </li>
+                    <li class="blocker-item">
+                        <div class="blocker-icon">✅</div>
+                        <div class="blocker-content">
                             <div class="blocker-title">PR del Sprint 2 aprobado por PERC (3/6)</div>
                             <div class="blocker-desc">Pasó los 4 reviewers automáticos del lado Quarks y fue aprobado por PERC. Sprint 2 cerrado al 100%.</div>
                         </div>
@@ -689,7 +703,7 @@
         </section>
 
         <footer>
-            <p>PERC Flujo Crédito — MVP Status Board | Actualizado 2026-06-03 (Daily PERC) | Fuente: ingestion/meetings/</p>
+            <p>PERC Flujo Crédito — MVP Status Board | Actualizado 2026-06-08 (Daily PERC) | Fuente: ingestion/meetings/</p>
         </footer>
     </div>
 </body>

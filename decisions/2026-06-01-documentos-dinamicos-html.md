@@ -23,6 +23,7 @@ Los documentos necesitan datos del usuario y del préstamo (nombre, CUIL, montos
 ## Evidence
 - Sebastián confirmó en el design review (1/6) que los documentos incluyen variables del usuario/préstamo (dinámicos)  `(stakeholder-verbal, Sebastián, 2026-06-01)`
 - Nico (planning 2/6): los documentos van en HTML — el HTML recibe las variables, se pisa y se arma el PDF; en Word "sí o sí necesitaría un parser"  `(stakeholder-verbal, Nico, 2026-06-02)`
+- Confirmado en la reunión PERC: el BO sube HTML y el sistema lo devuelve al cliente en PDF (la app es Flutter) → la librería necesaria es HTML→PDF, no PDF→HTML  [../source/meetings/2026-06-08-daily-perc.md](../source/meetings/2026-06-08-daily-perc.md)
 
 ## Explicitly NOT doing
 - No usar PDF/Word como formato fuente de los documentos — no permite inyección limpia de variables ni firma embebida sin parser  `(stakeholder-verbal, Nico, 2026-06-02)`
@@ -31,8 +32,9 @@ Los documentos necesitan datos del usuario y del préstamo (nombre, CUIL, montos
 PERC entrega los documentos finales únicamente en Word/PDF sin equivalente HTML mantenible, o Compliance (Patricio) exige por escrito un formato fuente distinto.
 
 ## Remaining ambiguities
-- Cuáles documentos exactos son dinámicos vs. estáticos — pendiente, parte de las plantillas finales escaladas al CEO.
+- Cuáles documentos exactos son dinámicos vs. estáticos — pendiente, parte de las plantillas finales (Giuliano las pasó a compliance, esperando resolución al 8/6).
 - Tamaño/peso de los archivos (asunción <1MB por PDF, sin validar) y restricciones HTML (XSS, sanitización) pendientes de cyber PERC (Ari + Tano).
+- **Riesgo operativo (Daily 8/6):** el operador del BO debe convertir su `.docx` a `.html` antes de subirlo. ¿Sabe hacerlo, o subirá un formato equivocado (ej. XML)? Mitigación propuesta: cartel de advertencia en el BO + aclaración en la review de que el input es HTML puro; auto-conversión sería una mejora (~1 semana extra).
 
 ## Linked
 - Feature: `../knowledge/product/features/flujo-credito.md`

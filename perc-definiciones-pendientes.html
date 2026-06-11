@@ -173,7 +173,7 @@
 
         <div class="stats">
             <div class="stat-card crit" data-jump="critico">
-                <div class="stat-number">6</div>
+                <div class="stat-number">4</div>
                 <div class="stat-label">🔴 Crítico (bloquea ahora)</div>
             </div>
             <div class="stat-card semana" data-jump="semana">
@@ -185,8 +185,8 @@
                 <div class="stat-label">🔵 Antes del Sprint 4</div>
             </div>
             <div class="stat-card resuelto" data-jump="resuelto">
-                <div class="stat-number">5</div>
-                <div class="stat-label">✅ Resueltos (jun 1-2)</div>
+                <div class="stat-number">8</div>
+                <div class="stat-label">✅ Resueltos / en camino</div>
             </div>
         </div>
 
@@ -235,17 +235,17 @@
             </thead>
             <tbody id="defs-body">
 
-                <!-- 1 — CRÍTICO: Plantillas documentos -->
+                <!-- 1 — CRÍTICO: Plantillas documentos (en compliance) -->
                 <tr data-urgency="critico" data-rank="1" data-sprint="3" data-origin="perc" data-date="2026-06-01">
                     <td class="col-num">1</td>
                     <td class="col-def">
                         <span class="def-title">Plantillas de documentos finales<span class="org org-perc">PERC</span></span>
-                        <span class="def-desc">Cuáles son dinámicos / estáticos, formato (HTML requerido), tamaño en MB y tipo de archivo (¿hay que parsear?) de los ~5 documentos. Sin esto, el ABM de documentos no avanza. Escalado al CEO.</span>
+                        <span class="def-desc">Cuáles documentos exactos (dinámicos/estáticos) y su contenido. Stefano Giuliano las pasó a <strong>compliance</strong> y está esperando resolución (Daily 8/6). Olivier va a pasar unos docs viejos con la estructura base mientras tanto. (El formato ya se resolvió — ver #12.)</span>
                     </td>
                     <td><span class="badge u-critico">Crítico</span></td>
                     <td><span class="badge sp-3">Sprint 3</span></td>
-                    <td class="col-owner">Patricio Ertola<br/>(Compliance)</td>
-                    <td class="col-since">1 jun<span class="age">~2 días</span></td>
+                    <td class="col-owner">Giuliano →<br/>Compliance PERC</td>
+                    <td class="col-since">1 jun<span class="age">en compliance</span></td>
                 </tr>
 
                 <!-- 2 — CRÍTICO: TOTP security gap -->
@@ -258,64 +258,38 @@
                     <td><span class="badge u-critico">Crítico</span></td>
                     <td><span class="badge sp-3">Sprint 3/4</span></td>
                     <td class="col-owner">Nico + Joy<br/>(integración)</td>
-                    <td class="col-since">20 may<span class="age">~2 sem</span></td>
+                    <td class="col-since">20 may<span class="age">~3 sem</span></td>
                 </tr>
 
-                <!-- 3 — CRÍTICO: Relación de tablas (Daily 3/6) -->
+                <!-- 3 — CRÍTICO: Estructura cuotas-vs-payments / relación de tablas -->
                 <tr data-urgency="critico" data-rank="1" data-sprint="3" data-origin="quarks" data-date="2026-06-03">
                     <td class="col-num">3</td>
                     <td class="col-def">
-                        <span class="def-title">Arquitectura: relación de tablas<span class="org org-quarks">Quarks</span></span>
-                        <span class="def-desc">Cómo plantear las tablas y qué se guarda / qué no. Definición de arquitectura interna aún abierta. Bloquea varias tareas de código del dev (Daily 3/6).</span>
+                        <span class="def-title">Arquitectura: estructura cuotas-vs-payments<span class="org org-quarks">Quarks</span></span>
+                        <span class="def-desc">Cómo modelar las tablas (cuotas vs. payments) y qué se guarda. El dev está armando la estructura y manda un PR para que <strong>Nico la valide</strong> antes de implementar. En progreso — aún sin validar. (Daily 8/6)</span>
                     </td>
                     <td><span class="badge u-critico">Crítico</span></td>
                     <td><span class="badge sp-3">Sprint 3</span></td>
-                    <td class="col-owner">Nico + dev<br/>(Quarks)</td>
-                    <td class="col-since">3 jun<span class="age">hoy</span></td>
+                    <td class="col-owner">dev → Nico<br/>(Quarks)</td>
+                    <td class="col-since">3 jun<span class="age">en validación</span></td>
                 </tr>
 
-                <!-- 4 — CRÍTICO: PER-42 tabla de cuotas (Daily 3/6) -->
-                <tr data-urgency="critico" data-rank="1" data-sprint="3" data-origin="quarks" data-date="2026-06-03">
+                <!-- 4 — CRÍTICO: PER-54 firmas -->
+                <tr data-urgency="critico" data-rank="1" data-sprint="3" data-origin="perc" data-date="2026-06-03">
                     <td class="col-num">4</td>
                     <td class="col-def">
-                        <span class="def-title">PER-42 — Tabla / integración de cuotas<span class="org org-quarks">Quarks</span></span>
-                        <span class="def-desc">PER-42 fue frenada por Nico hasta tener la definición de la tabla de cuotas. La visualización del préstamo concedido (vista de cuotas) depende de definir esta tabla primero (Daily 3/6).</span>
-                    </td>
-                    <td><span class="badge u-critico">Crítico</span></td>
-                    <td><span class="badge sp-3">Sprint 3</span></td>
-                    <td class="col-owner">Nico (Quarks)</td>
-                    <td class="col-since">3 jun<span class="age">hoy</span></td>
-                </tr>
-
-                <!-- 5 — CRÍTICO: PER-54 firmas (Daily 3/6) -->
-                <tr data-urgency="critico" data-rank="1" data-sprint="3" data-origin="perc" data-date="2026-06-03">
-                    <td class="col-num">5</td>
-                    <td class="col-def">
                         <span class="def-title">PER-54 — Implementación de firmas<span class="org org-perc">PERC</span></span>
-                        <span class="def-desc">Cómo encarar técnicamente la firma de documentos (qué se guarda, cómo, dónde). Nico está esperando respuesta de PERC para destrabarlo (Daily 3/6).</span>
+                        <span class="def-desc">Modelo tentativo: iniciales tipo DocuSign (el usuario confirma → se insertan iniciales como consentimiento). <strong>¿Alcanza legalmente o compliance exige algo más estricto?</strong> Seba se llevó el tema y aún no respondió (Daily 8/6).</span>
                     </td>
                     <td><span class="badge u-critico">Crítico</span></td>
                     <td><span class="badge sp-3">Sprint 3</span></td>
-                    <td class="col-owner">Nico ↔ PERC</td>
-                    <td class="col-since">3 jun<span class="age">hoy</span></td>
+                    <td class="col-owner">Seba / Compliance<br/>↔ Nico</td>
+                    <td class="col-since">3 jun<span class="age">sin respuesta</span></td>
                 </tr>
 
-                <!-- 6 — CRÍTICO: Infra S3 + entorno dev/stage (Daily 3/6) -->
-                <tr data-urgency="critico" data-rank="1" data-sprint="3" data-origin="perc" data-date="2026-06-03">
-                    <td class="col-num">6</td>
-                    <td class="col-def">
-                        <span class="def-title">Infra: entorno dev/stage + S3<span class="org org-perc">PERC</span></span>
-                        <span class="def-desc">Hay collection de Insomnia para conectarse a S3, pero falta el <strong>bucket</strong>, la <strong>cadena de conexión</strong> y un <strong>entorno de stage</strong> para probar. Persistir la firma digital (fecha, IP, etc.) requiere además el entorno de dev. Sin esto no se guardan ni testean documentos firmados (Daily 3/6).</span>
-                    </td>
-                    <td><span class="badge u-critico">Crítico</span></td>
-                    <td><span class="badge sp-3">Sprint 3</span></td>
-                    <td class="col-owner">PERC (infra)</td>
-                    <td class="col-since">3 jun<span class="age">hoy</span></td>
-                </tr>
-
-                <!-- 7 — ESTA SEMANA: Campo PJ -->
+                <!-- 5 — ESTA SEMANA: Campo PJ -->
                 <tr data-urgency="semana" data-rank="2" data-sprint="3" data-origin="perc" data-date="2026-05-27">
-                    <td class="col-num">7</td>
+                    <td class="col-num">5</td>
                     <td class="col-def">
                         <span class="def-title">Campo PJ en datos de import<span class="org org-perc">PERC</span></span>
                         <span class="def-desc">¿El import trae un flag para identificar Persona Jurídica? Necesario para filtrar PJ / PF en el BO. No bloqueante, pero importante — definir esta semana a más tardar.</span>
@@ -323,12 +297,12 @@
                     <td><span class="badge u-semana">Esta semana</span></td>
                     <td><span class="badge sp-3">Sprint 3</span></td>
                     <td class="col-owner">Seba / Marcos</td>
-                    <td class="col-since">27 may<span class="age">~1 sem</span></td>
+                    <td class="col-since">27 may<span class="age">~1.5 sem</span></td>
                 </tr>
 
-                <!-- 8 — ESTA SEMANA: Restricciones HTML -->
+                <!-- 6 — ESTA SEMANA: Restricciones HTML -->
                 <tr data-urgency="semana" data-rank="2" data-sprint="3" data-origin="perc" data-date="2026-05-20">
-                    <td class="col-num">8</td>
+                    <td class="col-num">6</td>
                     <td class="col-def">
                         <span class="def-title">Restricciones de archivos HTML<span class="org org-perc">PERC</span></span>
                         <span class="def-desc">Tamaño máximo, sanitización y prevención de XSS de los HTML de documentos dinámicos. Necesario para el ABM seguro de documentos. Va junto con la definición de plantillas.</span>
@@ -336,12 +310,12 @@
                     <td><span class="badge u-semana">Esta semana</span></td>
                     <td><span class="badge sp-3">Sprint 3</span></td>
                     <td class="col-owner">Ari + Tano<br/>(Cyber)</td>
-                    <td class="col-since">20 may<span class="age">~2 sem</span></td>
+                    <td class="col-since">20 may<span class="age">~3 sem</span></td>
                 </tr>
 
-                <!-- 9 — ANTES SPRINT 4: Notificación auto-cancelación -->
+                <!-- 7 — ANTES SPRINT 4: Notificación auto-cancelación -->
                 <tr data-urgency="sprint4" data-rank="3" data-sprint="4" data-origin="perc" data-date="2026-06-02">
-                    <td class="col-num">9</td>
+                    <td class="col-num">7</td>
                     <td class="col-def">
                         <span class="def-title">Notificación al usuario en auto-cancelación 24h<span class="org org-perc">PERC</span></span>
                         <span class="def-desc">Si el sistema auto-cancela tras 24h sin fondos, ¿quién avisa al usuario y cómo? Va en cancelaciones. Ezequiel marcó además riesgo macro (variación de tasas en la ventana).</span>
@@ -349,12 +323,12 @@
                     <td><span class="badge u-sprint4">Antes S4</span></td>
                     <td><span class="badge sp-4">Sprint 4</span></td>
                     <td class="col-owner">Marcos / Seba</td>
-                    <td class="col-since">2 jun<span class="age">~1 día</span></td>
+                    <td class="col-since">2 jun<span class="age">~6 días</span></td>
                 </tr>
 
-                <!-- 10 — ANTES SPRINT 4: IVA cancelaciones -->
+                <!-- 8 — ANTES SPRINT 4: IVA cancelaciones -->
                 <tr data-urgency="sprint4" data-rank="3" data-sprint="4" data-origin="perc" data-date="2026-05-27">
-                    <td class="col-num">10</td>
+                    <td class="col-num">8</td>
                     <td class="col-def">
                         <span class="def-title">IVA en cancelaciones: ¿siempre o condicional?<span class="org org-perc">PERC</span></span>
                         <span class="def-desc">¿Se cobra IVA sobre la cancelación siempre, o solo si el usuario no paga en término? Olivier observó que es raro cobrarlo si pagó bien. Seba rearmando la tabla del Excel.</span>
@@ -362,12 +336,12 @@
                     <td><span class="badge u-sprint4">Antes S4</span></td>
                     <td><span class="badge sp-4">Sprint 4</span></td>
                     <td class="col-owner">Seba<br/>(Compliance)</td>
-                    <td class="col-since">27 may<span class="age">~1 sem</span></td>
+                    <td class="col-since">27 may<span class="age">~1.5 sem</span></td>
                 </tr>
 
-                <!-- 11 — ANTES SPRINT 4: BIND disclosure -->
+                <!-- 9 — ANTES SPRINT 4: BIND disclosure -->
                 <tr data-urgency="sprint4" data-rank="3" data-sprint="4" data-origin="perc" data-date="2026-04-08">
-                    <td class="col-num">11</td>
+                    <td class="col-num">9</td>
                     <td class="col-def">
                         <span class="def-title">¿Avisar que la operación va por BIND?<span class="org org-perc">PERC</span></span>
                         <span class="def-desc">Compliance: ¿es obligatorio informar al usuario que la operación se procesa vía BIND? ¿En qué paso? Sin deadline duro, pero a confirmar antes del Sprint 4. Pendiente desde el 8/4.</span>
@@ -375,25 +349,25 @@
                     <td><span class="badge u-sprint4">Antes S4</span></td>
                     <td><span class="badge sp-4">Sprint 4</span></td>
                     <td class="col-owner">Seba<br/>(Compliance)</td>
-                    <td class="col-since">8 abr<span class="age">~8 sem</span></td>
+                    <td class="col-since">8 abr<span class="age">~9 sem</span></td>
                 </tr>
 
-                <!-- 12 — ANTES SPRINT 4: La Mantovana ida y vuelta -->
+                <!-- 10 — ANTES SPRINT 4: La Mantovana ida y vuelta -->
                 <tr data-urgency="sprint4" data-rank="3" data-sprint="4" data-origin="perc" data-date="2026-05-20">
-                    <td class="col-num">12</td>
+                    <td class="col-num">10</td>
                     <td class="col-def">
                         <span class="def-title">Reporte ida y vuelta — La Mantovana<span class="org org-perc">PERC</span></span>
-                        <span class="def-desc"><strong>Ida:</strong> nosotros (BO PERC) avisamos a La Mantovana las novedades — préstamos solicitados y cuotas a descontar mes a mes. <strong>Vuelta:</strong> La Mantovana nos confirma qué cuotas fueron descontadas del pago de haberes. Definir formato + timing antes del Sprint 4.</span>
+                        <span class="def-desc"><strong>Ida:</strong> nosotros (BO PERC) avisamos a La Mantovana las novedades — préstamos solicitados y cuotas a descontar mes a mes. <strong>Vuelta:</strong> La Mantovana nos confirma qué cuotas fueron descontadas del pago de haberes. Definir formato + timing antes del Sprint 4 (deadline 12/6).</span>
                     </td>
                     <td><span class="badge u-sprint4">Antes S4</span></td>
                     <td><span class="badge sp-4">Sprint 4</span></td>
                     <td class="col-owner">Seba / La Mantovana</td>
-                    <td class="col-since">20 may<span class="age">~2 sem</span></td>
+                    <td class="col-since">20 may<span class="age">~3 sem</span></td>
                 </tr>
 
-                <!-- 13 — MEDIA: Tab bar redesign -->
+                <!-- 11 — MEDIA: Tab bar redesign -->
                 <tr data-urgency="media" data-rank="4" data-sprint="app" data-origin="quarks" data-date="2026-05-20">
-                    <td class="col-num">13</td>
+                    <td class="col-num">11</td>
                     <td class="col-def">
                         <span class="def-title">Tab bar redesign<span class="org org-quarks">Quarks</span></span>
                         <span class="def-desc">Incorporar préstamos a la navegación requiere rediseñar el tab bar (hoy: QR / perfil / home). No bloquea el desarrollo, pero hay que resolver el esquema de navegación.</span>
@@ -401,15 +375,54 @@
                     <td><span class="badge u-media">Media</span></td>
                     <td><span class="badge sp-app">App / UX</span></td>
                     <td class="col-owner">Olivier<br/>(diseño)</td>
-                    <td class="col-since">20 may<span class="age">~2 sem</span></td>
+                    <td class="col-since">20 may<span class="age">~3 sem</span></td>
                 </tr>
 
-                <!-- 14 — RESUELTO: Documentos dinámicos -->
-                <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="3" data-origin="perc" data-date="2026-06-01">
+                <!-- 12 — RESUELTO: Formato de documentos HTML→PDF (8/6) -->
+                <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="3" data-origin="perc" data-date="2026-06-08">
+                    <td class="col-num">12</td>
+                    <td class="col-def">
+                        <span class="def-title">✅ Formato de documentos: HTML → PDF<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc">El BO sube HTML; el sistema lo devuelve al cliente como PDF (la app es Flutter). La librería es HTML→PDF (no al revés). Operativo: el operador convierte su .docx a .html y lo sube. Confirmado por dev/José (Daily 8/6). Riesgo operativo: ¿el operador sabe convertir a HTML? → cartel + aclaración en review.</span>
+                    </td>
+                    <td><span class="badge u-resuelto">Resuelto</span></td>
+                    <td><span class="badge sp-3">Sprint 3</span></td>
+                    <td class="col-owner">José / devs PERC</td>
+                    <td class="col-since">8 jun<span class="age">resuelto</span></td>
+                </tr>
+
+                <!-- 13 — RESUELTO/EN CAMINO: Infra S3 + entorno dev/stage (8/6) -->
+                <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="3" data-origin="perc" data-date="2026-06-08">
+                    <td class="col-num">13</td>
+                    <td class="col-def">
+                        <span class="def-title">✅ Infra: entorno dev + S3 — camino acordado<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc">PERC (DevOps) da una cuenta Sandbox de Amazon; Quarks crea el bucket y todo para testear; después PERC monta el dev env con CI/CD. Pendiente de ejecución: Quarks pasa el punteo de servicios Amazon para que habiliten la cuenta. ⚠️ A clarificar con Israel: ¿quién configura los entornos? (posible scope extra). (Daily 8/6)</span>
+                    </td>
+                    <td><span class="badge u-resuelto">En camino</span></td>
+                    <td><span class="badge sp-3">Sprint 3</span></td>
+                    <td class="col-owner">PERC DevOps<br/>↔ Nico / Isra</td>
+                    <td class="col-since">8 jun<span class="age">camino acordado</span></td>
+                </tr>
+
+                <!-- 14 — RESUELTO/DESBLOQUEADO: PER-42 cuotas (8/6) -->
+                <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="3" data-origin="quarks" data-date="2026-06-08">
                     <td class="col-num">14</td>
                     <td class="col-def">
+                        <span class="def-title">✅ PER-42 — Cuotas: desbloqueada<span class="org org-quarks">Quarks</span></span>
+                        <span class="def-desc">Ya no está frenada. El dev sacó el hardcode del Sistema Francés (lo hizo dinámico según el crédito); los cálculos ya están subidos y mergeados hasta el front. Falta la lógica para crear las cuotas (hoy es solo la tabla) y el PR a PERC. (Daily 8/6)</span>
+                    </td>
+                    <td><span class="badge u-resuelto">Desbloqueada</span></td>
+                    <td><span class="badge sp-3">Sprint 3</span></td>
+                    <td class="col-owner">dev (Quarks)</td>
+                    <td class="col-since">8 jun<span class="age">en progreso</span></td>
+                </tr>
+
+                <!-- 15 — RESUELTO: Documentos dinámicos -->
+                <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="3" data-origin="perc" data-date="2026-06-01">
+                    <td class="col-num">15</td>
+                    <td class="col-def">
                         <span class="def-title">✅ Documentos dinámicos confirmados (HTML)<span class="org org-perc">PERC</span></span>
-                        <span class="def-desc">Los documentos incluyen variables del usuario / préstamo. Formato HTML (no PDF) para permitir inyección de variables + firma embebida. Confirmado por Sebastián (1/6).</span>
+                        <span class="def-desc">Los documentos incluyen variables del usuario / préstamo. Formato HTML para permitir inyección de variables + firma embebida. Confirmado por Sebastián (1/6).</span>
                     </td>
                     <td><span class="badge u-resuelto">Resuelto</span></td>
                     <td><span class="badge sp-3">Sprint 3</span></td>
@@ -417,9 +430,9 @@
                     <td class="col-since">1 jun<span class="age">resuelto</span></td>
                 </tr>
 
-                <!-- 15 — RESUELTO: Plazo desembolso -->
+                <!-- 16 — RESUELTO: Plazo desembolso -->
                 <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="4" data-origin="perc" data-date="2026-06-02">
-                    <td class="col-num">15</td>
+                    <td class="col-num">16</td>
                     <td class="col-def">
                         <span class="def-title">✅ Plazo de desembolso: 24 horas<span class="org org-perc">PERC</span></span>
                         <span class="def-desc">Si hay fondos en la cuenta recaudadora, transferencia inmediata; si no, queda en pendiente y se reintenta. Confirmado por Marcos (CEO) en Sprint 2 Review (2/6).</span>
@@ -430,9 +443,9 @@
                     <td class="col-since">2 jun<span class="age">resuelto</span></td>
                 </tr>
 
-                <!-- 16 — RESUELTO: 4 escenarios cancelación -->
+                <!-- 17 — RESUELTO: 4 escenarios cancelación -->
                 <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="4" data-origin="perc" data-date="2026-06-02">
-                    <td class="col-num">16</td>
+                    <td class="col-num">17</td>
                     <td class="col-def">
                         <span class="def-title">✅ 4 escenarios de cancelación definidos<span class="org org-perc">PERC</span></span>
                         <span class="def-desc">(1) user cancela within 24h, (2) auto-cancel 24h sin fondos, (3) arrepentimiento 10 días sin costo, (4) precancelación anticipada con costo. Definidos en planning (2/6).</span>
@@ -443,9 +456,9 @@
                     <td class="col-since">2 jun<span class="age">resuelto</span></td>
                 </tr>
 
-                <!-- 17 — RESUELTO: TOTP obligatorio -->
+                <!-- 18 — RESUELTO: TOTP obligatorio -->
                 <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="3" data-origin="perc" data-date="2026-06-02">
-                    <td class="col-num">17</td>
+                    <td class="col-num">18</td>
                     <td class="col-def">
                         <span class="def-title">✅ TOTP obligatorio para firmar<span class="org org-perc">PERC</span></span>
                         <span class="def-desc">TOTP requerido antes de persistir documentos. Si falla TOTP, los documentos NO se guardan. Reintento: 3 errores máx, 11 min de expiración. Definido en planning (2/6).</span>
@@ -456,9 +469,9 @@
                     <td class="col-since">2 jun<span class="age">resuelto</span></td>
                 </tr>
 
-                <!-- 18 — RESUELTO: Penalidad intereses futuros -->
+                <!-- 19 — RESUELTO: Penalidad intereses futuros -->
                 <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="4" data-origin="perc" data-date="2026-06-01">
-                    <td class="col-num">18</td>
+                    <td class="col-num">19</td>
                     <td class="col-def">
                         <span class="def-title">✅ Penalidad sobre intereses futuros<span class="org org-perc">PERC</span></span>
                         <span class="def-desc">En precancelación anticipada se aplica costo (capital restante + penalidad sobre intereses futuros + comisión + IVA). Fórmula cerrada con Seba (Compliance) y Fefe (COO).</span>
@@ -473,7 +486,7 @@
         </table>
 
         <footer>
-            <p>PERC Flujo Crédito — Definiciones Pendientes | Actualizado 3 de junio, 2026 (Daily PERC)</p>
+            <p>PERC Flujo Crédito — Definiciones Pendientes | Actualizado 8 de junio, 2026 (Daily PERC)</p>
         </footer>
     </div>
 
