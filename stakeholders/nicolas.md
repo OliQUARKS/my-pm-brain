@@ -25,7 +25,8 @@ TODO: confirmar.
 - 2026-05-06 — Repo setup + tech validation. Nico identifies postgres DB validation needed with PERC (Juampi Norverto). iPerc-Documents-Vault-Lamda repo shared for S3 signed URLs. [ingestion/meetings/2026-05-06-repo-setup-backlog-share.md](../ingestion/meetings/2026-05-06-repo-setup-backlog-share.md)
 - 2026-05-19 — Planning + refinement interno Quarks. Decisiones técnicas: creación de solicitud, expiración 1h, separación solicitudes/préstamos, desembolso a cuenta sueldo. [ingestion/meetings/2026-05-19-planning-refinement-perc.md](../ingestion/meetings/2026-05-19-planning-refinement-perc.md)
 - 2026-05-20 — Refinement backlog PERC con Seba. Definiciones: estados del préstamo, CRUD de documentos, firma = 5 docs, TOTP gap identificado. [ingestion/meetings/2026-05-20-refinement-backlog-perc.md](../ingestion/meetings/2026-05-20-refinement-backlog-perc.md)
+- 2026-06-12 — Call con La Mantovana. Aclaró que los tags se prenden/apagan en Watson (no es desarrollo Quarks); Quarks solo maneja templates de crédito, no manipula info de usuario. [../ingestion/meetings/2026-06-12-proceso-prestamos-mantovana.md](../ingestion/meetings/2026-06-12-proceso-prestamos-mantovana.md)
 
 ## Last touched
-2026-06-08
+2026-06-17
 

@@ -15,6 +15,9 @@ Operator-facing verbs. Each command is a thin spec: input, files to load, files 
 | [`/plan`](./plan.md) | A new objective lands; turn it into discovery questions, interviews, experiments, hypotheses, decision points |
 | [`/epics`](./epics.md) | Descomponer una feature en épicas MVS/Midgame/Endgame; opcionalmente crear proyectos en Linear |
 | [`/stories`](./stories.md) | Descomponer una épica en historias INVEST; opcionalmente crear issues en Linear |
+| [`/review-prd`](./review-prd.md) | Panel adversarial sobre un PRD: 5 lentes (estratega, cliente, datos, riesgo, stakeholder) cargan su sección del brain y critican desde su ángulo |
+| [`/briefing-context`](./briefing-context.md) | Preparar una primera reunión (preventa): releva objetivos de información + ejes regulatorio/legal/stack → Documento de Preparación con preguntas de discovery contextualizadas |
+| [`/post-briefing-context`](./post-briefing-context.md) | Post-reunión: ampliar el contexto con lo que salió → propuesta (alcance, discovery, prototipo) + seguimiento de stakeholders |
 
 ## Conventions
 

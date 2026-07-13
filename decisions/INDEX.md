@@ -17,6 +17,10 @@
 - 2026-06-01 — [Documentos del flujo de firma: dinámicos y en formato HTML](./2026-06-01-documentos-dinamicos-html.md)
 - 2026-06-02 — [Plazo de desembolso = 24 horas](./2026-06-02-plazo-desembolso-24h.md)
 - 2026-06-02 — [Precancelación anticipada cobra penalidad sobre intereses futuros](./2026-06-02-penalidad-intereses-futuros.md)
+- 2026-06-12 — [Reporte de novedades a La Mantovana = solo la cuota del mes, no el total](./2026-06-12-reporte-novedades-cuota-mensual.md)
+- 2026-06-12 — [Arrepentimiento (10 días) solo se ejecuta si el cliente tiene los fondos](./2026-06-12-arrepentimiento-requiere-fondos.md)
+- 2026-06-16 — [Solo se reportan préstamos desembolsados; primera cuota al ciclo siguiente si el desembolso es post-corte](./2026-06-16-corte-solo-desembolsados.md)
+- 2026-06-17 — [Desembolso procesa la cola en FIFO; retry cada 5 min; cancela a las 24h corridas](./2026-06-17-desembolso-fifo.md)
 
 ## Superseded
 <!-- Decisions reversed by a later decision. Both stay in the log. -->

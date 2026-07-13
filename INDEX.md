@@ -11,6 +11,7 @@ Start here. Every task begins by routing through this file.
 | Users | [knowledge/users/](./knowledge/users/) | Discovery, interview synthesis, segmentation |
 | Market | [knowledge/market/](./knowledge/market/) | Competitive analysis, positioning |
 | Org | [knowledge/org/](./knowledge/org/) | Team / process / tooling questions |
+| Compliance | [knowledge/compliance/](./knowledge/compliance/) | Lente de riesgo en `/review-prd`; marco regulatorio aplicable |
 | Stakeholders | [stakeholders/](./stakeholders/) | Prep for any 1:1 or cross-functional touchpoint |
 | Hypotheses | [hypotheses/](./hypotheses/) | Pre-ship feature work, experiment design, post-launch evaluation |
 | Decisions | [decisions/](./decisions/) | Anything that commits future effort or reverses a prior choice |
@@ -37,5 +38,6 @@ See [docs/workflows.md](./docs/workflows.md) for the full slash command list and
 - `/ideate <problem>` — generate evidence-grounded solution directions
 - `/risk <feature-slug>` — 5-area risk scan; drafts hypothesis stubs for gaps
 - `/plan <objective>` — turn an objective into discovery questions, hypotheses, experiments, decision points
+- `/review-prd <path> [--with <lentes>]` — panel adversarial sobre un PRD externo
 
 Conversational equivalents work for all of these. Commands are optional.

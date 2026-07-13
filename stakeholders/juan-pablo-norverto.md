@@ -21,6 +21,8 @@ TODO: confirmar.
 - Nada documentado aún.
 
 ## Touchpoint log
+- 2026-06-12 — Call con La Mantovana. Activo: insistió en que Finegans resuelve por legajo (no CUIL), que las rectificaciones por error van en archivo separado, y recomendó arrancar la elegibilidad manual (antigüedad+presentismo) antes de automatizar. [../ingestion/meetings/2026-06-12-proceso-prestamos-mantovana.md](../ingestion/meetings/2026-06-12-proceso-prestamos-mantovana.md)
 
 ## Last touched
+2026-06-12
 
