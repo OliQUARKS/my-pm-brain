@@ -5,43 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PERC — Definiciones Pendientes</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #f5f7fa;
             padding: 2rem;
             min-height: 100vh;
+            color: #1a1a1a;
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        .container { max-width: 1400px; margin: 0 auto; }
 
         header {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             background: white;
             padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
-        h1 {
-            color: #1a1a1a;
-            font-size: 1.8rem;
-            margin-bottom: 0.25rem;
-        }
+        h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+        .subtitle { color: #666; font-size: 0.95rem; }
 
-        .subtitle {
-            color: #666;
-            font-size: 0.95rem;
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
+        .stat-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .stat-card:hover { transform: translateY(-2px); box-shadow: 0 3px 10px rgba(0,0,0,0.12); }
+        .stat-card.crit { border-left-color: #e74c3c; }
+        .stat-card.semana { border-left-color: #f39c12; }
+        .stat-card.sprint4 { border-left-color: #3a6ea5; }
+        .stat-card.resuelto { border-left-color: #27ae60; }
+        .stat-number { font-size: 1.8rem; font-weight: 700; }
+        .stat-label { color: #7f8c8d; font-size: 0.85rem; margin-top: 0.4rem; }
 
+        /* Controls */
+        .controls {
+            background: white;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 1.25rem;
+        }
+        .control-row {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0.4rem 0;
+        }
+        .control-row + .control-row { border-top: 1px solid #f0f2f5; margin-top: 0.3rem; }
+        .control-label {
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            min-width: 92px;
+        }
+        .chip {
+            padding: 0.4rem 0.85rem;
+            border: 1px solid #dfe4ea;
+            background: white;
+            border-radius: 16px;
+            cursor: pointer;
+            font-size: 0.82rem;
+            color: #2c3e50;
+            transition: all 0.15s;
+            user-select: none;
+        }
+        .chip:hover { background: #f0f2f5; }
+        .chip.active { background: #2c3e50; color: white; border-color: #2c3e50; }
+        .count-line { font-size: 0.82rem; color: #7f8c8d; margin-left: auto; }
+
+        /* Table */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -50,409 +100,465 @@
             overflow: hidden;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
-
-        thead {
-            background: #2c3e50;
-            color: white;
-        }
-
+        thead { background: #2c3e50; color: white; }
         th {
-            padding: 1rem;
+            padding: 0.85rem 1rem;
             text-align: left;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.78rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
+        td { padding: 0.9rem 1rem; border-bottom: 1px solid #ecf0f1; font-size: 0.92rem; vertical-align: top; }
+        tbody tr:hover { background: #f8f9fa; }
+        tbody tr.resuelto-row { background: #f5fbf7; }
+        tbody tr.resuelto-row:hover { background: #eef8f1; }
+        tr.row-hidden { display: none; }
 
-        td {
-            padding: 1rem;
-            border-bottom: 1px solid #ecf0f1;
+        .col-num {
+            font-weight: 700;
+            color: #95a5a6;
+            width: 38px;
+            text-align: center;
             font-size: 0.95rem;
         }
+        .col-def { max-width: 420px; }
+        .col-def .def-title { font-weight: 600; }
+        .col-def .def-desc { color: #7f8c8d; font-size: 0.84rem; margin-top: 0.35rem; line-height: 1.45; display: block; }
+        .col-owner { color: #34495e; font-weight: 500; font-size: 0.88rem; white-space: nowrap; }
+        .col-since { color: #7f8c8d; font-size: 0.85rem; white-space: nowrap; }
+        .col-since .age { display: block; color: #b0b8bf; font-size: 0.78rem; }
 
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tbody tr:hover {
-            background: #f8f9fa;
-        }
-
-        /* Columnas */
-        .col-definition {
-            font-weight: 500;
-            color: #1a1a1a;
-            max-width: 300px;
-        }
-
-        .col-owner {
-            color: #3498db;
-            font-weight: 500;
-        }
-
-        .col-since {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }
-
-        .col-blocks {
-            color: #e74c3c;
-            font-size: 0.9rem;
-        }
-
-        .col-deadline {
-            font-weight: 600;
-        }
-
-        .deadline-critical {
-            color: #e74c3c;
-            background: #ffe6e6;
-            padding: 0.25rem 0.5rem;
-            border-radius: 3px;
-        }
-
-        .deadline-soon {
-            color: #f39c12;
-            background: #fff3cd;
-            padding: 0.25rem 0.5rem;
-            border-radius: 3px;
-        }
-
-        .deadline-none {
-            color: #95a5a6;
-        }
-
-        .blocker-row {
-            background: #fff5f5;
-        }
-
-        .blocker-indicator {
+        /* Badges */
+        .badge {
             display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: #e74c3c;
-            border-radius: 50%;
-            margin-right: 0.5rem;
-        }
-
-        footer {
-            text-align: center;
-            color: #95a5a6;
-            font-size: 0.85rem;
-            margin-top: 2rem;
-        }
-
-        .filter-section {
-            margin-bottom: 1.5rem;
-            background: white;
-            padding: 1rem;
-            border-radius: 8px;
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        .filter-label {
-            font-weight: 600;
-            color: #2c3e50;
-            font-size: 0.9rem;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1rem;
-            border: 1px solid #ecf0f1;
-            background: white;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            color: #2c3e50;
-            transition: all 0.2s;
-        }
-
-        .filter-btn:hover {
-            background: #ecf0f1;
-        }
-
-        .filter-btn.active {
-            background: #2c3e50;
-            color: white;
-            border-color: #2c3e50;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 4px solid #3498db;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        .stat-card.blocking {
-            border-left-color: #e74c3c;
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
+            padding: 0.22rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
             font-weight: 700;
-            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            white-space: nowrap;
         }
+        .u-critico { background: #ffe6e6; color: #c0392b; }
+        .u-semana  { background: #fff3cd; color: #8a6100; }
+        .u-sprint4 { background: #e7f0fd; color: #2c5aa0; }
+        .u-media   { background: #eef0f2; color: #566573; }
+        .u-resuelto{ background: #d4edda; color: #1e7e34; }
+        .sp-3   { background: #fdebd0; color: #b9770e; }
+        .sp-4   { background: #e8e3f5; color: #6c3fa3; }
+        .sp-app { background: #e0f2f1; color: #00796b; }
+        .org {
+            display: inline-block;
+            font-size: 0.66rem;
+            font-weight: 700;
+            padding: 0.1rem 0.45rem;
+            border-radius: 10px;
+            margin-left: 0.4rem;
+            vertical-align: middle;
+            letter-spacing: 0.3px;
+        }
+        .org-perc   { background: #eaf2f8; color: #21618c; }
+        .org-quarks { background: #fdedec; color: #a93226; }
 
-        .stat-label {
-            color: #7f8c8d;
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
-        }
+        footer { text-align: center; color: #95a5a6; font-size: 0.85rem; margin-top: 2rem; }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>📋 PERC — Definiciones Pendientes</h1>
-            <p class="subtitle">Qué está esperando respuesta de PERC para poder avanzar</p>
+            <p class="subtitle">Todo lo pendiente mapeado a los 4 sprints — agrupado por urgencia. PERC = espera respuesta de PERC · Quarks = trabajo de nuestro lado.</p>
         </header>
 
         <div class="stats">
-            <div class="stat-card blocking">
-                <div class="stat-number">1</div>
-                <div class="stat-label">Bloqueador crítico</div>
+            <div class="stat-card crit" data-jump="critico">
+                <div class="stat-number">4</div>
+                <div class="stat-label">🔴 Crítico (bloquea ahora)</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">5</div>
-                <div class="stat-label">Resueltos (jun 1-2)</div>
+            <div class="stat-card semana" data-jump="semana">
+                <div class="stat-number">2</div>
+                <div class="stat-label">🟡 Esta semana</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">6</div>
-                <div class="stat-label">Pendientes (menores / post-MVP)</div>
+            <div class="stat-card sprint4" data-jump="sprint4">
+                <div class="stat-number">4</div>
+                <div class="stat-label">🔵 Antes del Sprint 4</div>
+            </div>
+            <div class="stat-card resuelto" data-jump="resuelto">
+                <div class="stat-number">8</div>
+                <div class="stat-label">✅ Resueltos / en camino</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="control-row">
+                <span class="control-label">Urgencia</span>
+                <span class="chip active" data-filter="urgency" data-val="all">Todas</span>
+                <span class="chip" data-filter="urgency" data-val="critico">🔴 Crítico</span>
+                <span class="chip" data-filter="urgency" data-val="semana">🟡 Esta semana</span>
+                <span class="chip" data-filter="urgency" data-val="sprint4">🔵 Antes Sprint 4</span>
+                <span class="chip" data-filter="urgency" data-val="media">⚪ Media</span>
+                <span class="chip" data-filter="urgency" data-val="resuelto">✅ Resuelto</span>
+            </div>
+            <div class="control-row">
+                <span class="control-label">Sprint</span>
+                <span class="chip active" data-filter="sprint" data-val="all">Todos</span>
+                <span class="chip" data-filter="sprint" data-val="3">Sprint 3</span>
+                <span class="chip" data-filter="sprint" data-val="4">Sprint 4</span>
+                <span class="chip" data-filter="sprint" data-val="app">App / UX</span>
+            </div>
+            <div class="control-row">
+                <span class="control-label">Origen</span>
+                <span class="chip active" data-filter="origin" data-val="all">Todos</span>
+                <span class="chip" data-filter="origin" data-val="perc">PERC</span>
+                <span class="chip" data-filter="origin" data-val="quarks">Quarks</span>
+            </div>
+            <div class="control-row">
+                <span class="control-label">Ordenar</span>
+                <span class="chip active" data-sort="urgency">Por urgencia</span>
+                <span class="chip" data-sort="age">Por antigüedad</span>
+                <span class="chip" data-sort="sprint">Por sprint</span>
+                <span class="count-line" id="count-line"></span>
             </div>
         </div>
 
         <table>
             <thead>
                 <tr>
-                    <th style="width: 35%;">Definición Pendiente</th>
-                    <th style="width: 15%;">Responsable PERC</th>
+                    <th style="width: 38px;">#</th>
+                    <th style="width: 38%;">Definición</th>
+                    <th style="width: 12%;">Urgencia</th>
+                    <th style="width: 10%;">Sprint</th>
+                    <th style="width: 18%;">Responsable</th>
                     <th style="width: 12%;">Desde</th>
-                    <th style="width: 20%;">Bloquea</th>
-                    <th style="width: 18%;">Deadline</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- CRITICAL: DOCUMENT TEMPLATES -->
-                <tr class="blocker-row">
-                    <td class="col-definition">
-                        <span class="blocker-indicator"></span>
-                        <strong>Plantillas de documentos finales</strong>
-                        <br/>
-                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Definición exacta de 5 documentos: cuáles dinámicos, cuáles estáticos, formato (HTML requerido), tamaño en MB. Escalado al CEO para urgencia.</span>
+            <tbody id="defs-body">
+
+                <!-- 1 — CRÍTICO: Plantillas documentos (en compliance) -->
+                <tr data-urgency="critico" data-rank="1" data-sprint="3" data-origin="perc" data-date="2026-06-01">
+                    <td class="col-num">1</td>
+                    <td class="col-def">
+                        <span class="def-title">Plantillas de documentos finales<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc">Cuáles documentos exactos (dinámicos/estáticos) y su contenido. Stefano Giuliano las pasó a <strong>compliance</strong> y está esperando resolución (Daily 8/6). Olivier va a pasar unos docs viejos con la estructura base mientras tanto. (El formato ya se resolvió — ver #12.)</span>
                     </td>
-                    <td class="col-owner">Patricio Ertola<br/>(Compliance PERC)</td>
-                    <td class="col-since">1 junio<br/>(sprint planning)</td>
-                    <td class="col-blocks"><span class="blocker-indicator"></span>Sprint 3: Firma Digital + TOTP<br/>Dev no puede hacer CRUD</td>
-                    <td class="col-deadline"><span class="deadline-critical">Esta semana<br/>(urgente)</span></td>
+                    <td><span class="badge u-critico">Crítico</span></td>
+                    <td><span class="badge sp-3">Sprint 3</span></td>
+                    <td class="col-owner">Giuliano →<br/>Compliance PERC</td>
+                    <td class="col-since">1 jun<span class="age">en compliance</span></td>
                 </tr>
 
-                <!-- RESOLVED: DOCUMENTS DYNAMIC/STATIC -->
-                <tr style="background: #f0f9f7;">
-                    <td class="col-definition">
-                        <strong>✅ Documentos dinámicos confirmados</strong>
-                        <br/>
-                        <span style="color: #27ae60; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Decisión: Documentos incluyen variables del usuario/préstamo. Confirmado por Sebastián (1/6 design review). Formato: HTML (no PDF).</span>
+                <!-- 2 — CRÍTICO: TOTP security gap -->
+                <tr data-urgency="critico" data-rank="1" data-sprint="3" data-origin="quarks" data-date="2026-05-20">
+                    <td class="col-num">2</td>
+                    <td class="col-def">
+                        <span class="def-title">TOTP security gap<span class="org org-quarks">Quarks</span></span>
+                        <span class="def-desc">El TOTP solo bloquea la UI: el endpoint de transferencia se puede llamar con un token de usuario válido sin pasar por TOTP. Hay que enforcarlo del lado API. ¿Sin breaking changes?</span>
                     </td>
-                    <td class="col-owner">Sebastián<br/>(PERC tech)</td>
-                    <td class="col-since">1 junio<br/>(resuelto)</td>
-                    <td style="color: #27ae60;">Épica 2: Listo<br/>TOTP + firma</td>
-                    <td style="color: #27ae60; font-weight: 600;">✅ Resuelto 1/6</td>
-                </tr>
-
-                <!-- RESOLVED: DISBURSEMENT TIME -->
-                <tr style="background: #f0f9f7;">
-                    <td class="col-definition">
-                        <strong>✅ Plazo desembolso: 24 horas</strong>
-                        <br/>
-                        <span style="color: #27ae60; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Confirmado por Marcos (CEO PERC) en Sprint 2 Review (2/6). Sistema intenta desembolso inmediatamente si hay fondos; si no, entra en queue.</span>
-                    </td>
-                    <td class="col-owner">Marcos Copello<br/>(CEO)</td>
-                    <td class="col-since">2 junio<br/>(resuelto)</td>
-                    <td style="color: #27ae60;">Messaging: claro<br/>+timing</td>
-                    <td style="color: #27ae60; font-weight: 600;">✅ Resuelto 2/6</td>
-                </tr>
-
-                <!-- RESOLVED: CANCELLATION SCENARIOS -->
-                <tr style="background: #f0f9f7;">
-                    <td class="col-definition">
-                        <strong>✅ 4 escenarios de cancelación</strong>
-                        <br/>
-                        <span style="color: #27ae60; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Definidos en planning (2/6): (1) user cancel 24h, (2) auto-cancel 24h sin fondos, (3) arrepentimiento 10 días sin costo, (4) precancelación anticipada con costo.</span>
-                    </td>
-                    <td class="col-owner">Olivier + equipo<br/>PERC/Quarks</td>
-                    <td class="col-since">2 junio<br/>(resuelto)</td>
-                    <td style="color: #27ae60;">UX cancelación<br/>clara</td>
-                    <td style="color: #27ae60; font-weight: 600;">✅ Resuelto 2/6</td>
-                </tr>
-
-                <!-- RESOLVED: TOTP MANDATORY -->
-                <tr style="background: #f0f9f7;">
-                    <td class="col-definition">
-                        <strong>✅ TOTP obligatorio para firmar</strong>
-                        <br/>
-                        <span style="color: #27ae60; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Decisión: TOTP requerido antes de guardar documentos. Si falla TOTP, documentos NO se persisten. Reintento: 3 errores máx, 11 min de expiración.</span>
-                    </td>
-                    <td class="col-owner">Nico + Olivier<br/>(planning)</td>
-                    <td class="col-since">2 junio<br/>(resuelto)</td>
-                    <td style="color: #27ae60;">Firma segura<br/>validada</td>
-                    <td style="color: #27ae60; font-weight: 600;">✅ Resuelto 2/6</td>
-                </tr>
-
-                <!-- PJ FIELD -->
-                <tr>
-                    <td class="col-definition">
-                        <strong>Campo PJ en datos import</strong>
-                        <br/>
-                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">¿Los datos que envían incluyen flag/campo para identificar Personas Jurídicas? Requerido para que BO pueda filtrar PJ vs PF.</span>
-                    </td>
-                    <td class="col-owner">Seba / Marcos</td>
-                    <td class="col-since">27 mayo<br/>(hoy)</td>
-                    <td class="col-blocks">Backoffice filtering<br/>−menor (feature gate)</td>
-                    <td class="col-deadline"><span class="deadline-none">Sin deadline<br/>(puede ir post-MVP)</span></td>
-                </tr>
-
-                <!-- HTML RESTRICTIONS -->
-                <tr>
-                    <td class="col-definition">
-                        <strong>Restricciones de archivos HTML</strong>
-                        <br/>
-                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Tamaño máximo, sanitización, prevención XSS de los HTML de documentos dinámicos. Necesario para el ABM seguro de documentos del Sprint 3.</span>
-                    </td>
-                    <td class="col-owner">Ari + Tano<br/>(Cyber PERC)</td>
-                    <td class="col-since">20 mayo<br/>(13+ días)</td>
-                    <td class="col-blocks">Sprint 3: ABM documentos<br/>−moderado (seguridad)</td>
-                    <td class="col-deadline"><span class="deadline-soon">Junto con docs<br/>(esta semana)</span></td>
-                </tr>
-
-                <!-- AUTO-CANCEL NOTIFICATION -->
-                <tr>
-                    <td class="col-definition">
-                        <strong>Notificación al usuario en auto-cancelación 24h</strong>
-                        <br/>
-                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Si el sistema auto-cancela tras 24h sin fondos, ¿quién avisa al usuario y cómo? Ownership: ¿backend PERC o capa de messaging Quarks? Ezequiel también marcó riesgo macro (variación de tasas).</span>
-                    </td>
-                    <td class="col-owner">Marcos / Seba<br/>(+ Ezequiel)</td>
-                    <td class="col-since">2 junio<br/>(planning)</td>
-                    <td class="col-blocks">Sprint 4: cancelación<br/>−menor (UX/messaging)</td>
-                    <td class="col-deadline"><span class="deadline-none">Antes Sprint 4<br/>(T&C a definir)</span></td>
-                </tr>
-
-                <!-- IVA CANCELLATION -->
-                <tr>
-                    <td class="col-definition">
-                        <strong>IVA en cancelaciones: ¿siempre o condicional?</strong>
-                        <br/>
-                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">¿Se cobra IVA sobre cancelación siempre, o solo si el usuario no paga en término? Olivier observó que es raro cobrarlo si el usuario pagó bien. Seba rearmando la tabla del Excel.</span>
-                    </td>
-                    <td class="col-owner">Seba<br/>(Compliance)</td>
-                    <td class="col-since">27 mayo<br/>(7+ días)</td>
-                    <td class="col-blocks">Fórmula cancelación<br/>−menor (refinamiento)</td>
-                    <td class="col-deadline"><span class="deadline-none">Antes Sprint 4</span></td>
-                </tr>
-
-                <!-- BIND DISCLOSURE -->
-                <tr>
-                    <td class="col-definition">
-                        <strong>¿Avisar que la operación va por BIND?</strong>
-                        <br/>
-                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Compliance: ¿es obligatorio informar al usuario que la operación se procesa vía BIND (o equivalente)? ¿En qué paso? Pendiente desde el 8 de abril.</span>
-                    </td>
-                    <td class="col-owner">Seba<br/>(Compliance)</td>
-                    <td class="col-since">8 abril<br/>(8 semanas)</td>
-                    <td class="col-blocks">Messaging / compliance<br/>−menor</td>
-                    <td class="col-deadline"><span class="deadline-none">Sin deadline</span></td>
-                </tr>
-
-                <!-- RESOLVED: EARLY PAYMENT PENALTY -->
-                <tr style="background: #f0f9f7;">
-                    <td class="col-definition">
-                        <strong>✅ Penalidad sobre intereses futuros</strong>
-                        <br/>
-                        <span style="color: #27ae60; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Confirmado: en precancelación anticipada se aplica costo. Definido en última review con cliente. Fórmula de cálculo cerrada.</span>
-                    </td>
-                    <td class="col-owner">Seba<br/>(con Fefe COO)</td>
-                    <td class="col-since">jun<br/>(resuelto)</td>
-                    <td style="color: #27ae60;">Fórmula cancelación<br/>cerrada</td>
-                    <td style="color: #27ae60; font-weight: 600;">✅ Resuelto</td>
-                </tr>
-
-                <!-- LA MANTOVANA REPORT -->
-                <tr>
-                    <td class="col-definition">
-                        <strong>Reporte descarga de comprobantes (La Mantovana)</strong>
-                        <br/>
-                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Timing del reporte mensual aún unclear. Isis (La Mantovana/Finnegans) enviará artefactos (Excel + informe), pero timing de delivery no está definido.</span>
-                    </td>
-                    <td class="col-owner">Isis<br/>(La Mantovana) / Seba</td>
-                    <td class="col-since">20 mayo<br/>(7 días)</td>
-                    <td class="col-blocks">Feature La Mantovana<br/>−menor (post-MVP)</td>
-                    <td class="col-deadline"><span class="deadline-none">Sin deadline<br/>(feature gate)</span></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <header style="margin-top: 2rem;">
-            <h1>🛠️ Pendientes Internos (Quarks)</h1>
-            <p class="subtitle">No esperan respuesta de PERC — definiciones/trabajo de nuestro lado</p>
-        </header>
-
-        <table>
-            <thead>
-                <tr>
-                    <th style="width: 35%;">Pendiente Interno</th>
-                    <th style="width: 15%;">Responsable</th>
-                    <th style="width: 12%;">Desde</th>
-                    <th style="width: 20%;">Impacta</th>
-                    <th style="width: 18%;">Prioridad</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- TOTP SECURITY GAP -->
-                <tr class="blocker-row">
-                    <td class="col-definition">
-                        <span class="blocker-indicator"></span>
-                        <strong>TOTP security gap</strong>
-                        <br/>
-                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">El TOTP actual solo bloquea la UI: un actor con token de usuario válido puede llamar el endpoint de transferencia directamente sin pasar por TOTP. ¿Se puede resolver sin breaking changes en la implementación existente?</span>
-                    </td>
+                    <td><span class="badge u-critico">Crítico</span></td>
+                    <td><span class="badge sp-3">Sprint 3/4</span></td>
                     <td class="col-owner">Nico + Joy<br/>(integración)</td>
-                    <td class="col-since">20 mayo<br/>(13+ días)</td>
-                    <td class="col-blocks"><span class="blocker-indicator"></span>Sprint 3/4: firma + desembolso<br/>+seguridad</td>
-                    <td class="col-deadline"><span class="deadline-soon">Alta<br/>(seguridad)</span></td>
+                    <td class="col-since">20 may<span class="age">~3 sem</span></td>
                 </tr>
 
-                <!-- TAB BAR REDESIGN -->
-                <tr>
-                    <td class="col-definition">
-                        <strong>Tab bar redesign</strong>
-                        <br/>
-                        <span style="color: #7f8c8d; font-size: 0.85rem; margin-top: 0.5rem; display: block;">Incorporar préstamos a la navegación requiere rediseñar el tab bar (hoy: QR / perfil / home). ¿Cuál es el nuevo esquema de navegación?</span>
+                <!-- 3 — CRÍTICO: Estructura cuotas-vs-payments / relación de tablas -->
+                <tr data-urgency="critico" data-rank="1" data-sprint="3" data-origin="quarks" data-date="2026-06-03">
+                    <td class="col-num">3</td>
+                    <td class="col-def">
+                        <span class="def-title">Arquitectura: estructura cuotas-vs-payments<span class="org org-quarks">Quarks</span></span>
+                        <span class="def-desc">Cómo modelar las tablas (cuotas vs. payments) y qué se guarda. El dev está armando la estructura y manda un PR para que <strong>Nico la valide</strong> antes de implementar. En progreso — aún sin validar. (Daily 8/6)</span>
                     </td>
-                    <td class="col-owner">Olivier<br/>(diseño)</td>
-                    <td class="col-since">20 mayo<br/>(13+ días)</td>
-                    <td class="col-blocks">UX navegación app<br/>−menor</td>
-                    <td class="col-deadline"><span class="deadline-none">Media<br/>(no bloquea dev)</span></td>
+                    <td><span class="badge u-critico">Crítico</span></td>
+                    <td><span class="badge sp-3">Sprint 3</span></td>
+                    <td class="col-owner">dev → Nico<br/>(Quarks)</td>
+                    <td class="col-since">3 jun<span class="age">en validación</span></td>
                 </tr>
+
+                <!-- 4 — CRÍTICO: PER-54 firmas -->
+                <tr data-urgency="critico" data-rank="1" data-sprint="3" data-origin="perc" data-date="2026-06-03">
+                    <td class="col-num">4</td>
+                    <td class="col-def">
+                        <span class="def-title">PER-54 — Implementación de firmas<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc">Modelo tentativo: iniciales tipo DocuSign (el usuario confirma → se insertan iniciales como consentimiento). <strong>¿Alcanza legalmente o compliance exige algo más estricto?</strong> Seba se llevó el tema y aún no respondió (Daily 8/6).</span>
+                    </td>
+                    <td><span class="badge u-critico">Crítico</span></td>
+                    <td><span class="badge sp-3">Sprint 3</span></td>
+                    <td class="col-owner">Seba / Compliance<br/>↔ Nico</td>
+                    <td class="col-since">3 jun<span class="age">sin respuesta</span></td>
+                </tr>
+
+                <!-- 5 — ESTA SEMANA: Campo PJ -->
+                <tr data-urgency="semana" data-rank="2" data-sprint="3" data-origin="perc" data-date="2026-05-27">
+                    <td class="col-num">5</td>
+                    <td class="col-def">
+                        <span class="def-title">Campo PJ en datos de import<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc">¿El import trae un flag para identificar Persona Jurídica? Necesario para filtrar PJ / PF en el BO. No bloqueante, pero importante — definir esta semana a más tardar.</span>
+                    </td>
+                    <td><span class="badge u-semana">Esta semana</span></td>
+                    <td><span class="badge sp-3">Sprint 3</span></td>
+                    <td class="col-owner">Seba / Marcos</td>
+                    <td class="col-since">27 may<span class="age">~1.5 sem</span></td>
+                </tr>
+
+                <!-- 6 — ESTA SEMANA: Restricciones HTML -->
+                <tr data-urgency="semana" data-rank="2" data-sprint="3" data-origin="perc" data-date="2026-05-20">
+                    <td class="col-num">6</td>
+                    <td class="col-def">
+                        <span class="def-title">Restricciones de archivos HTML<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc">Tamaño máximo, sanitización y prevención de XSS de los HTML de documentos dinámicos. Necesario para el ABM seguro de documentos. Va junto con la definición de plantillas.</span>
+                    </td>
+                    <td><span class="badge u-semana">Esta semana</span></td>
+                    <td><span class="badge sp-3">Sprint 3</span></td>
+                    <td class="col-owner">Ari + Tano<br/>(Cyber)</td>
+                    <td class="col-since">20 may<span class="age">~3 sem</span></td>
+                </tr>
+
+                <!-- 7 — ANTES SPRINT 4: Notificación auto-cancelación -->
+                <tr data-urgency="sprint4" data-rank="3" data-sprint="4" data-origin="perc" data-date="2026-06-02">
+                    <td class="col-num">7</td>
+                    <td class="col-def">
+                        <span class="def-title">Notificación al usuario en auto-cancelación 24h<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc">Si el sistema auto-cancela tras 24h sin fondos, ¿quién avisa al usuario y cómo? Va en cancelaciones. Ezequiel marcó además riesgo macro (variación de tasas en la ventana).</span>
+                    </td>
+                    <td><span class="badge u-sprint4">Antes S4</span></td>
+                    <td><span class="badge sp-4">Sprint 4</span></td>
+                    <td class="col-owner">Marcos / Seba</td>
+                    <td class="col-since">2 jun<span class="age">~6 días</span></td>
+                </tr>
+
+                <!-- 8 — ANTES SPRINT 4: IVA cancelaciones -->
+                <tr data-urgency="sprint4" data-rank="3" data-sprint="4" data-origin="perc" data-date="2026-05-27">
+                    <td class="col-num">8</td>
+                    <td class="col-def">
+                        <span class="def-title">IVA en cancelaciones: ¿siempre o condicional?<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc">¿Se cobra IVA sobre la cancelación siempre, o solo si el usuario no paga en término? Olivier observó que es raro cobrarlo si pagó bien. Seba rearmando la tabla del Excel.</span>
+                    </td>
+                    <td><span class="badge u-sprint4">Antes S4</span></td>
+                    <td><span class="badge sp-4">Sprint 4</span></td>
+                    <td class="col-owner">Seba<br/>(Compliance)</td>
+                    <td class="col-since">27 may<span class="age">~1.5 sem</span></td>
+                </tr>
+
+                <!-- 9 — ANTES SPRINT 4: BIND disclosure -->
+                <tr data-urgency="sprint4" data-rank="3" data-sprint="4" data-origin="perc" data-date="2026-04-08">
+                    <td class="col-num">9</td>
+                    <td class="col-def">
+                        <span class="def-title">¿Avisar que la operación va por BIND?<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc">Compliance: ¿es obligatorio informar al usuario que la operación se procesa vía BIND? ¿En qué paso? Sin deadline duro, pero a confirmar antes del Sprint 4. Pendiente desde el 8/4.</span>
+                    </td>
+                    <td><span class="badge u-sprint4">Antes S4</span></td>
+                    <td><span class="badge sp-4">Sprint 4</span></td>
+                    <td class="col-owner">Seba<br/>(Compliance)</td>
+                    <td class="col-since">8 abr<span class="age">~9 sem</span></td>
+                </tr>
+
+                <!-- 10 — ANTES SPRINT 4: La Mantovana ida y vuelta -->
+                <tr data-urgency="sprint4" data-rank="3" data-sprint="4" data-origin="perc" data-date="2026-05-20">
+                    <td class="col-num">10</td>
+                    <td class="col-def">
+                        <span class="def-title">Reporte ida y vuelta — La Mantovana<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc"><strong>Ida:</strong> nosotros (BO PERC) avisamos a La Mantovana las novedades — préstamos solicitados y cuotas a descontar mes a mes. <strong>Vuelta:</strong> La Mantovana nos confirma qué cuotas fueron descontadas del pago de haberes. Definir formato + timing antes del Sprint 4 (deadline 12/6).</span>
+                    </td>
+                    <td><span class="badge u-sprint4">Antes S4</span></td>
+                    <td><span class="badge sp-4">Sprint 4</span></td>
+                    <td class="col-owner">Seba / La Mantovana</td>
+                    <td class="col-since">20 may<span class="age">~3 sem</span></td>
+                </tr>
+
+                <!-- 11 — MEDIA: Tab bar redesign -->
+                <tr data-urgency="media" data-rank="4" data-sprint="app" data-origin="quarks" data-date="2026-05-20">
+                    <td class="col-num">11</td>
+                    <td class="col-def">
+                        <span class="def-title">Tab bar redesign<span class="org org-quarks">Quarks</span></span>
+                        <span class="def-desc">Incorporar préstamos a la navegación requiere rediseñar el tab bar (hoy: QR / perfil / home). No bloquea el desarrollo, pero hay que resolver el esquema de navegación.</span>
+                    </td>
+                    <td><span class="badge u-media">Media</span></td>
+                    <td><span class="badge sp-app">App / UX</span></td>
+                    <td class="col-owner">Olivier<br/>(diseño)</td>
+                    <td class="col-since">20 may<span class="age">~3 sem</span></td>
+                </tr>
+
+                <!-- 12 — RESUELTO: Formato de documentos HTML→PDF (8/6) -->
+                <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="3" data-origin="perc" data-date="2026-06-08">
+                    <td class="col-num">12</td>
+                    <td class="col-def">
+                        <span class="def-title">✅ Formato de documentos: HTML → PDF<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc">El BO sube HTML; el sistema lo devuelve al cliente como PDF (la app es Flutter). La librería es HTML→PDF (no al revés). Operativo: el operador convierte su .docx a .html y lo sube. Confirmado por dev/José (Daily 8/6). Riesgo operativo: ¿el operador sabe convertir a HTML? → cartel + aclaración en review.</span>
+                    </td>
+                    <td><span class="badge u-resuelto">Resuelto</span></td>
+                    <td><span class="badge sp-3">Sprint 3</span></td>
+                    <td class="col-owner">José / devs PERC</td>
+                    <td class="col-since">8 jun<span class="age">resuelto</span></td>
+                </tr>
+
+                <!-- 13 — RESUELTO/EN CAMINO: Infra S3 + entorno dev/stage (8/6) -->
+                <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="3" data-origin="perc" data-date="2026-06-08">
+                    <td class="col-num">13</td>
+                    <td class="col-def">
+                        <span class="def-title">✅ Infra: entorno dev + S3 — camino acordado<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc">PERC (DevOps) da una cuenta Sandbox de Amazon; Quarks crea el bucket y todo para testear; después PERC monta el dev env con CI/CD. Pendiente de ejecución: Quarks pasa el punteo de servicios Amazon para que habiliten la cuenta. ⚠️ A clarificar con Israel: ¿quién configura los entornos? (posible scope extra). (Daily 8/6)</span>
+                    </td>
+                    <td><span class="badge u-resuelto">En camino</span></td>
+                    <td><span class="badge sp-3">Sprint 3</span></td>
+                    <td class="col-owner">PERC DevOps<br/>↔ Nico / Isra</td>
+                    <td class="col-since">8 jun<span class="age">camino acordado</span></td>
+                </tr>
+
+                <!-- 14 — RESUELTO/DESBLOQUEADO: PER-42 cuotas (8/6) -->
+                <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="3" data-origin="quarks" data-date="2026-06-08">
+                    <td class="col-num">14</td>
+                    <td class="col-def">
+                        <span class="def-title">✅ PER-42 — Cuotas: desbloqueada<span class="org org-quarks">Quarks</span></span>
+                        <span class="def-desc">Ya no está frenada. El dev sacó el hardcode del Sistema Francés (lo hizo dinámico según el crédito); los cálculos ya están subidos y mergeados hasta el front. Falta la lógica para crear las cuotas (hoy es solo la tabla) y el PR a PERC. (Daily 8/6)</span>
+                    </td>
+                    <td><span class="badge u-resuelto">Desbloqueada</span></td>
+                    <td><span class="badge sp-3">Sprint 3</span></td>
+                    <td class="col-owner">dev (Quarks)</td>
+                    <td class="col-since">8 jun<span class="age">en progreso</span></td>
+                </tr>
+
+                <!-- 15 — RESUELTO: Documentos dinámicos -->
+                <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="3" data-origin="perc" data-date="2026-06-01">
+                    <td class="col-num">15</td>
+                    <td class="col-def">
+                        <span class="def-title">✅ Documentos dinámicos confirmados (HTML)<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc">Los documentos incluyen variables del usuario / préstamo. Formato HTML para permitir inyección de variables + firma embebida. Confirmado por Sebastián (1/6).</span>
+                    </td>
+                    <td><span class="badge u-resuelto">Resuelto</span></td>
+                    <td><span class="badge sp-3">Sprint 3</span></td>
+                    <td class="col-owner">Sebastián</td>
+                    <td class="col-since">1 jun<span class="age">resuelto</span></td>
+                </tr>
+
+                <!-- 16 — RESUELTO: Plazo desembolso -->
+                <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="4" data-origin="perc" data-date="2026-06-02">
+                    <td class="col-num">16</td>
+                    <td class="col-def">
+                        <span class="def-title">✅ Plazo de desembolso: 24 horas<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc">Si hay fondos en la cuenta recaudadora, transferencia inmediata; si no, queda en pendiente y se reintenta. Confirmado por Marcos (CEO) en Sprint 2 Review (2/6).</span>
+                    </td>
+                    <td><span class="badge u-resuelto">Resuelto</span></td>
+                    <td><span class="badge sp-4">Sprint 4</span></td>
+                    <td class="col-owner">Marcos (CEO)</td>
+                    <td class="col-since">2 jun<span class="age">resuelto</span></td>
+                </tr>
+
+                <!-- 17 — RESUELTO: 4 escenarios cancelación -->
+                <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="4" data-origin="perc" data-date="2026-06-02">
+                    <td class="col-num">17</td>
+                    <td class="col-def">
+                        <span class="def-title">✅ 4 escenarios de cancelación definidos<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc">(1) user cancela within 24h, (2) auto-cancel 24h sin fondos, (3) arrepentimiento 10 días sin costo, (4) precancelación anticipada con costo. Definidos en planning (2/6).</span>
+                    </td>
+                    <td><span class="badge u-resuelto">Resuelto</span></td>
+                    <td><span class="badge sp-4">Sprint 4</span></td>
+                    <td class="col-owner">Equipo (planning)</td>
+                    <td class="col-since">2 jun<span class="age">resuelto</span></td>
+                </tr>
+
+                <!-- 18 — RESUELTO: TOTP obligatorio -->
+                <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="3" data-origin="perc" data-date="2026-06-02">
+                    <td class="col-num">18</td>
+                    <td class="col-def">
+                        <span class="def-title">✅ TOTP obligatorio para firmar<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc">TOTP requerido antes de persistir documentos. Si falla TOTP, los documentos NO se guardan. Reintento: 3 errores máx, 11 min de expiración. Definido en planning (2/6).</span>
+                    </td>
+                    <td><span class="badge u-resuelto">Resuelto</span></td>
+                    <td><span class="badge sp-3">Sprint 3</span></td>
+                    <td class="col-owner">Nico + Olivier</td>
+                    <td class="col-since">2 jun<span class="age">resuelto</span></td>
+                </tr>
+
+                <!-- 19 — RESUELTO: Penalidad intereses futuros -->
+                <tr class="resuelto-row" data-urgency="resuelto" data-rank="5" data-sprint="4" data-origin="perc" data-date="2026-06-01">
+                    <td class="col-num">19</td>
+                    <td class="col-def">
+                        <span class="def-title">✅ Penalidad sobre intereses futuros<span class="org org-perc">PERC</span></span>
+                        <span class="def-desc">En precancelación anticipada se aplica costo (capital restante + penalidad sobre intereses futuros + comisión + IVA). Fórmula cerrada con Seba (Compliance) y Fefe (COO).</span>
+                    </td>
+                    <td><span class="badge u-resuelto">Resuelto</span></td>
+                    <td><span class="badge sp-4">Sprint 4</span></td>
+                    <td class="col-owner">Seba / Fefe</td>
+                    <td class="col-since">jun<span class="age">resuelto</span></td>
+                </tr>
+
             </tbody>
         </table>
 
         <footer>
-            <p>PERC Flujo Crédito — Definiciones Pendientes | Actualizado 2 de junio, 2026 (Sprint 2 Review + Planning)</p>
+            <p>PERC Flujo Crédito — Definiciones Pendientes | Actualizado 8 de junio, 2026 (Daily PERC)</p>
         </footer>
     </div>
+
+    <script>
+        const state = { urgency: 'all', sprint: 'all', origin: 'all', sort: 'urgency' };
+        const tbody = document.getElementById('defs-body');
+        const allRows = Array.from(tbody.querySelectorAll('tr'));
+
+        function apply() {
+            // Filter
+            let visible = 0;
+            allRows.forEach(r => {
+                const okU = state.urgency === 'all' || r.dataset.urgency === state.urgency;
+                const okS = state.sprint  === 'all' || r.dataset.sprint  === state.sprint;
+                const okO = state.origin  === 'all' || r.dataset.origin  === state.origin;
+                const show = okU && okS && okO;
+                r.classList.toggle('row-hidden', !show);
+                if (show) visible++;
+            });
+
+            // Sort
+            const sorted = allRows.slice().sort((a, b) => {
+                if (state.sort === 'urgency')
+                    return (+a.dataset.rank - +b.dataset.rank) || cmpNum(a, b);
+                if (state.sort === 'age')
+                    return a.dataset.date.localeCompare(b.dataset.date); // más antiguo primero
+                if (state.sort === 'sprint')
+                    return a.dataset.sprint.localeCompare(b.dataset.sprint) || (+a.dataset.rank - +b.dataset.rank);
+                return 0;
+            });
+            sorted.forEach(r => tbody.appendChild(r));
+
+            document.getElementById('count-line').textContent =
+                'Mostrando ' + visible + ' de ' + allRows.length;
+        }
+        function cmpNum(a, b) {
+            return +a.querySelector('.col-num').textContent - +b.querySelector('.col-num').textContent;
+        }
+
+        // Filter chips
+        document.querySelectorAll('.chip[data-filter]').forEach(chip => {
+            chip.addEventListener('click', () => {
+                const group = chip.dataset.filter;
+                state[group] = chip.dataset.val;
+                document.querySelectorAll('.chip[data-filter="' + group + '"]')
+                    .forEach(c => c.classList.toggle('active', c === chip));
+                apply();
+            });
+        });
+
+        // Sort chips
+        document.querySelectorAll('.chip[data-sort]').forEach(chip => {
+            chip.addEventListener('click', () => {
+                state.sort = chip.dataset.sort;
+                document.querySelectorAll('.chip[data-sort]')
+                    .forEach(c => c.classList.toggle('active', c === chip));
+                apply();
+            });
+        });
+
+        // Stat cards jump = filter by urgency
+        document.querySelectorAll('.stat-card[data-jump]').forEach(card => {
+            card.addEventListener('click', () => {
+                const val = card.dataset.jump;
+                state.urgency = val;
+                document.querySelectorAll('.chip[data-filter="urgency"]')
+                    .forEach(c => c.classList.toggle('active', c.dataset.val === val));
+                apply();
+            });
+        });
+
+        apply();
+    </script>
 </body>
 </html>

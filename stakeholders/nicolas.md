@@ -27,5 +27,5 @@ TODO: confirmar.
 - 2026-05-20 — Refinement backlog PERC con Seba. Definiciones: estados del préstamo, CRUD de documentos, firma = 5 docs, TOTP gap identificado. [ingestion/meetings/2026-05-20-refinement-backlog-perc.md](../ingestion/meetings/2026-05-20-refinement-backlog-perc.md)
 
 ## Last touched
-2026-05-06
+2026-06-08
 
