@@ -1,0 +1,443 @@
+﻿Épica,ID Historia,Nombre Historia,N° Escenario,Nombre Escenario,Escenario (Dado/Cuando/Entonces),Validación,Resultado Esperado,Resultado Obtenido,Status,Asignación
+Autenticación,PER-4,Autenticar operador de Backoffice en Playground,1,Escenario 1,"Dado que el operador ingresa credenciales válidas,
+Cuando inicia sesión,
+Entonces obtiene acceso autenticado al playground usando el login existente de PERC.",,,,Pendiente,
+Autenticación,PER-4,Autenticar operador de Backoffice en Playground,2,Escenario 2,"Dado que el operador está autenticado,
+Cuando invoca un endpoint protegido,
+Entonces la API recibe y valida el JWT antes de permitir la operación.",,,,Pendiente,
+Gestionar Templates de Préstamos,PER-5,Visualizar listado de templates de préstamos,1,Escenario 1,"Dado que el operador accede a la sección de templates de préstamos,
+Cuando ingresa al listado,
+Entonces visualiza todos los templates registrados.",,,,Pendiente,
+Gestionar Templates de Préstamos,PER-5,Visualizar listado de templates de préstamos,2,Escenario 2,"Dado que existen templates cargados,
+Cuando se muestran en el listado,
+Entonces cada registro exhibe al menos monto, tasa, tiempo, CFE y CFT.",,,,Pendiente,
+Gestionar Templates de Préstamos,PER-6,Crear template de préstamo,1,Escenario 1,"Dado que el operador accede a la creación de un template,
+Cuando completa los datos requeridos,
+Entonces puede registrar un nuevo template de préstamo.",,,,Pendiente,
+Gestionar Templates de Préstamos,PER-6,Crear template de préstamo,2,Escenario 2,"Dado que el operador crea un template,
+Cuando guarda la configuración,
+Entonces el sistema almacena todas las variables financieras definidas para el préstamo.",,,,Pendiente,
+Gestionar Templates de Préstamos,PER-6,Crear template de préstamo,3,Escenario 3,"Dado que el operador crea un template,
+Cuando selecciona un tag,
+Entonces el sistema valida las reglas de asignación correspondientes.",,,,Pendiente,
+Gestionar Templates de Préstamos,PER-6,Crear template de préstamo,4,Escenario 4,"Dado que el operador ingresa valores numéricos,
+Cuando completa monto, cuotas, tasa y demás variables,
+Entonces el sistema restringe el tipo de dato según corresponda.",,,,Pendiente,
+Gestionar Templates de Préstamos,PER-6,Crear template de préstamo,5,Escenario 5,"Dado que el template se crea correctamente,
+Cuando finaliza el alta,
+Entonces el sistema registra la operación para auditoría.",,,,Pendiente,
+Gestionar Templates de Préstamos,PER-7,Visualizar y/o modificar un template de préstamo,1,Escenario 1,"Dado que el operador accede a un template existente,
+Cuando abre su detalle,
+Entonces visualiza todos sus campos configurados.",,,,Pendiente,
+Gestionar Templates de Préstamos,PER-7,Visualizar y/o modificar un template de préstamo,2,Escenario 2,"Dado que el operador edita un template,
+Cuando modifica los parámetros permitidos y confirma la acción,
+Entonces el sistema guarda los cambios.",,,,Pendiente,
+Gestionar Templates de Préstamos,PER-7,Visualizar y/o modificar un template de préstamo,3,Escenario 3,"Dado que el operador modifica un template,
+Cuando actualiza los campos,
+Entonces todas las variables del préstamo son editables. En el caso de modificar un tag, se deben de validar las reglas de negocio.",,,,Pendiente,
+Gestionar Templates de Préstamos,PER-7,Visualizar y/o modificar un template de préstamo,4,Escenario 4,"Dado que se confirma una modificación,
+Cuando el sistema procesa el cambio,
+Entonces registra auditoría con usuario, fecha y campos modificados.
+Cualquier edición de un template NO modifica la solicitudes previamente asignadas a los usuarios.",,,,Pendiente,
+Gestionar Templates de Préstamos,PER-8,Eliminar un template de préstamo,1,Escenario 1,"Dado que el operador selecciona un template existente,
+Cuando confirma la eliminación,
+Entonces el sistema da de baja el template.",,,,Pendiente,
+Gestionar Templates de Préstamos,PER-8,Eliminar un template de préstamo,2,Escenario 2,"Dado que un template fue eliminado,
+Cuando el sistema procesa la acción,
+Entonces el registro no se elimina físicamente y debe conservar trazabilidad.",,,,Pendiente,
+Gestionar Templates de Préstamos,PER-8,Eliminar un template de préstamo,3,Escenario 3,"Dado que la eliminación se ejecuta correctamente,
+Cuando finaliza la operación,
+Entonces el sistema registra la acción para auditoría.
+Cualquier eliminación de un template NO modifica la solicitudes previamente asignadas a los usuarios.",,,,Pendiente,
+Sin épica,PER-9,Auditoría de templates para seguimiento,1,Escenario 1,Sin descripción / sin criterios,,,,Pendiente,
+Sin épica,PER-16,BACK Setup ClaudeCode,1,Escenario 1,Sin descripción / sin criterios,,,,Pendiente,
+Sin épica,PER-17,FRONT Setup ClaudeCode,1,Escenario 1,Sin descripción / sin criterios,,,,Pendiente,
+Diseño,PER-19,DISEÑO Flujo Crédito,1,Escenario 1,"Un onboarding breve antes de mostrar las opciones de préstamo, con foco en explicar de forma simple cómo funciona el descuento y qué información mínima hay que comunicar. Variables a mostrar: ### En la pantalla principal de opciones Monto Cantidad de cuotas Valor de la cuota CFT TNA ### En el detalle / revisión de solicitud TNA TEA CFT Si la tasa es fija o variable Capital Interés Seguro de vida Gastos administrativos / mantenimiento IVA Impuesto de sellos Otros impuestos / conceptos a cargo del prestatario Valor de la cuota Cantidad de cuotas Monto total / total a pagar No descargar documentación (TYC) antes de firmar, pero sí dejarla accesible luego, desde la pantalla del préstamo. Agregar el ID de operación también en estados pendientes, no solo en desembolsados, para soporte. Ajustar el copy del estado pendiente hacia algo como tu solicitud está siendo procesada y evaluar si informar plazo estimado de acreditación. Diseñar mensaje/confirmación al salir del flujo en esa instancia, aclarando que se cancela la operación en curso. Diseñar la pantalla de préstamo desembolsado con cuotas pagadas, cuotas pendientes, deuda restante, descarga de términos y opción de precancelación. Incluir el flujo de arrepentimiento/cancelación anticimada y diferenciarlo de la precancelación (previa al desembolso). Resolver qué pasa con el botón de arrepentimiento después de los 10 días y evaluar cambiarlo dinámicamente por cancelación anticipada. Agregar doble confirmación para cancelar/arrepentirse, incluyendo OTP/TOTP nuevamente.",,,,Pendiente,
+Solicitud y Consulta de Préstamos,PER-20,Empleado consulta templates disponibles para su tag,1,Consulta exitosa,"Dado que soy un empleado
+Y tengo un tag asociado
+Cuando consulto los préstamos disponibles
+Entonces recibo los templates de préstamos asignados a mi tag
+Y no pueden ser más de 3
+Y cada préstamo incluye las variables:
+Monto
+Cantidad de cuotas
+Valor de cuota
+CFT
+TEA
+TNA
+Y el empleado no elige ni ve su tag, sino únicamente los préstamos disponibles para su condición",,,,Pendiente,
+Solicitud y Consulta de Préstamos,PER-21,Watson consulta préstamos solicitados por empleados,1,Consulta exitosa,"Dado que soy operador de backoffice
+Cuando consulto las solicitudes de préstamos
+Entonces recibo un listado con todas las solicitudes
+Y los variables monto de préstamo, tasa, cuotas restantes, cuotas totales, tag, CFT, capital adeudado, estado.
+Y al ingresar al detalle de una solicitud puedo ver el resto de las variables asociadas
+PARÁMETROS PRINCIPALES DEL PRÉSTAMO, Monto solicitado (capital), TNA (Tasa Nominal Anual), Cantidad de cuotas (meses), Impuesto de Sellos (%), Seguro de vida (%), Gasto administrativo mensual, IVA sobre intereses (%), Penalidad cancel. anticipada (%), Gastos de otorgamiento
+TASAS U MONTOS DERIVADOS, Tasa mensual (TEM), Tasa efectiva anual (TEA), Cuota pura (capital + interés), Impuesto de sellos ($), Gastos de otorgamiento ($), Total desembolso inicial, Total a pagar (sin cancelac.), Costo financiero total ($), CFT (aproximado c/ IVA, anual), CFT mensual",,,,Pendiente,
+Solicitud y Consulta de Préstamos,PER-21,Watson consulta préstamos solicitados por empleados,2,Filtrar y Ordenar solicitudes,"Filtros: tag, pf/pj, cuotas totales, cliente, estado (en curso, pendiente, otorgado, cancelado, arrepentido, pagado), En curso. Desde que se crea la solicitud hasta que se confirma la firma de documentos con el otp/totp., Pendiente de Otorgamiento. Desde la firma de documentos hasta el otorgamiento del crédito., Otorgado. Desde que el préstamo es desembolsado hasta que es pagado totalmente, cancelado anticipadamente o arrepentido previo a los 10 días hábiles., Cancelado. Cancelación anticipada. Cuando el préstamo se paga por completo de manera anticipada., Arrepentido. Cuando el préstamo es devuelto previo a los 10 días hábiles., Pagado. Préstamo pagado totalmente en tiempo y forma.
+Ordenamientos: por columna a-z",,,,Pendiente,
+Solicitud y Consulta de Préstamos,PER-22,Operador de Backoffice exporta los datos de los préstamos,1,Exportación exitosa,"Dado que soy usuario de backoffice
+Cuando exporto los datos de préstamos desde la vista del backoffice
+Entonces obtengo un archivo `.xlsx`
+Y el archivo contiene todas las variables disponibles
+Y la exportación respeta los filtros aplicados en la vista",,,,Pendiente,
+Solicitud y Consulta de Préstamos,PER-23,Empleado crea solicitud de préstamo,1,Crear solicitud,"Dado que soy un empleado y tengo préstamos disponibles
+Cuando selecciono uno de mis 3 préstamos disponibles
+Entonces se crea una solicitud con estado “En Curso”
+Y se graban los valores de las variables del template de préstamo vigentes en ese momento
+Y se graban las cuotas correspondientes a esa solicitud en ese momento",,,,Pendiente,
+Solicitud y Consulta de Préstamos,PER-23,Empleado crea solicitud de préstamo,2,Solicitud en curso expirada,"Dado que existe una solicitud en curso sin confirmación
+Cuando transcurre 1 hora sin completar el proceso sin recibir la firma del empleado
+Entonces la solicitud expira",,,,Pendiente,
+Solicitud y Consulta de Préstamos,PER-23,Empleado crea solicitud de préstamo,3,Cambio de template con solicitudes en estado en curso,"Dado que existen solicitudes en curso asociadas a un template
+Cuando se modifica ese template
+Entonces las solicitudes pendientes/inconclusas asociadas expiran
+Y el usuario debe reiniciar el proceso con los nuevos valores",,,,Pendiente,
+PROJECT MANAGEMENT,PER-24,PM Tareas pendientes,1,Escenario 1,"FLUJO CREDITO Definir: 1.⁠ ⁠Qué variables finales quieren mostrar en: - la pantalla principal de opciones, (período = cantidad de meses) - el detalle/revisión de solicitud. validado en el excel Confirmar: 2.⁠ ⁠El plazo máximo que puede pasar hasta desembolsar fondos. (24/48hs) corridos. 3.⁠ ⁠Si hace falta un nuevo documento/legal para registrar cancelaciones o arrepentimiento. se puede hacer la cuenta de lo que debe pagar? 1. Se va a evolucionar a un esquema multi-tenant real dentro del mismo backend/infraestructura, o si la estrategia futura será marca blanca por cliente con despliegues separados. Validar: 5.⁠ ⁠La lógica de fechas para desembolso/cuotas según día del mes. 6.⁠ ⁠La lista completa y final de variables del Excel y cuáles son regulatorias vs. principales. 7.⁠ ⁠⁠El proceso legal/técnico de: - cancelación - arrepentimiento Gestionar: 8. Reunión con la Manto DISEÑO TARJETAS 9. Definir si va o no el borde 1. Definir si estamos OK con las dos tarjetas (básica, pro) (violeta, azul) LISTO",,,,Pendiente,
+Diseño,PER-28,DISEÑO Tarjeta SIGNATURE,1,Escenario 1,"### Diseño de tarjetas — definición completa El foco inmediato es avanzar con la versión high level de la tarjeta. La tarjeta oscura/azul no debe llamarse Platinum sino Signature. Por ahora se van a concentrar solo en esa variante oscura/high level como prioridad. [https://docs.exact.ly/exa-app/exa-app-and-exa-card-assets](<https://docs.exact.ly/exa-app/exa-app-and-exa-card-assets>) hay que agregar el logo en algún lado sutil, porque es el partner de perc que tiene que estar si o si sea abajo de perc o perc by exa [Exa App and Exa Card assets | Exactly Protocol](<https://docs.exact.ly/exa-app/exa-app-and-exa-card-assets>) ### Propuesta elegida La opción preferida fue la cuarta de las primeras cuatro propuestas. La describieron como la negra con celeste. Hubo acuerdo bastante claro de que esa era la mejor alternativa. ### Entregable técnico La tarjeta debe prepararse según lo que pide el documento/especificación de Visa. En principio, ese entregable pide básicamente: el fondo, y el logo de PERC. ### Entregable visual Armar una presentación embebida en un iPhone o Android, para visualizar mejor el resultado final.",,,,Pendiente,
+Sin épica,PER-30,Excel y Cálculo de Variables de Préstamos,1,Escenario 1,[prestamo cashflow.xlsx](https://uploads.linear.app/8ab9e995-8fbb-4510-9a81-3fb2f8187189/e2037e20-53d5-4170-baf7-968f40f35a51/ad13a483-6734-44a0-815d-bbb3d2e352f9?signature=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXRoIjoiLzhhYjllOTk1LThmYmItNDUxMC05YTgxLTNmYjJmODE4NzE4OS9lMjAzN2UyMC01M2Q1LTQxNzAtYmFmNy05NjhmNDBmMzVhNTEvYWQxM2E0ODMtNjczNC00NGEwLTgxNWQtYmJiM2QyZTM1MmY5IiwiaWF0IjoxNzgzMzU1NTYwLCJleHAiOjE3ODU5ODY0NDB9.yy042ztNYIg2Vf5FuGlPVKHWw1nX9Sb0rXBKS6tvMD0) DIA Y FECHA DE PRIMER PAGO NO VA,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-31,Definir e implementar estrategia de identificadores ordenables,1,Escenario 1,Queda definida la estrategia de identificadores a usar en Postgres.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-31,Definir e implementar estrategia de identificadores ordenables,2,Escenario 2,Se resuelve cómo persistir el identificador en base de datos.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-31,Definir e implementar estrategia de identificadores ordenables,3,Escenario 3,La solución asegura unicidad global.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-31,Definir e implementar estrategia de identificadores ordenables,4,Escenario 4,El valor del ID no permite inferir cantidad de registros ni secuencia de crecimiento.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-31,Definir e implementar estrategia de identificadores ordenables,5,Escenario 5,El identificador soporta ordenamiento eficiente e indexación como clave primaria.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-31,Definir e implementar estrategia de identificadores ordenables,6,Escenario 6,La implementación queda documentada.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-32,"Distinguir templates activos, inactivos",1,Escenario 1,Cada template expone claramente su estado.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-32,"Distinguir templates activos, inactivos",2,Escenario 2,Es posible identificar si un template tiene créditos asociados.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-32,"Distinguir templates activos, inactivos",3,Escenario 3,Los templates mostrables para nuevas solicitudes se distinguen de los que solo deben conservarse.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-32,"Distinguir templates activos, inactivos",4,Escenario 4,La información de estado está disponible en consultas y listados.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-33,Registrar auditoría con identificador de usuario correcto,1,Escenario 1,La auditoría registra un identificador de usuario adecuado.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-33,Registrar auditoría con identificador de usuario correcto,2,Escenario 2,El JWT crudo no se persiste como identificador principal de auditoría.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-33,Registrar auditoría con identificador de usuario correcto,3,Escenario 3,Cada evento auditado permite conocer quién realizó el cambio.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-33,Registrar auditoría con identificador de usuario correcto,4,Escenario 4,La estructura de auditoría queda alineada con el modelo de datos definido.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-34,Guardar snapshots de cambios en auditoría,1,Escenario 1,"Cada evento de create, update o delete registra el estado relevante del objeto.",,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-34,Guardar snapshots de cambios en auditoría,2,Escenario 2,La auditoría conserva previous data y new data cuando corresponda.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-34,Guardar snapshots de cambios en auditoría,3,Escenario 3,Es posible reconstruir qué cambió entre una versión y otra.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-34,Guardar snapshots de cambios en auditoría,4,Escenario 4,El historial queda disponible para consulta técnica y trazabilidad.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-35,Definir convención única para almacenar tasas,1,Escenario 1,Se define una única convención de almacenamiento de tasas.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-35,Definir convención única para almacenar tasas,2,Escenario 2,"La convención aplica a persistencia, validación y procesamiento.",,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-35,Definir convención única para almacenar tasas,3,Escenario 3,Se evita la coexistencia de formatos incompatibles para el mismo dato.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-36,Almacenar fechas con formato consistente,1,Escenario 1,Las fechas se guardan con formato estandarizado.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-36,Almacenar fechas con formato consistente,2,Escenario 2,El dato incluye información de timezone u offset.,,,,Pendiente,
+Ajustes de Gestión de Préstamos,PER-36,Almacenar fechas con formato consistente,3,Escenario 3,La convención es consistente entre servicios.,,,,Pendiente,
+Sin épica,PER-37,Desarrollar endpoint de Auditoría,1,Escenario 1,Sin descripción / sin criterios,,,,Pendiente,
+Solicitud y Consulta de Préstamos,PER-39,Disponibilizar endpoint para visualizar el detalle de un template de préstamo,1,Escenario 1,Sin descripción / sin criterios,,,,Pendiente,
+Sin épica,PER-40,Simular experiencia de usuario para sacar un préstamo,1,Escenario 1,Sin descripción / sin criterios,,,,Pendiente,
+Sin épica,PER-41,Cambio relacion de tablas,1,Escenario 1,Sin descripción / sin criterios,,,,Pendiente,
+Sin épica,PER-42,Integracion de cuotas,1,Escenario 1,Crear tabla de cuotas que pertenecen a un credito Al crear el credito se crean la cantidad de cuotas en la tabla registrando los montos para cada una,,,,Pendiente,
+PROJECT MANAGEMENT,PER-43,⁠IVA en cancelaciones — ¿confirmamos que aplica según el Excel (flag B8 = 1)?,1,Escenario 1,Sin descripción / sin criterios,,,,Pendiente,
+PROJECT MANAGEMENT,PER-44,"Mora — ¿confirmamos que el monto se precalcula en el template o se calcula on-demand al momento de la solicitud? me suena raro porque si el usuario la paga bien hasta el final, porqué le cobro la mora?",1,Escenario 1,Sin descripción / sin criterios,,,,Pendiente,
+PROJECT MANAGEMENT,PER-45,Documento Dinámico vs Estático,1,Escenario 1,Sin descripción / sin criterios,,,,Pendiente,
+PROJECT MANAGEMENT,PER-46,Plazo de desembolso para cuando no hay fondos disponibles,1,Escenario 1,Sin descripción / sin criterios,,,,Pendiente,
+PROJECT MANAGEMENT,PER-47,Reportes para la manto,1,Escenario 1,Sin descripción / sin criterios,,,,Pendiente,
+Firma de Documento,PER-48,Gestionar Template de Documento,1,Escenario 1,Ver listados los documentos,,,,Pendiente,
+Firma de Documento,PER-48,Gestionar Template de Documento,2,Escenario 2,Dar de alta un documento,,,,Pendiente,
+Firma de Documento,PER-48,Gestionar Template de Documento,3,Escenario 3,Dar de baja un documento,,,,Pendiente,
+Firma de Documento,PER-48,Gestionar Template de Documento,4,Escenario 4,Reemplazar documento (genera nueva versión),,,,Pendiente,
+Firma de Documento,PER-48,Gestionar Template de Documento,5,Escenario 5,"Si tengo distintas versiones de un documento, poder seleccionar el correcto/activo",,,,Pendiente,
+Firma de Documento,PER-48,Gestionar Template de Documento,6,Escenario 6,Registrar cada acción en auditoría,,,,Pendiente,
+Firma de Documento,PER-48,Gestionar Template de Documento,7,Escenario 7,Los documentos son DINAMICOS,,,,Pendiente,
+Firma de Documento,PER-49,Cliente visualiza documento,1,Escenario 1,Se crea el documento con los datos asociados del préstamo/usuario.,,,,Pendiente,
+Firma de Documento,PER-49,Cliente visualiza documento,2,Escenario 2,Se muestra al cliente este documento,,,,Pendiente,
+Firma de Documento,PER-50,Almacenar documentos generados en servidor,1,Escenario 1,"Listar los documentos firmados por cliente (no los sábana, los unitarios)",,,,Pendiente,
+Firma de Documento,PER-50,Almacenar documentos generados en servidor,2,Escenario 2,Filtrar,,,,Pendiente,
+Firma de Documento,PER-50,Almacenar documentos generados en servidor,3,Escenario 3,Buscar,,,,Pendiente,
+Firma de Documento,PER-50,Almacenar documentos generados en servidor,4,Escenario 4,Ordenar,,,,Pendiente,
+Firma de Documento,PER-50,Almacenar documentos generados en servidor,5,Escenario 5,Descargar los documentos seleccionados en .zip,,,,Pendiente,
+Firma de Documento,PER-50,Almacenar documentos generados en servidor,6,Escenario 6,"Restringir descarga hasta 25 documentos (5 por usuario aprox.) — Si no superan en media los 5mb. — Si los superan, serán mayer la restricción en cantidad.",,,,Pendiente,
+Firma de Documento,PER-51,Empleado solicita código TOTP para firma,1,Escenario 1,"Luego del paso de ""la firma del documento""",,,,Pendiente,
+Firma de Documento,PER-51,Empleado solicita código TOTP para firma,2,Escenario 2,Para CONSOLIDAR y GRABAR la firma el usuario debe validar con TOTP.,,,,Pendiente,
+Firma de Documento,PER-51,Empleado solicita código TOTP para firma,3,Escenario 3,"Si el usuario NO logra pasar el paso de TOTP, NO se guardará el documento.",,,,Pendiente,
+Firma de Documento,PER-51,Empleado solicita código TOTP para firma,4,Escenario 4,"Es decir, SOLAMENTE se guardarán los documentos en el BO SI Y SOLO SI se pasa exitosamente el paso del TOTP.",,,,Pendiente,
+Firma de Documento,PER-52,Validar TOTP ingresado antes de firma,1,TOTP válido,"Dado que ingreso TOTP correcto
+Cuando envío POST /solicitud/{solicitud_id}/firmar con { codigo_otp }
+Entonces se valida exitosamente
+Y se procede con firma",,,,Pendiente,
+Firma de Documento,PER-52,Validar TOTP ingresado antes de firma,2,TOTP incorrecto,"Dado que ingreso TOTP equivocado
+Cuando envío POST
+Entonces recibo error 401 ""TOTP incorrecto""
+Y se decrementa intentos_restantes",,,,Pendiente,
+Firma de Documento,PER-52,Validar TOTP ingresado antes de firma,3,TOTP expirado,"Dado que pasaron 11 minutos desde que generé TOTP
+Cuando intento firmar con ese código
+Entonces recibo error 401 ""TOTP expirado""",,,,Pendiente,
+Firma de Documento,PER-52,Validar TOTP ingresado antes de firma,4,Máximo de intentos,"Dado que cometí 3 errores con TOTP
+Cuando intento 4ta vez
+Entonces recibo error 403 ""Máximo de intentos excedido""",,,,Pendiente,
+Firma de Documento,PER-52,Validar TOTP ingresado antes de firma,5,TOTP ya usado,"Dado que ya usé un TOTP para firmar
+Cuando intento usarlo de nuevo
+Entonces recibo error 401 ""TOTP ya fue usado""",,,,Pendiente,
+Firma de Documento,PER-53,Aplicar firma digital al documento,1,Firma aplicada,"Dado que TOTP es válido
+Cuando aplico firma
+Entonces el PDF es modificado con sello/timestamp de firma",,,,Pendiente,
+Firma de Documento,PER-53,Aplicar firma digital al documento,2,Firma contiene timestamp,"Dado que aplico firma
+Cuando veo el documento
+Entonces contiene
+1. Fecha y hora exacta de firma
+2. IP
+3. Mac Address
+4. Ubicación.",,,,Pendiente,
+Firma de Documento,PER-53,Aplicar firma digital al documento,3,Firma marca documento,"Dado que firmo documento
+Cuando veo después
+Entonces está visiblemente marcado como firmado",,,,Pendiente,
+Firma de Documento,PER-53,Aplicar firma digital al documento,4,el estado de la solicitud de préstamo a Pendiente,"Dado que aplico firma exitosamente
+Cuando se completa
+Entonces el estado de la solicitud de préstamo cambia a Pendiente",,,,Pendiente,
+Firma de Documento,PER-54,Descargar documentos firmados en BO,1,Descarga documentos firmado,"Dado que tengo documentos en estado FIRMADO
+Cuando solicito la descarga
+Entonces recibo PDFs con firma incrustada",,,,Pendiente,
+Firma de Documento,PER-54,Descargar documentos firmados en BO,2,PDFs contienen firma,"Dado que descargo documento
+Cuando lo abro
+Entonces veo marca de firma, timestamp y datos de quién firmó",,,,Pendiente,
+Firma de Documento,PER-55,Visualizar auditoría de los documentos firmados,1,Escenario 1,Visualizar el listado de documentos firmados,,,,Pendiente,
+Firma de Documento,PER-55,Visualizar auditoría de los documentos firmados,2,Escenario 2,Descargar documentos,,,,Pendiente,
+Firma de Documento,PER-55,Visualizar auditoría de los documentos firmados,3,Escenario 3,Solo se pueden descargar selecciones de 25 préstamos,,,,Pendiente,
+Firma de Documento,PER-55,Visualizar auditoría de los documentos firmados,4,Escenario 4,"Filtrar por persona, fecha, versión, por estado del préstamo, tag, PF/PJ.",,,,Pendiente,
+Sin épica,PER-60,Collection de insomnia,1,Escenario 1,Realizar la collection de insomnia para testear,,,,Pendiente,
+Sin épica,PER-61,Ver el detalle de mi préstamo,1,Datos principales,"Dado que abro mi préstamo
+Cuando lo veo
+Entonces veo el monto otorgado, el estado (Acreditado), la fecha de acreditación
+Y el identificador del préstamo",,,,Pendiente,
+Sin épica,PER-61,Ver el detalle de mi préstamo,2,Progreso de pago,"Dado que veo el detalle
+Cuando lo reviso
+Entonces veo cuántas cuotas pagué sobre el total y cuántas restan",,,,Pendiente,
+Sin épica,PER-61,Ver el detalle de mi préstamo,3,Próxima cuota destacada,"Dado que tengo cuotas pendientes
+Cuando veo el detalle
+Entonces se destaca el monto de la próxima cuota y el mes en que vence",,,,Pendiente,
+Sin épica,PER-61,Ver el detalle de mi préstamo,4,Deuda restante,"Dado que veo el detalle
+Cuando lo reviso
+Entonces veo el saldo que me queda por pagar",,,,Pendiente,
+Sin épica,PER-61,Ver el detalle de mi préstamo,5,Accesos,"Dado que estoy en el detalle
+Cuando quiero profundizar
+Entonces puedo ver todas las cuotas y descargar los documentos firmados
+ABIERTO: ""Acreditado"" en la UI = estado OTORGADO en el sistema (mantener el mapeo)., Exponer CFT / TEA en esta vista (requisito Art. 36 LDC) — confirmar ubicación.",,,,Pendiente,
+Sin épica,PER-62,Ver el desglose completo de las cuotas del préstamo,1,Listado completo,"Dado que mi préstamo está otorgado
+Cuando abro las cuotas
+Entonces veo todas las cuotas ordenadas por número",,,,Pendiente,
+Sin épica,PER-62,Ver el desglose completo de las cuotas del préstamo,2,Desglose de cada cuota,"Dado que miro una cuota
+Cuando la reviso
+Entonces veo número, fecha de vencimiento, total, y el desglose: capital amortizado,
+interés, IVA sobre el interés y gasto administrativo",,,,Pendiente,
+Sin épica,PER-62,Ver el desglose completo de las cuotas del préstamo,3,Estado de cada cuota,"Dado que miro la lista
+Cuando la reviso
+Entonces cada cuota muestra su estado (pendiente, pagada, o vencida)",,,,Pendiente,
+Sin épica,PER-62,Ver el desglose completo de las cuotas del préstamo,4,Solo mis cuotas,"Dado que intento ver las cuotas de un préstamo que no es mío
+Cuando lo solicito
+Entonces no se me permite el acceso",,,,Pendiente,
+Sin épica,PER-62,Ver el desglose completo de las cuotas del préstamo,5,Antes del otorgamiento,"Dado que mi préstamo todavía no fue otorgado (sin desembolso)
+Cuando intento ver las cuotas
+Entonces todavía no hay cuotas generadas",,,,Pendiente,
+Firma de Documento,PER-63,Descargar el documento firmado del préstamo,1,Descarga en PDF,"Dado que mi préstamo tiene un documento firmado
+Cuando lo descargo desde el detalle
+Entonces lo recibo en PDF",,,,Pendiente,
+Firma de Documento,PER-63,Descargar el documento firmado del préstamo,2,Acceso registrado,"Dado que descargo mi documento
+Cuando se entrega el archivo
+Entonces queda registrado el acceso (trazabilidad de datos personales)",,,,Pendiente,
+Sin épica,PER-64,Consultar el préstamo y las cuotas de un empleado desde el backoffice,1,Abrir el préstamo,"Dado que busco un empleado o un préstamo
+Cuando lo abro
+Entonces veo su estado, monto, fechas e identificador",,,,Pendiente,
+Sin épica,PER-64,Consultar el préstamo y las cuotas de un empleado desde el backoffice,2,Cuotas con desglose y estado,"Dado que veo el préstamo
+Cuando reviso las cuotas
+Entonces veo cada una con su desglose y su estado de pago (pendiente / pagada / parcial / vencida)",,,,Pendiente,
+Sin épica,PER-64,Consultar el préstamo y las cuotas de un empleado desde el backoffice,3,Historial de pagos aplicados,"Dado que veo el préstamo
+Cuando reviso su historial
+Entonces veo qué liquidaciones de La Mantovana se aplicaron a sus cuotas y cuándo",,,,Pendiente,
+Sin épica,PER-64,Consultar el préstamo y las cuotas de un empleado desde el backoffice,4,Acceso protegido y auditado,"Dado que no soy backoffice
+Cuando intento acceder
+Entonces se me rechaza
+Y todo acceso de un operador a datos de un empleado queda registrado",,,,Pendiente,
+Sin épica,PER-65,Desembolsar el préstamo firmado a la cuenta sueldo validando fondos,1,Desembolso con fondos,"Dado que mi solicitud está firmada (firma + TOTP) y hay fondos en la cuenta recaudadora
+Cuando se procesa el desembolso
+Entonces recibo el monto en mi cuenta sueldo
+Y el préstamo pasa a OTORGADO",,,,Pendiente,
+Sin épica,PER-65,Desembolsar el préstamo firmado a la cuenta sueldo validando fondos,2,"Sin fondos: la solicitud espera, no se rechaza","Dado que mi solicitud está firmada pero no hay fondos suficientes
+Cuando se intenta desembolsar
+Entonces mi solicitud permanece PENDIENTE (no recibo un rechazo)
+Y el sistema reintenta automáticamente cada 5 minutos (parametrizable en variable de entorno).",,,,Pendiente,
+Sin épica,PER-65,Desembolsar el préstamo firmado a la cuenta sueldo validando fondos,3,Ingresan fondos dentro de la ventana,"Dado que mi desembolso quedó pendiente por falta de fondos
+Cuando ingresan fondos a la recaudadora antes de cumplirse las 24h
+Entonces el sistema desembolsa automáticamente sin que yo tenga que hacer nada",,,,Pendiente,
+Sin épica,PER-65,Desembolsar el préstamo firmado a la cuenta sueldo validando fondos,4,Ingresan fondos dentro de la ventana,"si se cumplen las 24hs SIN tener fondos para desembolsar, la solicitud SE CANCELA. (a días corridos)",,,,Pendiente,
+Sin épica,PER-65,Desembolsar el préstamo firmado a la cuenta sueldo validando fondos,5,Destino fijo,"Dado que tengo varias cuentas
+Cuando se desembolsa
+Entonces el dinero va siempre a mi cuenta sueldo, sin que yo elija destino",,,,Pendiente,
+Sin épica,PER-65,Desembolsar el préstamo firmado a la cuenta sueldo validando fondos,6,Trazabilidad,"Dado que se intenta un desembolso (exitoso o pendiente)
+Cuando se procesa
+Entonces queda registrado para auditoría: monto, cuenta destino, resultado y fecha",,,,Pendiente,
+Sin épica,PER-65,Desembolsar el préstamo firmado a la cuenta sueldo validando fondos,7,Escenario 7,FIFO para procesar la cola de desembolsos pendientes,,,,Pendiente,
+Descuento de cuotas,PER-66,Generar el archivo mensual de novedades para La Mantovana,1,Solo cuotas del ciclo vigente,"Dado que tengo préstamos en distintos estados
+Cuando genero el archivo antes del día de corte
+Entonces el archivo incluye solo las cuotas de préstamos OTORGADOS cuyo descuento cae en el mes corriente
+Y excluye préstamos en cualquier otro estado
+Y se registra en auditoría la exportación (operador, fecha, hora)",,,,Pendiente,
+Descuento de cuotas,PER-66,Generar el archivo mensual de novedades para La Mantovana,2,Préstamo otorgado después del corte,"Dado que un préstamo fue OTORGADO después del día de corte del ciclo
+Cuando cae el día de exportación
+Entonces ese préstamo queda excluido del archivo del mes corriente
+Y entra en el archivo del ciclo siguiente (primera cuota a ~33 días del otorgamiento)",,,,Pendiente,
+Descuento de cuotas,PER-66,Generar el archivo mensual de novedades para La Mantovana,3,Solo los datos necesarios para el descuento,"Dado que genero el archivo
+Cuando reviso su contenido
+Entonces incluye únicamente: número de legajo, id cuota, nombre del empleado, importe de la cuota.
+Y no incluye datos personales accesorios que no sean necesarios para el descuento en Finegans",,,,Pendiente,
+Descuento de cuotas,PER-66,Generar el archivo mensual de novedades para La Mantovana,4,Archivo identificable,"Dado que genero el archivo
+Cuando lo descargo o se envía
+Entonces tiene un nombre con fecha y hora que lo identifica de forma única (ej. ""Cuotas a Descontar 20-06-2026 16:35:00"")
+ABIERTO:
+Confirmar si el legajo viene de la importación masiva de empleados o de acceso directo a la base de La Mantovana (sin cerrar al 12/6 — Seba lo confirma)",,,,Pendiente,
+Descuento de cuotas,PER-67,Configurar el envío automático del archivo de novedades,1,Configurar el día de corte,"Dado que soy administrador
+Cuando accedo a la configuración
+Entonces puedo definir el día del mes en que se genera y envía el archivo (default: día 20)
+Y ese valor es un valor en base.",,,,Pendiente,
+Descuento de cuotas,PER-67,Configurar el envío automático del archivo de novedades,2,Envío automático por mail,"Dado que llega el día de corte configurado
+Cuando el sistema genera el archivo
+Entonces lo envía automáticamente por mail como adjunto a la casilla configurada (Isis Rondon, CC Nicolás López)",,,,Pendiente,
+Descuento de cuotas,PER-67,Configurar el envío automático del archivo de novedades,3,Registro en auditoría del envío,"Dado que el sistema completa el envío automático
+Cuando el mail se despacha
+Entonces queda registrado: fecha, hora, destinatarios, nombre del archivo adjunto, resultado del envío (ok / error)",,,,Pendiente,
+Descuento de cuotas,PER-67,Configurar el envío automático del archivo de novedades,4,Fallo en el envío automático,"Dado que el envío automático falla (error de servidor de mail, casilla inválida)
+Cuando ocurre el error
+Entonces el sistema notifica al backoffice para acción manual
+Y el archivo queda disponible para descarga y envío manual",,,,Pendiente,
+Descuento de cuotas,PER-68,Consultar el histórico de exportaciones,1,Listado de exportaciones,"Dado que accedo al histórico
+Cuando lo consulto
+Entonces veo todas las exportaciones, de la más reciente a la más antigua",,,,Pendiente,
+Descuento de cuotas,PER-68,Consultar el histórico de exportaciones,2,Detalle de cada exportación,"Dado que miro una fila del histórico
+Cuando la reviso
+Entonces veo fecha, cantidad de registros, monto total, estado y operador que la generó",,,,Pendiente,
+Descuento de cuotas,PER-68,Consultar el histórico de exportaciones,3,Paginación,"Dado que hay muchas exportaciones
+Cuando consulto la primera página
+Entonces veo un bloque acotado (25 por defecto)",,,,Pendiente,
+Descuento de cuotas,PER-68,Consultar el histórico de exportaciones,4,Escenario 4,"filtrado por usuario, fecha",,,,Pendiente,
+Descuento de cuotas,PER-69,Importar el archivo de liquidaciones y obtener un resumen,1,Importación exitosa,"Dado que tengo el archivo de liquidaciones enviado por La Mantovana (llega el 4° día hábil del mes)
+Cuando lo cargo en el sistema
+Entonces el sistema lo procesa y actualiza los pagos correspondientes",,,,Pendiente,
+Descuento de cuotas,PER-69,Importar el archivo de liquidaciones y obtener un resumen,2,Archivo con formato incorrecto,"Dado que el archivo no tiene el formato esperado (columnas faltantes, tipos incorrectos, estructura desconocida)
+Cuando lo cargo
+Entonces se rechaza íntegro con un mensaje claro
+Y no se actualiza ningún pago",,,,Pendiente,
+Descuento de cuotas,PER-69,Importar el archivo de liquidaciones y obtener un resumen,3,Resumen al finalizar,"Dado que la importación termina
+Cuando consulto el resultado
+Entonces recibo un resumen con: total de registros recibidos, cuántos se procesaron correctamente, cuántos con error",,,,Pendiente,
+Descuento de cuotas,PER-69,Importar el archivo de liquidaciones y obtener un resumen,4,Detalle de los errores,"Dado que hubo registros con error en la importación
+Cuando reviso el resumen
+Entonces veo, por cada error: préstamo, empleado y descripción del fallo
+ABIERTO:
+Quarks debe definir los campos exactos del archivo de vuelta y pasárselos a La Mantovana para que los configure en Finnegans (sin cerrar al 12/6)",,,,Pendiente,
+Descuento de cuotas,PER-70,Aplicar los pagos importados a las cuotas correctas,1,Pago sin préstamo coincidente,"Dado que un pago apunta a un legajo o identificador que no existe en el sistema
+Cuando intento emparejarlo
+Entonces lo registro como error y continúo con el resto",,,,Pendiente,
+Descuento de cuotas,PER-70,Aplicar los pagos importados a las cuotas correctas,2,Pago completo,"Dado que el monto pagado es igual al monto de la cuota (la primera que NO esté pagada previamente)
+Cuando lo aplico
+Entonces la cuota queda PAGADA con la fecha de retención del pago de haberes",,,,Pendiente,
+Descuento de cuotas,PER-70,Aplicar los pagos importados a las cuotas correctas,3,Pago parcial,"Dado que el monto pagado es menor al monto de la cuota
+Cuando lo aplico
+Entonces la cuota NO queda PAGADA
+Y queda con status PAGO CON ERROR
+Y se genera un error con descripción del desvío
+Y marcando el monto faltante",,,,Pendiente,
+Descuento de cuotas,PER-70,Aplicar los pagos importados a las cuotas correctas,4,Préstamo saldado,"Dado que con este pago todas las cuotas del préstamo quedan PAGADAS
+Cuando se completa la aplicación
+Entonces el préstamo pasa a estado PAGADO",,,,Pendiente,
+Descuento de cuotas,PER-70,Aplicar los pagos importados a las cuotas correctas,5,Préstamo ya pagado,"Dado que un préstamo ya estaba en estado PAGADO
+Cuando llega un nuevo dato para ese préstamo
+Entonces se genera un error ""Préstamo ya pagado"" y el registro no se modifica",,,,Pendiente,
+Descuento de cuotas,PER-70,Aplicar los pagos importados a las cuotas correctas,6,Cuota pagada de más: PAGO CON ERROR,"Dado que un préstamo ya estaba en estado PAGADO
+Cuando llega un nuevo dato para ese préstamo
+Entonces se genera un error ""PAGO CON ERROR"" y el registro no se modifica",,,,Pendiente,
+Descuento de cuotas,PER-71,Cargar pago realizado manualmente,1,Cargar pago manual,"Dado que estoy en el detalle del préstamo / panel de diferencias
+Cuando uso el botón de carga manual de pago
+Entonces selecciono primero al cliente y luego la cuota del préstamo
+Y registro el monto del pago y la fecha
+Y se crea una línea dentro de los pagos del préstamo",,,,Pendiente,
+Descuento de cuotas,PER-71,Cargar pago realizado manualmente,2,Completar una cuota en PAGO CON ERROR,"Dado que una cuota quedó en estado PAGO CON ERROR con un monto faltante (ej. vinieron 90 de 100)
+Cuando cargo manualmente el monto faltante (10) y confirmo
+Entonces la cuota queda PAGADA con su fecha
+Y, si con esa cuota se saldan todas las del préstamo, el préstamo pasa a PAGADO",,,,Pendiente,
+Descuento de cuotas,PER-71,Cargar pago realizado manualmente,3,Pago manual aún insuficiente,"Dado que el monto cargado es menor al faltante de la cuota
+Cuando lo confirmo
+Entonces la cuota sigue en PAGO PARCIAL
+Y se actualiza el saldo faltante restante",,,,Pendiente,
+Descuento de cuotas,PER-71,Cargar pago realizado manualmente,4,Dar por pagada sin completar el monto,"Dado que una cuota quedó en PAGO CON ERROR y operativamente decido darla por pagada
+Cuando la marco como PAGADA desde el backoffice
+Entonces la cuota queda PAGADA
+Y queda registrado el monto efectivamente percibido y el faltante no cobrado (para el cuadre posterior)",,,,Pendiente,
+Descuento de cuotas,PER-71,Cargar pago realizado manualmente,5,Auditoría del pago manual,"Dado que cargo un pago manual o doy una cuota por pagada
+Cuando lo confirmo
+Entonces se registra en auditoría: quién lo cargó, cuándo (fecha y hora) y cuánto",,,,Pendiente,
+Descuento de cuotas,PER-71,Cargar pago realizado manualmente,6,Devolución sobre cuota PAGO CON ERROR,"Dado que a un cliente se le descontó de más y la cuota quedó en estado PAGO CON ERROR
+Cuando registro una devolución al cliente
+Entonces se registra el monto devuelto sobre esa cuota
+Y la cuota queda PAGADA (sin el excedente)
+Y queda asentado en auditoría: quién registró la devolución, cuándo y cuánto",,,,Pendiente,
+Descuento de cuotas,PER-72,Consultar las liquidaciones importadas,1,Listado,"Dado que accedo a las liquidaciones
+Cuando las consulto
+Entonces veo las importadas de la más reciente a la más antigua",,,,Pendiente,
+Descuento de cuotas,PER-72,Consultar las liquidaciones importadas,2,Detalle,"Dado que selecciono una liquidación
+Cuando la abro
+Entonces veo: empleado, préstamo, monto total y fecha de retención",,,,Pendiente,
+Descuento de cuotas,PER-72,Consultar las liquidaciones importadas,3,Filtro por estado,"Dado que tengo liquidaciones en distintos estados (procesada, reconciliada, con errores)
+Cuando filtro por un estado
+Entonces veo solo las que están en ese estado",,,,Pendiente,
+Descuento de cuotas,PER-72,Consultar las liquidaciones importadas,4,Paginación,"Dado que hay muchas liquidaciones
+Cuando consulto una página
+Entonces veo un bloque acotado (25 por defecto)",,,,Pendiente,
+Cancelaciones,PER-73,Arrepentirse del préstamo dentro de los 10 días corridos sin costo,1,Botón en la sección Préstamos,"Dado que estoy en la sección Préstamos de la app
+Cuando la abro
+Entonces veo un botón rotulado ""Botón de Arrepentimiento"" accesible dentro de esa sección",,,,Pendiente,
+Cancelaciones,PER-73,Arrepentirse del préstamo dentro de los 10 días corridos sin costo,2,Dentro del plazo,"Dado que recibí el desembolso hace 10 días corridos o menos
+Cuando solicito el arrepentimiento
+Entonces la solicitud se acepta",,,,Pendiente,
+Cancelaciones,PER-73,Arrepentirse del préstamo dentro de los 10 días corridos sin costo,3,Sin costo,"Dado que me arrepiento dentro del plazo
+Cuando reviso lo que tengo que devolver
+Entonces devuelvo únicamente el capital recibido, sin intereses, comisiones ni penalidades",,,,Pendiente,
+Cancelaciones,PER-73,Arrepentirse del préstamo dentro de los 10 días corridos sin costo,4,Código de trámite en pantalla,"Dado que envío la solicitud de arrepentimiento
+Cuando se registra
+Entonces veo en pantalla el código de identificación del trámite",,,,Pendiente,
+Cancelaciones,PER-73,Arrepentirse del préstamo dentro de los 10 días corridos sin costo,5,Efecto,"Dado que envié la solicitud dentro del plazo
+Cuando se registra
+Entonces queda como solicitud de cancelación pendiente con su código
+Y la cancelación se completa cuando el BO la confirma: el préstamo pasa a ARREPENTIDO, se cancelan las cuotas futuras y se frena el descuento por nómina",,,,Pendiente,
+Cancelaciones,PER-73,Arrepentirse del préstamo dentro de los 10 días corridos sin costo,6,Fuera del plazo,"Dado que pasaron más de 10 días corridos desde el desembolso
+Cuando intento arrepentirme
+Entonces el arrepentimiento ya no está disponible y se me ofrece la cancelación anticipada",,,,Pendiente,
+Cancelaciones,PER-74,Cancelar anticipadamente el préstamo otorgado pagando el saldo,1,Disponible en cualquier momento,"Dado que mi préstamo está otorgado
+Cuando quiero cancelarlo por completo de forma anticipada
+Entonces puedo iniciar la cancelación en cualquier momento",,,,Pendiente,
+Cancelaciones,PER-74,Cancelar anticipadamente el préstamo otorgado pagando el saldo,2,Monto transparente antes de confirmar,"Dado que inicio la cancelación anticipada
+Cuando reviso la operación
+Entonces veo el monto total a pagar desglosado (capital restante + costos aplicables) antes de confirmar",,,,Pendiente,
+Cancelaciones,PER-74,Cancelar anticipadamente el préstamo otorgado pagando el saldo,3,Siempre con costo,"Dado que cancelo anticipadamente
+Cuando reviso el monto
+Entonces se aplican los costos de cancelación del producto",,,,Pendiente,
+Cancelaciones,PER-74,Cancelar anticipadamente el préstamo otorgado pagando el saldo,4,Código de trámite en pantalla,"Dado que envío la solicitud de cancelación anticipada
+Cuando se registra
+Entonces veo en pantalla el código de identificación del trámite",,,,Pendiente,
+Cancelaciones,PER-74,Cancelar anticipadamente el préstamo otorgado pagando el saldo,5,Efecto,"Dado que la solicitud se registra
+Cuando el BO la confirma y se cobra el monto de cancelación
+Entonces el préstamo pasa a CANCELADO ANTICIPADAMENTE, se cancelan las cuotas futuras y se da de baja el descuento por nómina",,,,Pendiente,
+Cancelaciones,PER-75,Gestionar y confirmar las cancelaciones desde el backoffice,1,Listado de solicitudes,"Dado que accedo al espacio de cancelaciones
+Cuando lo consulto
+Entonces veo las solicitudes de los tres tipos (arrepentimiento, anticipada, desistimiento) con su estado",,,,Pendiente,
+Cancelaciones,PER-75,Gestionar y confirmar las cancelaciones desde el backoffice,2,Detalle del caso,"Dado que abro una solicitud
+Cuando la reviso
+Entonces veo tipo, préstamo, empleado, código de trámite, fecha y monto",,,,Pendiente,
+Cancelaciones,PER-75,Gestionar y confirmar las cancelaciones desde el backoffice,3,Confirmar la cancelación,"Dado que reviso una solicitud pendiente
+Cuando la marco como cancelación confirmada
+Entonces el préstamo pasa a su estado final (ARREPENTIDO / CANCELADO ANTICIPADAMENTE / PRECANCELADO)
+Y se disparan los efectos (baja del descuento por nómina y cancelación de cuotas futuras)",,,,Pendiente,
+Cancelaciones,PER-75,Gestionar y confirmar las cancelaciones desde el backoffice,4,Seguimiento,"Dado que hay solicitudes en distintos estados
+Cuando filtro por estado (pendiente / confirmada) o por tipo
+Entonces veo solo las que coinciden",,,,Pendiente,
+Sin épica,PER-76,Visualizar solicitudes pendientes de fondos,1,Escenario 1,expira en xtiempo ordenadas por orden de llegada,,,,Pendiente,
+Cancelaciones,PER-91,Cancelar una solicitud antes del desembolso,1,Cancelación disponible antes del desembolso,"Dado que la solicitud ya fue creada y firmada, pero el préstamo todavía no fue desembolsado,
+Cuando el empleado solicita la cancelación,
+Entonces la solicitud se cancela.",,,,Pendiente,
+Cancelaciones,PER-91,Cancelar una solicitud antes del desembolso,2,Fuera de alcance una vez desembolsado,"Dado que el préstamo ya fue desembolsado,
+Cuando el empleado intenta cancelar la solicitud,
+Entonces la cancelación ya no está disponible.",,,,Pendiente,
+Cancelaciones,PER-91,Cancelar una solicitud antes del desembolso,3,Estado final de la solicitud,"Dado que la cancelación fue registrada correctamente,
+Cuando consulto el estado de la solicitud,
+Entonces la solicitud figura como cancelada.",,,,Pendiente,
+Cancelaciones,PER-91,Cancelar una solicitud antes del desembolso,4,Sin ingreso al circuito de desembolso,"Dado que la solicitud fue cancelada antes del desembolso,
+Cuando el sistema procesa desembolsos pendientes,
+Entonces esa solicitud no se considera para desembolso ni reintentos.",,,,Pendiente,
+Cancelaciones,PER-91,Cancelar una solicitud antes del desembolso,5,Registro en auditoría,"Dado que se canceló una solicitud antes del desembolso,
+Cuando la operación queda registrada,
+Entonces se guarda auditoría con quién canceló, fecha y hora.",,,,Pendiente,

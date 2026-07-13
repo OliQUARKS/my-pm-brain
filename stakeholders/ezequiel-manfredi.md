@@ -23,8 +23,10 @@ TODO: confirmar.
 - Nada documentado aún.
 
 ## Touchpoint log
+- 2026-06-12 — Call con La Mantovana (oyente). [../ingestion/meetings/2026-06-12-proceso-prestamos-mantovana.md](../ingestion/meetings/2026-06-12-proceso-prestamos-mantovana.md)
+- 2026-06-09 — Sprint 4 refinement interno con Seba. Pragmático en manejo de errores de batch (procesar los OK, reprocesar los fallidos), pidió tiempo para pensar el FIFO. [../ingestion/meetings/2026-06-09-sprint4-refinement-perc.md](../ingestion/meetings/2026-06-09-sprint4-refinement-perc.md)
 - 2026-04-20 — Reunión de definición de tech stack. Confirmó Lambda + Angular junto con Nico, Isra, Euge, Jo y Tano. [source/adhoc/2026-05-22-tech-stack-repo-confirmados.md](../source/adhoc/2026-05-22-tech-stack-repo-confirmados.md)
 - 2026-05-21 — Confirmó acceso al repo del front. [source/adhoc/2026-05-22-tech-stack-repo-confirmados.md](../source/adhoc/2026-05-22-tech-stack-repo-confirmados.md)
 
 ## Last touched
-2026-05-21
+2026-06-12

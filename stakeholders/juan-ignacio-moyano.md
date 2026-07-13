@@ -24,5 +24,5 @@ TODO: confirmar.
 - 2026-05-19 — Planning + refinement interno Quarks. Participó en definiciones técnicas iniciales. [ingestion/meetings/2026-05-19-planning-refinement-perc.md](../ingestion/meetings/2026-05-19-planning-refinement-perc.md)
 
 ## Last touched
-2026-05-19
+2026-06-17
 

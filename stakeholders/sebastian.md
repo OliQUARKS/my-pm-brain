@@ -30,6 +30,8 @@ Disponible en calls, participativo cuando está presente. Tarda en responder fue
 - IVA en cancelaciones — Olivier nota que es configurable (flag B8 = 1). Pregunta abierta: ¿PERC quiere cobrar penalidad si usuario paga antes de cancelación? Impacta fórmula de cálculo. (observation, [ingestion/meetings/2026-05-27-whatsapp-preguntas-pendientes-perc.md](../ingestion/meetings/2026-05-27-whatsapp-preguntas-pendientes-perc.md))
 
 ## Touchpoint log
+- 2026-06-12 — Call PERC × La Mantovana × Quarks (Proceso de Préstamos). Cerró el ida y vuelta: reporte = solo cuota del mes, día 20, por legajo, arrepentimiento requiere fondos, ajustes mes siguiente. Se llevó: casuística border (cancelación entre día 20 y pago) + fuente del legajo. Mencionó que legales permitiría unificar T&C de 5 docs a 1. [../ingestion/meetings/2026-06-12-proceso-prestamos-mantovana.md](../ingestion/meetings/2026-06-12-proceso-prestamos-mantovana.md)
+- 2026-06-09 — Sprint 4 refinement interno. Desembolso con/sin fondos (FIFO-by-payable, polling 5 min, timeout 24h), file delivery por mail (MVP), batch partial-failure. [../ingestion/meetings/2026-06-09-sprint4-refinement-perc.md](../ingestion/meetings/2026-06-09-sprint4-refinement-perc.md)
 - 2026-05-27 — WhatsApp: Olivier manda 7 preguntas pendientes. Seba responde: La Mantovana se contactó (excels + informe), plazo desembolso no confirmado aún (Marcos decide), documentos HTML bloqueado en reunión, empleados PJ hay confusión, PRs pendientes se lo averigua, cancelación anticipada es decisión de Quarks, IVA configurable genera pregunta de diseño. [source/meetings/2026-05-27-whatsapp-preguntas-pendientes-perc.md](../source/meetings/2026-05-27-whatsapp-preguntas-pendientes-perc.md)
 - 2026-05-22 (16:10) — WhatsApp: comentarios sobre Excel. Confirmó seguro capitalizado al inicio + mora como costo en capital inicial. IVA cancelación difiere al lunes 2026-05-26. Pregunta abierta: cancelación precalculada o on-demand. [source/adhoc/2026-05-22-whatsapp-excel-calculo-prestamos.md](../source/adhoc/2026-05-22-whatsapp-excel-calculo-prestamos.md)
 - 2026-05-22 (15:44) — Excel CALCULO DE PRESTAMOS PERC recibido. Metodología Sistema Francés completa con fórmulas de cuota y cancelación anticipada. Pendientes: seguro de vida + monto prestado vs capital solicitado. [ingestion/adhoc/2026-05-22-excel-calculo-prestamos-perc.md](../ingestion/adhoc/2026-05-22-excel-calculo-prestamos-perc.md)
@@ -37,5 +39,5 @@ Disponible en calls, participativo cuando está presente. Tarda en responder fue
 - 2026-05-20 — Refinement backlog PERC. Definiciones parcialmente resueltas (cuotas, cancelación anticipada, mora/desvinculación, estados del préstamo, firma). Pendiente: desembolso, documentos dinámicos, repo del front. [ingestion/meetings/2026-05-20-refinement-backlog-perc.md](../ingestion/meetings/2026-05-20-refinement-backlog-perc.md)
 
 ## Last touched
-2026-05-27
+2026-06-16
 
