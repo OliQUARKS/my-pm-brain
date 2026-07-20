@@ -47,3 +47,4 @@ Los proveedores hiperescalares (Microsoft Azure, Dynamics 365) han debido certif
 ## Diseños aplicados a productos
 
 - [Diseño — Consentimiento y cesión/encargo a Mantovana (Flujo Crédito)](./diseno-consentimiento-mantovana.md) — flow de consentimiento explícito + inscripción AAIP + DPA Mantovana + canal seguro. Triggered by review PRD 2026-06-08.
+- [Tratamiento de datos — AMFAYS como tercero (Flujo Crédito)](./tratamiento-datos-amfays.md) — frente abierto: AMFAYS (la mutual) entra al tratamiento con el documento; Quarks solo guarda la referencia; check de logs + caracterización jurídica + registro CYA. Triggered by daily 2026-07-20.
