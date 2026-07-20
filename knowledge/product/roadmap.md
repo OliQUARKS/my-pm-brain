@@ -4,6 +4,7 @@
 
 ## Now
 - [flujo-credito](./features/flujo-credito.md) — MVP en desarrollo. App (CTA + 3 opciones + firma unificada + desembolso) + Backoffice Watson + ciclo de cobro/liquidación. Scope completo del contrato. (source/adhoc/2026-05-21-prd-flujo-credito.md)
+  - **Camino a producción / pendientes:** [pendientes-produccion.md](./pendientes-produccion.md) — checklist vivo de bloqueantes de go-live (entorno+lambdas, endpoints de fondos PERC, documentos/firma, UAT formal).
 
 ## Next
 <!-- No hay scope adicional contratado después de que flujo-credito llegue a producción. -->

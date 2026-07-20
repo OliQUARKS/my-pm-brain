@@ -23,7 +23,9 @@ TODO: confirmar. En el call: pragmático, conoce el negocio de crédito en nómi
 - Aporta las métricas de elegibilidad (sueldo, antigüedad, presentismo) — fuera del scope de desarrollo de Quarks pero insumo necesario.
 
 ## Touchpoint log
+- 2026-07-20 — SYNC PERC (C12, mención). Seba aclara que **Nico Ortiz armó la reunión con AMFAYS y "decide él"** el alcance del lado PERC/mutual. [../ingestion/meetings/2026-07-20-sync-perc-c12.md](../ingestion/meetings/2026-07-20-sync-perc-c12.md)
+- 2026-07-17 — Call Amfays <> PERc. Encuadró el instrumento ante AMFAYS (billetera/PCP → préstamo = ayuda económica contra retención de haberes) y ubicó el **fondeo/securitización vía fideicomiso como estrategia a futuro** ("tenerlo preparado"). [../ingestion/meetings/2026-07-17-call-amfays-documento-prestamo.md](../ingestion/meetings/2026-07-17-call-amfays-documento-prestamo.md)
 - 2026-06-12 — Call Proceso de Préstamos. Definió tope 30%, corrección inmediata por error de débito, elegibilidad por antigüedad+presentismo (manual), arrepentimiento requiere fondos. [../ingestion/meetings/2026-06-12-proceso-prestamos-mantovana.md](../ingestion/meetings/2026-06-12-proceso-prestamos-mantovana.md)
 
 ## Last touched
-2026-06-12
+2026-07-20

@@ -1,7 +1,9 @@
 # Decision: La Sábana es render-only — se persisten los 5 documentos por separado
 
 ## Status
-decided
+superseded
+<!-- Superseded 2026-07-20 por [2026-07-20-documento-unico-firma](./2026-07-20-documento-unico-firma.md): el flujo pasó a UN solo documento firmado (T&C 5→1 confirmado por Olivier), en línea con el legajo unificado de AMFAYS. Ya NO se persisten 5 documentos por separado. -->
+
 
 ## Date
 2026-05-20

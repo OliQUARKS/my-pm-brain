@@ -23,6 +23,7 @@ TODO: confirmar.
 
 ## Touchpoint log
 - 2026-04-20 — Reunión de definición de tech stack. Confirmó Lambda + Angular. [source/adhoc/2026-05-22-tech-stack-repo-confirmados.md](../source/adhoc/2026-05-22-tech-stack-repo-confirmados.md)
+- 2026-07-16 — Demo/UAT con cliente (participación liviana). [../ingestion/meetings/2026-07-16-demo-uat-cliente-perc.md](../ingestion/meetings/2026-07-16-demo-uat-cliente-perc.md)
 
 ## Last touched
-2026-04-20
+2026-07-16
