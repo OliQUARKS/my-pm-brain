@@ -1,6 +1,8 @@
 # Skill: briefing-context (PRE)
 
-**Tu objetivo:** preparar mejor la primera reunión (preventa) identificando **qué información necesitamos obtener** y **qué preguntas conviene hacer según el contexto del cliente**. Transformás un input crudo y vago en un briefing útil para discovery — no en un cuestionario genérico.
+**Tu objetivo:** preparar mejor la primera reunión —la **reunión de briefing** (preventa)— identificando **qué información necesitamos obtener** y **qué preguntas conviene hacer según el contexto del cliente**. Transformás un input crudo y vago en un briefing útil — no en un cuestionario genérico.
+
+> **Dónde encaja:** etapa 2 del ciclo — ver [`briefings/_ciclo-preventa.md`](../../briefings/_ciclo-preventa.md). Prepara la reunión de briefing; no confundir esa reunión con el *discovery* (etapa post-venta, pre-desarrollo).
 
 ## Propósito
 
@@ -34,6 +36,8 @@ Estos objetivos son **la guía principal del skill**. Para cada reunión, relev�
 4. **Usuarios involucrados** — para quién se resuelve; roles y permisos.
 5. **Dolores principales** — del rubro y del caso puntual.
 6. **Stakeholders presentes** — quién decide, qué le importa a cada uno.
+7. **Horizonte de tiempo / urgencia** — con qué plazo cuenta el cliente, qué pasa si no se cumple, si hay una fecha externa que lo presiona (compliance, un compromiso que ya asumió río arriba). **Obligatorio, no opcional:** sin esto no se puede calibrar ninguna propuesta después ("si no sabemos con qué tiempo cuenta el cliente, no sabemos nada" — feedback interno, 2026-08-14). Distinto del objetivo #3: ese es sobre qué esperan de *esta reunión*; este es sobre el plazo del proyecto.
+8. **Perfil de experiencia previa** — de qué tipo de experiencia viene el cliente: ¿llega golpeado de un desarrollo fallido con otro proveedor?, ¿es greenfield/arranca de cero?, ¿es una empresa consolidada innovando dentro de su ecosistema? Esto calibra el tono y, más adelante, qué tan agresiva puede ser la propuesta que arma `/propuestador`. Inferido de lo que cuenta el cliente — marcar como interpretación, no como hecho, salvo que lo diga explícito.
 
 Después **traducí cada objetivo en preguntas contextualizadas al cliente**. Las preguntas genéricas de más abajo son solo **ejemplos de apoyo** para inspirar la formulación — no una estructura obligatoria ni un checklist a copiar.
 
@@ -64,9 +68,27 @@ Incluí, **cuando aplique** al caso:
 - **Usuarios** — para quién se resuelve, roles y permisos (lo inferible; el resto → a preguntar).
 - **Stakeholders / personas en la mesa** — mini perfil por asistente: rol, LinkedIn, y qué le puede importar (inferido). Una línea por persona.
 - **Riesgos y restricciones relevantes** — regulatorios, legales, técnicos.
+- **Horizonte de tiempo / urgencia** — plazo que maneja el cliente y qué lo presiona, o "a preguntar" si no surgió del input crudo.
+- **Perfil de experiencia previa** — archetype inferido (golpeado por otro proveedor / greenfield / consolidado innovando), con la evidencia puntual que lo sugiere.
 - **Preguntas de discovery contextualizadas** — organizadas por objetivo de información, en lenguaje del cliente. **Accionables y puntuales**, no genéricas.
 
 Reglas de la salida: **sin texto placeholder ni ambiguo.** Si algo no se sabe, se nombra como gap explícito ("a preguntar"), no se rellena. Priorizá preguntas que muevan la aguja del discovery sobre preguntas de manual.
+
+## Formato de salida — Google Doc formateado (+ markdown de respaldo)
+
+El entregable de este skill es **siempre un Google Doc formateado**, nunca un `.md` suelto. Se producen dos artefactos, en este orden:
+
+1. **Markdown de respaldo (repo).** Generá el Documento de Preparación como markdown y guardalo donde ya vive en el repo (`briefings/YYYY-MM-<cliente>-briefing-context.md`). Es el ancla de auditoría del segundo cerebro — no se elimina.
+2. **Google Doc formateado (entregable).** Creá el documento con el conector de Google Drive a partir de **ese mismo markdown**:
+   - Tool: `create_file` del conector Google Drive.
+   - `title`: `Briefing PRE — <Cliente> — <YYYY-MM-DD>`.
+   - `textContent`: el markdown completo.
+   - `contentMimeType`: `text/markdown`.
+   - **No** actives `disableConversionToGoogleType` — dejá que Drive convierta el markdown a Google Doc con títulos, negritas y tablas.
+   - Si el PM indicó una carpeta de Drive, pasá su `parentId`; si no, queda en la raíz.
+3. **Cerrá devolviendo el link del Google Doc** más la ruta del `.md` de respaldo.
+
+Regla: el markdown crudo no es el entregable final. El entregable es el Google Doc; el `.md` queda en el repo solo por trazabilidad.
 
 ## Ejemplos de apoyo — preguntas genéricas
 
@@ -107,10 +129,11 @@ Anotado, **no** en esta versión:
 ## Criterios de calidad
 
 ✅ Corre con input mínimo/vago sin trabarse
-✅ Releva los 6 objetivos de información y los traduce en preguntas contextualizadas al cliente
+✅ Releva los 8 objetivos de información y los traduce en preguntas contextualizadas al cliente
 ✅ Evalúa los 3 ejes (regulatorio / legal / stack) y profundiza el que aplica
 ✅ Salida con glosario del cliente, stakeholders, dolores, riesgos y preguntas de discovery accionables
 ✅ Preguntas puntuales y contextualizadas, no genéricas; sin placeholder ni scope inflado
 ✅ Observación vs. interpretación etiquetadas; lo que falta queda como gap explícito
 ✅ Competidores solo si aplica (producto, no problema interno)
+✅ Entregable = Google Doc formateado vía conector Drive; markdown de respaldo en el repo; se devuelve el link
 ✅ 100% español
