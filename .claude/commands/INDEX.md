@@ -17,7 +17,9 @@ Operator-facing verbs. Each command is a thin spec: input, files to load, files 
 | [`/stories`](./stories.md) | Descomponer una épica en historias INVEST; opcionalmente crear issues en Linear |
 | [`/review-prd`](./review-prd.md) | Panel adversarial sobre un PRD: 5 lentes (estratega, cliente, datos, riesgo, stakeholder) cargan su sección del brain y critican desde su ángulo |
 | [`/briefing-context`](./briefing-context.md) | Preparar una primera reunión (preventa): releva objetivos de información + ejes regulatorio/legal/stack → Documento de Preparación con preguntas de discovery contextualizadas |
-| [`/post-briefing-context`](./post-briefing-context.md) | Post-reunión: ampliar el contexto con lo que salió → propuesta (alcance, discovery, prototipo) + seguimiento de stakeholders |
+| [`/minutero`](./minutero.md) | Después del briefing (preventa): redactar minuta cara al cliente — valida lo entendido, pide evidencia, pide reunión con decisor → Google Doc + `.md` de respaldo |
+| [`/build-context`](./build-context.md) | Post-briefing (ex `/post-briefing-context`): arma el contexto interno del proyecto (problema ampliado, usuarios, stakeholders, contexto metodológico) + pre-propuesta cara-al-cliente (alcance, discovery, prototipo) |
+| [`/propuestador`](./propuestador.md) | Post build-context: convertir la pre-propuesta interna en el documento de propuesta cara al cliente (7 secciones) → Google Doc + `.md` de respaldo |
 
 ## Conventions
 

@@ -33,6 +33,8 @@
 | [isis-rondon](./isis-rondon.md) | Isis Minerva Rondon Borges | Liquidación de sueldos (CSC), La Mantovana | high | low | 2026-06-12 |
 | [nicolas-lopez](./nicolas-lopez.md) | Nicolás López | Gerente RRHH, La Mantovana | medium | low | 2026-06-12 |
 | [nicolas-ortiz](./nicolas-ortiz.md) | Nicolás Ortiz | Gestión préstamos / mutual, PERC | high | low | 2026-07-20 |
+| [hernan-capolupo](./hernan-capolupo.md) | Hernán Capolupo | Socio, Gestión Operativa/Facturación, RyD Abogados | high | low | 2026-09-03 |
+| [juan-francisco-verde](./juan-francisco-verde.md) | Juan Francisco Verde | Socio, Área Legal, RyD Abogados | high | low | 2026-09-03 |
 
 ## High-influence + high-friction
 - **Sebastián (PERC PO)** — interlocutor principal del cliente. Definiciones bloqueantes de negocio y técnicas dependen de él. Tarda en responder. (stakeholder-verbal, Olivier, 2026-05-21)

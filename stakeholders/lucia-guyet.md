@@ -22,7 +22,8 @@ Participativa, aporta perspectiva de UX con énfasis en el usuario final. (obser
 - Nada documentado aún.
 
 ## Touchpoint log
+- 2026-09-03 — Discovery call RyD Abogados (cliente nuevo, no PERC — Lucía ya había trabajado con este estudio antes). Aportó preguntas clave sobre visibilidad de estado por expediente y sobre dónde se centralizan los datos de terceros (perito/actor) antes de pedir el pago. [../ingestion/meetings/2026-09-03-ryd-abogados-discovery.md](../ingestion/meetings/2026-09-03-ryd-abogados-discovery.md)
 - 2026-05-20 — Reunión de diseño flujo crédito. Participó en definición de onboarding y flujos de cancelación. [ingestion/meetings/2026-05-20-diseno-flujo-credito.md](../ingestion/meetings/2026-05-20-diseno-flujo-credito.md)
 
 ## Last touched
-2026-05-20
+2026-09-03
