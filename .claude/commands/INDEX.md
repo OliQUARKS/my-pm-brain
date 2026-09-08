@@ -17,10 +17,9 @@ Operator-facing verbs. Each command is a thin spec: input, files to load, files 
 | [`/stories`](./stories.md) | Descomponer una épica en historias INVEST; opcionalmente crear issues en Linear |
 | [`/review-prd`](./review-prd.md) | Panel adversarial sobre un PRD: 5 lentes (estratega, cliente, datos, riesgo, stakeholder) cargan su sección del brain y critican desde su ángulo |
 | [`/briefing-context`](./briefing-context.md) | Preparar una primera reunión (preventa): releva objetivos de información + ejes regulatorio/legal/stack → Documento de Preparación con preguntas de discovery contextualizadas |
-| [`/build-context`](./build-context.md) | Post-reunión: armar el contexto interno del proyecto (problema, usuarios, stakeholders, contexto metodológico) → pre-propuesta cara-al-cliente (alcance, discovery, prototipo) |
-| [`/propuestador`](./propuestador.md) | Convertir el build-context en el documento de propuesta cara-al-cliente: compara 2-3 caminos internamente (checkpoint de decisión) y expande el elegido en 7 secciones (qué entendimos, solución, funcionalidad MVP, apoyo en sistemas, cómo trabajamos, roadmap, próximos pasos); montos y flujos van en hojas aparte |
-| [`/prototipador`](./prototipador.md) | Post-build-context (o post-decisión de `/propuestador`): armar un prototipo funcional navegable — archivo HTML privado, nunca publicado como Artifact — de las pantallas core del MVP; branding en cascada (manual de marca → web relevada → estándar) |
-| [`/minutero`](./minutero.md) | Redactar la minuta cara-al-cliente post-reunión: valida lo entendido, pide evidencia concreta y deja pedida la reunión con el decisor → borrador `.md` que el líder de cuenta aumenta |
+| [`/minutero`](./minutero.md) | Después del briefing (preventa): redactar minuta cara al cliente — valida lo entendido, pide evidencia, pide reunión con decisor → Google Doc + `.md` de respaldo |
+| [`/build-context`](./build-context.md) | Post-briefing (ex `/post-briefing-context`): arma el contexto interno del proyecto (problema ampliado, usuarios, stakeholders, contexto metodológico) + pre-propuesta cara-al-cliente (alcance, discovery, prototipo) |
+| [`/propuestador`](./propuestador.md) | Post build-context: convertir la pre-propuesta interna en el documento de propuesta cara al cliente (7 secciones) → Google Doc + `.md` de respaldo |
 
 ## Conventions
 

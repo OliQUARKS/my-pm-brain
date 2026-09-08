@@ -21,9 +21,10 @@ TODO: confirmar.
 - Nada documentado aún.
 
 ## Touchpoint log
+- 2026-09-03 — Discovery call RyD Abogados (cliente nuevo, no PERC). Lideró el relevamiento técnico del proceso de pedido de pago; identificó a Lex Doctor como sistema legacy sin evolución y quedó a cargo de armar la propuesta post-discovery. [../ingestion/meetings/2026-09-03-ryd-abogados-discovery.md](../ingestion/meetings/2026-09-03-ryd-abogados-discovery.md)
 - 2026-06-12 — Call con La Mantovana. Activo: insistió en que Finegans resuelve por legajo (no CUIL), que las rectificaciones por error van en archivo separado, y recomendó arrancar la elegibilidad manual (antigüedad+presentismo) antes de automatizar. [../ingestion/meetings/2026-06-12-proceso-prestamos-mantovana.md](../ingestion/meetings/2026-06-12-proceso-prestamos-mantovana.md)
 - 2026-07-20 — SYNC Producto (retro informal). **Re-atribuyó la consolidación de lambdas a la arquitectura de PERC** (advertida por Nico antes de arrancar) → "iteración normal, no un problema". Perfilo a Moyanito (autónomo al extremo, no reporta, se cierra) y asumió el management gap. **Postura de captura de datos AMFAYS: llevarlos al taggeo del BO, no al onboarding.** Sale Moyanito del front → DAEA. [../ingestion/meetings/2026-07-20-sync-producto.md](../ingestion/meetings/2026-07-20-sync-producto.md)
 
 ## Last touched
-2026-07-20
+2026-09-03
 

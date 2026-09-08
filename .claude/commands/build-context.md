@@ -1,14 +1,18 @@
 # Skill: build-context (ex post-briefing, POST)
 
-**Tu objetivo:** después de la **reunión de briefing**, **ampliar el contexto** con lo que efectivamente salió y armar el **contexto interno del proyecto/cliente**. De ese contexto se deriva una **pre-propuesta** cara-al-cliente. La salida es más extensa que el briefing-context — no es el pre corregido, es el pre **ampliado**. Fin último: que el brief tenga injerencia en cerrar el deal.
+**Tu objetivo:** después de la reunión de briefing, ampliar el contexto con lo que efectivamente salió y armar el **contexto interno** del proyecto/cliente. De ese contexto se deriva una **pre-propuesta cara-al-cliente**. La salida es más extensa que el briefing-context — no es el pre corregido, es el pre **ampliado**. Fin último: que el brief tenga injerencia en cerrar el deal.
 
-> **Dónde encaja:** etapa 4 del ciclo — ver [`briefings/_ciclo-preventa.md`](../../briefings/_ciclo-preventa.md). Parte de la transcripción del briefing + documentación del cliente. **Ojo con "discovery":** cuando la pre-propuesta (§ B) vende un discovery, se refiere a la etapa post-venta/pre-desarrollo (varias sesiones, servicio pago), **no** a la reunión de briefing.
+## Dónde encaja
+
+Etapa 4 del ciclo — ver [`briefings/_ciclo-preventa.md`](../../briefings/_ciclo-preventa.md). Parte de la transcripción del briefing + documentación del cliente.
+
+Ojo con "discovery": cuando la pre-propuesta (§ B) vende un discovery, se refiere a la etapa **post-venta/pre-desarrollo** (varias sesiones, servicio pago), no a la reunión de briefing.
 
 ## Las tres capas — no confundirlas
 
-1. **Contexto del proyecto (build-context) — INTERNO.** Lo que armás acá. Nunca se entrega al cliente. Es el insumo con el que trabajamos: problema ampliado, contexto, usuarios, stakeholders, roles, factibilidad y **cómo lo trabajaríamos** (contexto metodológico).
+1. **Contexto del proyecto (build-context) — INTERNO.** Lo que armás acá. Nunca se entrega al cliente. Es el insumo con el que trabajamos: problema ampliado, contexto, usuarios, stakeholders, roles, factibilidad y cómo lo trabajaríamos (contexto metodológico).
 2. **Pre-propuesta / anteproyecto — CARA AL CLIENTE (liviana).** Se deriva del build-context: "esto vimos, este es el problema, esta es la solución que proponemos, acá una demo/prototipo de lo que imaginamos, ¿te interesa?". No lleva equipo/costo/tiempo cerrados.
-3. **Propuesta real — recién con el "sí".** Equipo, tiempo, costo, discovery, quién se encarga. **No la armás en este skill** — este skill deja el build-context listo y la pre-propuesta pre-armada.
+3. **Propuesta real — recién con el "sí".** Equipo, tiempo, costo, discovery, quién se encarga. **No** la armás en este skill — este skill deja el build-context listo y la pre-propuesta pre-armada.
 
 ## Propósito
 
@@ -53,30 +57,30 @@ Revalidá los tres ejes del pre con lo que salió, y profundizá el que sea el n
 
 ### A. Contexto del proyecto (interno)
 
-#### 1. Problemática (ampliada)
+**1. Problemática (ampliada)**
 Qué entendíamos antes vs. ahora. Nombrar explícitamente lo que cambió.
 
-#### 2. Contexto ampliado
+**2. Contexto ampliado**
 Todo lo nuevo: sistemas, restricciones, números, prioridades, decisores.
 
-#### 3. Usuarios / roles / permisos
+**3. Usuarios / roles / permisos**
 Refinado con lo confirmado en la reunión.
 
-#### 6. Stakeholders — quién es cada uno
-Mini perfil por persona: **rol** en el proyecto y **qué le importa** (para orientar la propuesta). Una línea por persona.
+**6. Stakeholders — quién es cada uno**
+Mini perfil por persona: rol en el proyecto y qué le importa (para orientar la propuesta). Una línea por persona.
 
-> Motivaciones y estilos de cada stakeholder son **interpretaciones**: etiquetalas y anclalas a la transcripción/fuente de donde salieron.
->
-> **Fuera de este skill:** el *estilo de trato* operativo (canal preferido, qué genera fricción, cómo escalar con cada persona — ej.: "Seba por WhatsApp no Discord") es gestión del día a día → va al futuro skill `communication-context`, no acá.
+Motivaciones y estilos de cada stakeholder son **interpretaciones**: etiquetalas y anclalas a la transcripción/fuente de donde salieron.
 
-#### 7. Contexto metodológico — cómo lo trabajaríamos
+Fuera de este skill: el estilo de trato operativo (canal preferido, qué genera fricción, cómo escalar con cada persona — ej.: "Seba por WhatsApp no Discord") es gestión del día a día → va al futuro skill `communication-context`, no acá.
+
+**7. Contexto metodológico — cómo lo trabajaríamos**
 Cómo trabajamos con este cliente: roles y responsabilidades de ambas partes, manejo de entornos, modelo de comunicación, reviews/documentación, SLA, y qué hay que definir sí o sí. Es el bloque que responde la preocupación recurrente "¿cómo nos manejamos?" y le da el plus a la propuesta.
 
 Usá la plantilla reutilizable: [`briefings/_contexto-metodologico.md`](../../briefings/_contexto-metodologico.md). Base estándar Quarks + ajuste por cliente (gestión total vs. con dependencias). Cada dependencia → responsable + riesgo si no se resuelve.
 
 ### B. Pre-propuesta (cara al cliente, liviana)
 
-#### 4. Propuesta
+**4. Propuesta**
 - **Alcance** — qué sí, qué no.
 - **Discovery** — 1 a 4 semanas según complejidad. (Se vende como "equipo por tanto tiempo/costo, y primero un discovery para aprovecharlo mejor" — el discovery no se compra suelto.)
 - **Prototipo si es factible** — puede ser una web, una explicación o un flujo. No siempre es una pantalla.
@@ -85,26 +89,27 @@ Usá la plantilla reutilizable: [`briefings/_contexto-metodologico.md`](../../br
 
 ### C. Salida operativa
 
-#### 5. Minuta y próximos pasos
-La minuta es un **output esperado de este skill**, pero se genera **llamando al skill [`/minutero`](./minutero.md)** — no se redacta acá. Este skill deja identificado:
+**5. Minuta y próximos pasos**
+La minuta es un output esperado de este skill, pero se genera llamando al skill `/minutero` — no se redacta acá. Este skill deja identificado:
+
 - **Abiertos.** Lo que quedó sin cerrar.
 - **Acciones.** Mandar la minuta al cliente en el momento / máximo 1–2 días; generar las tareas del entregable siguiente.
 
 ## Formato de salida — Google Doc formateado (+ markdown de respaldo)
 
-El entregable de este skill es **siempre un Google Doc formateado**, nunca un `.md` suelto. Se producen dos artefactos, en este orden:
+El entregable de este skill es siempre un Google Doc formateado, nunca un `.md` suelto. Se producen dos artefactos, en este orden:
 
-1. **Markdown de respaldo (repo).** Generá el contexto del proyecto (bloques A/B/C) como markdown y guardalo donde ya vive en el repo (`briefings/YYYY-MM-<cliente>-build-context.md`, más el `source/` de la reunión cuando aplique). Es el ancla de auditoría del segundo cerebro — no se elimina.
-2. **Google Doc formateado (entregable).** Creá el documento con el conector de Google Drive a partir de **ese mismo markdown**:
+1. **Markdown de respaldo** (repo). Generá el contexto del proyecto (bloques A/B/C) como markdown y guardalo donde ya vive en el repo (`briefings/YYYY-MM-<cliente>-build-context.md`, más el `source/` de la reunión cuando aplique). Es el ancla de auditoría del segundo cerebro — no se elimina.
+2. **Google Doc formateado** (entregable). Creá el documento con el conector de Google Drive a partir de ese mismo markdown:
    - Tool: `create_file` del conector Google Drive.
    - `title`: `Contexto de proyecto — <Cliente> — <YYYY-MM-DD>`.
    - `textContent`: el markdown completo.
    - `contentMimeType`: `text/markdown`.
-   - **No** actives `disableConversionToGoogleType` — dejá que Drive convierta el markdown a Google Doc con títulos, negritas y tablas.
+   - No actives `disableConversionToGoogleType` — dejá que Drive convierta el markdown a Google Doc con títulos, negritas y tablas.
    - Si el PM indicó una carpeta de Drive, pasá su `parentId`; si no, queda en la raíz.
-3. **Cerrá devolviendo el link del Google Doc** más la ruta del `.md` de respaldo.
+3. Cerrá devolviendo el link del Google Doc más la ruta del `.md` de respaldo.
 
-El Google Doc de este skill es **interno** (contexto del proyecto), no el que se manda al cliente — la propuesta cara-al-cliente sale del skill [`/propuestador`](./propuestador.md). Regla: el markdown crudo no es el entregable final; el entregable es el Google Doc, y el `.md` queda en el repo solo por trazabilidad.
+El Google Doc de este skill es **interno** (contexto del proyecto), no el que se manda al cliente — la propuesta cara-al-cliente sale del skill `/propuestador`. Regla: el markdown crudo no es el entregable final; el entregable es el Google Doc, y el `.md` queda en el repo solo por trazabilidad.
 
 ## Ejemplo trabajado — de reunión a pre-propuesta
 
@@ -123,7 +128,7 @@ El Google Doc de este skill es **interno** (contexto del proyecto), no el que se
 
 - Alimentar la propuesta con **experiencias previas del equipo por rubro** ("para esto hablá con Irra/Nico/Juani") — depende del mapa de habilidades, que se releva aparte.
 - Doc de experiencia reutilizable por dominio (ej.: todo lo aprendido en un CRM) para clientes futuros del mismo tipo.
-- **`communication-context`** — skill futuro y separado para el estilo de trato operativo por persona (canal, fricción, escalamiento del día a día).
+- `communication-context` — skill futuro y separado para el estilo de trato operativo por persona (canal, fricción, escalamiento del día a día).
 
 ## Criterios de calidad
 

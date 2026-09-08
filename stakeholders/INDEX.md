@@ -33,14 +33,8 @@
 | [isis-rondon](./isis-rondon.md) | Isis Minerva Rondon Borges | Liquidación de sueldos (CSC), La Mantovana | high | low | 2026-06-12 |
 | [nicolas-lopez](./nicolas-lopez.md) | Nicolás López | Gerente RRHH, La Mantovana | medium | low | 2026-06-12 |
 | [nicolas-ortiz](./nicolas-ortiz.md) | Nicolás Ortiz | Gestión préstamos / mutual, PERC | high | low | 2026-07-20 |
-| [axel-nisenbaum](./axel-nisenbaum.md) | Axel Nisenbaum | Socio, Surtransportes (prospect) | medium | unknown | 2026-07-31 |
-| [florencia-espino](./florencia-espino.md) | Florencia Rosa Espiño | Socia, Surtransportes (prospect) | high | unknown | 2026-07-31 |
-| [facundo-ramirez](./facundo-ramirez.md) | Facundo Ramirez | Dueño, Loginet (prospect) | high | low | 2026-08-19 |
-| [maggie-loginet](./maggie-loginet.md) | Maggie | Socia, Loginet (prospect) | high | unknown | 2026-08-19 |
-| [anahi-cappi](./anahi-cappi.md) | Anahí Cappi | Quality Control Manager, Loginet (prospect) | high | low | 2026-08-19 |
-| [vanina-focaraccio](./vanina-focaraccio.md) | Vanina Focaraccio | Operativo / Procesos, Loginet (prospect) | medium | low | 2026-04-06 |
-| [manuel-vasquez](./manuel-vasquez.md) | Manuel Vasquez | Administración / Facturación, Loginet (prospect) | medium | low | 2026-04-06 |
-| [pablo-loginet](./pablo-loginet.md) | Pablo | Encargado sistema Kai, Loginet (prospect) | medium | high | 2026-02-24 |
+| [hernan-capolupo](./hernan-capolupo.md) | Hernán Capolupo | Socio, Gestión Operativa/Facturación, RyD Abogados | high | low | 2026-09-03 |
+| [juan-francisco-verde](./juan-francisco-verde.md) | Juan Francisco Verde | Socio, Área Legal, RyD Abogados | high | low | 2026-09-03 |
 
 ## High-influence + high-friction
 - **Sebastián (PERC PO)** — interlocutor principal del cliente. Definiciones bloqueantes de negocio y técnicas dependen de él. Tarda en responder. (stakeholder-verbal, Olivier, 2026-05-21)
