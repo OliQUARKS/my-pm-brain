@@ -46,6 +46,7 @@
 
 ## Interacciones
 - **2026-09-03** (Discovery call). Relevamiento completo del proceso de pedido de pago (Provincia ART). Sin propuesta ni scope formal todavía. [ingesta](../../ingestion/meetings/2026-09-03-ryd-abogados-discovery.md) · [source](../../source/meetings/2026-09-03-ryd-abogados-discovery.md)
+- **2026-09-07** (Build-context + decisiones). Se formalizó el contexto interno del proyecto y la pre-propuesta ([briefings/2026-09-07-ryd-abogados-build-context.md](../../briefings/2026-09-07-ryd-abogados-build-context.md)). Se resolvió la protección de datos (prototipos con datos genéricos) y se decidió que la minuta no pide material operativo; eso pasa al discovery pago. [decisión datos](../../decisions/2026-09-07-ryd-prototipos-datos-genericos.md) · [decisión minuta](../../decisions/2026-09-07-ryd-minuta-sin-pedido-material.md)
 
 ## Open questions
 
@@ -55,10 +56,11 @@
 - ¿Intentos previos de integración con Lex-Doctor (custom dev, Caddel SA support)?
 
 **Sobre Provincia ART + automatización:**
-- ¿Provincia ART expone API o es solo portal web (RPA/scraping vs. integración)?
-- ¿El portal web de Provincia ART permite carga de datos programática o solo UI manual?
+- Existe un portal público de proveedores (`proveedores.artprovincia.com.ar`) con secciones de Facturación y Cotización, sin API documentada públicamente; no confirmado si el "pedido de pago a terceros" se carga ahí o en otra sección/sistema. [ingestion/adhoc/2026-09-07-provinciart-portal-recon.md](../../ingestion/adhoc/2026-09-07-provinciart-portal-recon.md)
 - Volumen mensual real de pedidos de pago (para dimensionar ROI).
 - ¿El patrón se repite igual en los otros 9 clientes del estudio?
 
+**Resuelto:** protección de datos / uso de IA en prototipos → [decisión 2026-09-07](../../decisions/2026-09-07-ryd-prototipos-datos-genericos.md) (datos genéricos, no reales).
+
 ## Last updated
-2026-09-04
+2026-09-07

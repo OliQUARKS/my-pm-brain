@@ -8,6 +8,8 @@
 
 ## Recently decided
 <!-- Last 30 days. Each links to the file. -->
+- 2026-09-07 — [Los prototipos para RyD Abogados usan datos genéricos/sintéticos, no datos reales de expedientes](./2026-09-07-ryd-prototipos-datos-genericos.md)
+- 2026-09-07 — [La minuta a RyD Abogados no pide el material de las 6 consultas; se releva en discovery pago posterior](./2026-09-07-ryd-minuta-sin-pedido-material.md)
 - 2026-07-20 — [El documento del préstamo se firma y persiste como UN solo documento (supersede sábana + 5 docs)](./2026-07-20-documento-unico-firma.md)
 - 2026-07-20 — [Entrega PERC = +1 sprint sobre las 12 semanas; refactor de lambdas antes del UAT formal](./2026-07-20-entrega-perc-mas-un-sprint.md)
 - 2026-07-20 — [Datos del documento AMFAYS por origen: existentes vía accounts/Sherlock; faltantes mockeados/cableados con proveeduría real diferida (PERC)](./2026-07-20-captura-datos-amfays.md)
