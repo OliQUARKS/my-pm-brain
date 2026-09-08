@@ -1,0 +1,562 @@
+<style>
+  :root{
+    --brand:#8B2635; --brand-deep:#5E1A24; --brand-soft:#F3E4E2;
+    --bg:#FBF8F6; --surface:#FFFFFF; --surface-2:#F6F0ED;
+    --border:#E8DCD7; --border-strong:#D8C7C0;
+    --ink:#2A211F; --muted:#7C6E68; --faint:#A8988F;
+    --a-accent:#B07A16; --a-soft:#F7EDD6;      /* Línea A · Criadores (premium) */
+    --b-accent:#4E6472; --b-soft:#E7EDF0;      /* Línea B · Merlo (estándar) */
+    --good:#2E7D5B; --good-soft:#E1F0E8;
+    --warn:#B97706; --warn-soft:#FBEECF;
+    --crit:#C0392B; --crit-soft:#FBE3DF;
+    --shadow:0 1px 2px rgba(42,33,31,.06),0 6px 20px rgba(94,26,36,.06);
+    --radius:12px; --radius-sm:8px;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --brand:#D68A94; --brand-deep:#C56270; --brand-soft:#3A2429;
+      --bg:#191311; --surface:#221A18; --surface-2:#2B211E;
+      --border:#382B27; --border-strong:#4A3934;
+      --ink:#F1E9E5; --muted:#B6A69F; --faint:#8A776F;
+      --a-accent:#D6A94A; --a-soft:#37301E;
+      --b-accent:#8FA6B3; --b-soft:#212B31;
+      --good:#63BE93; --good-soft:#1D3329;
+      --warn:#E0A64A; --warn-soft:#352A16;
+      --crit:#E8756A; --crit-soft:#3A211D;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="light"]{
+    --brand:#8B2635; --brand-deep:#5E1A24; --brand-soft:#F3E4E2;
+    --bg:#FBF8F6; --surface:#FFFFFF; --surface-2:#F6F0ED;
+    --border:#E8DCD7; --border-strong:#D8C7C0;
+    --ink:#2A211F; --muted:#7C6E68; --faint:#A8988F;
+    --a-accent:#B07A16; --a-soft:#F7EDD6; --b-accent:#4E6472; --b-soft:#E7EDF0;
+    --good:#2E7D5B; --good-soft:#E1F0E8; --warn:#B97706; --warn-soft:#FBEECF;
+    --crit:#C0392B; --crit-soft:#FBE3DF;
+    --shadow:0 1px 2px rgba(42,33,31,.06),0 6px 20px rgba(94,26,36,.06);
+  }
+  :root[data-theme="dark"]{
+    --brand:#D68A94; --brand-deep:#C56270; --brand-soft:#3A2429;
+    --bg:#191311; --surface:#221A18; --surface-2:#2B211E;
+    --border:#382B27; --border-strong:#4A3934;
+    --ink:#F1E9E5; --muted:#B6A69F; --faint:#8A776F;
+    --a-accent:#D6A94A; --a-soft:#37301E; --b-accent:#8FA6B3; --b-soft:#212B31;
+    --good:#63BE93; --good-soft:#1D3329; --warn:#E0A64A; --warn-soft:#352A16;
+    --crit:#E8756A; --crit-soft:#3A211D;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .tnum{font-variant-numeric:tabular-nums}
+  h1,h2,h3{text-wrap:balance;margin:0}
+  button{font-family:inherit;font-size:inherit;cursor:pointer}
+
+  /* ---------- Top bar ---------- */
+  .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;
+    padding:12px 22px;background:var(--surface);border-bottom:1px solid var(--border)}
+  .wordmark{display:flex;flex-direction:column;line-height:1.05}
+  .wordmark b{font-family:var(--serif);font-weight:600;font-size:18px;letter-spacing:.02em;color:var(--brand)}
+  .wordmark span{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+  .topbar .spacer{flex:1}
+  .daychip{display:flex;align-items:center;gap:8px;background:var(--surface-2);border:1px solid var(--border);
+    border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted)}
+  .daychip b{color:var(--ink);font-weight:600}
+  .user{display:flex;align-items:center;gap:9px}
+  .avatar{width:32px;height:32px;border-radius:50%;background:var(--brand);color:#fff;
+    display:grid;place-items:center;font-weight:600;font-size:13px}
+  :root[data-theme="dark"] .avatar,@media (prefers-color-scheme:dark){.avatar{color:#241A18}}
+  .user small{color:var(--muted);font-size:12px;display:block}
+  .user .uname{font-size:13px;font-weight:600}
+
+  .demoflag{background:var(--warn-soft);color:var(--warn);font-size:11px;font-weight:600;
+    padding:4px 10px;border-radius:999px;letter-spacing:.03em;border:1px solid transparent}
+
+  /* ---------- Shell ---------- */
+  .shell{display:grid;grid-template-columns:264px 1fr;max-width:1280px;margin:0 auto;min-height:calc(100vh - 58px)}
+  .side{border-right:1px solid var(--border);padding:22px 16px;background:var(--surface)}
+  .side .eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);
+    padding:0 8px 10px}
+  .step{display:flex;gap:12px;align-items:flex-start;padding:11px 10px;border-radius:var(--radius-sm);
+    width:100%;text-align:left;background:none;border:1px solid transparent;color:var(--ink);margin-bottom:2px;transition:background .15s,border-color .15s}
+  .step:hover{background:var(--surface-2)}
+  .step[aria-current="true"]{background:var(--brand-soft);border-color:var(--border-strong)}
+  .step .num{flex:none;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--border-strong);
+    display:grid;place-items:center;font-size:12.5px;font-weight:700;color:var(--muted);background:var(--surface)}
+  .step[aria-current="true"] .num{background:var(--brand);color:#fff;border-color:var(--brand)}
+  .step[data-done="true"] .num{background:var(--good);border-color:var(--good);color:#fff}
+  .step .lbl{line-height:1.25}
+  .step .lbl b{font-weight:600;font-size:14px;display:block}
+  .step .lbl small{color:var(--muted);font-size:12px}
+  .side .note{margin-top:18px;padding:12px;border:1px dashed var(--border-strong);border-radius:var(--radius-sm);
+    font-size:12px;color:var(--muted);line-height:1.45}
+
+  .main{padding:26px 30px 60px;min-width:0}
+  .phead{margin-bottom:20px}
+  .phead .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);font-weight:600}
+  .phead h1{font-size:25px;margin:4px 0 6px;font-family:var(--serif);font-weight:600}
+  .phead p{margin:0;color:var(--muted);max-width:64ch}
+
+  /* ---------- generic cards / bits ---------- */
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+  .row-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:18px}
+  .btn{border-radius:var(--radius-sm);padding:10px 18px;font-weight:600;font-size:14px;border:1px solid var(--border-strong);
+    background:var(--surface);color:var(--ink);transition:transform .06s,background .15s,box-shadow .15s}
+  .btn:hover{background:var(--surface-2)}
+  .btn:active{transform:translateY(1px)}
+  .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff;box-shadow:0 4px 14px rgba(139,38,53,.28)}
+  :root[data-theme="dark"] .btn.primary{color:#241A18}
+  @media (prefers-color-scheme:dark){.btn.primary{color:#241A18}}
+  .btn.primary:hover{background:var(--brand-deep)}
+  .btn:focus-visible,.step:focus-visible{outline:2.5px solid var(--brand);outline-offset:2px}
+  .btn.ghost{border-color:transparent;background:transparent;color:var(--brand)}
+  .btn.ghost:hover{background:var(--brand-soft)}
+
+  .tag{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:999px;letter-spacing:.01em}
+  .tag.a{background:var(--a-soft);color:var(--a-accent)}
+  .tag.b{background:var(--b-soft);color:var(--b-accent)}
+  .tag.wa{background:var(--good-soft);color:var(--good)}
+  .tag.pres{background:var(--surface-2);color:var(--muted)}
+  .dot{width:7px;height:7px;border-radius:50%;display:inline-block}
+  .cta-state{font-size:12.5px;font-weight:600}
+  .st-good{color:var(--good)} .st-warn{color:var(--warn)} .st-crit{color:var(--crit)} .st-contado{color:var(--muted)}
+
+  /* order list */
+  .orders{display:flex;flex-direction:column;gap:12px}
+  .order{padding:16px 18px;display:grid;grid-template-columns:1fr auto;gap:12px 16px;align-items:start}
+  .order .who{display:flex;flex-direction:column;gap:6px}
+  .order .who .name{font-weight:600;font-size:16px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .order .items{color:var(--muted);font-size:13.5px;margin-top:2px}
+  .order .items b{color:var(--ink);font-weight:600}
+  .order .meta{display:flex;flex-direction:column;align-items:flex-end;gap:7px;text-align:right}
+  .prio{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:700}
+  .acct{display:flex;align-items:center;gap:6px;font-size:13px}
+  .rawmsg{grid-column:1/-1;margin-top:4px;background:var(--surface-2);border:1px solid var(--border);
+    border-radius:var(--radius-sm);padding:12px 14px;font-size:13px;color:var(--muted);display:none}
+  .rawmsg.open{display:block}
+  .rawmsg .q{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;color:var(--ink);
+    background:var(--surface);border-left:3px solid var(--good);padding:8px 12px;border-radius:6px;margin:6px 0 10px;white-space:pre-wrap}
+  .linkish{background:none;border:none;color:var(--brand);font-weight:600;font-size:12.5px;padding:0;text-decoration:underline;text-underline-offset:2px}
+
+  /* tables */
+  .tablewrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border)}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--surface)}
+  th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap}
+  th{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700;background:var(--surface-2)}
+  td.num,th.num{text-align:right}
+  tbody tr:last-child td{border-bottom:none}
+  tfoot td{font-weight:700;background:var(--surface-2);border-top:2px solid var(--border-strong)}
+  .auto{display:inline-flex;align-items:center;gap:5px;color:var(--good);font-size:11.5px;font-weight:600}
+  .pending{color:var(--faint)}
+  .fillcell{transition:color .3s,background .3s}
+  .fillcell.filled{color:var(--ink);font-weight:600}
+
+  /* despostada grid */
+  .prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+  .prodcard{padding:15px 16px}
+  .prodcard h3{font-size:15px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .prodcard .qty{font-size:28px;font-weight:700;font-family:var(--serif);margin:8px 0 2px}
+  .prodcard .sub{font-size:12.5px;color:var(--muted)}
+  .bar{height:6px;border-radius:3px;background:var(--surface-2);overflow:hidden;margin-top:10px}
+  .bar>i{display:block;height:100%;border-radius:3px}
+
+  /* summary tiles */
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:18px}
+  .tile{padding:16px 18px}
+  .tile .t-k{font-size:12px;color:var(--muted);letter-spacing:.04em}
+  .tile .t-v{font-size:26px;font-weight:700;font-family:var(--serif);margin-top:5px;display:flex;align-items:baseline;gap:7px}
+  .tile .t-v small{font-size:13px;font-weight:600;color:var(--muted);font-family:var(--sans)}
+  .tile.ok{border-left:4px solid var(--good)}
+  .tile.ok .badge{color:var(--good);font-size:12px;font-weight:600;display:inline-flex;gap:5px;align-items:center;margin-top:8px}
+
+  .alert{padding:15px 17px;border-radius:var(--radius);display:flex;gap:13px;align-items:flex-start;margin-bottom:12px}
+  .alert.crit{background:var(--crit-soft);border:1px solid color-mix(in srgb,var(--crit) 30%,transparent)}
+  .alert.warn{background:var(--warn-soft);border:1px solid color-mix(in srgb,var(--warn) 34%,transparent)}
+  .alert .ico{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:15px}
+  .alert.crit .ico{background:var(--crit);color:#fff} .alert.warn .ico{background:var(--warn);color:#fff}
+  .alert .body{min-width:0}
+  .alert .body b{display:block;font-size:14px;margin-bottom:2px}
+  .alert .body p{margin:0;font-size:13px;color:var(--muted)}
+  .alert .body .fix{margin-top:9px}
+  .alert .body .fix .btn{padding:6px 13px;font-size:12.5px}
+
+  .sec-title{font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--muted);margin:24px 0 12px;text-transform:uppercase}
+  .banner{display:flex;gap:11px;align-items:center;background:var(--b-soft);border:1px solid var(--border);
+    border-radius:var(--radius-sm);padding:11px 15px;font-size:13px;color:var(--muted);margin-bottom:18px}
+  .banner b{color:var(--ink)}
+
+  [hidden]{display:none!important}
+  @media (max-width:860px){
+    .shell{grid-template-columns:1fr}
+    .side{border-right:none;border-bottom:1px solid var(--border);display:flex;gap:8px;overflow-x:auto;padding:12px}
+    .side .eyebrow,.side .note{display:none}
+    .step{min-width:210px;margin:0}
+    .main{padding:20px 16px 50px}
+    .order{grid-template-columns:1fr}
+    .order .meta{align-items:flex-start;text-align:left}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="topbar">
+  <div class="wordmark"><b>Frigorífico Merlo</b><span>Gestión de ventas</span></div>
+  <span class="demoflag">Prototipo · datos de ejemplo</span>
+  <div class="spacer"></div>
+  <div class="daychip">📅 <b>Miércoles</b> · producción Línea A (Criadores)</div>
+  <div class="user">
+    <div class="avatar">N</div>
+    <div><span class="uname">Nacho</span><small>Administración</small></div>
+  </div>
+</div>
+
+<div class="shell">
+  <nav class="side" aria-label="Etapas del flujo">
+    <div class="eyebrow">Flujo del día</div>
+    <button class="step" data-step="0" aria-current="true">
+      <span class="num">1</span><span class="lbl"><b>Pedidos</b><small>Entran y se priorizan</small></span>
+    </button>
+    <button class="step" data-step="1">
+      <span class="num">2</span><span class="lbl"><b>Despostada</b><small>Programa a cámara</small></span>
+    </button>
+    <button class="step" data-step="2">
+      <span class="num">3</span><span class="lbl"><b>Romaneo y venta</b><small>Peso desde la etiqueta</small></span>
+    </button>
+    <button class="step" data-step="3">
+      <span class="num">4</span><span class="lbl"><b>Cierre y control</b><small>Cuadre automático</small></span>
+    </button>
+    <div class="note">El peso lo pone la <b>etiqueta de balanza</b>, no la carga a mano. Cada corte queda asociado a su cliente, como ya pasa hoy con la Palm en preventas.</div>
+  </nav>
+
+  <main class="main">
+    <!-- ===== 1 · PEDIDOS ===== -->
+    <section class="panel" data-panel="0">
+      <div class="phead">
+        <div class="k">Paso 1 de 4</div>
+        <h1>Pedidos del día</h1>
+        <p>Los pedidos que entran por WhatsApp o de forma presencial se ordenan solos en una lista. Al lado de cada cliente ves su estado de cuenta, para decidir a quién le damos primero cuando el stock no alcanza.</p>
+      </div>
+
+      <div class="banner">🟢 <div><b>6 pedidos</b> interpretados automáticamente desde los mensajes de hoy · <b>2</b> cargados de forma presencial en mostrador.</div></div>
+
+      <div class="orders">
+        <div class="order card">
+          <div class="who">
+            <div class="name">Restaurante La Rural <span class="tag a">● Línea A · Criadores</span> <span class="tag wa">WhatsApp</span></div>
+            <div class="items"><b>2</b> cajas de peceto · <b>1</b> caja de vacío · <b>3</b> asados</div>
+            <button class="linkish" data-raw="raw1">Ver mensaje original</button>
+            <div class="rawmsg" id="raw1">
+              <div class="q">"Hola! para mañana necesito 2 cajas de peceto, una de vacío y unos 3 asados. Gracias!"</div>
+              Interpretado: <b>2× caja peceto</b>, <b>1× caja vacío</b>, <b>3× asado</b> · Línea A por historial del cliente.
+            </div>
+          </div>
+          <div class="meta">
+            <div class="prio">Prioridad alta</div>
+            <div class="acct"><span class="dot" style="background:var(--good)"></span><span class="cta-state st-good">Cuenta al día</span></div>
+          </div>
+        </div>
+
+        <div class="order card">
+          <div class="who">
+            <div class="name">Parrilla La Estancia <span class="tag a">● Línea A · Criadores</span> <span class="tag wa">WhatsApp</span></div>
+            <div class="items"><b>5</b> asados · <b>2</b> tablitas · <b>1</b> rueda</div>
+          </div>
+          <div class="meta">
+            <div class="prio">Prioridad alta</div>
+            <div class="acct"><span class="dot" style="background:var(--good)"></span><span class="cta-state st-good">Cuenta al día</span></div>
+          </div>
+        </div>
+
+        <div class="order card">
+          <div class="who">
+            <div class="name">Carnicería Don José <span class="tag b">● Línea B · Merlo</span> <span class="tag wa">WhatsApp</span></div>
+            <div class="items"><b>4</b> asados · <b>3</b> faldas · <b>2</b> mochos</div>
+          </div>
+          <div class="meta">
+            <div class="prio">Revisar</div>
+            <div class="acct"><span class="dot" style="background:var(--warn)"></span><span class="cta-state st-warn">Debe · pago a 22 días</span></div>
+          </div>
+        </div>
+
+        <div class="order card">
+          <div class="who">
+            <div class="name">Rotisería El Buen Gusto <span class="tag b">● Línea B · Merlo</span> <span class="tag pres">Presencial</span></div>
+            <div class="items"><b>2</b> asados · <b>1</b> espinazo</div>
+          </div>
+          <div class="meta">
+            <div class="prio">Prioridad media</div>
+            <div class="acct"><span class="dot" style="background:var(--good)"></span><span class="cta-state st-good">Cuenta al día</span></div>
+          </div>
+        </div>
+
+        <div class="order card">
+          <div class="who">
+            <div class="name">Cliente mostrador <span class="tag b">● Línea B · Merlo</span> <span class="tag pres">Presencial</span></div>
+            <div class="items"><b>1</b> asado · <b>1</b> tablita</div>
+            <div class="items" style="margin-top:4px;font-size:12.5px">Se registra como cuenta <b>“Contado”</b> (compra ocasional).</div>
+          </div>
+          <div class="meta">
+            <div class="prio">Prioridad baja</div>
+            <div class="acct"><span class="dot" style="background:var(--faint)"></span><span class="cta-state st-contado">Contado</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-actions">
+        <button class="btn primary" data-go="1">Confirmar y armar despostada →</button>
+        <button class="btn ghost">Agregar pedido manual</button>
+      </div>
+    </section>
+
+    <!-- ===== 2 · DESPOSTADA ===== -->
+    <section class="panel" data-panel="1" hidden>
+      <div class="phead">
+        <div class="k">Paso 2 de 4</div>
+        <h1>Programa de despostada</h1>
+        <p>Con los pedidos confirmados, el programa del día se arma solo: cuánto hay que despostar de cada corte y en qué línea. Esto es lo que baja a cámara.</p>
+      </div>
+
+      <div class="banner">🥩 <div><b>Miércoles</b> · día de <b>Línea A (Criadores Pampeanos)</b>. Base: <b>105</b> medias reses programadas.</div></div>
+
+      <div class="prod-grid">
+        <div class="prodcard card">
+          <h3>Asado <span class="tag a">A</span></h3>
+          <div class="qty tnum">11</div>
+          <div class="sub">piezas pedidas · 8 clientes</div>
+          <div class="bar"><i style="width:78%;background:var(--a-accent)"></i></div>
+        </div>
+        <div class="prodcard card">
+          <h3>Peceto <span class="tag a">A</span></h3>
+          <div class="qty tnum">4 <small style="font-size:14px;color:var(--muted)">cajas</small></div>
+          <div class="sub">≈ 20 unidades envasadas</div>
+          <div class="bar"><i style="width:52%;background:var(--a-accent)"></i></div>
+        </div>
+        <div class="prodcard card">
+          <h3>Tablita <span class="tag a">A</span></h3>
+          <div class="qty tnum">6</div>
+          <div class="sub">piezas pedidas · 4 clientes</div>
+          <div class="bar"><i style="width:44%;background:var(--a-accent)"></i></div>
+        </div>
+        <div class="prodcard card">
+          <h3>Vacío <span class="tag a">A</span></h3>
+          <div class="qty tnum">3 <small style="font-size:14px;color:var(--muted)">cajas</small></div>
+          <div class="sub">a depósito enfriado</div>
+          <div class="bar"><i style="width:36%;background:var(--a-accent)"></i></div>
+        </div>
+        <div class="prodcard card">
+          <h3>Asado <span class="tag b">B</span></h3>
+          <div class="qty tnum">7</div>
+          <div class="sub">piezas · Línea B del día</div>
+          <div class="bar"><i style="width:58%;background:var(--b-accent)"></i></div>
+        </div>
+        <div class="prodcard card">
+          <h3>Falda <span class="tag b">B</span></h3>
+          <div class="qty tnum">3</div>
+          <div class="sub">piezas · 1 cliente</div>
+          <div class="bar"><i style="width:28%;background:var(--b-accent)"></i></div>
+        </div>
+      </div>
+
+      <div class="row-actions">
+        <button class="btn primary" data-go="2">Enviar a cámara →</button>
+        <button class="btn" data-go="0">← Volver a pedidos</button>
+      </div>
+    </section>
+
+    <!-- ===== 3 · ROMANEO Y VENTA ===== -->
+    <section class="panel" data-panel="2" hidden>
+      <div class="phead">
+        <div class="k">Paso 3 de 4</div>
+        <h1>Romaneo y venta</h1>
+        <p>Cuando cámara termina, el peso de cada corte llega desde la etiqueta de la balanza, ya asociado a su cliente. La venta se arma sola: depósito según la línea, precio de la lista de la semana e importe calculado. Nadie vuelve a tipear kilos a mano.</p>
+      </div>
+
+      <div class="banner" id="romaneo-hint">⚖️ <div>Los cortes están en cámara. Cuando terminen el romaneo, <b>traé los pesos de las etiquetas</b> para completar las ventas.</div></div>
+
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Cliente</th><th>Corte</th><th>Depósito</th>
+              <th class="num">Piezas</th><th class="num">Kg (etiqueta)</th>
+              <th class="num">Precio/kg</th><th class="num">Importe</th>
+            </tr>
+          </thead>
+          <tbody id="ventas-body">
+            <tr data-kg="61,4" data-precio="8.900" data-importe="546.460">
+              <td>Restaurante La Rural</td><td>Asado</td><td><span class="tag a">Criadores · c/hueso</span></td>
+              <td class="num tnum">3</td>
+              <td class="num fillcell pending kg">—</td>
+              <td class="num fillcell pending precio">—</td>
+              <td class="num fillcell pending importe">—</td>
+            </tr>
+            <tr data-kg="46,8" data-precio="14.200" data-importe="664.560">
+              <td>Restaurante La Rural</td><td>Peceto (2 cajas)</td><td><span class="tag a">Criadores · enfriado</span></td>
+              <td class="num tnum">2</td>
+              <td class="num fillcell pending kg">—</td>
+              <td class="num fillcell pending precio">—</td>
+              <td class="num fillcell pending importe">—</td>
+            </tr>
+            <tr data-kg="98,2" data-precio="8.900" data-importe="873.980">
+              <td>Parrilla La Estancia</td><td>Asado</td><td><span class="tag a">Criadores · c/hueso</span></td>
+              <td class="num tnum">5</td>
+              <td class="num fillcell pending kg">—</td>
+              <td class="num fillcell pending precio">—</td>
+              <td class="num fillcell pending importe">—</td>
+            </tr>
+            <tr data-kg="63,5" data-precio="6.400" data-importe="406.400">
+              <td>Carnicería Don José</td><td>Asado</td><td><span class="tag b">Merlo · c/hueso</span></td>
+              <td class="num tnum">4</td>
+              <td class="num fillcell pending kg">—</td>
+              <td class="num fillcell pending precio">—</td>
+              <td class="num fillcell pending importe">—</td>
+            </tr>
+            <tr data-kg="24,9" data-precio="5.100" data-importe="126.990">
+              <td>Rotisería El Buen Gusto</td><td>Asado + espinazo</td><td><span class="tag b">Merlo · c/hueso</span></td>
+              <td class="num tnum">3</td>
+              <td class="num fillcell pending kg">—</td>
+              <td class="num fillcell pending precio">—</td>
+              <td class="num fillcell pending importe">—</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Total del día</td>
+              <td class="num fillcell pending" id="tot-kg">—</td>
+              <td></td>
+              <td class="num fillcell pending" id="tot-imp">—</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="row-actions">
+        <button class="btn primary" id="btn-romaneo">Traer pesos de las etiquetas</button>
+        <button class="btn" id="btn-registrar" data-go="3" disabled style="opacity:.5">Registrar ventas del día →</button>
+        <button class="btn" data-go="1">← Volver a despostada</button>
+      </div>
+    </section>
+
+    <!-- ===== 4 · CIERRE ===== -->
+    <section class="panel" data-panel="3" hidden>
+      <div class="phead">
+        <div class="k">Paso 4 de 4</div>
+        <h1>Cierre y control</h1>
+        <p>Al registrar las ventas, el sistema cruza solo lo cargado contra el Diario de Cajas (las etiquetas reales del día). Si algo no cuadra, lo marca al instante — en vez de buscarlo corte por corte durante horas.</p>
+      </div>
+
+      <div class="tiles">
+        <div class="tile card ok">
+          <div class="t-k">Kilos cargados vs. producidos</div>
+          <div class="t-v tnum">294,8 <small>/ 294,8 kg</small></div>
+          <div class="badge">✓ Coincide</div>
+        </div>
+        <div class="tile card ok">
+          <div class="t-k">Ventas registradas</div>
+          <div class="t-v tnum">17 <small>/ 17 clientes</small></div>
+          <div class="badge">✓ Completo</div>
+        </div>
+        <div class="tile card">
+          <div class="t-k">Importe total del día</div>
+          <div class="t-v tnum"><small>$</small>2.618.390</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:8px">Imputado a cuenta corriente</div>
+        </div>
+      </div>
+
+      <div class="sec-title">Requieren tu atención · 2</div>
+
+      <div class="alert crit">
+        <div class="ico">!</div>
+        <div class="body">
+          <b>Diferencia de peso en un asado — Carnicería Don José</b>
+          <p>La etiqueta de balanza marca <b>18,7 kg</b>, pero en la venta figura <b>16,8 kg</b>. Probable error de anotación en el romaneo.</p>
+          <div class="fix"><button class="btn" onclick="this.textContent='Corregido a 18,7 kg ✓';this.disabled=true;this.style.color='var(--good)'">Usar el peso de la etiqueta (18,7 kg)</button></div>
+        </div>
+      </div>
+
+      <div class="alert warn">
+        <div class="ico">?</div>
+        <div class="body">
+          <b>Caja de peceto sin marca de línea</b>
+          <p>Se cargó en <b>Merlo (Estándar)</b>, pero el pedido de <b>Restaurante La Rural</b> es Línea A. Si es Criadores, el stock queda en el depósito equivocado.</p>
+          <div class="fix"><button class="btn" onclick="this.textContent='Reasignado a Criadores ✓';this.disabled=true;this.style.color='var(--good)'">Mover a Criadores Enfriado</button></div>
+        </div>
+      </div>
+
+      <div class="sec-title">Cierre</div>
+      <div class="card" style="padding:16px 18px;display:flex;gap:13px;align-items:center;flex-wrap:wrap">
+        <span class="auto" style="font-size:14px">✓ El total de la hoja coincide con el sistema</span>
+        <span style="color:var(--muted);font-size:13px">— listo para archivar el día.</span>
+        <div style="flex:1"></div>
+        <button class="btn primary" onclick="this.textContent='Día cerrado ✓';this.disabled=true">Cerrar el día</button>
+        <button class="btn" data-go="0">Empezar de nuevo</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+(function(){
+  var steps=[].slice.call(document.querySelectorAll('.step'));
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  var maxDone=0;
+  function show(i){
+    i=+i;
+    panels.forEach(function(p){p.hidden=(+p.dataset.panel!==i);});
+    steps.forEach(function(s){
+      var si=+s.dataset.step;
+      s.setAttribute('aria-current', si===i?'true':'false');
+      s.dataset.done = (si<i)?'true':'false';
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  steps.forEach(function(s){s.addEventListener('click',function(){show(s.dataset.step);});});
+  document.querySelectorAll('[data-go]').forEach(function(b){
+    b.addEventListener('click',function(){show(b.dataset.go);});
+  });
+
+  // reveal raw whatsapp message
+  document.querySelectorAll('[data-raw]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var el=document.getElementById(b.dataset.raw);
+      var open=el.classList.toggle('open');
+      b.textContent=open?'Ocultar mensaje original':'Ver mensaje original';
+    });
+  });
+
+  // romaneo: fill weights from labels
+  var btn=document.getElementById('btn-romaneo');
+  if(btn){
+    btn.addEventListener('click',function(){
+      var rows=[].slice.call(document.querySelectorAll('#ventas-body tr'));
+      btn.disabled=true;btn.textContent='Trayendo pesos…';btn.style.opacity='.6';
+      var totKg=0, totImp=0;
+      rows.forEach(function(tr,idx){
+        setTimeout(function(){
+          var kg=tr.dataset.kg, precio=tr.dataset.precio, imp=tr.dataset.importe;
+          set(tr.querySelector('.kg'),kg+' kg');
+          set(tr.querySelector('.precio'),'$'+precio);
+          set(tr.querySelector('.importe'),'$'+imp);
+          totKg+=parseFloat(kg.replace('.','').replace(',','.'));
+          totImp+=parseFloat(imp.replace(/\./g,''));
+          if(idx===rows.length-1){
+            var tk=document.getElementById('tot-kg'), ti=document.getElementById('tot-imp');
+            set(tk, totKg.toFixed(1).replace('.',',')+' kg');
+            set(ti,'$'+ti_fmt(totImp));
+            btn.textContent='Pesos cargados ✓';
+            var reg=document.getElementById('btn-registrar');
+            reg.disabled=false;reg.style.opacity='1';reg.classList.add('primary');
+            var hint=document.getElementById('romaneo-hint');
+            hint.innerHTML='✅ <div>Pesos importados desde las etiquetas y ventas armadas automáticamente. Revisá y registrá.</div>';
+          }
+        }, 180*(idx+1));
+      });
+    });
+  }
+  function set(cell,val){ if(!cell)return; cell.textContent=val; cell.classList.remove('pending'); cell.classList.add('filled'); }
+  function ti_fmt(n){ return Math.round(n).toLocaleString('es-AR'); }
+})();
+</script>
