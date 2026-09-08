@@ -1,6 +1,6 @@
 > **Nota interna (no enviar)**
-> **Objetivo del mail:** que RyD valide el flujo de pedido de pago tal como lo entendimos, y que nos habilite el material que falta para poder armar la propuesta técnica. No hay decisor ausente al que convocar (Juan Verde y Hernán Capolupo, ambos socios, ya estuvieron en la reunión), así que el "próximo paso" es agendar la presentación de la propuesta conceptual, no una reunión de escalación.
-> **Qué NO prometer:** ni prototipo, ni una solución técnica específica (agente, RPA, integración por API). Ya revisamos los manuales técnicos de Lex-Doctor (ingeridos 2026-09-04): no documentan API ni acceso SQL directo, así que cualquier promesa de integración sigue siendo alcance no confirmado. Tampoco prometer que el mismo enfoque sirve para los otros 9 clientes del estudio: solo relevamos Provincia ART en detalle.
+> **Objetivo del mail:** que RyD valide el flujo de pedido de pago tal como lo entendimos. El pedido de material más profundo (instructivo completo, ejemplos reales, captura del portal, etc.) se difiere a un discovery pago posterior; no se solicita en este mail ([decisión 2026-09-07](../decisions/2026-09-07-ryd-minuta-sin-pedido-material.md)). No hay decisor ausente al que convocar (Juan Verde y Hernán Capolupo, ambos socios, ya estuvieron en la reunión), así que el "próximo paso" es agendar la presentación de la propuesta de discovery, no una reunión de escalación.
+> **Qué NO prometer:** ni prototipo con datos reales (los prototipos usan datos genéricos/sintéticos, [decisión 2026-09-07](../decisions/2026-09-07-ryd-prototipos-datos-genericos.md)), ni una solución técnica específica (agente, RPA, integración por API). Ya revisamos los manuales técnicos de Lex-Doctor (ingeridos 2026-09-04): no documentan API ni acceso SQL directo, así que cualquier promesa de integración sigue siendo alcance no confirmado. Tampoco prometer que el mismo enfoque sirve para los otros 9 clientes del estudio: solo relevamos Provincia ART en detalle.
 > **No pedir de nuevo:** documentación técnica de Lex Doctor (ya la tenemos y la revisamos internamente).
 > **A quién se escala:** nada que escalar; el foco (área de Juan Verde, pedidos de pago) ya lo fijaron Federico y Juan Pablo Norverto en la propia reunión.
 > **Quién aumenta el borrador:** Olivier redacta; Juan Pablo Norverto (o Federico) suma si hay matices técnicos antes de enviar.
@@ -10,7 +10,7 @@
 
 Hola Juan, hola Hernán,
 
-Gracias por el tiempo de la reunión de ayer y por mostrarnos el proceso en vivo dentro de Lex Doctor, que nos ayudó mucho a entender el día a día real del equipo. Les dejamos por escrito lo que entendimos, para que lo validen (o corrijan lo que haga falta), y un pedido puntual de material para poder avanzar. Si les sirve, pueden circular este mail con quien consideren.
+Gracias por el tiempo de la reunión de ayer y por mostrarnos el proceso en vivo dentro de Lex Doctor, que nos ayudó mucho a entender el día a día real del equipo. Les dejamos por escrito lo que entendimos, para que lo validen (o corrijan lo que haga falta). Si les sirve, pueden circular este mail con quien consideren.
 
 **Quiénes somos**
 
@@ -40,20 +40,9 @@ Así entendimos el circuito, desde que un expediente llega a sentencia firme o a
 - Con 7 personas dedicadas a esto y expedientes que se ramifican en 6-7 pedidos de pago cada uno, el volumen de carga administrativa es alto; mencionaron que una sola persona puede tener alrededor de 20 pedidos de pago agendados en un día.
 - Esta carga hoy le está quitando tiempo al trabajo estrictamente legal (contestaciones de demanda, defensa), que es donde el estudio agrega más valor.
 
-**Qué necesitaríamos para avanzar**
-
-Para poder armar una propuesta concreta, nos serviría contar con:
-
-1. El instructivo completo de carga de pedidos de pago de Provincia ART (nos llegó un extracto por mail; si hay una versión más completa o actualizada, la agradecemos).
-2. Dos ejemplos reales (pueden ser anonimizados) de expedientes completos: uno resuelto por **sentencia** y otro por **acuerdo homologado**, con capturas de cada pantalla de Lex Doctor involucrada (evento, carga de documentación, agenda), para poder contrastar si el circuito varía entre ambos casos.
-3. Una captura del portal de Provincia ART donde se cargan los pedidos de pago, para entender si existe alguna vía de integración además del ingreso manual por navegador.
-4. Un ejemplo real (texto del mail, sin datos sensibles) de una solicitud típica de documentación a un abogado o perito, tal como se envía hoy.
-5. Un número aproximado de pedidos de pago que se cargan por semana o por mes solo para Provincia ART, para poder dimensionar el impacto de cualquier mejora.
-6. Confirmación de si este mismo patrón (documentación por CBU, 6-7 pedidos por expediente) se repite igual en los otros clientes del estudio, o es específico de Provincia ART.
-
 **Próximos pasos**
 
-Con ese material y la validación del flujo, del lado de Quarks vamos a armar una propuesta conceptual sobre por dónde atacar esta automatización y cómo la encararíamos técnicamente. Nos gustaría coordinar una próxima reunión para presentarla; quedamos atentos a su disponibilidad.
+Con la validación de este flujo, del lado de Quarks vamos a armar una propuesta de discovery: un tramo de trabajo focalizado donde profundizamos el circuito con ustedes (casos reales, el detalle del portal de Provincia ART, los números de volumen) y evaluamos las vías concretas de automatización, para poder construir sobre eso una propuesta técnica sólida. Nos gustaría coordinar una reunión para presentarles esa propuesta; quedamos atentos a su disponibilidad.
 
 Quedamos a disposición por cualquier duda.
 
