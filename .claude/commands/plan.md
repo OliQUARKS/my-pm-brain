@@ -20,9 +20,9 @@ An objective statement. Example: `/plan reduce onboarding drop-off by 20% in Q3`
 ## Updates
 
 - A draft `ingestion/adhoc/<date>-plan-<slug>.md` capturing the planning session
-- `hypotheses/<slug>.md` — drafts for any value/usability/feasibility/viability/other risk that needs testing (status: `candidate`)
-- `decisions/<date>-<slug>.md` — drafts for go/no-go points (status: `pending`)
-- `stakeholders/<slug>.md § Open asks` — drafts for the alignment conversations the plan implies
+- `hypotheses/<slug>.md` (drafts for any value/usability/feasibility/viability/other risk that needs testing, status: `candidate`)
+- `decisions/<date>-<slug>.md` (drafts for go/no-go points, status: `pending`)
+- `stakeholders/<slug>.md § Open asks` (drafts for the alignment conversations the plan implies)
 
 Nothing committed without operator confirmation per autonomy mode.
 
@@ -30,12 +30,12 @@ Nothing committed without operator confirmation per autonomy mode.
 
 Six blocks, in this order:
 
-1. **What we already know** — citations to insights, hypotheses, decisions, metrics
-2. **Assumption vs evidence** — explicitly tagged, with provenance for each
-3. **Who to interview** — segments, personas, specific named users; recent coverage gaps
-4. **Hypotheses to open** — across the 5 risk areas, with the test for each
-5. **Experiments to run** — sequenced, with success criteria and what would invalidate
-6. **Decision points** — the go/no-go moments and what evidence would unlock each
+1. **What we already know** (citations to insights, hypotheses, decisions, metrics)
+2. **Assumption vs evidence** (explicitly tagged, with provenance for each)
+3. **Who to interview** (segments, personas, specific named users; recent coverage gaps)
+4. **Hypotheses to open** (across the 5 risk areas, with the test for each)
+5. **Experiments to run** (sequenced, with success criteria and what would invalidate)
+6. **Decision points** (the go/no-go moments and what evidence would unlock each)
 
 Plus:
 

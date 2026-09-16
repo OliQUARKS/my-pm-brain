@@ -37,14 +37,14 @@ Create an interactive, shareable UAT tracker that maps Linear tasks to API endpo
    - Other
 4. **Map endpoints** → for each task, find related endpoint(s) from Insomnia by keyword/category match
 5. **Flag gaps** → identify endpoints in Insomnia with no corresponding task
-6. **Create Google Sheet** → one row per case, columns:
+6. **Create Google Sheet** → one row per case, columns (the sheet is delivered in Spanish, since it's read live by the client during UAT; column names below are the literal Spanish labels that appear in the sheet, with an English gloss in brackets):
    - ID (PER-XXX)
-   - Caso de Prueba (task title)
-   - Categoría
-   - Endpoint (method + path)
-   - Estado (dropdown: Pendiente / ✓ Completada / ⚠️ Con comentarios / ❌ Con error)
-   - Asignado a (editable text)
-   - Hallazgos (editable text for notes)
+   - **Caso de Prueba** [Test Case] (task title)
+   - **Categoría** [Category]
+   - **Endpoint** (method + path)
+   - **Estado** [Status] (dropdown: `Pendiente` [Pending] / `✓ Completada` [Completed] / `⚠️ Con comentarios` [With comments] / `❌ Con error` [With error])
+   - **Asignado a** [Assigned to] (editable text)
+   - **Hallazgos** [Findings] (editable text for notes)
 7. **Return sheet URL** → shareable link for client session
 
 ### Output
@@ -58,16 +58,16 @@ Create an interactive, shareable UAT tracker that maps Linear tasks to API endpo
 ```yaml
 linear_team: "PERC"
 insomnia_json_path: "~/Downloads/Perc-Credit-Module.insomnia.json"
-sheet_title: "PERC Flujo Crédito — UAT Tracker (2026-07-06)"
+sheet_title: "PERC Flujo Crédito (UAT Tracker, 2026-07-06)"
 sheet_locale: "es-AR"
 include_archived_tasks: true
 ```
 
 ## Categorization Rules
 
-Match task title/description against these keywords:
+Match task title/description against these keywords. Note: the keywords below are kept in whatever language the real Linear task titles use; most PERC tasks are written in Spanish, so the Spanish keywords (préstamo, cuota, firma, etc.) are the literal strings the fuzzy match looks for, not documentation prose.
 
-| Categoría | Keywords |
+| Category [Categoría] | Keywords |
 |---|---|
 | Health | health, liveness, ping, health check |
 | Templates | template, create template, edit template, list templates, delete template, admin |
@@ -81,13 +81,13 @@ Match task title/description against these keywords:
 | Backoffice | backoffice, BO, operador, watson, template config, configuration |
 | Compliance & Security | compliance, BIND, TOTP, security, XSS, sanitization, authorization |
 
-Task assigned to = infer from Linear issue assignee (or leave blank if unassigned).
+Task assigned to = inferred from the Linear issue assignee (or left blank if unassigned).
 
 ## Edge Cases
 
 - **Multiple endpoints per task** → join with ` | `
 - **Task with no clear endpoint match** → flag as ⚠️ "No endpoint mapped"
-- **Endpoint with no task** → add as new row with ID = `[GAP]`, Estado = `Pendiente`
+- **Endpoint with no task** → add as new row with ID = `[GAP]`, Estado = `Pendiente` [Pending]
 - **Deleted/archived tasks** → include in sheet if `include_archived_tasks: true`
 
 ## Success Criteria
@@ -95,13 +95,13 @@ Task assigned to = infer from Linear issue assignee (or leave blank if unassigne
 ✅ Sheet has ≥ (Linear tasks count) rows  
 ✅ Every endpoint from Insomnia appears at least once  
 ✅ Categories are balanced across tasks  
-✅ "Asignado a" field is populated (from Linear or blank)  
+✅ "Asignado a" [Assigned to] field is populated (from Linear or blank)  
 ✅ Sheet is shareable (link + view/edit perms)  
 ✅ Gap report shows any unmapped endpoints  
 
 ## Notes
 
-- **Money fields**: Insomnia JSON already notes that money is decimal strings (no rounding). Skip this detail in sheet.
-- **Error casuistics**: Many endpoints have 4xx responses documented (e.g. 401, 404, 422). These should map to a single task row with note like "Error casuistics: 401 (missing bearer), 404 (not found), 422 (tag limit)".
-- **States are editable**: Sheet is live during UAT — client updates Estado as they test.
-- **Locale**: es-AR for date formatting, but sheet can be switched to en-US if needed.
+- **Money fields**: Insomnia JSON already notes that money is decimal strings (no rounding). Skip this detail in the sheet.
+- **Error casuistics**: many endpoints have documented 4xx responses (e.g. 401, 404, 422). These should map to a single task row with a note like "Error casuistics: 401 (missing bearer), 404 (not found), 422 (tag limit)".
+- **States are editable**: the sheet is live during UAT; the client updates **Estado** [Status] as they test.
+- **Locale**: es-AR for date formatting, but the sheet can be switched to en-US if needed.

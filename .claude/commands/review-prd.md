@@ -1,86 +1,86 @@
 # /review-prd
 
-Panel adversarial sobre un PRD. Cinco lentes, cada uno carga su sección del brain y critica desde su ángulo. Síntesis final que prioriza por severidad y nombra tensiones entre lentes.
+Adversarial panel on a PRD. Five lenses, each loading its own section of the brain and critiquing from its own angle. Final synthesis that prioritizes by severity and names tensions between lenses.
 
 ## Input
 
-Path al PRD (externo o en el repo). Opcionalmente, lista de lentes a aplicar:
+Path to the PRD (external or in the repo). Optionally, a list of lenses to apply:
 
-- `/review-prd ~/Downloads/perc-cobranza-v2.md` — corre los cinco
-- `/review-prd ~/Downloads/perc-cobranza-v2.md --with datos,riesgo` — corre solo esos
-- `/review-prd ~/Downloads/perc-cobranza-v2.md --with estratega` — un solo paso, rápido
+- `/review-prd ~/Downloads/perc-cobranza-v2.md` (runs all five)
+- `/review-prd ~/Downloads/perc-cobranza-v2.md --with data,risk` (runs only those)
+- `/review-prd ~/Downloads/perc-cobranza-v2.md --with strategist` (a single pass, fast)
 
-Lentes disponibles: `estratega`, `cliente`, `datos`, `riesgo`, `stakeholder`.
+Available lenses: `strategist`, `customer`, `data`, `risk`, `stakeholder`.
 
-Si el path no existe, no inferir — preguntar.
+If the path doesn't exist, don't infer; ask.
 
 ## Loads
 
-Antes de invocar lentes:
+Before invoking lenses:
 
-- El PRD completo (verbatim, sin re-escribir)
-- `CLAUDE.md § Evidence hierarchy` y `§ Knowledge hygiene` (listón de evidencia)
-- `INDEX.md` (mapear referencias del PRD a áreas del brain)
+- The full PRD (verbatim, not rewritten)
+- `CLAUDE.md § Evidence hierarchy` and `§ Knowledge hygiene` (evidence bar)
+- `INDEX.md` (map PRD references to brain areas)
 
-Cada lente carga lo suyo cuando se ejecuta:
+Each lens loads its own material when it runs:
 
-| Lente | Carga |
+| Lens | Loads |
 |---|---|
-| **estratega** | `knowledge/strategy.md`, `decisions/INDEX.md` + las últimas 3 decisiones |
-| **cliente** | `knowledge/users/insights.md`, personas, y los `source/interviews/` que el PRD cite o que toquen el mismo problema |
-| **datos** | `hypotheses/INDEX.md` + hipótesis relacionadas, `knowledge/product/metrics.md` |
-| **riesgo** | `knowledge/compliance/INDEX.md` (mandatorio) + las fichas que apliquen al dominio del PRD; `knowledge/strategy.md § Non-goals`; decisiones recientes con reversal-conditions análogas |
-| **stakeholder** | `stakeholders/INDEX.md` + fichas de los stakeholders que el PRD nombre o implique, `ingestion/meetings/` reciente |
+| **strategist** | `knowledge/strategy.md`, `decisions/INDEX.md` + the last 3 decisions |
+| **customer** | `knowledge/users/insights.md`, personas, and the `source/interviews/` the PRD cites or that touch the same problem |
+| **data** | `hypotheses/INDEX.md` + related hypotheses, `knowledge/product/metrics.md` |
+| **risk** | `knowledge/compliance/INDEX.md` (mandatory) + the relevant files for the PRD's domain; `knowledge/strategy.md § Non-goals`; recent decisions with analogous reversal-conditions |
+| **stakeholder** | `stakeholders/INDEX.md` + files for stakeholders the PRD names or implies, recent `ingestion/meetings/` |
 
-## Mecánica
+## Mechanics
 
-Si son 3+ lentes: fan-out paralelo (`Agent` tool por lente). Si son 1-2: secuencial inline.
+If there are 3+ lenses: parallel fan-out (`Agent` tool per lens). If 1-2: sequential inline.
 
-Cada lente devuelve estructurado:
+Each lens returns a structured output:
 
 ```
-### <Lente>
-**Fortalezas:** (qué el PRD hace bien desde este ángulo, máximo 3)
-**Gaps:** (qué falta, cada uno con severidad: bloqueante / serio / menor)
-**Contradicciones:** (claims del PRD que chocan con el brain, citando archivo)
-**Preguntas para el PM:** (las que materialmente afectan dirección)
+### <Lens>
+**Strengths:** (what the PRD does well from this angle, max 3)
+**Gaps:** (what's missing, each with severity: blocking / serious / minor)
+**Contradictions:** (PRD claims that clash with the brain, citing the file)
+**Questions for the PM:** (the ones that materially affect direction)
 ```
 
-Después de los lentes, **síntesis**:
+After the lenses, **synthesis**:
 
-- **Tensiones entre lentes** — cuando un lente está contento y otro furioso sobre lo mismo (estratega ok + cliente furioso = señal). Nombrarlas, no aplanarlas.
-- **Severidad agregada** — top-3 bloqueantes que impiden decidir.
-- **Qué falta antes de poder decidir** — lista concreta: qué interview, qué pull de datos, qué stakeholder no consultado, qué norma no cargada.
+- **Tensions between lenses** (when one lens is happy and another is furious about the same thing; strategist ok + customer furious = signal). Name them, don't flatten them.
+- **Aggregate severity** (top-3 blockers preventing a decision).
+- **What's missing before a decision can be made** (concrete list: which interview, which data pull, which stakeholder not consulted, which regulation not loaded).
 
 ## Updates
 
-- `reviews/YYYY-MM-DD-<prd-slug>.md` — el documento de revisión, con frontmatter:
+- `reviews/YYYY-MM-DD-<prd-slug>.md` (the review document), with frontmatter:
 
   ```
   ---
-  prd_path: <path original>
-  prd_hash: <sha del archivo al momento de revisar>
-  reviewed_at: <fecha>
-  lentes: [estratega, cliente, datos, riesgo, stakeholder]
+  prd_path: <original path>
+  prd_hash: <sha of the file at review time>
+  reviewed_at: <date>
+  lenses: [strategist, customer, data, risk, stakeholder]
   ---
   ```
 
-  Cuerpo: una sección por lente + síntesis. Drafteado, no commiteado (per autonomy mode `propose and wait`).
+  Body: one section per lens + synthesis. Drafted, not committed (per autonomy mode `propose and wait`).
 
-- **NO edita** el PRD original. El PRD es externo y el PM decide qué incorporar.
-- **NO crea** decisiones ni hipótesis automáticamente. Si el panel sugiere una, va como "Pregunta para el PM" en la síntesis.
+- **Does NOT edit** the original PRD. The PRD is external and the PM decides what to incorporate.
+- **Does NOT create** decisions or hypotheses automatically. If the panel suggests one, it goes in the synthesis as a "Question for the PM".
 
 ## Hard constraints
 
-- **No fabricar evidencia.** Si un lente quiere afirmar "esto contradice X del brain", debe citar el archivo y la línea/sección. Sin cita, va como "Pregunta" no como "Contradicción".
-- **Citas verbatim del PRD.** Cuando un lente cuestiona un claim del PRD, citarlo entre comillas, no parafrasear.
-- **Severidad honesta.** "Bloqueante" significa: no se puede decidir sin resolver esto. No inflar.
-- **No resolver tensiones en este turno.** El review hace visible la tensión; la decisión es del PM en el próximo turno.
-- **Riesgo: no inventar normativa.** El lente de riesgo no puede afirmar "no cumple norma X" sin citar el archivo de `knowledge/compliance/` específico. Si la norma aplica pero no está cargada, dice "no puedo evaluar este aspecto — falta cargar normativa Y en `knowledge/compliance/`" en vez de inventar.
+- **No fabricating evidence.** If a lens wants to claim "this contradicts X in the brain," it must cite the file and the line/section. Without a citation, it goes as a "Question," not a "Contradiction."
+- **Verbatim PRD quotes.** When a lens questions a PRD claim, quote it verbatim, don't paraphrase.
+- **Honest severity.** "Blocking" means: can't decide without resolving this. Don't inflate it.
+- **Don't resolve tensions in this turn.** The review surfaces the tension; the decision is the PM's in the next turn.
+- **Risk: don't invent regulation.** The risk lens can't state "this doesn't comply with regulation X" without citing the specific file in `knowledge/compliance/`. If the regulation applies but isn't loaded, it says "I can't evaluate this aspect; need to load regulation Y in `knowledge/compliance/`" instead of inventing it.
 
 ## Surfaces
 
-- Path al archivo de review creado
-- Top-3 bloqueantes (1 línea cada uno)
-- Tensiones entre lentes (1 línea cada una)
+- Path to the created review file
+- Top-3 blockers (1 line each)
+- Tensions between lenses (1 line each)
 - "Apply this review as drafted? (y / edit / no)"
