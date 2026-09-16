@@ -1,139 +1,139 @@
 # Skill: briefing-context (PRE)
 
-**Tu objetivo:** preparar mejor la primera reunión —la **reunión de briefing** (preventa)— identificando **qué información necesitamos obtener** y **qué preguntas conviene hacer según el contexto del cliente**. Transformás un input crudo y vago en un briefing útil — no en un cuestionario genérico.
+**Your goal:** prepare better for the first meeting, the **briefing meeting** (pre-sale), by identifying **what information we need to obtain** and **what questions make sense given the client's context**. You turn a raw, vague input into a useful briefing, not a generic questionnaire.
 
-> **Dónde encaja:** etapa 2 del ciclo — ver [`briefings/_ciclo-preventa.md`](../../briefings/_ciclo-preventa.md). Prepara la reunión de briefing; no confundir esa reunión con el *discovery* (etapa post-venta, pre-desarrollo).
+> **Where it fits:** stage 2 of the cycle (see [`briefings/_ciclo-preventa.md`](../../briefings/_ciclo-preventa.md)). Prepares the briefing meeting; don't confuse that meeting with *discovery* (the post-sale, pre-development stage).
 
-## Propósito
+## Purpose
 
-Que quien va a la reunión llegue **con contexto, no en pelotas**: que pueda tocar una fibra sensible desde el minuto uno y que la charla deje de ser "les contamos qué hacemos" y pase a ser otra cosa. El doc **no reemplaza el criterio ni la experiencia** — es el piso de contexto que habilita las preguntas buenas ("¿y esto les impacta las ventas?"), no que las responde.
+That whoever goes to the meeting arrives **with context, not empty-handed**: able to touch a nerve from minute one, so the conversation stops being "here's what we do" and becomes something else. The doc **doesn't replace judgment or experience**; it's the baseline context that enables the good questions ("and does this hit your sales?"), not one that answers them.
 
-## Cómo trabajás
+## How you work
 
-- **No uses un cuestionario fijo.** Adaptá el análisis y las preguntas al **rubro/industria, tipo de empresa, tipo de problema y tipo de producto/servicio** del caso.
-- **Reformulá en el lenguaje del cliente.** Una pregunta genérica ("¿qué sistemas usan?") se vuelve concreta ("¿el alta de la cuenta comitente se apoya en el KYC que ya hicieron en la billetera?").
-- **Puntual y acotado al objetivo declarado.** Profundidad en lo que importa > cobertura superficial. No infles el scope: si el pedido es un flujo interno, no derives en un plan de producto entero.
-- **Nada inventado.** Lo que falta se marca como "a preguntar en la reunión". Fuentes verificables → observación; motivaciones y lecturas → interpretación, etiquetada.
+- **Don't use a fixed questionnaire.** Adapt the analysis and questions to the case's **industry/vertical, company type, problem type, and product/service type**.
+- **Rephrase in the client's language.** A generic question ("what systems do you use?") becomes concrete ("does opening the brokerage account rely on the KYC you already did in the wallet?").
+- **Precise and scoped to the stated goal.** Depth on what matters > shallow coverage. Don't inflate scope: if the ask is an internal flow, don't drift into a full product plan.
+- **Nothing invented.** What's missing gets marked as "to ask in the meeting." Verifiable sources → observation; motivations and readings → interpretation, labeled.
 
-## Entrada
+## Input
 
-Input crudo y variado — **no esperes una spec**. Lo típico: "me llamó Juan de tal empresa, tiene un quilombo operativo / quiere automatizar / tiene un problema de posicionamiento, quiere que nos juntemos". Con eso alcanza.
+Raw, varied input; **don't expect a spec**. Typical case: "Juan from such-and-such company called me, they have an operational mess / they want to automate / they have a positioning problem, they want to meet." That's enough.
 
-- **El cliente** — empresa y quién contactó.
-- **La página del cliente** — URL (si hay).
-- **Los asistentes** — nombres/roles de ambos lados (los que se sepan).
-- **Por qué se juntan** — el disparador, en las palabras que llegaron.
+- **The client**: company and who reached out.
+- **The client's website**: URL (if any).
+- **The attendees**: names/roles on both sides (whatever is known).
+- **Why they're meeting**: the trigger, in the words that came through.
 
-Si un campo falta, no lo inventes: queda como "a preguntar".
+If a field is missing, don't invent it: leave it as "to ask."
 
-## Qué tenés que entender sí o sí — objetivos de información
+## What you absolutely have to understand: information goals
 
-Estos objetivos son **la guía principal del skill**. Para cada reunión, relevá siempre:
+These goals are **the skill's main guide**. For every meeting, always gather:
 
-1. **Contexto de la empresa** — qué hace, a quién, cómo gana plata.
-2. **Problema a resolver** — el dolor concreto que los trajo.
-3. **Objetivo de la reunión** — qué esperan que salga de este encuentro.
-4. **Usuarios involucrados** — para quién se resuelve; roles y permisos.
-5. **Dolores principales** — del rubro y del caso puntual.
-6. **Stakeholders presentes** — quién decide, qué le importa a cada uno.
-7. **Horizonte de tiempo / urgencia** — con qué plazo cuenta el cliente, qué pasa si no se cumple, si hay una fecha externa que lo presiona (compliance, un compromiso que ya asumió río arriba). **Obligatorio, no opcional:** sin esto no se puede calibrar ninguna propuesta después ("si no sabemos con qué tiempo cuenta el cliente, no sabemos nada" — feedback interno, 2026-08-14). Distinto del objetivo #3: ese es sobre qué esperan de *esta reunión*; este es sobre el plazo del proyecto.
-8. **Perfil de experiencia previa** — de qué tipo de experiencia viene el cliente: ¿llega golpeado de un desarrollo fallido con otro proveedor?, ¿es greenfield/arranca de cero?, ¿es una empresa consolidada innovando dentro de su ecosistema? Esto calibra el tono y, más adelante, qué tan agresiva puede ser la propuesta que arma `/propuestador`. Inferido de lo que cuenta el cliente — marcar como interpretación, no como hecho, salvo que lo diga explícito.
+1. **Company context**: what they do, for whom, how they make money.
+2. **Problem to solve**: the concrete pain that brought them here.
+3. **Meeting objective**: what they expect to come out of this meeting.
+4. **Users involved**: who this is being solved for; roles and permissions.
+5. **Main pain points**: from the industry and from this specific case.
+6. **Stakeholders present**: who decides, what matters to each of them.
+7. **Time horizon / urgency**: what timeline the client is working with, what happens if it's not met, whether there's an external deadline pressuring them (compliance, a commitment already made upstream). **Mandatory, not optional:** without this, no proposal can be calibrated afterward ("if we don't know what timeline the client has, we don't know anything", internal feedback, 2026-08-14). Different from objective #3: that one is about what they expect from *this meeting*; this one is about the project's timeline.
+8. **Prior-experience profile**: what kind of experience the client is coming from: are they arriving bruised from a failed project with another vendor? are they greenfield/starting from scratch? are they an established company innovating within their ecosystem? This calibrates the tone and, later, how aggressive the proposal `/propuestador` builds can be. Inferred from what the client tells you; mark it as interpretation, not fact, unless stated explicitly.
 
-Después **traducí cada objetivo en preguntas contextualizadas al cliente**. Las preguntas genéricas de más abajo son solo **ejemplos de apoyo** para inspirar la formulación — no una estructura obligatoria ni un checklist a copiar.
+Then **translate each goal into questions contextualized to the client**. The generic questions further below are only **supporting examples** to inspire the phrasing, not a mandatory structure or a checklist to copy.
 
-## Ejes obligatorios de análisis
+## Mandatory analysis axes
 
-Además de los objetivos, evaluá siempre estos tres ejes y **profundizá el que aplique especialmente** al caso:
+Besides the goals, always evaluate these three axes and **go deeper on whichever applies** to the case:
 
-- **Regulatorio** — qué organismos/normas alcanzan al negocio (ej.: BCRA, CNV, UIF).
-- **Marco legal** — restricciones legales sobre datos, contratos, delegación de funciones.
-- **Stack tecnológico** — con qué viven hoy (CRM, ERP, core, proveedores de identidad), qué integra, qué es reutilizable.
+- **Regulatory**: which bodies/regulations reach the business (e.g.: BCRA, CNV, UIF, Argentine financial/securities/AML regulators).
+- **Legal framework**: legal constraints on data, contracts, delegation of functions.
+- **Tech stack**: what they run today (CRM, ERP, core, identity providers), what integrates, what's reusable.
 
-Si uno de estos ejes es el nudo del problema (p. ej. doble regulador en un onboarding fintech), es donde va la profundidad — no lo trates como una casilla más.
+If one of these axes is the crux of the problem (e.g. dual regulators in a fintech onboarding flow), that's where the depth goes; don't treat it as just another checkbox.
 
-## Qué procesa / busca
+## What it processes / looks for
 
-1. **Analizar la página del cliente** — qué hacen, a quién, tono, productos visibles.
-2. **Buscar info de la empresa y su rubro** — tamaño, mercado, modelo.
-3. **Buscar info de las personas** — LinkedIn / rol / seniority. Motivaciones **inferidas**, marcadas.
-4. **(Opcional) Competidores** — solo si aplica (ver abajo).
+1. **Analyze the client's website**: what they do, for whom, tone, visible products.
+2. **Look up info on the company and its industry**: size, market, model.
+3. **Look up info on the people**: LinkedIn / role / seniority. Motivations are **inferred**, and marked as such.
+4. **(Optional) Competitors**: only if applicable (see below).
 
-## Salida — Documento de Preparación
+## Output: Preparation Document
 
-Incluí, **cuando aplique** al caso:
+Include, **when it applies** to the case:
 
-- **Contexto de empresa y rubro** — detalle de la empresa (un párrafo), del rubro, y su modelo.
-- **Glosario específico del cliente** — términos del rubro y de la empresa (siglas, productos, nombres propios) que van a aparecer en la reunión y hay que manejar.
-- **Dolores del rubro y del caso** — los típicos de la industria + los que sugiere este cliente. Son el disparador de las preguntas empáticas.
-- **Usuarios** — para quién se resuelve, roles y permisos (lo inferible; el resto → a preguntar).
-- **Stakeholders / personas en la mesa** — mini perfil por asistente: rol, LinkedIn, y qué le puede importar (inferido). Una línea por persona.
-- **Riesgos y restricciones relevantes** — regulatorios, legales, técnicos.
-- **Horizonte de tiempo / urgencia** — plazo que maneja el cliente y qué lo presiona, o "a preguntar" si no surgió del input crudo.
-- **Perfil de experiencia previa** — archetype inferido (golpeado por otro proveedor / greenfield / consolidado innovando), con la evidencia puntual que lo sugiere.
-- **Preguntas de discovery contextualizadas** — organizadas por objetivo de información, en lenguaje del cliente. **Accionables y puntuales**, no genéricas.
+- **Company and industry context**: a paragraph on the company, on the industry, and its business model.
+- **Client-specific glossary**: industry and company terms (acronyms, products, proper nouns) that will come up in the meeting and need to be handled.
+- **Industry and case pain points**: the typical ones for the industry + the ones this client suggests. These are the trigger for the empathetic questions.
+- **Users**: who this is being solved for, roles and permissions (what's inferable; the rest → to ask).
+- **Stakeholders / people at the table**: mini profile per attendee: role, LinkedIn, and what might matter to them (inferred). One line per person.
+- **Relevant risks and constraints**: regulatory, legal, technical.
+- **Time horizon / urgency**: the timeline the client is working with and what's driving it, or "to ask" if it didn't come up in the raw input.
+- **Prior-experience profile**: inferred archetype (bruised by another vendor / greenfield / established company innovating), with the specific evidence that suggests it.
+- **Contextualized discovery questions**: organized by information goal, in the client's language. **Actionable and precise**, not generic.
 
-Reglas de la salida: **sin texto placeholder ni ambiguo.** Si algo no se sabe, se nombra como gap explícito ("a preguntar"), no se rellena. Priorizá preguntas que muevan la aguja del discovery sobre preguntas de manual.
+Output rules: **no placeholder or ambiguous text.** If something isn't known, name it as an explicit gap ("to ask"), don't fill it in. Prioritize questions that move the discovery needle over textbook questions.
 
-## Formato de salida — Google Doc formateado (+ markdown de respaldo)
+## Output format: formatted Google Doc (+ markdown backup)
 
-El entregable de este skill es **siempre un Google Doc formateado**, nunca un `.md` suelto. Se producen dos artefactos, en este orden:
+This skill's deliverable is **always a formatted Google Doc**, never a standalone `.md`. Two artifacts are produced, in this order:
 
-1. **Markdown de respaldo (repo).** Generá el Documento de Preparación como markdown y guardalo donde ya vive en el repo (`briefings/YYYY-MM-<cliente>-briefing-context.md`). Es el ancla de auditoría del segundo cerebro — no se elimina.
-2. **Google Doc formateado (entregable).** Creá el documento con el conector de Google Drive a partir de **ese mismo markdown**:
-   - Tool: `create_file` del conector Google Drive.
-   - `title`: `Briefing PRE — <Cliente> — <YYYY-MM-DD>`.
-   - `textContent`: el markdown completo.
+1. **Markdown backup (repo).** Generate the Preparation Document as markdown and save it where it already lives in the repo (`briefings/YYYY-MM-<client>-briefing-context.md`). It's the second brain's audit anchor; it doesn't get deleted.
+2. **Formatted Google Doc (deliverable).** Create the document with the Google Drive connector from that same markdown:
+   - Tool: Google Drive connector's `create_file`.
+   - `title`: `Briefing PRE, <Client>, <YYYY-MM-DD>`.
+   - `textContent`: the full markdown.
    - `contentMimeType`: `text/markdown`.
-   - **No** actives `disableConversionToGoogleType` — dejá que Drive convierta el markdown a Google Doc con títulos, negritas y tablas.
-   - Si el PM indicó una carpeta de Drive, pasá su `parentId`; si no, queda en la raíz.
-3. **Cerrá devolviendo el link del Google Doc** más la ruta del `.md` de respaldo.
+   - **Do not** enable `disableConversionToGoogleType`; let Drive convert the markdown into a Google Doc with headings, bold, and tables.
+   - If the PM specified a Drive folder, pass its `parentId`; otherwise it goes in the root.
+3. **Close by returning the Google Doc link** plus the path to the backup `.md`.
 
-Regla: el markdown crudo no es el entregable final. El entregable es el Google Doc; el `.md` queda en el repo solo por trazabilidad.
+Rule: the raw markdown is not the final deliverable. The deliverable is the Google Doc; the `.md` stays in the repo purely for traceability.
 
-## Ejemplos de apoyo — preguntas genéricas
+## Supporting examples: generic questions
 
-Solo como inspiración para formular las contextualizadas. **No copiar tal cual.**
+Only as inspiration for phrasing the contextualized ones. **Don't copy verbatim.**
 
-- Problema/objetivo: ¿qué los trajo a buscar ayuda ahora?, ¿qué cambió?, ¿cómo lo resuelven hoy?
-- Impacto: ¿esto afecta ventas/costos/tiempos?, ¿cómo lo miden?, ¿quién lo sufre a diario?
-- Usuario/proceso: ¿para quién se resuelve?, ¿roles/permisos?, ¿con qué sistemas viven hoy?
-- Factibilidad: ¿qué intentaron que no funcionó?, ¿tienen APIs/accesos/documentación?
+- Problem/objective: what brought them to look for help now?, what changed?, how do they handle it today?
+- Impact: does this affect sales/costs/time?, how do they measure it?, who deals with it daily?
+- User/process: who is this being solved for?, roles/permissions?, what systems do they run today?
+- Feasibility: what have they tried that didn't work?, do they have APIs/access/documentation?
 
-## Ejemplo trabajado — de contexto bruto a briefing
+## Worked example: from raw context to briefing
 
-**Input (bruto):** "El cliente es AL2, es como una doble compañía con ACA Valores, las dos vienen de la Asociación de Cooperativas Argentinas (agro). Contactó el CEO: quiere rehacer el onboarding para unificar el de los dos productos. AL2 es la billetera; ACA Valores la financiera (acciones, letras, bonos). Van el CEO, el líder de PMs, el CTO y el líder de producto. Páginas: al2.com.ar, acavalores.com.ar."
+**Input (raw):** "The client is AL2, it's like a twin company with ACA Valores, both come from Asociación de Cooperativas Argentinas (agro). The CEO reached out: he wants to redo onboarding to unify it across both products. AL2 is the wallet; ACA Valores is the brokerage (stocks, notes, bonds). Attending: the CEO, the lead PM, the CTO, and the head of product. Sites: al2.com.ar, acavalores.com.ar."
 
-**Cómo lo interpretás:**
-- El objetivo es **unificar un flujo interno** → build de proceso, **no** batalla competitiva → competidores queda opcional.
-- Dos productos con **dos reguladores** (billetera = BCRA/PSP; financiera = CNV/ALyC/cuenta comitente) → el **eje regulatorio/legal es el nudo**: ahí va la profundidad, porque "un onboarding para los dos" choca con requisitos de KYC distintos y con PLD que la ALyC no puede delegar.
-- Usuario compartido probable: el productor agropecuario asociado → verificar si es el mismo perfil en ambos productos.
-- Van cuatro decisores (CEO+CTO+producto+PMs) → reunión de definición, tema prioritario.
+**How you interpret it:**
+- The goal is to **unify an internal flow** → a process build, **not** a competitive battle → competitors stays optional.
+- Two products with **two regulators** (wallet = BCRA/PSP; brokerage = CNV/ALyC/brokerage account) → the **regulatory/legal axis is the crux**: that's where the depth goes, because "one onboarding for both" collides with different KYC requirements and with AML rules the brokerage can't delegate.
+- Likely shared user: the affiliated agricultural producer → verify whether it's the same profile in both products.
+- Four decision-makers attending (CEO+CTO+product+PM) → a definition-stage meeting, high priority.
 
-**Output (extracto):**
-- *Glosario del cliente:* ALyC, cuenta comitente, PSP/PSPCP, CDC (Cuenta Corriente Cooperativa), MEP, KYC/PLD-UIF, CNV vs. BCRA.
-- *Dolor central:* unificar el alta implica reconciliar dos regímenes de KYC (BCRA y CNV) sobre la misma persona, sin poder delegar el conocimiento del cliente de la financiera.
-- *Pregunta contextualizada (regulatorio):* "¿El alta de ACA Valores puede apoyarse en el KYC ya hecho en AL2, o legal/UIF lo prohíbe?"
-- *Pregunta contextualizada (usuario):* "¿Es la misma persona en ambos productos o son segmentos distintos? ¿Persona humana y jurídica?"
-- *Riesgo:* el BCRA endureció reglas de billeteras/PSP en 2025-26 → el flujo nuevo tiene que nacer alineado a lo último.
+**Output (excerpt):**
+- *Client glossary:* ALyC (brokerage/dealer), brokerage account, PSP/PSPCP, CDC (Cooperative Checking Account), MEP, KYC/AML-UIF, CNV vs. BCRA.
+- *Central pain point:* unifying onboarding means reconciling two KYC regimes (BCRA and CNV) on the same person, without being able to delegate the brokerage's know-your-customer obligation.
+- *Contextualized question (regulatory):* "Can ACA Valores' onboarding rely on the KYC already done in AL2, or does legal/AML prohibit it?"
+- *Contextualized question (user):* "Is it the same person across both products, or different segments? Individuals and legal entities both?"
+- *Risk:* BCRA tightened wallet/PSP rules in 2025-26 → the new flow needs to be born aligned with the latest rules.
 
-## Opcional: competidores
+## Optional: competitors
 
-Correr **solo** si el objetivo es ayudar al cliente con **su producto** (no un problema interno). Por competidor: FODA; directo/indirecto/disruptivo y por qué; tracción, funding, base de usuarios; últimos movimientos. Identificar ~5, marcando dato verificable vs. estimación.
+Only run this **if** the goal is to help the client with **their own product** (not an internal problem). Per competitor: SWOT; direct/indirect/disruptive and why; traction, funding, user base; recent moves. Identify ~5, flagging verifiable data vs. estimate.
 
-## Fuera de alcance (v2)
+## Out of scope (v2)
 
-Anotado, **no** en esta versión:
-- **Mapa de habilidades del equipo** — quién hizo mobile/fintech/gestión, para decir "tenemos gente con experiencia en tu rubro".
-- **Experiencias previas por rubro** — post-mortems de proyectos (AL2, PERC, Fichin, Acavalores) que alimenten futuros briefs.
+Noted, **not** in this version:
+- **Team skills map**: who's done mobile/fintech/management work, to be able to say "we have people experienced in your industry."
+- **Prior experience by industry**: post-mortems of past projects (AL2, PERC, Fichin, Acavalores) to feed future briefs.
 
-## Criterios de calidad
+## Quality criteria
 
-✅ Corre con input mínimo/vago sin trabarse
-✅ Releva los 8 objetivos de información y los traduce en preguntas contextualizadas al cliente
-✅ Evalúa los 3 ejes (regulatorio / legal / stack) y profundiza el que aplica
-✅ Salida con glosario del cliente, stakeholders, dolores, riesgos y preguntas de discovery accionables
-✅ Preguntas puntuales y contextualizadas, no genéricas; sin placeholder ni scope inflado
-✅ Observación vs. interpretación etiquetadas; lo que falta queda como gap explícito
-✅ Competidores solo si aplica (producto, no problema interno)
-✅ Entregable = Google Doc formateado vía conector Drive; markdown de respaldo en el repo; se devuelve el link
-✅ 100% español
+✅ Runs on minimal/vague input without getting stuck
+✅ Covers the 8 information goals and translates them into contextualized client questions
+✅ Evaluates the 3 axes (regulatory / legal / stack) and goes deep on whichever applies
+✅ Output includes client glossary, stakeholders, pain points, risks, and actionable discovery questions
+✅ Questions are precise and contextualized, not generic; no placeholders or inflated scope
+✅ Observation vs. interpretation labeled; what's missing is left as an explicit gap
+✅ Competitors only if applicable (product, not internal problem)
+✅ Deliverable = formatted Google Doc via Drive connector; markdown backup in the repo; link is returned
+✅ 100% Spanish

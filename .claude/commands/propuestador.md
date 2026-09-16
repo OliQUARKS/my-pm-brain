@@ -1,104 +1,104 @@
-# Skill: propuestador (arma la propuesta cara-al-cliente, POST build-context)
+# Skill: propuestador (builds the client-facing proposal, POST build-context)
 
-**Tu objetivo:** convertir el `/build-context` (interno) en el documento de propuesta que se le entrega al cliente. No es un resumen del contexto: es la pieza comercial que ordena qué entendimos, qué proponemos, qué hace, cómo lo trabajamos y hacia dónde escala — escrita en lenguaje profesional, positivo y cerrado, lista para leer del otro lado. Fin último: que el cliente diga que sí.
+**Your goal:** turn the `/build-context` (internal) into the proposal document delivered to the client. This isn't a summary of the context: it's the commercial piece that lays out what we understood, what we propose, what it does, how we work, and where it scales; written in professional, positive, closed language, ready to be read on the other side. Ultimate goal: get the client to say yes.
 
-## Las tres capas — de dónde viene y qué es esto
+## The three layers: where this comes from and what it is
 
-1. **Contexto del proyecto** (`/build-context`) — **INTERNO**. El insumo. Nunca se entrega. De ahí sale la sección **4. Propuesta** (alcance/discovery/prototipo/factibilidad) que este skill expande.
-2. **Propuesta** (este skill) — **CARA AL CLIENTE**. El documento que se comparte. Toma la pre-propuesta del build-context y la vuelve un documento completo, profesional y navegable. Alcance funcional + cómo trabajamos + roadmap. Los montos y el equipo cerrado van en una hoja de presupuesto aparte (ver § Salida operativa).
-3. **Propuesta real / contrato** — post-"sí". Cierre de equipo, tiempo, costo y arranque de discovery. No se arma acá.
+1. **Project context** (`/build-context`): **INTERNAL**. The input. Never delivered. From it comes the **4. Proposal** section (scope/discovery/prototype/feasibility) that this skill expands.
+2. **Proposal** (this skill): **CLIENT-FACING**. The document that gets shared. It takes the pre-proposal from the build-context and turns it into a complete, professional, navigable document. Functional scope + how we work + roadmap. Amounts and the locked-in team go on a separate budget sheet (see § Operational output).
+3. **Real proposal / contract**: post-"yes." Team lock-in, timeline, cost, and discovery kickoff. Not built here.
 
-## Regla de oro — interno nunca cruza a cara-al-cliente
+## Golden rule: internal never crosses into client-facing
 
-El build-context tiene material que jamás aparece en la propuesta. Al derivar, dejá afuera:
+The build-context has material that must never appear in the proposal. When deriving, leave out:
 
-- **Montos, rates, márgenes** — van en la hoja de presupuesto aparte, no en el cuerpo funcional.
-- **Tensiones internas y lectura de stakeholders** — escepticismos, "empezar chico como táctica", quién es el gatekeeper, qué le irrita a quién.
-- **Análisis de competidores / cómo ganamos el deal.**
-- **Dudas de factibilidad sin resolver** — lo abierto se nombra como "a definir en el discovery", nunca como "no sabemos si podemos".
-- **Nombres internos de riesgo, aprendizajes de otros clientes, activos internos** (ej.: "reusamos el CRM de X").
+- **Amounts, rates, margins**: go on the separate budget sheet, not in the functional body.
+- **Internal tensions and stakeholder reads**: skepticism, "start small as a tactic," who the gatekeeper is, what irritates whom.
+- **Competitor analysis / how we win the deal.**
+- **Unresolved feasibility doubts**: open items get named as "to be defined during discovery," never as "we don't know if we can do this."
+- **Internal risk names, lessons from other clients, internal assets** (e.g.: "we're reusing X's CRM").
 
-Si algo del build-context es interno, se queda en el build-context. La propuesta habla de valor para el cliente, no de nuestra cocina.
+If something in the build-context is internal, it stays in the build-context. The proposal talks about value for the client, not about our own kitchen.
 
-## Cómo trabajás
+## How you work
 
-- **Derivás, no inventás.** Cada afirmación de la propuesta se apoya en el build-context (`briefings/<fecha>-<cliente>-build-context.md`) y sus fuentes. Nada nuevo que no esté respaldado.
-- **Lenguaje profesional y completo.** Ni bullets telegrama ni prosa inflada. Cada punto dice qué y por qué le conviene al cliente. El registro es el del cliente (español, tono del rubro).
-- **MVP nítido, futuro separado.** Lo que entra al MVP se distingue con claridad de lo que es fase posterior. No prometer el roadmap como si fuera el MVP.
-- **Iterativo.** La primera versión es la base; se revisa con el equipo y se "azucara" (lenguaje más profesional y detallado) antes de enviar. Los flujos de trabajo (los agrega quien corresponda) y la hoja de presupuesto se suman al final.
+- **You derive, you don't invent.** Every claim in the proposal is backed by the build-context (`briefings/<date>-<client>-build-context.md`) and its sources. Nothing new that isn't supported.
+- **Professional, complete language.** Neither telegram-style bullets nor inflated prose. Each point says what it is and why it benefits the client. The register matches the client's (Spanish, the tone of their industry).
+- **Sharp MVP, future kept separate.** What's in the MVP is clearly distinguished from what's a later phase. Don't promise the roadmap as if it were the MVP.
+- **Iterative.** The first version is the base; it gets reviewed with the team and "sweetened" (more professional, more detailed language) before sending. Workflow diagrams (added by whoever owns that) and the budget sheet get added at the end.
 
-## Entrada
+## Input
 
-- El `/build-context` del proyecto (sección **4. Propuesta** como esqueleto; secciones 1-3 y factibilidad como insumo).
-- Decisiones internas ya tomadas (alcance MVP vs. fases, diseño sí/no, modalidad de trabajo).
-- Mockups / prototipos del cliente o nuestros, si los hay.
-- Correcciones de la review interna (lo que el equipo marcó al revisar el borrador).
+- The project's `/build-context` (section **4. Proposal** as the skeleton; sections 1-3 and feasibility as input).
+- Internal decisions already made (MVP scope vs. phases, design yes/no, way of working).
+- Client mockups/prototypes, or ours, if any exist.
+- Corrections from the internal review (what the team flagged reviewing the draft).
 
-## Estructura del documento — las 7 secciones
+## Document structure: the 7 sections
 
-Adaptá los títulos al caso, pero este es el esqueleto que funciona:
+Adapt the titles to the case, but this is the skeleton that works:
 
-1. **Qué entendimos.** El problema del cliente en su lenguaje, con el dolor concreto y por qué ahora. Demuestra que escuchamos. Una o dos frases, sin rodeos.
-2. **La solución en una frase.** Qué es el producto, dicho simple. Si tiene varias caras (ej.: app del usuario final + panel interno), nombrarlas acá.
-3. **Qué hace — funcionalidad del MVP.** El corazón. Desglosado por cara del producto cuando aplica (ej.: A. App del cliente / B. Panel interno). Cada funcionalidad en una línea clara. Cerrá con un bloque **"Fuera del MVP (fases posteriores)"** que liste explícitamente lo diferido — protege el alcance.
-4. **Cómo se apoya en los sistemas del cliente.** Cuando hay legacy o equipo de IT propio: dejar clarísimo que no reemplazamos nada, qué se consume/lee vs. qué sigue viviendo en su sistema, y cómo se integra (middleware/servicios, cadencia de sync). Baja la ansiedad técnica del cliente.
-5. **Cómo trabajamos.** Metodología (ágil/Scrum), etapa inicial de alineación, implementación por fases, gestión transparente (reuniones, visibilidad, documentación), calidad/validación (pruebas en vivo, adopción), y propiedad del cliente + partner de largo plazo. Cada punto con su porqué — es la sección que más confianza cierra. Registro profesional y desarrollado, no telegráfico.
-6. **Roadmap a futuro.** Las fases siguientes al MVP, como camino de valor, no como promesa incluida.
-7. **Próximos pasos.** Acciones concretas para avanzar (cerrar puntos técnicos, demo de trabajo previo, confirmar insumos, arrancar).
+1. **What we understood.** The client's problem in their own language, with the concrete pain point and why now. Shows we listened. One or two sentences, no roundabout.
+2. **The solution in one sentence.** What the product is, stated simply. If it has multiple faces (e.g.: end-user app + internal panel), name them here.
+3. **What it does: MVP functionality.** The core. Broken down by product face when it applies (e.g.: A. Client app / B. Internal panel). Each feature in one clear line. Close with an explicit **"Out of MVP (later phases)"** block that lists what's deferred; it protects scope.
+4. **How it plugs into the client's systems.** When there's legacy or an in-house IT team: make crystal clear that we're not replacing anything, what gets consumed/read vs. what keeps living in their system, and how it integrates (middleware/services, sync cadence). Lowers the client's technical anxiety.
+5. **How we work.** Methodology (agile/Scrum), initial alignment stage, phased implementation, transparent management (meetings, visibility, documentation), quality/validation (live testing, adoption), and client ownership + long-term partnership. Each point with its "why"; this is the section that builds the most trust. Professional, developed register, not telegraphic.
+6. **Future roadmap.** The phases after the MVP, framed as a path of value, not as an included promise.
+7. **Next steps.** Concrete actions to move forward (closing technical points, a demo of prior work, confirming inputs, kicking off).
 
-## Ejes a cuidar según el caso
+## Angles to watch depending on the case
 
-- **Legacy / IT propio del cliente** → la sección 4 es crítica; enfatizar acople y propiedad.
-- **Cliente sensible al diseño** → nombrar la experiencia/estética como parte del valor (no como costo).
-- **Producto de cara a usuarios cautivos** → la adopción es parte del proyecto, decirlo en la sección 5.
-- **Regulado** → dónde toca cumplimiento, sin prometer de más.
+- **Legacy / client's own IT** → section 4 is critical; emphasize integration and ownership.
+- **Design-sensitive client** → name the experience/aesthetics as part of the value (not as a cost).
+- **Product facing captive users** → adoption is part of the project, say so in section 5.
+- **Regulated** → where compliance applies, without overpromising.
 
-## Salida operativa
+## Operational output
 
-- **Markdown de respaldo** (repo): `briefings/<fecha>-<cliente>-propuesta.md`. Ancla de trazabilidad; no se elimina.
-- **Google Doc formateado** (cara al cliente, editable), a partir del mismo markdown vía conector Google Drive:
-  - Tool: `create_file` del conector Google Drive.
-  - `title`: `Propuesta, <Cliente>, <YYYY-MM-DD>`.
-  - `textContent`: el cuerpo de las 7 secciones (sin montos ni presupuesto).
-  - `contentMimeType`: `text/markdown`; no actives `disableConversionToGoogleType`.
-  - Si el PM indicó una carpeta de Drive, pasá su `parentId`; si no, queda en la raíz.
-- **Hoja de presupuesto** — se suma como sección/hoja final, aparte del cuerpo funcional (ej. `briefings/<fecha>-<cliente>-propuesta-presupuesto.md` o pestaña separada en el Doc). Equipo, tiempo, inversión. Se completa con criterio del PM (montos nunca inventados por el skill).
-- **Flujos de trabajo / diagramas** — los agrega quien corresponda como anexo; este skill deja el lugar (referencia) pero no los dibuja.
-- **Cierre al PM:** ruta del `.md` + link del Google Doc + qué quedó listo + qué falta antes de enviar (presupuesto, flujos, "azucarado" final) + gaps que el cliente tiene que confirmar.
+- **Markdown backup** (repo): `briefings/<date>-<client>-propuesta.md`. Audit anchor; never deleted.
+- **Formatted Google Doc** (client-facing, editable), from that same markdown via the Google Drive connector:
+  - Tool: `create_file` from the Google Drive connector.
+  - `title`: `Propuesta, <Client>, <YYYY-MM-DD>`.
+  - `textContent`: the body of the 7 sections (no amounts or budget).
+  - `contentMimeType`: `text/markdown`; do not enable `disableConversionToGoogleType`.
+  - If the PM specified a Drive folder, pass its `parentId`; otherwise it lands in the root.
+- **Budget sheet**: added as a final section/sheet, separate from the functional body (e.g. `briefings/<date>-<client>-propuesta-presupuesto.md` or a separate tab in the Doc). Team, timeline, investment. Filled in at the PM's judgment (amounts are never invented by the skill).
+- **Workflows / diagrams**: added by whoever owns that as an appendix; this skill leaves the placeholder (reference) but doesn't draw them.
+- **Close-out to the PM:** `.md` path + Google Doc link + what's ready + what's still missing before sending (budget, workflows, final "sweetening") + gaps the client needs to confirm.
 
-Respetá `CLAUDE.md § Operating preferences § Autonomy mode`. Bajo `propose and wait`, presentá el borrador y esperá confirmación antes de guardar/crear el Doc.
+Follow `CLAUDE.md § Operating preferences § Autonomy mode`. Under `propose and wait`, present the draft and wait for confirmation before saving/creating the Doc.
 
-## Ejemplo trabajado — Lodiser (canal profesional)
+## Worked example: Lodiser (professional channel)
 
-**Input:** build-context de Lodiser (ecommerce cerrado B2B) + decisiones internas (con diseño, arranque por fases) + correcciones de review.
+**Input:** Lodiser build-context (closed B2B ecommerce) + internal decisions (with design, phased kickoff) + review corrections.
 
-**Cómo lo derivás:**
+**How you derive it:**
 
-- La pre-propuesta del build-context ("front PWA + login + guarda cabecera/detalle contra la DB que Lodiser sirve") se vuelve el cuerpo funcional, desglosado en **A. Web app del cliente** (catálogo, mis habituales, carrito con controles de stock/cupo/precio/crédito, checkout sin pago, seguimiento) y **B. Panel de Lodiser** (ABM de clientes, carga de pedido por el vendedor, tablero, vista por producto/cliente/vendedor).
-- La sección 4 deja claro que la plataforma no reemplaza nada: consume los maestros/controles vía middleware liviano y solo registra el pedido; el catálogo se lee (el ABM de productos/precios sigue en su sistema).
-- Queda afuera (interno): el escepticismo del gerente de sistemas, el activo interno para la fase WhatsApp, los montos y la táctica de "empezar chico".
+- The build-context's pre-proposal ("PWA front + login + saves header/detail against the DB that Lodiser serves") becomes the functional body, broken down into **A. Client web app** (catalog, my regulars, cart with stock/quota/price/credit controls, checkout without payment, tracking) and **B. Lodiser panel** (customer CRUD, order entry by the salesperson, dashboard, view by product/client/salesperson).
+- Section 4 makes clear the platform replaces nothing: it consumes the masters/controls via lightweight middleware and only records the order; the catalog is read-only (product/price CRUD stays in their system).
+- Left out (internal): the systems manager's skepticism, the internal asset for the WhatsApp phase, the amounts, and the "start small" tactic.
 
-**Output (extracto):**
+**Output (excerpt):**
 
-- *Qué entendimos:* los pedidos dependen 100% del vendedor que carga a mano desde audios de WhatsApp → se pierden ventas fuera de horario.
-- *Cómo trabajamos:* etapa inicial de alineación con el equipo de sistemas + Scrum + implementación por fases con clientes definidos en conjunto + propiedad del cliente. Cada punto con su porqué.
-- *Roadmap:* data/marketing, WhatsApp (bot que toma pedidos), otros canales.
+- *What we understood:* orders depend 100% on the salesperson manually entering them from WhatsApp voice notes → sales are lost outside business hours.
+- *How we work:* initial alignment stage with the systems team + Scrum + phased implementation with clients jointly defined + client ownership. Each point with its "why."
+- *Roadmap:* data/marketing, WhatsApp (bot that takes orders), other channels.
 
-## Fuera de alcance
+## Out of scope
 
-- Cierre de equipo/tiempo/costo definitivo (post-"sí", en la propuesta real/contrato).
-- La minuta de la reunión (`/minutero`).
-- Diseño de los flujos de trabajo/diagramas (los aporta quien corresponda; este skill deja el lugar).
+- Final team/timeline/cost lock-in (post-"yes," in the real proposal/contract).
+- The meeting notes (`/minutero`).
+- Workflow/diagram design (contributed by whoever owns that; this skill leaves the placeholder).
 
-## Criterios de calidad
+## Quality criteria
 
-✅ Deriva del build-context (`/build-context`), no arranca de cero — cada afirmación respaldada
-✅ Interno nunca cruza: sin montos en el cuerpo, sin tensiones/stakeholders/competidores/activos internos
-✅ Las 7 secciones presentes y adaptadas al caso; MVP nítido y separado del roadmap
-✅ Sección 4 (apoyo en sistemas del cliente) presente cuando hay legacy/IT propio
-✅ "Cómo trabajamos" desarrollada y profesional, cada punto con su porqué
-✅ Bloque "Fuera del MVP" explícito para proteger alcance
-✅ Presupuesto y flujos identificados como hojas/anexos aparte (no en el cuerpo funcional)
-✅ Lo abierto se nombra como "a definir en discovery", nunca como duda de factibilidad
-✅ Entregable = Google Doc formateado (cara al cliente) vía conector Drive; markdown de respaldo en el repo; se devuelve el link
-✅ Sin placeholder ni scope inflado; 100% español, registro del cliente
+✅ Derives from the build-context (`/build-context`), doesn't start from scratch; every claim backed
+✅ Internal never crosses over: no amounts in the body, no tensions/stakeholders/competitors/internal assets
+✅ The 7 sections present and adapted to the case; MVP sharp and separated from the roadmap
+✅ Section 4 (support on the client's systems) present when there's legacy/in-house IT
+✅ "How we work" developed and professional, each point with its "why"
+✅ Explicit "Out of MVP" block to protect scope
+✅ Budget and workflows identified as separate sheets/appendices (not in the functional body)
+✅ Open items named as "to be defined during discovery," never as a feasibility doubt
+✅ Deliverable = formatted Google Doc (client-facing) via the Drive connector; markdown backup in the repo; link returned
+✅ No placeholders or inflated scope; 100% Spanish, client's register

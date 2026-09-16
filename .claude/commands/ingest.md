@@ -6,10 +6,10 @@ Route a new artifact into the brain. Four shapes, one verb.
 
 A pasted transcript, a file path, a screenshot, a URL, or a free-form note. The agent infers the shape:
 
-- **interview** — customer call, user research session, sales call with prospect signal
-- **meeting** — 1:1, exec review, roadmap discussion, kickoff, retro
-- **market** — competitor article, screenshot, tweet, changelog, analyst note
-- **adhoc** — anything else worth capturing that doesn't fit the other three
+- **interview** (customer call, user research session, sales call with prospect signal)
+- **meeting** (1:1, exec review, roadmap discussion, kickoff, retro)
+- **market** (competitor article, screenshot, tweet, changelog, analyst note)
+- **adhoc** (anything else worth capturing that doesn't fit the other three)
 
 If shape is ambiguous, ask one question. Don't guess.
 
@@ -22,8 +22,8 @@ If shape is ambiguous, ask one question. Don't guess.
 
 ## Updates
 
-- `source/<shape>/<date>-<slug>.md` — immutable copy of the original artifact
-- `ingestion/<shape>/<date>-<slug>.md` — observations tagged (observation / interpretation / hypothesis / assumption / decision)
+- `source/<shape>/<date>-<slug>.md` (immutable copy of the original artifact)
+- `ingestion/<shape>/<date>-<slug>.md` (observations tagged: observation / interpretation / hypothesis / assumption / decision)
 - One or more durable destinations per the cognition pipeline: `knowledge/`, `hypotheses/`, `decisions/`, `stakeholders/`
 - Maintenance log if structural (a new persona, a new competitor, a new stakeholder)
 

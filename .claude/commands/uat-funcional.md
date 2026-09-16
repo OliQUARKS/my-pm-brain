@@ -1,117 +1,121 @@
 # Skill: uat-funcional
 
-Generar tabla de UAT **funcional** (sin endpoints, sin APIs) desde las historias de Linear del equipo PERC.
+Generate a **functional** UAT table (no endpoints, no APIs) from the Linear stories of the PERC team.
 
-## Propósito
+## Purpose
 
-Crear un rastreador de UAT enfocado **solo en lo funcional**. Toma cada historia de Linear, extrae **los escenarios** (criterios de aceptación) y los organiza en una tabla editable para QA — un escenario por fila.
+Create a UAT tracker focused **purely on the functional side**. It takes each Linear story, extracts **the scenarios** (acceptance criteria), and organizes them into an editable table for QA, one scenario per row.
 
-Lo que importa son **los escenarios**, no la narrativa. Nunca se mapean endpoints, Insomnia, Swagger ni ningún listado técnico.
+What matters is **the scenarios**, not the narrative. Endpoints, Insomnia, Swagger, or any technical listing are never mapped.
 
-## Entrada
+## Input
 
-- **Export CSV de Linear** (Issues → Export) — es la fuente autoritativa.
-  - Se filtra por `Team = PERc`.
-  - Se descartan las **subtareas**: cualquier issue con `Parent issue` no vacío.
-- Alternativamente, lectura directa de Linear vía conector (si está autenticado).
+- **Linear CSV export** (Issues → Export), the source of truth.
+  - Filtered to `Team = PERc`.
+  - **Subtasks are discarded**: any issue with a non-empty `Parent issue`.
+- Alternatively, direct Linear reads via connector (if authenticated).
 
-## Reglas de captura de escenarios
+## Scenario-capture rules
 
-### Qué es un escenario y qué NO
+### What counts as a scenario and what doesn't
 
-- **SÍ:** cada criterio de aceptación de la historia.
-- **NO:** la narrativa `COMO / QUIERO / PARA` (o `Como / quiero / para` en negrita). Se ignora siempre.
-- **NO:** secciones auxiliares. Se ignoran los bloques encabezados por: `Alcance`, `Fuera de alcance`, `Notas`, `Reglas de negocio`, `Consideraciones`, `Observaciones`, `Dependencias`, `Aclaraciones`, `Supuestos`, `Definiciones`.
-- Se ignoran también las imágenes markdown (`![...](...)`) y los marcadores `NARRATIVA:` / `CRITERIOS DE ACEPTACIÓN:`.
+- **YES:** every acceptance criterion in the story.
+- **NO:** the `COMO / QUIERO / PARA` [AS A / I WANT / SO THAT] narrative (or `Como / quiero / para` in bold). Always ignored.
+- **NO:** auxiliary sections. Blocks headed by the following are ignored: `Alcance` [Scope], `Fuera de alcance` [Out of scope], `Notas` [Notes], `Reglas de negocio` [Business rules], `Consideraciones` [Considerations], `Observaciones` [Remarks], `Dependencias` [Dependencies], `Aclaraciones` [Clarifications], `Supuestos` [Assumptions], `Definiciones` [Definitions].
+- Markdown images (`![...](...)`) and the `NARRATIVA:` / `CRITERIOS DE ACEPTACIÓN:` [NARRATIVE: / ACCEPTANCE CRITERIA:] markers are also ignored.
 
-### Los 4 formatos que hay que reconocer
+### The 4 formats to recognize
 
-Las historias no siguen un único formato. El parser reconoce los cuatro:
+Stories don't follow a single format. The parser recognizes all four:
 
-1. **Viñeta con Gherkin en negrita** — cada viñeta es un escenario completo:
+1. **Bullet with bold Gherkin** (each bullet is a complete scenario):
    ```
    * **Dado** que ..., **cuando** ..., **entonces** ...
    ```
-2. **Numerado con título en negrita** — el número/título abre el escenario; el Gherkin viene en líneas siguientes:
+2. **Numbered with bold title** (the number/title opens the scenario; the Gherkin comes in the following lines):
    ```
    1. **Título del escenario**
       **Dado que** ...
       **cuando** ...
       **entonces** ...
    ```
-3. **Encabezado "Escenario N"** — con o sin título, Gherkin en texto plano:
+3. **"Escenario N" [Scenario N] header** (with or without a title, Gherkin in plain text):
    ```
-   Escenario 1 — Título:
+   Escenario 1 (Título):
    Dado que ...
    Cuando ...
    Entonces ...
    ```
-4. **Listado sin Gherkin** — la historia lista criterios en viñetas / numeración / líneas sueltas bajo un marcador `Criterios de aceptación:`. Entonces **cada ítem del listado es un escenario** (una fila).
+4. **Listing without Gherkin** (the story lists criteria as bullets/numbering/loose lines under a `Criterios de aceptación:` [Acceptance criteria:] marker). In this case **each item in the list is a scenario** (one row).
 
-### Continuaciones y listas anidadas (crítico — no truncar)
+Note: the Gherkin keywords above (`Dado que` / `Cuando` / `Entonces` / `Y`) appear in Spanish because the source Linear stories are written in Spanish; the parser matches these literal Spanish keywords in the real story text.
 
-- Un escenario puede tener líneas **`Y ...`** que agregan condiciones al `Dado que` / `Cuando` / `Entonces`. **Se conservan todas**, cada una en su línea dentro de la celda.
-- Un escenario puede contener un **listado de parámetros o validaciones** (p. ej. "Y cada préstamo incluye las variables:" seguido de viñetas). Ese listado se **pliega dentro del escenario** al que pertenece — no se corta ni se convierte en escenarios separados.
-- Sub-viñetas indentadas se pliegan dentro de su ítem padre.
+### Continuations and nested lists (critical, do not truncate)
 
-### Numeración
+- A scenario can have **`Y ...`** [And ...] lines that add conditions to the `Dado que` / `Cuando` / `Entonces`. **All of them are kept**, each on its own line within the cell.
+- A scenario can contain a **list of parameters or validations** (e.g. "Y cada préstamo incluye las variables:" [And each loan includes the variables:] followed by bullets). That list gets **folded into the scenario** it belongs to; it's never cut or turned into separate scenarios.
+- Indented sub-bullets get folded into their parent item.
 
-- `N° Escenario` se numera **por historia**, empezando en 1. Si una historia tiene 5 escenarios → filas 1..5 con el mismo `ID Historia`.
-- Si el escenario no tiene título explícito → `Nombre Escenario = "Escenario N"`.
+### Numbering
 
-### Historias sin criterios
+- `N° Escenario` [Scenario No.] is numbered **per story**, starting at 1. If a story has 5 scenarios → rows 1..5 with the same `ID Historia` [Story ID].
+- If the scenario has no explicit title → `Nombre Escenario = "Escenario N"` [Scenario Name = "Scenario N"].
 
-Si una historia no tiene ni Gherkin ni listado de criterios (tareas técnicas, diseño, infra, preguntas), se genera **una fila stub** con el texto disponible o `"Sin descripción / sin criterios"`. La fila existe igual para que QA la vea.
+### Stories without criteria
 
-## Épicas
+If a story has neither Gherkin nor a criteria list (technical tasks, design, infra, open questions), generate **one stub row** with whatever text is available, or `"Sin descripción / sin criterios"` [No description / no criteria]. The row still exists so QA can see it.
 
-La columna **Épica** = el campo **`Project`** de Linear (el proyecto al que pertenece la historia). No se inventan categorías. Historias sin proyecto → `"Sin épica"`.
+## Epics
 
-## Estructura del CSV (11 columnas, en este orden)
+The **Épica** [Epic] column = the Linear **`Project`** field (the project the story belongs to). No categories are invented. Stories with no project → `"Sin épica"` [No epic].
 
-| Columna | Contenido | Llenado |
+## CSV structure (11 columns, in this order)
+
+| Column | Content | Filled by |
 |---|---|---|
-| **Épica** | Proyecto de Linear | pre-llenado |
-| **ID Historia** | `PER-XXX` | pre-llenado |
-| **Nombre Historia** | Título de la historia | pre-llenado |
-| **N° Escenario** | Número dentro de la historia (1..N) | pre-llenado |
-| **Nombre Escenario** | Título del escenario, o `Escenario N` | pre-llenado |
-| **Escenario (Dado/Cuando/Entonces)** | Gherkin completo + continuaciones `Y` + listas | pre-llenado |
-| **Validación** | Qué verifica QA | vacío (QA) |
-| **Resultado Esperado** | Comportamiento correcto | vacío / sugerido |
-| **Resultado Obtenido** | QA llena en testing | vacío (QA) |
-| **Status** | `Pendiente` / `Aprobado` / `Fallido` / `Con comentarios` | `Pendiente` |
-| **Asignación** | Responsable | vacío (QA) |
+| **Épica** [Epic] | Linear project | pre-filled |
+| **ID Historia** [Story ID] | `PER-XXX` | pre-filled |
+| **Nombre Historia** [Story Name] | Story title | pre-filled |
+| **N° Escenario** [Scenario No.] | Number within the story (1..N) | pre-filled |
+| **Nombre Escenario** [Scenario Name] | Scenario title, or `Escenario N` | pre-filled |
+| **Escenario (Dado/Cuando/Entonces)** [Scenario (Given/When/Then)] | Full Gherkin + `Y` [And] continuations + lists | pre-filled |
+| **Validación** [Validation] | What QA checks | empty (QA) |
+| **Resultado Esperado** [Expected Result] | Correct behavior | empty / suggested |
+| **Resultado Obtenido** [Actual Result] | Filled in by QA during testing | empty (QA) |
+| **Status** | `Pendiente` [Pending] / `Aprobado` [Approved] / `Fallido` [Failed] / `Con comentarios` [With comments] | `Pendiente` |
+| **Asignación** [Assignee] | Owner | empty (QA) |
 
-## Idioma
+Note: the column headers and status values above are literal; the deliverable CSV itself is 100% Spanish (see § Language), since it's consumed by a Spanish-speaking QA team/client. The bracketed glosses are for this document's readers only.
 
-**TODO EN ESPAÑOL** — encabezados, escenarios (Dado que / Cuando / Entonces / Y), nombres de épicas y de escenarios. Nada en inglés.
+## Language
 
-## Encoding — hard rule
+**EVERYTHING IN SPANISH**, headers, scenarios (Dado que / Cuando / Entonces / Y), epic names, and scenario names. Nothing in English.
 
-Escribir el CSV en **UTF-8 con BOM** (`utf-8-sig`). Sin el BOM, Google Sheets rompe los tildes/acentos al importar. Verificar que los 3 primeros bytes sean `EF BB BF`.
+## Encoding (hard rule)
 
-## Salida
+Write the CSV as **UTF-8 with BOM** (`utf-8-sig`). Without the BOM, Google Sheets breaks accented characters on import. Verify the first 3 bytes are `EF BB BF`.
 
-- **CSV único** en `uat-perc-flujo-credito.csv`, importable a Google Sheets sin romper tildes.
-- **Resumen**: total de historias, total de escenarios, escenarios por épica, historias sin criterios (stubs).
+## Output
+
+- **A single CSV** at `uat-perc-flujo-credito.csv`, importable into Google Sheets without breaking accents.
+- **Summary**: total stories, total scenarios, scenarios per epic, stories with no criteria (stubs).
 
 ## Success Criteria
 
-✅ Solo historias `PERc`, sin subtareas (sin `Parent issue`)
-✅ Cada fila = 1 escenario; numeración correcta por historia
-✅ Los 4 formatos capturados; continuaciones `Y` y listas anidadas **completas** (sin truncar)
-✅ Narrativa `COMO/QUIERO/PARA` y secciones auxiliares ignoradas
-✅ Formato listado → 1 escenario por ítem
-✅ Épica = proyecto de Linear
-✅ 100% español
-✅ Sin ninguna mención a endpoints / APIs / Insomnia / Swagger
-✅ UTF-8 BOM — tildes intactos en Sheets
+✅ Only `PERc` stories, no subtasks (no `Parent issue`)
+✅ Each row = 1 scenario; correct numbering per story
+✅ All 4 formats captured; `Y` continuations and nested lists captured **in full** (no truncation)
+✅ `COMO/QUIERO/PARA` narrative and auxiliary sections ignored
+✅ List format → 1 scenario per item
+✅ Epic = Linear project
+✅ 100% Spanish [deliverable]
+✅ No mention whatsoever of endpoints / APIs / Insomnia / Swagger
+✅ UTF-8 BOM, accents intact in Sheets
 
-## Iteración
+## Iteration
 
-El skill es versionable. Si QA o PM detectan escenarios faltantes, mal partidos o un formato nuevo de historia → se agrega el patrón al parser y se re-genera el CSV desde el export de Linear.
+The skill is versionable. If QA or the PM spot missing scenarios, badly split ones, or a new story format → the pattern gets added to the parser and the CSV gets regenerated from the Linear export.
 
-## Referencia de implementación
+## Implementation reference
 
-Parser de máquina de estados: `scratchpad/parse_uat.py` (recorre línea por línea, detecta inicio de escenario, acumula cuerpo, pliega listas, ignora narrativa/secciones auxiliares).
+State-machine parser: `scratchpad/parse_uat.py` (walks line by line, detects the start of a scenario, accumulates the body, folds lists, ignores narrative/auxiliary sections).

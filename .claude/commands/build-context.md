@@ -1,144 +1,144 @@
 # Skill: build-context (ex post-briefing, POST)
 
-**Tu objetivo:** después de la reunión de briefing, ampliar el contexto con lo que efectivamente salió y armar el **contexto interno** del proyecto/cliente. De ese contexto se deriva una **pre-propuesta cara-al-cliente**. La salida es más extensa que el briefing-context — no es el pre corregido, es el pre **ampliado**. Fin último: que el brief tenga injerencia en cerrar el deal.
+**Your goal:** after the briefing meeting, expand the context with what actually came out of it and build the project/client's **internal context**. From that context, a **client-facing pre-proposal** is derived. The output is larger than briefing-context; it's not the pre corrected, it's the pre **expanded**. End goal: for the brief to have real leverage in closing the deal.
 
-## Dónde encaja
+## Where it fits
 
-Etapa 4 del ciclo — ver [`briefings/_ciclo-preventa.md`](../../briefings/_ciclo-preventa.md). Parte de la transcripción del briefing + documentación del cliente.
+Stage 4 of the cycle (see [`briefings/_ciclo-preventa.md`](../../briefings/_ciclo-preventa.md)). Starts from the briefing transcript + client documentation.
 
-Ojo con "discovery": cuando la pre-propuesta (§ B) vende un discovery, se refiere a la etapa **post-venta/pre-desarrollo** (varias sesiones, servicio pago), no a la reunión de briefing.
+Careful with "discovery": when the pre-proposal (§ B) sells a discovery, it refers to the **post-sale/pre-development** stage (several paid sessions), not the briefing meeting.
 
-## Las tres capas — no confundirlas
+## The three layers: don't mix them up
 
-1. **Contexto del proyecto (build-context) — INTERNO.** Lo que armás acá. Nunca se entrega al cliente. Es el insumo con el que trabajamos: problema ampliado, contexto, usuarios, stakeholders, roles, factibilidad y cómo lo trabajaríamos (contexto metodológico).
-2. **Pre-propuesta / anteproyecto — CARA AL CLIENTE (liviana).** Se deriva del build-context: "esto vimos, este es el problema, esta es la solución que proponemos, acá una demo/prototipo de lo que imaginamos, ¿te interesa?". No lleva equipo/costo/tiempo cerrados.
-3. **Propuesta real — recién con el "sí".** Equipo, tiempo, costo, discovery, quién se encarga. **No** la armás en este skill — este skill deja el build-context listo y la pre-propuesta pre-armada.
+1. **Project context (build-context): INTERNAL.** What you build here. Never delivered to the client. It's the working input: expanded problem, context, users, stakeholders, roles, feasibility, and how we'd work it (methodological context).
+2. **Pre-proposal / draft plan: CLIENT-FACING (light).** Derived from the build-context: "here's what we saw, here's the problem, here's the solution we propose, here's a demo/prototype of what we're imagining, are you interested?" No locked-in team/cost/timeline.
+3. **Real proposal: only once there's a "yes".** Team, timeline, cost, discovery, who's in charge. This skill does **not** build it; this skill leaves the build-context ready and the pre-proposal pre-assembled.
 
-## Propósito
+## Purpose
 
-Del output de esta reunión sale una **pre-propuesta en 1–2 días** — no dejarla enfriar. Después viene el discovery, donde se refina hacia algo concreto y arranca el proyecto; pero nace mucho mejor. Regla de proceso: reservá 15 min post-reunión para procesar el output y generar la tarea, en vez de encadenar reuniones y armar minutas a la noche.
+The output of this meeting yields a **pre-proposal within 1-2 days**; don't let it go cold. Discovery comes next, where it gets refined into something concrete and the project kicks off; but it starts off in much better shape. Process rule: reserve 15 minutes right after the meeting to process the output and create the task, instead of chaining meetings and writing up notes at night.
 
-## Cómo trabajás
+## How you work
 
-- **Ampliás, no reescribís de cero.** Partís del Documento de Preparación y le sumás lo nuevo.
-- **Honestidad de factibilidad.** Si no tenemos experiencia, API o acceso, se dice — igual se puede proponer.
-- **Puntual y accionable.** Sin placeholder, sin ambigüedad. Lo que quedó abierto se nombra como abierto, no se rellena.
-- **Interno vs. cara-al-cliente siempre separado.** El contexto es interno; la pre-propuesta es lo que se muestra. No mezclar.
+- **You expand, you don't rewrite from scratch.** You start from the Preparation Document and add what's new to it.
+- **Honest about feasibility.** If we don't have the experience, API, or access, say so; it can still be proposed.
+- **Precise and actionable.** No placeholders, no ambiguity. What's left open is named as open, not filled in.
+- **Internal vs. client-facing always separated.** The context is internal; the pre-proposal is what's shown. Don't mix them.
 
-## Entrada
+## Input
 
-- **El Documento de Preparación** (output de `/briefing-context`).
-- **Respuestas obtenidas** en la reunión.
-- **Transcripción** — Granola / Meet.
-- **Documentos enviados por el cliente.**
-- **Info creada por nosotros** — lo que salió de reuniones internas / criterio propio (no solo lo del cliente).
-- Cualquier otra info que haya aparecido.
+- **The Preparation Document** (output of `/briefing-context`).
+- **Answers obtained** in the meeting.
+- **Transcript**: Granola / Meet.
+- **Documents sent by the client.**
+- **Info created by us**: what came out of internal meetings / our own judgment (not just the client's input).
+- Any other info that came up.
 
-## Qué tenés que resolver sí o sí — objetivos de información
+## What you absolutely have to resolve: information goals
 
-Sobre los objetivos del pre, ahora con datos de la reunión, resolvé:
+On the pre's goals, now with data from the meeting, resolve:
 
-1. **Problema real (ampliado)** — qué entendíamos antes vs. qué entendemos ahora; nombrar qué cambió.
-2. **Contexto nuevo** — sistemas, restricciones, números, prioridades, quién decide.
-3. **Usuarios / roles / permisos** — confirmados o corregidos.
-4. **Factibilidad** — ¿podemos ayudar? ¿con qué (experiencia, API, acceso)? ¿qué falta?
-5. **Stakeholders** — quién es cada uno y qué rol cumple (ver sección 6).
-6. **Cómo lo trabajaríamos** — contexto metodológico (ver sección 7).
+1. **Real problem (expanded)**: what we understood before vs. what we understand now; name what changed.
+2. **New context**: systems, constraints, numbers, priorities, who decides.
+3. **Users / roles / permissions**: confirmed or corrected.
+4. **Feasibility**: can we help? with what (experience, API, access)? what's missing?
+5. **Stakeholders**: who each one is and what role they play (see section 6).
+6. **How we'd work it**: methodological context (see section 7).
 
-## Ejes obligatorios de análisis
+## Mandatory analysis axes
 
-Revalidá los tres ejes del pre con lo que salió, y profundizá el que sea el nudo:
+Revalidate the pre's three axes with what came out of the meeting, and go deep on whichever is the crux:
 
-- **Regulatorio** — qué se confirmó sobre organismos/normas que alcanzan la solución.
-- **Marco legal** — qué se puede/no se puede (datos, delegación, contratos).
-- **Stack tecnológico** — stack real, integraciones posibles, qué es reutilizable vs. a rehacer.
+- **Regulatory**: what was confirmed about the bodies/regulations that reach the solution.
+- **Legal framework**: what can/can't be done (data, delegation, contracts).
+- **Tech stack**: real stack, possible integrations, what's reusable vs. what needs rebuilding.
 
-## Salida
+## Output
 
-### A. Contexto del proyecto (interno)
+### A. Project context (internal)
 
-**1. Problemática (ampliada)**
-Qué entendíamos antes vs. ahora. Nombrar explícitamente lo que cambió.
+**1. Problem statement (expanded)**
+What we understood before vs. now. Explicitly name what changed.
 
-**2. Contexto ampliado**
-Todo lo nuevo: sistemas, restricciones, números, prioridades, decisores.
+**2. Expanded context**
+Everything new: systems, constraints, numbers, priorities, decision-makers.
 
-**3. Usuarios / roles / permisos**
-Refinado con lo confirmado en la reunión.
+**3. Users / roles / permissions**
+Refined with what was confirmed in the meeting.
 
-**6. Stakeholders — quién es cada uno**
-Mini perfil por persona: rol en el proyecto y qué le importa (para orientar la propuesta). Una línea por persona.
+**6. Stakeholders: who each one is**
+Mini profile per person: role in the project and what matters to them (to steer the proposal). One line per person.
 
-Motivaciones y estilos de cada stakeholder son **interpretaciones**: etiquetalas y anclalas a la transcripción/fuente de donde salieron.
+Each stakeholder's motivations and style are **interpretations**: label them and anchor them to the transcript/source they came from.
 
-Fuera de este skill: el estilo de trato operativo (canal preferido, qué genera fricción, cómo escalar con cada persona — ej.: "Seba por WhatsApp no Discord") es gestión del día a día → va al futuro skill `communication-context`, no acá.
+Out of scope for this skill: day-to-day operational style (preferred channel, what causes friction, how to escalate with each person, e.g. "Seba via WhatsApp not Discord") is day-to-day management → goes to the future `communication-context` skill, not here.
 
-**7. Contexto metodológico — cómo lo trabajaríamos**
-Cómo trabajamos con este cliente: roles y responsabilidades de ambas partes, manejo de entornos, modelo de comunicación, reviews/documentación, SLA, y qué hay que definir sí o sí. Es el bloque que responde la preocupación recurrente "¿cómo nos manejamos?" y le da el plus a la propuesta.
+**7. Methodological context: how we'd work it**
+How we work with this client: roles and responsibilities on both sides, environment management, communication model, reviews/documentation, SLA, and what absolutely needs defining. This is the block that answers the recurring concern "how do we work together?" and gives the proposal its edge.
 
-Usá la plantilla reutilizable: [`briefings/_contexto-metodologico.md`](../../briefings/_contexto-metodologico.md). Base estándar Quarks + ajuste por cliente (gestión total vs. con dependencias). Cada dependencia → responsable + riesgo si no se resuelve.
+Use the reusable template: [`briefings/_contexto-metodologico.md`](../../briefings/_contexto-metodologico.md). Standard Quarks baseline + per-client adjustment (full management vs. with dependencies). Each dependency → owner + risk if unresolved.
 
-### B. Pre-propuesta (cara al cliente, liviana)
+### B. Pre-proposal (client-facing, light)
 
-**4. Propuesta**
-- **Alcance** — qué sí, qué no.
-- **Discovery** — 1 a 4 semanas según complejidad. (Se vende como "equipo por tanto tiempo/costo, y primero un discovery para aprovecharlo mejor" — el discovery no se compra suelto.)
-- **Prototipo si es factible** — puede ser una web, una explicación o un flujo. No siempre es una pantalla.
-- **Cómo lo trabajaríamos** — extracto del contexto metodológico: no solo qué hacemos, sino cómo.
-- **¿Podemos ayudar o no?** — factibilidad honesta; si falta API/experiencia/acceso, acá.
+**4. Proposal**
+- **Scope**: what's in, what's out.
+- **Discovery**: 1 to 4 weeks depending on complexity. (Sold as "a team for this long/this cost, and first a discovery to make the best use of it"; discovery isn't sold standalone.)
+- **Prototype if feasible**: could be a website, an explanation, or a flow. Not always a screen.
+- **How we'd work it**: excerpt from the methodological context: not just what we do, but how.
+- **Can we help or not?**: honest feasibility; if API/experience/access is missing, it goes here.
 
-### C. Salida operativa
+### C. Operational output
 
-**5. Minuta y próximos pasos**
-La minuta es un output esperado de este skill, pero se genera llamando al skill `/minutero` — no se redacta acá. Este skill deja identificado:
+**5. Meeting notes and next steps**
+The meeting notes are an expected output of this skill, but they're generated by calling the `/minutero` skill, not drafted here. This skill leaves identified:
 
-- **Abiertos.** Lo que quedó sin cerrar.
-- **Acciones.** Mandar la minuta al cliente en el momento / máximo 1–2 días; generar las tareas del entregable siguiente.
+- **Open items.** What was left unresolved.
+- **Actions.** Send the notes to the client right away / within 1-2 days max; create the tasks for the next deliverable.
 
-## Formato de salida — Google Doc formateado (+ markdown de respaldo)
+## Output format: formatted Google Doc (+ markdown backup)
 
-El entregable de este skill es siempre un Google Doc formateado, nunca un `.md` suelto. Se producen dos artefactos, en este orden:
+This skill's deliverable is always a formatted Google Doc, never a standalone `.md`. Two artifacts are produced, in this order:
 
-1. **Markdown de respaldo** (repo). Generá el contexto del proyecto (bloques A/B/C) como markdown y guardalo donde ya vive en el repo (`briefings/YYYY-MM-<cliente>-build-context.md`, más el `source/` de la reunión cuando aplique). Es el ancla de auditoría del segundo cerebro — no se elimina.
-2. **Google Doc formateado** (entregable). Creá el documento con el conector de Google Drive a partir de ese mismo markdown:
-   - Tool: `create_file` del conector Google Drive.
-   - `title`: `Contexto de proyecto — <Cliente> — <YYYY-MM-DD>`.
-   - `textContent`: el markdown completo.
+1. **Markdown backup** (repo). Generate the project context (blocks A/B/C) as markdown and save it where it already lives in the repo (`briefings/YYYY-MM-<client>-build-context.md`, plus the `source/` of the meeting when applicable). It's the second brain's audit anchor; it doesn't get deleted.
+2. **Formatted Google Doc** (deliverable). Create the document with the Google Drive connector from that same markdown:
+   - Tool: Google Drive connector's `create_file`.
+   - `title`: `Project Context, <Client>, <YYYY-MM-DD>`.
+   - `textContent`: the full markdown.
    - `contentMimeType`: `text/markdown`.
-   - No actives `disableConversionToGoogleType` — dejá que Drive convierta el markdown a Google Doc con títulos, negritas y tablas.
-   - Si el PM indicó una carpeta de Drive, pasá su `parentId`; si no, queda en la raíz.
-3. Cerrá devolviendo el link del Google Doc más la ruta del `.md` de respaldo.
+   - Do not enable `disableConversionToGoogleType`; let Drive convert the markdown into a Google Doc with headings, bold, and tables.
+   - If the PM specified a Drive folder, pass its `parentId`; otherwise it goes in the root.
+3. Close by returning the Google Doc link plus the path to the backup `.md`.
 
-El Google Doc de este skill es **interno** (contexto del proyecto), no el que se manda al cliente — la propuesta cara-al-cliente sale del skill `/propuestador`. Regla: el markdown crudo no es el entregable final; el entregable es el Google Doc, y el `.md` queda en el repo solo por trazabilidad.
+This skill's Google Doc is **internal** (project context), not the one sent to the client; the client-facing proposal comes out of the `/propuestador` skill. Rule: the raw markdown is not the final deliverable; the deliverable is the Google Doc, and the `.md` stays in the repo purely for traceability.
 
-## Ejemplo trabajado — de reunión a pre-propuesta
+## Worked example: from meeting to pre-proposal
 
-**Input:** Documento de Preparación de AL2/ACA + transcripción Granola de la reunión + doc de proceso de onboarding actual que mandaron.
+**Input:** AL2/ACA Preparation Document + Granola transcript of the meeting + doc of the current onboarding process they sent over.
 
-**Cómo lo interpretás:** en el pre asumíamos "unificar el alta de billetera y financiera". En la reunión se confirma que el nudo es el **eje regulatorio**: el KYC de AL2 (BCRA) no puede reutilizarse tal cual para abrir la cuenta comitente de ACA Valores (CNV/UIF, PLD indelegable). El objetivo real pasa a ser **un onboarding único que ramifica**, no un alta única.
+**How you interpret it:** in the pre, we assumed "unify wallet and brokerage onboarding." In the meeting it's confirmed that the crux is the **regulatory axis**: AL2's KYC (BCRA) can't be reused as-is to open ACA Valores' brokerage account (CNV/UIF, non-delegable AML). The real goal shifts to **a single onboarding that branches**, not a single sign-up.
 
-**Output (extracto):**
-- *Problemática ampliada:* no es "un alta para los dos"; es una **puerta de entrada común** que reutiliza los datos compartibles y dispara dos flujos de KYC distintos según regulador.
-- *Pre-propuesta:* discovery de 3 semanas; prototipo de flujo (no pantalla) mapeando qué dato se pide una sola vez y dónde se bifurca por regulación; integra con el core de cada producto.
-- *Factibilidad:* media-alta — tenemos experiencia fintech (AL2 ya es cliente); pendiente ver API de identidad y qué habilita legal/UIF.
-- *Stakeholder — Genaro (CEO):* rol decisor de negocio/embedded finance; le importa caso de negocio y conversión.
-- *Stakeholder — Nahuel (CTO, ex-Wenance):* rol técnico; le importa KYC/PLD e integración.
+**Output (excerpt):**
+- *Expanded problem statement:* it's not "one sign-up for both"; it's a **shared entry point** that reuses shareable data and triggers two different KYC flows depending on the regulator.
+- *Pre-proposal:* 3-week discovery; flow prototype (not a screen) mapping which data is requested only once and where it branches by regulation; integrates with each product's core.
+- *Feasibility:* medium-high; we have fintech experience (AL2 is already a client); pending: identity API and what legal/UIF allows.
+- *Stakeholder, Genaro (CEO):* business/embedded-finance decision-maker; cares about the business case and conversion.
+- *Stakeholder, Nahuel (CTO, ex-Wenance):* technical role; cares about KYC/AML and integration.
 
-## Fuera de alcance (v2)
+## Out of scope (v2)
 
-- Alimentar la propuesta con **experiencias previas del equipo por rubro** ("para esto hablá con Irra/Nico/Juani") — depende del mapa de habilidades, que se releva aparte.
-- Doc de experiencia reutilizable por dominio (ej.: todo lo aprendido en un CRM) para clientes futuros del mismo tipo.
-- `communication-context` — skill futuro y separado para el estilo de trato operativo por persona (canal, fricción, escalamiento del día a día).
+- Feeding the proposal with the **team's prior experience by industry** ("for this, talk to Irra/Nico/Juani"); depends on the skills map, which is surveyed separately.
+- Reusable experience doc by domain (e.g. everything learned on a CRM project) for future clients of the same type.
+- `communication-context`: a future, separate skill for day-to-day operational communication style per person (channel, friction, escalation).
 
-## Criterios de calidad
+## Quality criteria
 
-✅ Las tres capas separadas: contexto (interno) → pre-propuesta (cara al cliente) → propuesta real (post-sí, otro momento)
-✅ La problemática se amplía, no se parte de cero — se nombra qué cambió vs. el pre
-✅ Los 3 ejes (regulatorio/legal/stack) revalidados con datos de la reunión
-✅ Contexto metodológico presente: roles/responsabilidades de ambas partes, entornos, comunicación, reviews, SLA
-✅ Pre-propuesta con alcance + discovery (1–4 sem) + prototipo-si-factible + "cómo lo trabajamos" + veredicto de factibilidad honesto
-✅ Minuta identificada como output que llama al skill de minuta (no redactada acá)
-✅ Stakeholders con rol + qué le importa; estilo de comunicación derivado al futuro `communication-context`
-✅ Motivaciones/estilos etiquetados como interpretación y anclados a fuente
-✅ Entregable = Google Doc formateado (interno) vía conector Drive; markdown de respaldo en el repo; se devuelve el link
-✅ Sin placeholder ni scope inflado; 100% español
+✅ The three layers stay separated: context (internal) → pre-proposal (client-facing) → real proposal (post-yes, later)
+✅ The problem statement is expanded, not rebuilt from scratch; what changed vs. the pre is named
+✅ The 3 axes (regulatory/legal/stack) revalidated with data from the meeting
+✅ Methodological context present: roles/responsibilities on both sides, environments, communication, reviews, SLA
+✅ Pre-proposal with scope + discovery (1-4 wks) + prototype-if-feasible + "how we work it" + honest feasibility verdict
+✅ Meeting notes identified as an output that calls the meeting-notes skill (not drafted here)
+✅ Stakeholders with role + what matters to them; operational communication style deferred to future `communication-context`
+✅ Motivations/styles labeled as interpretation and anchored to source
+✅ Deliverable = formatted Google Doc (internal) via Drive connector; markdown backup in the repo; link is returned
+✅ No placeholders or inflated scope; 100% Spanish

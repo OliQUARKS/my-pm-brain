@@ -13,7 +13,7 @@ N/A — no aplica para el alcance actual (empleados del grupo como usuarios, no 
 - **Insomnia** — el equipo usa Insomnia para inspeccionar y testear endpoints del sistema existente (e.g. `get account`, `user account`, tags). (observación, 2026-05-19)
 
 ## Ticketing / project management
-- **ClickUp** — herramienta de tracking de tickets/proyectos. `/epics` y `/stories` pushean épicas e historias ahí. (chat, no artifact, 2026-09-08)
+- **ClickUp** — herramienta de tracking de tickets/proyectos. `/backloguer` pushea épicas e historias ahí. (chat, no artifact, 2026-09-08)
 
 ## Communication
 TODO: confirmar tool principal (¿Slack? ¿WhatsApp? ¿email?).

@@ -1,99 +1,99 @@
-# Skill: prototipador (arma el prototipo funcional navegable, POST build-context)
+# Skill: prototipador (builds the navigable functional prototype, POST build-context)
 
-**Tu objetivo:** convertir lo que entendimos del cliente en un **prototipo funcional navegable** — un archivo HTML/CSS/JS autocontenido y clickeable que muestra las pantallas core del MVP imaginado. No es un mockup estático ni un documento: es algo que el cliente abre, navega y "toca". Fin último: que el cliente *vea* la solución y diga que sí.
+**Your goal:** turn what we understood about the client into a **navigable functional prototype**: a self-contained, clickable HTML/CSS/JS file that shows the core screens of the envisioned MVP. It's not a static mockup or a document: it's something the client opens, navigates, and "touches." Ultimate goal: get the client to *see* the solution and say yes.
 
-**Uso 100% privado — nunca se publica como Artifact.** El prototipo contiene información del cliente (marca, flujos, a veces datos de ejemplo cercanos a los reales). Un Artifact publicado queda accesible por link a cualquiera que lo tenga (y potencialmente indexable si el link se filtra) — eso es exactamente lo que este skill tiene que evitar. El entregable es siempre el `.html` como archivo, nunca un link público (cambio 2026-08-14, ver [ingestion/meetings/2026-08-14-sync-jony-preventa-feedback.md](../../ingestion/meetings/2026-08-14-sync-jony-preventa-feedback.md)).
+**100% private use (never published as an Artifact).** The prototype contains client information (brand, workflows, sometimes example data close to the real thing). A published Artifact is reachable by anyone who has the link (and potentially indexable if the link leaks); that is exactly what this skill has to avoid. The deliverable is always the `.html` as a file, never a public link (change made 2026-08-14, see [ingestion/meetings/2026-08-14-sync-jony-preventa-feedback.md](../../ingestion/meetings/2026-08-14-sync-jony-preventa-feedback.md)).
 
-## Dónde encaja en el ciclo
+## Where it fits in the cycle
 
-Ver [`briefings/_ciclo-preventa.md`](../../briefings/_ciclo-preventa.md). Corre **después de `build-context`**. Su relación con [`/propuestador`](./propuestador.md) depende de si `propuestador` corrió en modo multi-camino (ver `propuestador.md § Fase 0`):
+See [`briefings/_ciclo-preventa.md`](../../briefings/_ciclo-preventa.md). Runs **after `build-context`**. Its relationship to [`/propuestador`](./propuestador.md) depends on whether `propuestador` ran in multi-path mode (see `propuestador.md § Phase 0`):
 
-- **Si `propuestador` ya decidió un camino** (pasó su checkpoint de Fase 0) → prototipá **ese camino elegido**, no el build-context crudo. Es el default a partir del rediseño de `propuestador`.
-- **Si `propuestador` todavía no corrió, o corrió en modo "caso simple" sin comparar caminos** → cae al comportamiento de siempre: prototipá directo del build-context (§ Gate duro abajo).
-- Si el caso amerita prototipar más de un camino (poco frecuente — solo si el equipo lo pide explícitamente), está bien generar más de un `.html`, uno por camino.
+- **If `propuestador` already decided a path** (passed its Phase 0 checkpoint) → prototype **that chosen path**, not the raw build-context. This is the default since the `propuestador` redesign.
+- **If `propuestador` hasn't run yet, or ran in "simple case" mode without comparing paths** → falls back to the usual behavior: prototype directly from the build-context (§ Hard gate below).
+- If the case warrants prototyping more than one path (uncommon, only if the team explicitly asks for it), it's fine to generate more than one `.html`, one per path.
 
-## Gate duro — sin brief no hay prototipo
+## Hard gate: no brief, no prototype
 
-- **Ideal:** existe el camino decidido por `propuestador` (o, si `propuestador` no corrió en modo multi-camino, el `build-context` del cliente) → se prototipan las pantallas del MVP con fundamento.
-- **Mínimo aceptable:** hay `briefing-context` + transcripción del briefing → prototipo más conceptual (menos pantallas, más simulado).
-- **Menos que eso (solo cold start, sin reunión):** **no se arma.** Decilo y pará. Prototipar sin haber escuchado al cliente es inventar.
+- **Ideal:** the path decided by `propuestador` exists (or, if `propuestador` didn't run in multi-path mode, the client's `build-context`) → the MVP screens get prototyped with a solid basis.
+- **Minimum acceptable:** there's a `briefing-context` plus a briefing transcript → a more conceptual prototype (fewer screens, more simulated).
+- **Less than that (only a cold start, no meeting held):** **don't build it.** Say so and stop. Prototyping without having listened to the client is inventing.
 
-## Regla de oro — cara al cliente, lo interno nunca cruza
+## Golden rule: client-facing, internal never crosses over
 
-Mismo criterio que `/propuestador`. El prototipo muestra **el producto**, nunca nuestra cocina: sin tensiones internas, sin lectura de stakeholders, sin competidores, sin montos, sin activos internos reutilizados. Si algo es interno, se queda en el build-context.
+Same criterion as `/propuestador`. The prototype shows **the product**, never our own kitchen: no internal tensions, no stakeholder reads, no competitors, no amounts, no reused internal assets. If something is internal, it stays in the build-context.
 
-**Ojo con la lógica interna del producto ≠ UI del cliente.** Una cosa es lo que el sistema **valida por detrás** (controles de stock/cupo/precio/crédito, reglas de negocio, colas de aprobación) y otra es lo que el **usuario final ve**. Esos controles no se muestran como un checklist en la pantalla del cliente — se manifiestan en su UX (un badge de stock, su saldo de cuenta, un mensaje si algo no da) y su **vista completa vive en el backoffice**, no en la app del cliente. Preguntate por cada bloque: "¿esto lo ve el cliente o es operación interna?".
+**Watch out: internal product logic ≠ client UI.** What the system **validates behind the scenes** (stock/quota/price/credit controls, business rules, approval queues) is one thing, and what the **end user sees** is another. Those controls don't get shown as a checklist on the client's screen; they surface through their UX (a stock badge, their account balance, a message if something doesn't check out), and their **full view lives in the backoffice**, not in the client's app. For every block, ask yourself: "does the client see this, or is it internal operation?"
 
-## Branding — cascada de 3 niveles
+## Branding: three-level cascade
 
-1. **Manual de marca del cliente (si lo mandó).** Colores, tipografías, logo, tono visual. **Todo inline, sin excepción** — paleta en CSS variables, logo/imágenes como `data:` URI, tipografías embebidas o el fallback de sistema más cercano. Nada de `<link>` a fonts o CDNs externos. Ya no es una restricción técnica de Artifact (dejamos de publicar ahí) — es una regla que se mantiene **por el mismo motivo de privacidad**: un archivo 100% privado no debería hacer llamadas a servidores externos (fuga de metadata de que el archivo se abrió, y dependencia de internet si se manda como adjunto offline).
-   - **Logo y tipografía = assets, no se improvisan.** El manual suele **prohibir modificar la composición del logo**, y las webfonts externas quedan afuera por la regla de arriba. Si no tenés el logo en SVG/PNG usable ni el archivo de fuente para embeber como `@font-face` data-URI, **prototipá con una aproximación pero rotulala como tal** (logo aproximado / stack de sistema que evoca el original) y **dejá pedido el asset oficial** como gap. No deformes el logo real para que "entre".
-2. **Sin manual, con web relevada.** Deriva la paleta y el estilo de los sitios del cliente que `briefing-context`/`build-context` ya investigaron (colores, tipo de la marca, densidad visual del rubro).
-3. **Sin nada.** Sistema estándar limpio y neutro, sobrio, apto para el rubro. No inventes una identidad de marca falsa.
+1. **The client's brand manual (if they sent one).** Colors, typefaces, logo, visual tone. **Everything inline, no exceptions**: palette as CSS variables, logo/images as `data:` URIs, embedded typefaces or the closest system fallback. No `<link>` to external fonts or CDNs. This is no longer an Artifact technical constraint (we stopped publishing there); it's a rule kept **for the same privacy reason**: a 100%-private file shouldn't be making calls to external servers (metadata leak that the file was opened, plus a dependency on internet access if it's sent as an offline attachment).
+   - **Logo and typography = assets, not improvised.** The manual usually **prohibits altering the logo's composition**, and external webfonts are ruled out by the rule above. If you don't have the logo in usable SVG/PNG or the font file to embed as a `@font-face` data URI, **prototype with an approximation but label it as such** (approximate logo / system stack that evokes the original) and **flag the official asset as a gap** to request. Don't distort the real logo to make it "fit."
+2. **No manual, but researched web presence.** Derive the palette and style from the client's sites already researched by `briefing-context`/`build-context` (brand colors, typeface, visual density of the industry).
+3. **Nothing available.** Clean, neutral, standard system look, sober, fit for the industry. Don't invent a fake brand identity.
 
-## Alcance del prototipo
+## Prototype scope
 
-- **MVP navegable, no producto real.** Flujos clickeables con **data mockeada**; sin backend, sin auth real, sin integraciones vivas. Lo simulado se ve como simulado (datos de ejemplo evidentes, no cifras que parezcan reales del cliente).
-- **Las pantallas core primero.** Del alcance MVP del build-context, elegí el camino feliz que mejor demuestra el valor. No cubras todo el roadmap — eso confunde MVP con futuro.
-- **Formato: web vs mobile — es una decisión, no un default.** Elegí según el producto y sus usuarios: un backoffice/panel interno o una web app B2B es **web de escritorio** (no lo enmarques en un teléfono); una app de consumo o de operarios en la calle es **mobile-first**. Un PWA puede ser ambas: definí cuál es la vista primaria del caso. No metas todo en un frame de teléfono por costumbre.
-- **Producto con dos caras → prototipá las dos (o dejá dicho cuál falta).** Muchos productos tienen **app del cliente + panel interno**. Si el alcance del build-context lista ambas, el prototipo idealmente muestra las dos (con un switch para alternar), o al menos deja explícito cuál quedó pendiente y por qué.
-- **Responsive y theme-aware** por defecto (el Artifact se ve en claro/oscuro, y en el ancho que corresponda al formato elegido).
-- **Honestidad de factibilidad.** Si el flujo real no es prototipable (ej.: depende de integración con WhatsApp / un ERP), prototipá la parte que sí muestra valor y dejá la otra como pantalla ilustrativa rotulada — nunca simules una capacidad que no vamos a poder entregar.
+- **Navigable MVP, not the real product.** Clickable flows with **mocked data**; no backend, no real auth, no live integrations. What's simulated looks simulated (obviously example data, not figures that look like real client numbers).
+- **Core screens first.** From the build-context's MVP scope, pick the happy path that best demonstrates the value. Don't cover the whole roadmap; that confuses MVP with future.
+- **Format: web vs. mobile (a decision, not a default).** Choose based on the product and its users: a backoffice/internal panel or a B2B web app is **desktop web** (don't frame it inside a phone); a consumer app or one for field workers is **mobile-first**. A PWA can be either: define which is the case's primary view. Don't shove everything into a phone frame out of habit.
+- **A two-sided product → prototype both sides (or state which one is missing).** Many products have **a client app + an internal panel**. If the build-context's scope lists both, the prototype should ideally show both (with a switch to toggle between them), or at least explicitly say which one was left pending and why.
+- **Responsive and theme-aware** by default (the file looks right in light/dark, and at the width appropriate to the chosen format).
+- **Feasibility honesty.** If the real flow isn't prototypable (e.g.: depends on a WhatsApp or ERP integration), prototype the part that does show value and leave the rest as a labeled illustrative screen; never simulate a capability we won't be able to deliver.
 
-## Buenas prácticas de UX — happy path
+## UX best practices: happy path
 
-Estas son las decisiones que separan un prototipo con criterio de uno improvisado. Aplican solo al camino feliz — no es un checklist de edge cases.
+These are the decisions that separate a prototype with judgment from an improvised one. They apply only to the happy path; this isn't an edge-case checklist.
 
-- **Jerarquía visual clara.** Una acción primaria por pantalla, visualmente dominante (tamaño/color/posición). Las secundarias no compiten con ella.
-- **Feedback inmediato.** Cada acción del camino feliz responde visualmente — estado activo, confirmación, transición. El usuario nunca hace click "al vacío".
-- **Consistencia de componentes.** Mismo patrón de botón/card/input repetido en todas las pantallas del prototipo. No reinventar el patrón pantalla a pantalla.
-- **Navegación predecible.** El usuario siempre sabe dónde está (tab activo, título de sección, breadcrumb si aplica) y cómo volver.
-- **Carga cognitiva mínima.** Mostrar en cada paso solo lo que el camino feliz necesita — no todos los campos/opciones de una vez.
-- **Affordance clara.** Lo clickeable se ve clickeable; lo no interactivo no se disfraza de botón.
-- **Formularios legibles.** Labels visibles (no solo placeholder), agrupación lógica de campos, tamaño de campo acorde al dato esperado.
-- **Densidad acorde al producto.** Backoffice/panel interno tolera más densidad de información; app de consumo, menos.
-- **Accesibilidad básica.** Contraste suficiente en texto y CTAs, tap targets ≥44px en mobile.
+- **Clear visual hierarchy.** One primary action per screen, visually dominant (size/color/position). Secondary actions don't compete with it.
+- **Immediate feedback.** Every action along the happy path responds visually: active state, confirmation, transition. The user never clicks "into the void."
+- **Component consistency.** Same button/card/input pattern repeated across every screen of the prototype. Don't reinvent the pattern screen by screen.
+- **Predictable navigation.** The user always knows where they are (active tab, section title, breadcrumb if it applies) and how to go back.
+- **Minimal cognitive load.** Show only what the happy path needs at each step, not every field/option at once.
+- **Clear affordance.** What's clickable looks clickable; non-interactive elements don't disguise themselves as buttons.
+- **Readable forms.** Visible labels (not just placeholder text), logical field grouping, field size matching the expected data.
+- **Density suited to the product.** A backoffice/internal panel tolerates more information density; a consumer app, less.
+- **Basic accessibility.** Sufficient contrast for text and CTAs, tap targets ≥44px on mobile.
 
-## Cómo trabajás
+## How you work
 
-1. Cargá el **mejor contexto disponible** (build-context si existe; si no, briefing-context) + branding (manual / web / estándar).
-2. **Antes de escribir el Artifact, cargá el skill `artifact-design`** — calibra cuánto diseño amerita el caso.
-3. Definí el conjunto mínimo de pantallas del camino feliz del MVP.
-4. Antes de escribir cada pantalla, repasá § Buenas prácticas de UX (happy path).
-5. Escribí el HTML/CSS/JS autocontenido (todo inline, sin llamadas externas) como un único archivo. **No lo publiques con la tool `Artifact`** — queda como archivo, nunca como link.
-6. Guardalo versionado en el repo y cerrá al PM (ver § Salida) — la distribución al cliente es decisión y acción del PM, no del skill.
+1. Load the **best context available** (build-context if it exists; otherwise briefing-context) + branding (manual / web / standard).
+2. **Before writing the Artifact, load the `artifact-design` skill**; it calibrates how much design the case warrants.
+3. Define the minimum set of screens for the MVP's happy path.
+4. Before writing each screen, review § UX best practices (happy path).
+5. Write the self-contained HTML/CSS/JS (everything inline, no external calls) as a single file. **Don't publish it with the `Artifact` tool**; it stays a file, never a link.
+6. Save it versioned in the repo and close out with the PM (see § Output); distribution to the client is the PM's decision and action, not the skill's.
 
-## Entrada
+## Input
 
-- **El build-context** del proyecto (alcance MVP de `§ B`, usuarios/roles de `§ A3`) — o el briefing-context si el build-context aún no existe.
-- **Manual de marca del cliente**, si lo mandó.
-- **Investigación de las webs del cliente** relevada por skills previos (para derivar estilo si no hay manual).
-- **Decisiones internas** de alcance (qué entra al MVP, con diseño o no).
+- **The build-context** of the project (MVP scope from `§ B`, users/roles from `§ A3`), or the briefing-context if the build-context doesn't exist yet.
+- **The client's brand manual**, if they sent one.
+- **Research on the client's websites** gathered by prior skills (to derive style if there's no manual).
+- **Internal decisions** on scope (what's in the MVP, with design or not).
 
-## Salida
+## Output
 
-1. **Archivo HTML versionado en el repo:** `briefings/<YYYY-MM>-<cliente>-prototipo.html` — autocontenido, clickeable localmente en el navegador. **Es el entregable**, no un respaldo.
-2. **Nota de respaldo:** `briefings/<YYYY-MM>-<cliente>-prototipo.md` — qué pantallas se prototiparon, de dónde salió el branding (manual/web/estándar), qué quedó mockeado o ilustrativo, qué falta para volverlo real.
-3. **Cierre al PM:** ruta del `.html` y el `.md` + qué se prototipó + qué quedó simulado + gaps que el cliente tiene que confirmar. El PM decide cómo y cuándo se lo hace llegar al cliente (adjunto por su canal privado) — el skill no publica ni comparte nada.
+1. **HTML file versioned in the repo:** `briefings/<YYYY-MM>-<client>-prototipo.html`, self-contained, clickable locally in the browser. **This is the deliverable**, not a backup.
+2. **Backup note:** `briefings/<YYYY-MM>-<client>-prototipo.md`: which screens were prototyped, where the branding came from (manual/web/standard), what was left mocked or illustrative, what's still needed to make it real.
+3. **Close-out to the PM:** `.html` and `.md` paths + what was prototyped + what stayed simulated + gaps the client needs to confirm. The PM decides how and when it reaches the client (attached via their private channel); the skill doesn't publish or share anything.
 
-> **Puente a Figma (opcional, evaluar caso a caso).** Sin un link público de Artifact, importar a Figma requiere subir el `.html` por otra vía privada (o generar un Artifact temporal solo para ese fin puntual y borrarlo después). No es el default — solo si diseño lo pide explícitamente, y pesando si vale la pena la excepción de privacidad para ese caso.
+> **Bridge to Figma (optional, evaluate case by case).** Without a public Artifact link, importing into Figma requires uploading the `.html` through some other private channel (or generating a temporary Artifact just for that specific purpose and deleting it afterward). Not the default; only if design explicitly asks for it, weighing whether the privacy exception is worth it for that case.
 
-## Fuera de alcance
+## Out of scope
 
-- La **propuesta** cara-al-cliente (documento comercial) → [`/propuestador`](./propuestador.md).
-- La **minuta** de la reunión → [`/minutero`](./minutero.md).
-- Producto real con backend / integraciones vivas → post-venta, no acá.
+- The client-facing **proposal** (commercial document) → [`/propuestador`](./propuestador.md).
+- The meeting notes → [`/minutero`](./minutero.md).
+- A real product with backend / live integrations → post-sale, not here.
 
-## Criterios de calidad
+## Quality criteria
 
-✅ Gate respetado: sin al menos reunión de brief, no se arma
-✅ Si `propuestador` corrió en modo multi-camino, prototipa el camino elegido — no el build-context crudo sin decisión
-✅ Entregable = archivo `.html` autocontenido y navegable (clickeable), **nunca publicado como Artifact**
-✅ Branding en cascada: manual → web relevada → estándar; todo inline (nada de fonts/CDN externos), por privacidad y portabilidad
-✅ Cara al cliente: sin montos, tensiones, stakeholders, competidores ni activos internos
-✅ MVP nítido, camino feliz; lo simulado se ve como simulado; roadmap no se prototipa como si fuera MVP
-✅ Cada pantalla del happy path respeta el checklist de § Buenas prácticas de UX (jerarquía, feedback, consistencia, navegación, carga cognitiva, accesibilidad básica)
-✅ Factibilidad honesta: no se simula una capacidad que no vamos a entregar
+✅ Gate respected: without at least a briefing meeting, it doesn't get built
+✅ If `propuestador` ran in multi-path mode, prototypes the chosen path, not the raw build-context without a decision
+✅ Deliverable = self-contained, navigable (clickable) `.html` file, **never published as an Artifact**
+✅ Branding cascade respected: manual → researched web → standard; everything inline (no external fonts/CDNs), for privacy and portability
+✅ Client-facing: no amounts, tensions, stakeholders, competitors, or internal assets
+✅ MVP sharp, happy path; what's simulated looks simulated; roadmap isn't prototyped as if it were the MVP
+✅ Every happy-path screen respects the § UX best practices checklist (hierarchy, feedback, consistency, navigation, cognitive load, basic accessibility)
+✅ Feasibility honesty: no simulating a capability we won't be able to deliver
 ✅ Responsive + theme-aware
-✅ Fuente `.html` versionada en el repo + nota `.md` + link del Artifact devuelto al PM
-✅ Sin placeholder ni scope inflado; 100% español, registro del cliente
+✅ `.html` source versioned in the repo + `.md` note + close-out returned to the PM
+✅ No placeholders or inflated scope; 100% Spanish, client's register
