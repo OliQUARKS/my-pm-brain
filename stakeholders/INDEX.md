@@ -35,6 +35,9 @@
 | [nicolas-ortiz](./nicolas-ortiz.md) | Nicolás Ortiz | Gestión préstamos / mutual, PERC | high | low | 2026-07-20 |
 | [hernan-capolupo](./hernan-capolupo.md) | Hernán Capolupo | Socio, Gestión Operativa/Facturación, RyD Abogados | high | low | 2026-09-03 |
 | [juan-francisco-verde](./juan-francisco-verde.md) | Juan Francisco Verde | Socio, Área Legal, RyD Abogados | high | low | 2026-09-03 |
+| [martin-norton](./martin-norton.md) | Martín | Fuerza de ventas, Norton (rol a confirmar) | high | low | 2026-09-16 |
+| [tomas-norton](./tomas-norton.md) | Tomás | Norton (rol a confirmar) | high | unknown | 2026-09-16 |
+| [fede-pinto](./fede-pinto.md) | Fede Pinto | Sistemas, Norton (rol a confirmar) | medium | unknown | — |
 
 ## High-influence + high-friction
 - **Sebastián (PERC PO)** — interlocutor principal del cliente. Definiciones bloqueantes de negocio y técnicas dependen de él. Tarda en responder. (stakeholder-verbal, Olivier, 2026-05-21)

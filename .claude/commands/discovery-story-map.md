@@ -9,9 +9,9 @@ session (that happens with the client) and it never writes descriptions or accep
 **Scope boundary, read this before running it:** this skill stays at **title level**
 (backbone activities, epic/feature column titles, candidate story titles underneath each column).
 It never writes a story description, an acceptance criterion, a scenario, or a Gherkin line;
-that's the backloguer process (`/backloguer`), and it runs **after** `/prd` closes
+that's the backloguer process (`/backloguer`), and it runs **after** `/prd-writer` closes
 the discovery, at the start of the *development* cycle, not during discovery. If this skill's
-output starts reading like a backlog, stop and hand it to `/prd` instead of going deeper.
+output starts reading like a backlog, stop and hand it to `/prd-writer` instead of going deeper.
 
 ## Where it fits
 
@@ -19,10 +19,10 @@ Stage 7; see [`briefings/_ciclo-preventa.md`](../../briefings/_ciclo-preventa.md
 and [`briefings/_kit-discovery.md`](../../briefings/_kit-discovery.md).
 
 **Handoff chain, this skill only feeds the next link, never skips ahead:**
-`discovery-story-map` (this skill, live session + ingestion) → [`/prd`](./prd.md) (consolidates
+`discovery-story-map` (this skill, live session + ingestion) → [`/prd-writer`](./prd-writer.md) (consolidates
 everything the discovery produced, closes the stage) → *development cycle starts* →
 [`/backloguer`](./backloguer.md) (full breakdown, Definition of Ready/Done, acceptance
-criteria, scenarios). This skill's output is **never** a direct input to `/backloguer`; `/prd`
+criteria, scenarios). This skill's output is **never** a direct input to `/backloguer`; `/prd-writer`
 sits in between as the consolidation step, and `/backloguer` doesn't run until the discovery is
 over and development begins.
 
@@ -34,16 +34,16 @@ assumes that vocabulary from minute one. If they don't, run
 [`discovery-impact-map`](./discovery-impact-map.md) instead and translate into a story map
 later once there's a scoped direction.
 
-Don't reach for this just because pre-sale (`build-context`) already sketched a rough flow;
+Don't reach for this just because pre-sale (`discovery-context`) already sketched a rough flow;
 the point of running it during paid discovery is to surface what a one-hour sales conversation
 never could: real biases, blockers, risks, dependencies, and priority calls. If most of the
-answers are already sitting in `build-context` or the briefing docs, this session still runs,
+answers are already sitting in `discovery-context` or the briefing docs, this session still runs,
 but its job is to **validate and go deeper on the 9 lenses below**, not to restate what's
 already known.
 
 ## Input
 
-- Validated problem statement, from `build-context`, or from earlier discovery sessions this
+- Validated problem statement, from `discovery-context`, or from earlier discovery sessions this
   engagement (journey map, JTBD, or impact map output).
 - The people who'll actually use the product in the room, not just their manager narrating the
   workflow.
@@ -105,7 +105,7 @@ with two things named explicitly:
   client's `knowledge/org/<client>.md` § Open questions, if one exists, and mark which ones this
   session closed).
 
-**Handoff:** this synthesis is input to `/prd`, and only `/prd`. Name that explicitly in the
+**Handoff:** this synthesis is input to `/prd-writer`, and only `/prd-writer`. Name that explicitly in the
 output. Do not run `/backloguer` from this session's output; that happens later, from the PRD,
 once discovery is over.
 
@@ -121,4 +121,4 @@ once discovery is over.
 ✅ Parked/out-of-scope steps recorded, not silently dropped or silently included
 ✅ End users (or people who directly do the work) were in the room, not just their manager
 ✅ Synthesis explicitly closes out any previously-open question it resolved, cross-referenced
-✅ Output routed to `/prd` only; never presented as ready for `/backloguer`
+✅ Output routed to `/prd-writer` only; never presented as ready for `/backloguer`

@@ -1,6 +1,6 @@
 # Feature File Schema
 
-Filename: `<slug>.md`. One file per feature — the operational hub linking hypotheses, decisions, metrics, stakeholders, and ingestion.
+Filename: `<slug>.md`. One file per feature (the operational hub linking hypotheses, decisions, metrics, stakeholders, and ingestion).
 
 ## Meta
 - Owner: <PM name>
@@ -12,10 +12,13 @@ Filename: `<slug>.md`. One file per feature — the operational hub linking hypo
 <!-- What user / business problem this solves -->
 
 ## Non-goals
-<!-- Things explicitly out of scope for this feature, each with its rationale. Written by /prd. Don't confuse with global non-goals in knowledge/strategy.md — these are feature-scoped. -->
+<!-- Things explicitly out of scope for this feature, each with its rationale. Written by /prd-writer. Don't confuse with global non-goals in knowledge/strategy.md, these are feature-scoped. -->
 
 ## Scope by capability
-<!-- Prioritized capabilities (P0/P1/P2 or Must/Should/Could), written by /prd. Stays at the capability level — story-by-story breakdown belongs in /backloguer, not here. -->
+<!-- Prioritized capabilities (P0/P1/P2 or Must/Should/Could), written by /prd-writer. Stays at the capability level; story-by-story breakdown belongs in /backloguer, not here. -->
+
+## DoR / DoD baseline
+<!-- Project-wide Definition of Ready / Definition of Done, written by /dod-dor. Each item tagged as universal Quarks standard or specific to this client. /backloguer applies this at the epic level and only adds the delta, never restates it here. -->
 
 ## Target users
 <!-- Personas / segments — links to knowledge/users/ -->

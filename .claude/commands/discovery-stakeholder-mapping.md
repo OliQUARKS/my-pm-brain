@@ -19,7 +19,7 @@ compliance + ops, like a fintech or a law firm's practice groups) gets the full 
 
 ## Input
 
-- Contract/proposal signer + whoever attended the briefing/build-context sessions, starting
+- Contract/proposal signer + whoever attended the briefing/discovery-context sessions, starting
   roster, not the final one.
 - Org chart or team page if the client has one public.
 
