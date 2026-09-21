@@ -6,7 +6,7 @@
 > combo de 2-4 según la madurez del cliente y la forma del problema.
 >
 > Cada fila linkea a su skill (`/discovery-<slug>`). La skill enseña *cómo* correr la técnica
-> con *qué* herramienta; este archivo enseña *cuál* elegir y *por qué*.
+> con *qué* herramienta; este archivo enseña *cuál* elegir y *por qué*. [`/discovery-prep`](../.claude/commands/discovery-prep.md) (creado 2026-09-21) es el skill que corre primero y opera esta lógica de selección: arma el mapa de preguntas abiertas y recomienda el combo de 2-4 metodologías antes de correr cualquiera de las de abajo.
 
 ## 1. Para alinear negocio y estrategia
 

@@ -1,6 +1,6 @@
 # Plantilla — Contexto metodológico
 
-> **Qué es:** cómo trabajamos con un cliente. Bloque interno del build-context ([`.claude/commands/build-context.md`](../.claude/commands/build-context.md), sección 7).
+> **Qué es:** cómo trabajamos con un cliente. Bloque interno del discovery-context ([`.claude/commands/discovery-context.md`](../.claude/commands/discovery-context.md), sección 7).
 > **Doble propósito:** (a) estandarizar cómo trabajamos, (b) alimentar el "cómo lo trabajamos" de la pre-propuesta.
 > **Estado:** esqueleto — refinar con criterio de PM. Copiar y completar por cliente.
 

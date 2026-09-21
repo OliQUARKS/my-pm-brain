@@ -13,13 +13,28 @@ Operator-facing verbs. Each command is a thin spec: input, files to load, files 
 | [`/ideate`](./ideate.md) | A problem needs solution directions grounded in existing evidence and hypotheses |
 | [`/risk`](./risk.md) | A feature or plan needs the 5-area risk scan; maps to hypothesis hygiene |
 | [`/plan`](./plan.md) | A new objective lands; turn it into discovery questions, interviews, experiments, hypotheses, decision points |
-| [`/prd`](./prd.md) | Write a strategic PRD from a problem/feature idea (context, goals, non-goals, scope by capability, metrics, phasing); hands off to `/backloguer` |
-| [`/backloguer`](./backloguer.md) | Break down a PRD into epics (EP-XX, backbone, functional exclusivity, MVS/Midgame/Endgame slicing) then into INVEST stories (EP-XX-US-YY); on close, option to push to ClickUp |
 | [`/review-prd`](./review-prd.md) | Adversarial panel on a PRD: 5 lenses (strategist, customer, data, risk, stakeholder) load their section of the brain and critique from their angle |
+
+## Quarks engagement pipeline (see `docs/skills-roadmap.md`)
+
+In roughly the order they run across an engagement, 1-PreSale through 6-Post.
+
+| Verb | When to run it |
+| --- | --- |
 | [`/briefing-context`](./briefing-context.md) | Prepare a first meeting (pre-sale): surfaces information objectives plus regulatory/legal/stack angles → Prep Document with contextualized discovery questions |
 | [`/minutero`](./minutero.md) | After the briefing (pre-sale): draft client-facing meeting minutes, validating what was understood, requesting evidence, and requesting a meeting with the decision-maker → Google Doc + backup `.md` |
-| [`/build-context`](./build-context.md) | Post-briefing (formerly `/post-briefing-context`): builds the project's internal context (expanded problem, users, stakeholders, methodological context) plus client-facing pre-proposal (scope, discovery, prototype) |
-| [`/propuestador`](./propuestador.md) | Post build-context: converts the internal pre-proposal into the client-facing proposal document (7 sections) → Google Doc + backup `.md` |
+| [`/discovery-context`](./discovery-context.md) | Post-briefing (formerly `/build-context`, formerly `/post-briefing-context`): builds the project's internal context (expanded problem, users, stakeholders, methodological context) plus client-facing pre-proposal (scope, discovery, prototype) |
+| [`/propuestador`](./propuestador.md) | Post discovery-context: converts the internal pre-proposal into the client-facing proposal document (7 sections) → Google Doc + backup `.md` |
+| [`/discovery-prep`](./discovery-prep.md) | Start of paid Discovery (etapa 7): open-questions map across functional/technical/design/methodological + recommended 2-4 methodology combo from the discovery toolkit |
+| [`/build-context`](./build-context.md) | At the close of paid Discovery, before `/prd-writer`: consolidate every discovery session that ran into one project bible; not to be confused with `/discovery-context` |
+| [`/prd-writer`](./prd-writer.md) | Write a strategic PRD from `/build-context` or a problem/feature idea (context, goals, non-goals, scope by capability, metrics, phasing); hands off to `/backloguer` |
+| [`/dod-dor`](./dod-dor.md) | Once the PRD exists: define the project-wide Definition of Ready / Definition of Done baseline that `/backloguer` applies at the epic level |
+| [`/backloguer`](./backloguer.md) | Break down a PRD into epics (EP-XX, backbone, functional exclusivity, MVS/Midgame/Endgame slicing) then into INVEST stories (EP-XX-US-YY); on close, option to push to ClickUp |
+| [`/trf`](./trf.md) | During Build: track tasks/owners/dates from the sprint's recurring meetings, flag overdue items, keep the client communication channel updated |
+| [`/postmortem`](./postmortem.md) | At project close (post-UAT, post-manual): committed vs. delivered scope, what worked/didn't, reusable knowledge, proposed process changes flagged for review |
+| [`/close-context`](./close-context.md) | Right after `/postmortem`: final update to `project-context` (status → cerrado) and `client-context`, or creates them if this was the client's first project |
+
+`/briefing-context`, `/discovery-context`, `/build-context`, and `/close-context` each also update two shared, mutating artifacts as a side effect (added 2026-09-21): `project-context` (one file per engagement, `briefings/<client>-project-context.md`, see [`briefings/_project-context-template.md`](../../briefings/_project-context-template.md)) and `client-context` (one file per client, `knowledge/org/<client-slug>.md`, spans multiple projects over time).
 
 ## Discovery toolkit (stage 7)
 

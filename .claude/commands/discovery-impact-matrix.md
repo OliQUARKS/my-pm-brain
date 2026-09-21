@@ -16,7 +16,7 @@ or any interview-based session has already produced a list of candidate ideas.
 
 A handful of ideas (roughly 5-15) already articulated out loud, and the room just needs to agree
 on rough sequencing before moving to a heavier prioritization tool or straight into
-[`/prd`](./prd.md). Past ~15-20 items the 2×2 gets noisy and subjective; that's the signal to
+[`/prd-writer`](./prd-writer.md). Past ~15-20 items the 2×2 gets noisy and subjective; that's the signal to
 use a scored method (RICE/ICE) instead; this kit doesn't include one yet (see
 `briefings/_kit-discovery.md` § Fuera de este kit).
 
@@ -54,7 +54,7 @@ Board/doc reference + retrieved-at timestamp + the final quadrant placement of e
 fallback rule. Synthesis (ranked list by quadrant, with any placement disagreements named) →
 `ingestion/meetings/YYYY-MM-DD-<client>-impact-matrix.md`.
 
-Route per § Canonical ownership: the resulting priority order feeds directly into `/prd`'s
+Route per § Canonical ownership: the resulting priority order feeds directly into `/prd-writer`'s
 scope-by-capability section or `/backloguer`'s slicing; name that handoff explicitly in the
 synthesis. This exercise doesn't itself generate `knowledge/` or `hypotheses/` entries; it only
 orders what already exists.
@@ -65,5 +65,5 @@ orders what already exists.
 ✅ Placement is a group estimate; sharp disagreements on placement are named, not averaged away
 ✅ All four quadrants used and read aloud, not just "do the quick wins"
 ✅ Anything in low-impact/high-effort that stays on the list has an explicit reason recorded
-✅ Output explicitly handed off to `/prd` or `/backloguer`, not left as a standalone artifact
+✅ Output explicitly handed off to `/prd-writer` or `/backloguer`, not left as a standalone artifact
 ✅ Not used past ~15-20 items; flagged for a scored method instead when the list is longer
