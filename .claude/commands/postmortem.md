@@ -10,7 +10,7 @@ Stage **6-Post** (see [`docs/skills-roadmap.md`](../../docs/skills-roadmap.md)),
 
 ## 3. Required input
 
-- The discovery-context (the original plan, scope, and feasibility read).
+- The build-context (the consolidated post-Discovery plan, scope, and feasibility read).
 - The PRD (`knowledge/product/features/<slug>.md`): committed scope and non-goals.
 - The TRF history (`briefings/<client>-trf.md`): the commitments made across the sprint and how they actually played out.
 - The UAT results and the user manual: what actually got delivered and accepted.
@@ -18,7 +18,7 @@ Stage **6-Post** (see [`docs/skills-roadmap.md`](../../docs/skills-roadmap.md)),
 
 ## 4. What it does, step by step
 
-1. **Compare committed vs. delivered scope.** Line up the original PRD/discovery-context against what actually shipped; name what changed and why, not just that it changed.
+1. **Compare committed vs. delivered scope.** Line up the original PRD/build-context against what actually shipped; name what changed and why, not just that it changed.
 2. **Review the TRF history for recurring friction.** Look for a pattern (the same kind of commitment slipping repeatedly, the same dependency always the blocker) as a process signal, never as a way to single out one person's fault.
 3. **Capture what worked well** and should be repeated on the next engagement, concretely enough to actually reuse ("the 3-proposal design gate before the first sprint kept the client aligned early," not "communication was good").
 4. **Capture what didn't work** and what would change next time, with the same level of concreteness.
