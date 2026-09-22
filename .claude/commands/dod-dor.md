@@ -11,13 +11,13 @@ Stage **2-Discovery** (see [`docs/skills-roadmap.md`](../../docs/skills-roadmap.
 ## 3. Required input
 
 - The PRD (`knowledge/product/features/<slug>.md`): scope, non-goals, success metrics.
-- The discovery-context: feasibility read, tech stack, methodological context (environments, SLA, dependencies).
+- The build-context: feasibility read, tech stack, methodological context (environments, SLA, dependencies); the consolidated post-Discovery picture, more current than the earlier discovery-context.
 - Any client-specific compliance or quality standard already known from discovery (a browser/device support matrix, an accessibility requirement, a security/regulatory sign-off).
 - A prior project's DoR/DoD baseline, if the PM wants to reuse one as a starting point rather than draft from zero.
 
 ## 4. What it does, step by step
 
-1. **Gather what's already fixed.** Pull feasibility constraints from the discovery-context, scope/non-goals from the PRD, and anything from the regulatory/legal/tech-stack axes that constrains readiness or completion.
+1. **Gather what's already fixed.** Pull feasibility constraints from the build-context, scope/non-goals from the PRD, and anything from the regulatory/legal/tech-stack axes that constrains readiness or completion.
 2. **Draft the Definition of Ready baseline.** The preconditions that must be true before any epic can start: dependencies unblocked, design direction approved, environment provisioned, stakeholders aligned, no blocking open question left on the feature file.
 3. **Draft the Definition of Done baseline.** The completion bar every epic must clear: acceptance criteria passed, deployed to the agreed environment, documentation updated, metrics instrumented, accessibility/security bar met where it applies.
 4. **Separate universal from project-specific.** Tag each item as either the standard Quarks baseline (applies to every project) or specific to this client (a particular browser matrix, a particular compliance sign-off), so `/backloguer` knows which parts are non-negotiable everywhere vs. local to this engagement.
